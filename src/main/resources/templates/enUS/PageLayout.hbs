@@ -1,0 +1,203 @@
+{{> "htmPageLayout"}}
+{{#*inline "htmHeadPageLayout"}}{{> "htmTitlePageLayout"}}{{> "htmMetaPageLayout"}}{{> "htmStylePageLayout"}}{{> "htmScriptsPageLayout"}}{{> "htmScriptPageLayout"}}{{/inline}}
+{{#*inline "htmScriptsPageLayout"}}		<!-- #*inline "htmScriptsPageLayout" -->
+		<script src="{{staticBaseUrl}}/js/jquery-1.12.4.min.js"></script>
+		<script src="{{staticBaseUrl}}/js/jquery-ui.js"></script>
+{{#if fontAwesomeKit }}
+		<script src="{{ fontAwesomeKit }}"></script>
+{{/if}}
+		<script src="{{staticBaseUrl}}/js/site-enUS.js"></script>
+		<script src="{{staticBaseUrl}}/js/datePicker.js"></script>
+		<script src="{{staticBaseUrl}}/js/sockjs.js"></script>
+		<script src="{{staticBaseUrl}}/js/vertx-eventbus.js"></script>
+		<script src="{{staticBaseUrl}}/js/plotly-2.9.0.min.js"></script>
+		<script src="{{staticBaseUrl}}/js/fullcalendar/main.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+{{/inline}}
+{{#*inline "htmScriptPageLayout"}}		<!-- #*inline "htmScriptPageLayout" -->
+{{/inline}}
+{{#*inline "websocketPageLayout"}}{{/inline}}
+{{#*inline "htmStylePageLayout"}}		<!-- #*inline "htmStylePageLayout" -->
+
+		<link rel="icon" href="{{staticBaseUrl}}/favicon.ico" />
+		<link rel="stylesheet" href="{{staticBaseUrl}}/css/w3.css" />
+		<link rel="stylesheet" href="{{staticBaseUrl}}/css/site-enUS.css"/>
+		<link rel="stylesheet" href="{{staticBaseUrl}}/css/jquery-ui.css"/>
+		<link rel="stylesheet" href="{{staticBaseUrl}}/css/datePicker.css"/>
+		<link rel="stylesheet" href="{{staticBaseUrl}}/css/fullcalendar/main.min.css"/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anonymous%20Pro%7CBellefair%7CJomhuria%7CPT%20Serif%3A700%7CStint%20Ultra%20Condensed&amp;display=swap"/>
+
+{{/inline}}
+{{#*inline "htmMetaPageLayout"}}		<!-- #*inline "htmMetaPageLayout" -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+{{#each htmMeta}}{{#if htmBefore}}{{{htmBefore}}}{{/if}}{{#if text}}{{#each text}}{{.}}{{/each}}{{/if}}{{#if htmMiddle}}{{#each htmMiddle}}{{.}}{{/each}}{{/if}}{{#if htmAfter}}{{{htmAfter}}}{{/if}}{{/each}}
+{{/inline}}
+{{#*inline "htmTitlePageLayout"}}		<!-- #*inline "htmTitlePageLayout" -->
+		<title>smartabyar-smartvillage</title>
+{{/inline}}
+{{#*inline "htmBodyMenuPageLayout"}}
+		<div class="w3-bar w3-hide-small ">
+			<div class="site-bar-item w3-bar-item ">
+				<a class="w3-bar-item " href="{{ siteBaseUrl }}"><i class="fad fa-house "></i> home</a>
+			</div>
+{{> "htmMenuItems"}}
+		</div>
+		<div class="w3-bar w3-hide-medium w3-hide-large ">
+			<div class="site-bar-item w3-bar-item ">
+				<a class="w3-bar-item " href="{{ siteBaseUrl }}"><i class="fad fa-house "></i> home</a>
+			</div>
+			<div class="w3-dropdown-hover ">
+				<button class="w3-button w3-text-black "><i class="fad fa-bars w3-text-black "></i> Menu</button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4 ">
+{{> "htmMenuItems"}}
+				</div>
+			</div>
+		</div>
+{{/inline}}
+{{#*inline "htmMenuItems"}}
+
+{{#if userKey}}
+				<div class="site-bar-item w3-bar-item ">
+					<div class="w3-dropdown-hover ">
+						<div class="">
+							<i class="fad fa-house-user w3-text-2017-shaded-spruce "></i> {{userName}}
+						</div>
+						<div class="w3-dropdown-content w3-card-4 w3-padding ">
+							<div class="w3-cell-row ">
+								<a href="/user/{{ userKey }}" class="header-icon-a w3-hover-opacity w3-center w3-text-2017-shaded-spruce "><i class="fad fa-house-user w3-text-2017-shaded-spruce "></i> my user page</a>
+							</div>
+{{#ifContainsAnyRoles roles authRoleSuperAdmin}}
+							<div class="w3-cell-row ">
+								<label for="Page_seeArchived"> see archived</label>
+								<input type="checkbox" value="true" class="setSeeArchived" name="setSeeArchived" id="Page_seeArchived" 
+										onchange="patchSiteUserVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setSeeArchived', $(this).prop('checked'), function() { addGlow($('#Page_seeArchived')); }, function() { addError($('#Page_seeArchived')); }); "
+{{#if siteUser_.seeArchived}}
+										checked="checked"
+{{/if}}
+										/>
+							</div>
+{{/ifContainsAnyRoles}}
+							<div class="w3-cell-row ">
+								<a href="{{ logoutUrl }}" class="header-icon-a w3-hover-opacity w3-center w3-text-2017-shaded-spruce "><i class="fad fa-sign-out-alt w3-text-2017-shaded-spruce "></i> logout</a>
+							</div>
+						</div>
+					</div>
+				</div>
+{{else}}
+				<div class="site-bar-item w3-bar-item ">
+					<a href="/user" class="header-icon-a w3-hover-opacity w3-center w3-text-2017-shaded-spruce "><i class="fad fa-house-user w3-text-2017-shaded-spruce "></i> Login</a>
+				</div>
+{{/if}}
+
+{{/inline}}
+{{#*inline "htmBodyStartPageLayout"}}		<!-- #*inline "htmBodyStartPageLayout" -->
+		<div class="w3-center ">
+{{#block "htmBodyMenu"}}{{/block}}
+		</div>
+{{/inline}}
+{{#*inline "htmBodyMiddlePageLayout"}}		<!-- #*inline "htmBodyMiddlePageLayout" -->
+	<div class="pageContent w3-content ">
+{{#each htmBody}}{{#if htmBefore}}{{{htmBefore}}}{{/if}}{{#if text}}{{#each text}}{{.}}{{/each}}{{/if}}{{#if htmMiddle}}{{#each htmMiddle}}{{{.}}}{{/each}}{{/if}}{{#if htmAfter}}{{{htmAfter}}}{{/if}}{{/each}}
+	</div>
+{{/inline}}
+{{#*inline "htmBodyEndPageLayout"}}		<!-- #*inline "htmBodyEndPageLayout" -->
+
+
+		<footer class="w3-content w3-center w3-padding-32 ">
+			<h3>Share this page. </h3>
+			<div class="w3-cell-row ">
+				<div class="blog-publication-social-div w3-cell ">
+					<img alt="" class="blog-publication-social-img" src="{{ staticBaseUrl }}/svg/facebook.svg">
+					<div>
+						<div id="fb-root"></div>
+						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version={{ facebookGraphVersion }}&appId={{ facebookAppId }}&autoLogAppEvents=1" nonce="FOKrbAYI"></script>
+						<div class="fb-like" data-href="{{ siteBaseUrl }}{{ pageUri }}" data-width="" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
+					</div>
+				</div>
+				<div class="blog-publication-social-div w3-cell ">
+					<img alt="" class="blog-publication-social-img" src="{{ staticBaseUrl }}/svg/twitter.svg">
+					<div>
+						<a href="https://twitter.com/share" class="twitter-share-button " data-show-count="false"></a>
+						<script async="" src="//platform.twitter.com/widgets.js"></script>
+					</div>
+				</div>
+				<div class="blog-publication-social-div w3-cell ">
+					<img alt="" class="blog-publication-social-img" src="{{ staticBaseUrl }}/svg/pinterest.svg">
+					<div class="pinterest-div ">
+						<script async="" defer="" src="//assets.pinterest.com/js/pinit_main.js?0.8726554954646004"></script>
+						<a data-pin-media="{{ staticBaseUrl }}{{ pageImageUri }}" data-pin-description="{{ pageTitle }}" data-pin-url="{{ siteBaseUrl }}{{ pageUri }}" data-pin-id="" href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin">
+							<img alt="" src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png"/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	 	<div class="w3-center ">
+{{#block "htmBodyMenu"}}{{/block}}
+		</div>
+		<footer class="w3-center w3-black w3-text-white w3-padding-24 ">
+{{#if GITHUB_ORG }}
+			<div class="w3-margin ">
+				<div class="grow-20 ">
+					<div class="w3-xxlarge ">
+						<a href="https://github.com/{{ GITHUB_ORG }}/{{ SITE_NAME }}/" target="_blank">This site is open source. </a>
+					</div>
+					<div class="w3-large ">
+						<a href="https://github.com/{{ GITHUB_ORG }}/{{ SITE_NAME }}/" target="_blank">View the source code here on GitHub. </a>
+					</div>
+				</div>
+			</div>
+{{/if }}
+{{#if SITE_POWERED_BY_URL }}
+			<div class="w3-margin ">
+				<div class="grow-20 ">
+					<a class="w3-bar-item grow-20 w3-margin w3-text-white w3-large " href="{{ SITE_POWERED_BY_URL }}" target="_blank"><span class="w3-large ">Powered by </span>{{#if SITE_POWERED_BY_IMAGE_URI }}<img alt="" class="w3-image " style="display: inline-block; width: 200px; margin: 0 10px;" src="{{ staticBaseUrl }}{{ SITE_POWERED_BY_IMAGE_URI }}"/>{{else}}{{#if SITE_POWERED_BY_NAME}}{{ SITE_POWERED_BY_NAME }}{{/if}}{{/if}}</a>
+				</div>
+			</div>
+{{/if }}
+			<div class="w3-margin ">
+				<div class="grow-20 ">
+					<div class="w3-row ">
+						<div class="w3-half " style="line-height: 1em; ">
+							<a class="w3-bar-item w3-margin w3-text-white w3-large " href="https://www.redhat.com/en/about/social-innovation" target="_blank">
+								<span class="w3-medium ">Leveraging our Red Hat super powers <br/>to contribute to socially impactful <br/>open source projects </span>
+							</a>
+						</div>
+						<div class="w3-half ">
+							<a class="w3-bar-item w3-margin w3-text-white w3-large " href="https://www.redhat.com/en/about/social-innovation" target="_blank">
+								<img alt="" class="w3-image " style="display: inline-block; width: 200px; margin: 0 10px;" src="{{ staticBaseUrl }}/png/rh-impact-logo-white-text.png"/>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w3-margin ">
+				<div class="grow-20 ">
+					<a class="w3-bar-item grow-20 w3-margin w3-text-white w3-large " href="https://www.computate.org/" target="_blank"><span class="w3-large ">Generated with </span><img alt="" class="w3-image " style="display: inline-block; width: 300px; margin: 0 10px;" src="{{ staticBaseUrl }}/svg/computate-keys.svg"/></a>
+				</div>
+			</div>
+		</footer>
+
+{{/inline}}
+{{#*inline "htmBodyPageLayout"}}		<!-- #*inline "htmBodyPageLayout" -->
+{{#if filterLabel }}{{else}}
+{{#block "htmBodyStart"}}{{/block}}
+{{/if}}
+{{#block "htmBodyMiddle"}}{{/block}}
+{{#if filterLabel }}{{else}}
+{{#block "htmBodyEnd"}}{{/block}}
+{{/if}}
+{{/inline}}
+{{#*inline "htmPageLayout"}}<!DOCTYPE html>
+<!-- #*inline "htmPageLayout" -->
+<html lang="en" style="height: 100%;">
+	<head>
+{{#block "htmHead"}}{{/block}}
+	</head>
+	<body class="w3-light-grey " style="height: 100%;">
+{{#block "htmBody"}}{{/block}}
+	</body>
+</html>
+{{/inline}}

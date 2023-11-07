@@ -1,0 +1,101 @@
+---
+GITHUB_ORG: "computate-org"
+QUAYIO_ORG: "computateorg"
+SITE_POWERED_BY_URL: "https://nerc.mghpcc.org/"
+SITE_POWERED_BY_NAME: "NERC"
+SITE_POWERED_BY_IMAGE_URI: "/png/nerc/nerc-logo.png"
+SITE_NAME: "smartabyar-smartvillage"
+SITE_SHORT_NAME: "smartvillage"
+SITE_POM_GROUP_ID: "org.computate"
+SITE_PUBLIC_URL: "https://smartabyarsmartvillage.org"
+SITE_DISPLAY_NAME: "Smart Village Project"
+SITE_SERVICES:
+  - SITE_NAME: "smartabyar-smartvillage"
+    SITE_SRC: "/home/ctate/.local/src/smartabyar-smartvillage"
+RELATIVE_PACKAGE_MainVerticle: "vertx"
+CLASS_SIMPLE_NAME_MainVerticle: "MainVerticle"
+RUN_OPENAPI3_GENERATOR: true
+RUN_SQL_GENERATOR: true
+RUN_ARTICLE_GENERATOR: false
+I18N_PATHS: ["/home/ctate/.local/src/computate/src/main/resources/org/computate/i18n/i18n_enUS.yml"]
+DYNAMIC_PAGE_PATHS: ["/home/ctate/.local/src/smartabyar-smartvillage/page"]
+
+LANGUAGE_NAME: "enUS"
+SITE_PATH_enUS: "/home/ctate/.local/src/smartabyar-smartvillage"
+DOMAIN_NAME: "example.com"
+DOMAIN_PACKAGE_NAME: "org.computate.smartvillage.enus"
+SITE_JAVA_PACKAGE: "org.computate.smartvillage.enus"
+SUFFIX_SRC_MAIN_JAVA: "/src/main/java"
+SUFFIX_SRC_GEN_JAVA: "/src/gen/java"
+RELATIVE_PATHS_TO_WATCH: "src/main/java/org/computate/smartvillage/enus"
+API_COUNTER_FETCH: 50
+API_COUNTER_RESUME: 10
+COMPUTATE_SRC: "/home/ctate/.local/src/computate"
+
+SITE_HOST_NAME: "localhost"
+SITE_BASE_URL: "http://localhost:12080"
+SITE_PORT: 12080
+SITE_ZONE: "America/New_York"
+SITE_LOCALE: "en-US"
+STATIC_BASE_URL: "http://localhost:12080/static"
+STATIC_PATH: "/home/ctate/.local/src/smartabyar-smartvillage-static"
+TEMPLATE_PATH: "/home/ctate/.local/src/smartabyar-smartvillage/src/main/resources/templates"
+API_CONTACT_EMAIL: ""
+FONTAWESOME_KIT: ""
+
+JDBC_HOST: "localhost"
+JDBC_PORT: 5432
+JDBC_DATABASE: "smartvillage"
+JDBC_USERNAME: "smartvillage"
+
+AUTH_HOST_NAME: "sso.computate.org"
+AUTH_PORT: 443
+AUTH_SSL: true
+AUTH_SSL_REQUIRED: all
+AUTH_REALM: "SMARTVILLAGE"
+AUTH_CLIENT: "smartvillage"
+AUTH_SECRET: ""
+AUTH_URL: "https://sso.computate.org/auth"
+AUTH_TOKEN_URI: "/auth/realms/SMARTVILLAGE/protocol/openid-connect/token"
+
+SOLR_HOST_NAME: solr-smartvillage.apps-crc.testing
+SOLR_PORT: 443
+SOLR_COLLECTION: "smartvillage"
+SOLR_URL: "https://solr-solr.apps-crc.testing/solr/smartvillage"
+SOLR_URL_COMPUTATE: "https://solr-solr.apps-crc.testing/solr/computate"
+
+EMAIL_HOST: 
+EMAIL_PORT: 465
+EMAIL_SSL: True
+EMAIL_AUTH: True
+EMAIL_USERNAME: 
+EMAIL_PASSWORD: 
+EMAIL_FROM: 
+EMAIL_ADMIN: 
+
+# Enable the code generation service for the project
+ENABLE_CODE_GENERATION_SERVICE: true
+# Set the sessionId of the user session creating an object in the database. 
+ENABLE_SESSION_ID: true
+# Enable an object in the database to be deleted. 
+ENABLE_DELETED: true
+# Enable an object in the database to be archived. 
+ENABLE_ARCHIVED: true
+# Enable an admin role. 
+ENABLE_ROLE_ADMIN: true
+# Enable a super admin role. 
+ENABLE_ROLE_SUPER_ADMIN: true
+# Enable an OpenID Connect Authentication. 
+ENABLE_OPENID_CONNECT: true
+# Write API code into the project. 
+WRITE_API: true
+# Write code comments into generated code. 
+WRITE_COMMENTS: true
+
+# The Auth roles required to be an admin in the site. 
+AUTH_ROLE_ADMIN: 'SiteAdmin'
+# The Auth roles required to be a super admin in the site. 
+AUTH_ROLE_SUPER_ADMIN: 'SuperAdmin'
+
+# Enable data import in the site. 
+ENABLE_IMPORT_DATA: true
