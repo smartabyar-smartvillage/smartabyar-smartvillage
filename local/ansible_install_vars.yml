@@ -21,6 +21,21 @@ SITE_REPO: "git@github.com:{{ GITHUB_ORG }}/{{ SITE_NAME }}.git"
 SITE_REPO_HTTPS: "{{ SITE_REPO | replace('git@github.com:', 'https://github.com/') }}"
 SITE_LANG: enUS
 SITE_ZONE: "America/New_York"
+SITE_LICENSE: |-2
+  /*
+   * Copyright (c) 2018-2022 Computate Limited Liability Company in Utah, USA,
+   * and the Smarta Byar Smart Village FIWARE IHub. 
+   *
+   * This program and the accompanying materials are made available under the
+   * terms of the GNU GENERAL PUBLIC LICENSE Version 3 which is available at
+   * 
+   * https://www.gnu.org/licenses/gpl-3.0.en.html
+   * 
+   * You may not propagate or modify a covered work except as expressly provided 
+   * under this License. Any attempt otherwise to propagate or modify it is void, 
+   * and will automatically terminate your rights under this License (including 
+   * any patent licenses granted under the third paragraph of section 11).
+   */
 
 PLATFORM_POM_GROUP_ID: org.computate
 PLATFORM_POM_ARTIFACT_ID: "smartvillage-platform"
@@ -30,7 +45,7 @@ PLATFORM_POM_VERSION_SUFFIX: ""
 SITE_LOCALE: "en-US"
 SITE_SRC: "{{ lookup('env', 'HOME') }}/.local/src/{{ SITE_NAME }}"
 SITE_POM_GROUP_ID: org.computate
-SITE_POM_ARTIFACT_ID_ROOT: "{{ SITE_NAME }}"
+SITE_POM_ARTIFACT_ID: "{{ SITE_NAME }}"
 SITE_POM_VERSION_PREFIX: "{{ API_VERSION }}"
 SITE_POM_VERSION_SUFFIX: ""
 SITE_POM_VERSION: "{{ SITE_POM_VERSION_PREFIX }}{{ SITE_POM_VERSION_SUFFIX }}"
@@ -104,7 +119,7 @@ PROJECTS:
       - path: "{{ SITE_SRC }}/src/main/java/{{ SITE_JAVA_PACKAGE | replace('.', '/') }}/{{ RELATIVE_PACKAGE_WorkerVerticle | replace('.', '/') }}/{{ CLASS_SIMPLE_NAME_WorkerVerticle }}.java"
         template: vertx/WorkerVerticle.java
       - path: "{{ SITE_SRC }}/src/main/resources/templates/enUS/BaseModelPage.hbs"
-        copy: "{{ SITE_SRC }}/../smartvillage-platform/src/main/resources/templates/enUS/BaseModelPage.hbs"
+        copy_from: "{{ SITE_SRC }}/../smartvillage-platform/src/main/resources/templates/enUS/BaseModelPage.hbs"
       - path: "{{ SITE_SRC }}/src/main/resources/templates/enUS/BaseModelGenPage.hbs"
         copy: "{{ SITE_SRC }}/../smartvillage-platform/src/main/resources/templates/enUS/BaseModelGenPage.hbs"
       - path: "{{ SITE_SRC }}/src/main/resources/application.yml"
@@ -598,6 +613,42 @@ CamelIntegration_Imports: |-2
 
 CamelIntegration_configureCamelMiddle: |-2
   
+  			vertx.eventBus().consumer(String.format("%s-%s", SimulationReport.CLASS_API_ADDRESS, "patchSimulationReportFuture"), message -> {
+  				vertx.eventBus().request(SimulationReport.CLASS_API_ADDRESS, (JsonObject)message.body(), new DeliveryOptions().addHeader("action", "patchSimulationReportFuture")).onSuccess(a -> {
+  					message.reply(a.body());
+  				}).onFailure(ex -> {
+  					LOG.error("Patching SimulationReport failed. ", ex);
+  					message.reply(null);
+  				});
+  			});
+  
+  			vertx.eventBus().consumer(String.format("%s-%s", TrafficSimulation.CLASS_API_ADDRESS, "patchMessage"), message -> {
+  				vertx.eventBus().request(TrafficSimulation.CLASS_API_ADDRESS, (JsonObject)message.body(), new DeliveryOptions().addHeader("action", "patchTrafficSimulationFuture")).onSuccess(a -> {
+  					message.reply(a.body());
+  				}).onFailure(ex -> {
+  					LOG.error(String.format("Patching %s failed. ", TrafficSimulation.CLASS_SIMPLE_NAME), ex);
+  					message.reply(null);
+  				});
+  			});
+
+CamelIntegration_configureCamelRouteBuilderMiddle: |-2
+  
+  					from(String.format("vertx-kafka:%s?bootstrapServers=%s&groupId=%s&securityProtocol=%s&sslKeystoreLocation=%s&sslKeystorePassword=%s&sslTruststoreLocation=%s&sslTruststorePassword=%s&seekToPosition=end"
+  							, config.getString(ConfigKeys.KAFKA_TOPIC_SUMO_RUN_REPORT)
+  							, config.getString(ConfigKeys.KAFKA_BROKERS)
+  							, config.getString(ConfigKeys.KAFKA_GROUP)
+  							, config.getString(ConfigKeys.KAFKA_SECURITY_PROTOCOL)
+  							, config.getString(ConfigKeys.KAFKA_SSL_KEYSTORE_LOCATION)
+  							, config.getString(ConfigKeys.KAFKA_SSL_KEYSTORE_PASSWORD)
+  							, config.getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_LOCATION)
+  							, config.getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_PASSWORD)
+  							))
+  							.log(String.format("received %s event: ${body}", config.getString(ConfigKeys.KAFKA_TOPIC_SUMO_RUN_REPORT)))
+  							.bean({{ CLASS_SIMPLE_NAME_CamelIntegration }}.class, "exchangeToJsonObject")
+  							.bean({{ CLASS_SIMPLE_NAME_CamelIntegration }}.class, "wrapPkBodyInExchangeContext")
+  							.to(String.format("vertx:%s-%s?exchangePattern=InOut", SimulationReport.CLASS_API_ADDRESS, "patchSimulationReportFuture"))
+  					.end();
+  
   					from(String.format("vertx-kafka:%s?bootstrapServers=%s&groupId=%s&securityProtocol=%s&sslKeystoreLocation=%s&sslKeystorePassword=%s&sslTruststoreLocation=%s&sslTruststorePassword=%s&seekToPosition=end"
   							, config.getString(ConfigKeys.KAFKA_TOPIC_SUMO_SIMULATION_INFO_PATCH)
   							, config.getString(ConfigKeys.KAFKA_BROKERS)
@@ -612,24 +663,7 @@ CamelIntegration_configureCamelMiddle: |-2
   							.bean(CamelIntegration.class, "exchangeToJsonObject")
   							.bean(CamelIntegration.class, "wrapPkBodyInExchangeContext")
   							.bean(CamelIntegration.class, "sendToSumoFalse")
-  							.to(String.format("vertx:%s-%s-%s-%s?exchangePattern=InOut", MainVerticle.SITE_NAME, "enUS", TrafficSimulation.CLASS_SIMPLE_NAME, "patchMessage"))
-  					.end();
-  
-  					from(String.format("vertx-kafka:%s?bootstrapServers=%s&groupId=%s&securityProtocol=%s&sslKeystoreLocation=%s&sslKeystorePassword=%s&sslTruststoreLocation=%s&sslTruststorePassword=%s&seekToPosition=end"
-  							, config.getString(ConfigKeys.KAFKA_TOPIC_SUMO_TRAFFIC_FLOW_OBSERVED_INFO_PATCH)
-  							, config.getString(ConfigKeys.KAFKA_BROKERS)
-  							, config.getString(ConfigKeys.KAFKA_GROUP)
-  							, config.getString(ConfigKeys.KAFKA_SECURITY_PROTOCOL)
-  							, config.getString(ConfigKeys.KAFKA_SSL_KEYSTORE_LOCATION)
-  							, config.getString(ConfigKeys.KAFKA_SSL_KEYSTORE_PASSWORD)
-  							, config.getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_LOCATION)
-  							, config.getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_PASSWORD)
-  							))
-  							.log(String.format("received %s event: ${body}", config.getString(ConfigKeys.KAFKA_TOPIC_SUMO_TRAFFIC_FLOW_OBSERVED_INFO_PATCH)))
-  							.bean(CamelIntegration.class, "exchangeToJsonObject")
-  							.bean(CamelIntegration.class, "wrapPkBodyInExchangeContext")
-  							.bean(CamelIntegration.class, "sendToSumoFalse")
-  							.to(String.format("vertx:%s-%s-%s-%s?exchangePattern=InOut", MainVerticle.SITE_NAME, "enUS", TrafficFlowObserved.CLASS_SIMPLE_NAME, "patchMessage"))
+  							.to(String.format("vertx:%s-%s?exchangePattern=InOut", TrafficSimulation.CLASS_API_ADDRESS, "patchMessage"))
   					.end();
 
 CamelIntegration_End: |-2

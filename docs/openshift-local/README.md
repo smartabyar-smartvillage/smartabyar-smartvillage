@@ -2,23 +2,13 @@
 
 # Setup smartabyar-smartvillage development environment on MacOSX or Linux (Fedora, RHEL, CentOS, Ubuntu)
 
-## Install Ansible dependencies on Linux
+## Install Python dependencies on Linux
 
 ```bash
-pkcon install -y git
-pkcon install -y python3
-pkcon install -y python3-pip
-pip install virtualenv openshift
+sudo dnf install -y git python3 python3-pip
 ```
 
-## Install Ansible dependencies on MacOSX
-
-```bash
-brew install git python gnu-tar
-pip3 install virtualenv
-```
-
-## Install the latest Python and setup a new Python virtualenv
+## Set up a new Python virtualenv
 
 This step might be virtualenv-3 for you. 
 
@@ -30,12 +20,24 @@ echo "source ~/python/bin/activate" | tee -a ~/.bashrc
 source ~/.bashrc
 ```
 
+## Upgrade Python pip packages
+
+```bash
+pip3 install setuptools_rust wheel
+pip3 install --upgrade pip
+```
+
+## Install Ansible dependencies on MacOSX
+
+```bash
+brew install git python gnu-tar
+pip3 install virtualenv
+```
+
 ## Install the latest Ansible
 
 ```bash
-pip install setuptools_rust wheel
-pip install --upgrade pip
-pip install ansible
+pip3 install ansible virtualenv openshift
 ```
 
 ## Update the Ansible Galaxy collections for kubernetes.core
@@ -293,8 +295,7 @@ ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ans
 ### Install the prerequiste packages for buildah and podman
 
 ```bash
-pkcon install -y buildah
-pkcon install -y podman
+sudo dnf install -y buildah podman
 ```
 
 ### Build the container with podman
@@ -346,7 +347,7 @@ The Veberod_intersection.net.xml contains data about traffic lights like the x/y
 To convert the x/y position, use python: 
 
 ```bash
-pip install pyproj sumolib
+pip3 install pyproj sumolib
 python
 >>> import sumolib
 >>> net = sumolib.net.readNet('/home/ctate/.local/src/TLC/TLC_sumo/Veberod_intersection.net.xml')
