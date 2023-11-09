@@ -16,8 +16,10 @@ package org.computate.smartvillage.enus.model.traffic.simulation;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
@@ -162,13 +164,13 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 		observedSearch.getList().forEach(baseModel -> {
 			if(baseModel instanceof TrafficFlowObserved) {
 				Path path = new Path();
-				((TrafficFlowObserved)baseModel).getAreaServed().getPoints().forEach(point -> {
+				Optional.ofNullable(((TrafficFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
 					path.addPoint(point);
 				});
 				l.add(path);
 			} else if(baseModel instanceof CrowdFlowObserved) {
 				Path path = new Path();
-				((CrowdFlowObserved)baseModel).getAreaServed().getPoints().forEach(point -> {
+				Optional.ofNullable(((CrowdFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
 					path.addPoint(point);
 				});
 				path.addPoint(path.getPoints().get(0));
