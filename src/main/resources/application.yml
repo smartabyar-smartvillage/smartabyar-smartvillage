@@ -24,6 +24,8 @@ QUAYIO_ORG: "computateorg"
 SITE_POWERED_BY_URL: "https://nerc.mghpcc.org/"
 SITE_POWERED_BY_NAME: "NERC"
 SITE_POWERED_BY_IMAGE_URI: "/png/nerc/nerc-logo.png"
+ENABLE_ZOOKEEPER_CLUSTER: true
+ENABLE_KAFKA: true
 
 STATIC_BASE_URL: "http://localhost:12080/static"
 STATIC_PATH: "/usr/local/src/smartabyar-smartvillage-static"

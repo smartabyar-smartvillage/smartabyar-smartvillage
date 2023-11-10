@@ -18,7 +18,6 @@ import org.computate.vertx.handlebars.DateHelpers;
 import org.computate.vertx.handlebars.SiteHelpers;
 import org.computate.vertx.openapi.OpenApi3Generator;
 import org.computate.vertx.search.list.SearchList;
-import org.computate.vertx.verticle.EmailVerticle;
 import org.computate.smartvillage.enus.config.ConfigKeys;
 import org.computate.smartvillage.enus.page.PageLayout;
 import org.computate.smartvillage.enus.page.HomePage;
@@ -331,19 +330,14 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 		
 					vertx.deployVerticle(MainVerticle.class, deploymentOptions).onSuccess(a -> {
 						LOG.info("Started main verticle. ");
-						vertx.deployVerticle(EmailVerticle.class, emailVerticleDeploymentOptions).onSuccess(c -> {
-							LOG.info("Started email verticle. ");
-							if(config.getBoolean(ConfigKeys.ENABLE_IMPORT_DATA)) {
-								vertx.deployVerticle(WorkerVerticle.class, WorkerVerticleDeploymentOptions).onSuccess(b -> {
+						if(config.getBoolean(ConfigKeys.ENABLE_IMPORT_DATA)) {
+							vertx.deployVerticle(WorkerVerticle.class, WorkerVerticleDeploymentOptions).onSuccess(b -> {
+							LOG.info("Started worker verticle. ");
 								LOG.info("Started worker verticle. ");
-									LOG.info("Started worker verticle. ");
-								}).onFailure(ex -> {
-									LOG.error("Failed to start worker verticle. ", ex);
-								});
-							}
-						}).onFailure(ex -> {
-							LOG.error("Failed to start email verticle. ", ex);
-						});
+							}).onFailure(ex -> {
+								LOG.error("Failed to start worker verticle. ", ex);
+							});
+						}
 					}).onFailure(ex -> {
 						LOG.error("Failed to start main verticle. ", ex);
 					});
@@ -387,13 +381,11 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 						configureHealthChecks().onComplete(e -> 
 							configureSharedWorkerExecutor().onComplete(f -> 
 								configureWebsockets().onComplete(g -> 
-									configureEmail().onComplete(i -> 
-										configureHandlebars().onComplete(j -> 
-											configureKafka().onComplete(k -> 
-												configureApi().onComplete(m -> 
-													configureUi().onComplete(n -> 
-														startServer().onComplete(o -> startPromise.complete())
-													).onFailure(ex -> startPromise.fail(ex))
+									configureHandlebars().onComplete(j -> 
+										configureKafka().onComplete(k -> 
+											configureApi().onComplete(m -> 
+												configureUi().onComplete(n -> 
+													startServer().onComplete(o -> startPromise.complete())
 												).onFailure(ex -> startPromise.fail(ex))
 											).onFailure(ex -> startPromise.fail(ex))
 										).onFailure(ex -> startPromise.fail(ex))
@@ -433,26 +425,31 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 		Promise<KafkaProducer<String, String>> promise = Promise.promise();
 
 		try {
-			Map<String, String> kafkaConfig = new HashMap<>();
-			kafkaConfig.put("bootstrap.servers", config().getString(ConfigKeys.KAFKA_BROKERS));
-			kafkaConfig.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-			kafkaConfig.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-			kafkaConfig.put("acks", "1");
-			kafkaConfig.put("security.protocol", "SSL");
-			Optional.ofNullable(config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_TYPE)).ifPresent(keystoreType -> {
-				kafkaConfig.put("ssl.keystore.type", keystoreType);
-				kafkaConfig.put("ssl.keystore.location", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_LOCATION));
-				kafkaConfig.put("ssl.keystore.password", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_PASSWORD));
-			});
-			Optional.ofNullable(config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_TYPE)).ifPresent(truststoreType -> {
-				kafkaConfig.put("ssl.truststore.type", truststoreType);
-				kafkaConfig.put("ssl.truststore.location", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_LOCATION));
-				kafkaConfig.put("ssl.truststore.password", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_PASSWORD));
-			});
-
-			kafkaProducer = KafkaProducer.createShared(vertx, SITE_NAME, kafkaConfig);
-			LOG.info(configureKafkaSuccess);
-			promise.complete(kafkaProducer);
+			if(config().getBoolean(ConfigKeys.ENABLE_KAFKA)) {
+				Map<String, String> kafkaConfig = new HashMap<>();
+				kafkaConfig.put("bootstrap.servers", config().getString(ConfigKeys.KAFKA_BROKERS));
+				kafkaConfig.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+				kafkaConfig.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+				kafkaConfig.put("acks", "1");
+				kafkaConfig.put("security.protocol", "SSL");
+				Optional.ofNullable(config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_TYPE)).ifPresent(keystoreType -> {
+					kafkaConfig.put("ssl.keystore.type", keystoreType);
+					kafkaConfig.put("ssl.keystore.location", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_LOCATION));
+					kafkaConfig.put("ssl.keystore.password", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_PASSWORD));
+				});
+				Optional.ofNullable(config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_TYPE)).ifPresent(truststoreType -> {
+					kafkaConfig.put("ssl.truststore.type", truststoreType);
+					kafkaConfig.put("ssl.truststore.location", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_LOCATION));
+					kafkaConfig.put("ssl.truststore.password", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_PASSWORD));
+				});
+	
+				kafkaProducer = KafkaProducer.createShared(vertx, SITE_NAME, kafkaConfig);
+				LOG.info(configureKafkaSuccess);
+				promise.complete(kafkaProducer);
+			} else {
+				LOG.info(configureKafkaSuccess);
+				promise.complete(null);
+			}
 		} catch(Exception ex) {
 			LOG.error("Unable to configure site context. ", ex);
 			promise.fail(ex);
@@ -836,36 +833,6 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 			promise.complete();
 		} catch (Exception ex) {
 			LOG.error(configureWebsocketsFail, ex);
-			promise.fail(ex);
-		}
-		return promise.future();
-	}
-
-	/**	
-	 * Configure sending email. 
-	 * Val.Complete.enUS:Configure sending email succeeded. 
-	 * Val.Fail.enUS:Configure sending email failed. 
-	 **/
-	public Future<Void> configureEmail() {
-		Promise<Void> promise = Promise.promise();
-		try {
-			String emailHost = config().getString(ConfigKeys.EMAIL_HOST);
-			if(StringUtils.isNotBlank(emailHost)) {
-				MailConfig mailConfig = new MailConfig();
-				mailConfig.setHostname(emailHost);
-				mailConfig.setPort(config().getInteger(ConfigKeys.EMAIL_PORT));
-				mailConfig.setSsl(config().getBoolean(ConfigKeys.EMAIL_SSL));
-				mailConfig.setUsername(config().getString(ConfigKeys.EMAIL_USERNAME));
-				mailConfig.setPassword(config().getString(ConfigKeys.EMAIL_PASSWORD));
-				MailClient.createShared(vertx, mailConfig);
-				LOG.info(configureEmailComplete);
-				promise.complete();
-			} else {
-				LOG.info(configureEmailComplete);
-				promise.complete();
-			}
-		} catch (Exception ex) {
-			LOG.error(configureEmailFail, ex);
 			promise.fail(ex);
 		}
 		return promise.future();
