@@ -2292,19 +2292,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if trafficFlowObserved_.archived}}
@@ -2360,19 +2360,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if trafficFlowObserved_.deleted}}
@@ -2423,14 +2423,14 @@
 															placeholder="color"
 															id="{{classApiMethodMethod}}_color"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setColor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Color w3-input w3-border "
 																name="setColor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setColor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Color w3-input w3-border "
 																name="setColor"
 		{{else}}
-																class="valueColor w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Color w3-input w3-border "
+																{{classApiMethodMethod}}_color" class="valueColor w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Color w3-input w3-border "
 																name="color"
 		{{/eq}}
 	{{/eq}}
@@ -2479,14 +2479,14 @@
 															placeholder="map location"
 															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}
@@ -2535,14 +2535,14 @@
 															placeholder="entity ID"
 															title="A unique ID for this Smart Data Model"															id="{{classApiMethodMethod}}_entityId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setEntityId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setEntityId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 		{{else}}
-																class="valueEntityId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}EntityId w3-input w3-border "
+																{{classApiMethodMethod}}_entityId" class="valueEntityId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}EntityId w3-input w3-border "
 																name="entityId"
 		{{/eq}}
 	{{/eq}}
@@ -2591,14 +2591,14 @@
 															placeholder="traffic simulation ID"
 															title="The Traffic Simulation ID"															id="{{classApiMethodMethod}}_trafficSimulationId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTrafficSimulationId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficSimulationId setTrafficSimulationId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
 																name="setTrafficSimulationId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTrafficSimulationId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficSimulationId setTrafficSimulationId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
 																name="setTrafficSimulationId"
 		{{else}}
-																class="valueTrafficSimulationId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
+																{{classApiMethodMethod}}_trafficSimulationId" class="valueTrafficSimulationId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
 																name="trafficSimulationId"
 		{{/eq}}
 	{{/eq}}
@@ -2647,14 +2647,14 @@
 															placeholder="simulation name"
 															id="{{classApiMethodMethod}}_simulationName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSimulationName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSimulationName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 		{{else}}
-																class="valueSimulationName w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SimulationName w3-input w3-border "
+																{{classApiMethodMethod}}_simulationName" class="valueSimulationName w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SimulationName w3-input w3-border "
 																name="simulationName"
 		{{/eq}}
 	{{/eq}}
@@ -2703,14 +2703,14 @@
 															placeholder="address"
 															title="The mailing address"															id="{{classApiMethodMethod}}_address"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAddress classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Address w3-input w3-border "
+																class="{{classApiMethodMethod}}_address setAddress classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Address w3-input w3-border "
 																name="setAddress"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAddress classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Address w3-input w3-border "
+																class="{{classApiMethodMethod}}_address setAddress classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Address w3-input w3-border "
 																name="setAddress"
 		{{else}}
-																class="valueAddress w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Address w3-input w3-border "
+																{{classApiMethodMethod}}_address" class="valueAddress w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Address w3-input w3-border "
 																name="address"
 		{{/eq}}
 	{{/eq}}
@@ -2759,14 +2759,14 @@
 															placeholder="alternate name"
 															title="An alternative name for this item"															id="{{classApiMethodMethod}}_alternateName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAlternateName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AlternateName w3-input w3-border "
+																class="{{classApiMethodMethod}}_alternateName setAlternateName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AlternateName w3-input w3-border "
 																name="setAlternateName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAlternateName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AlternateName w3-input w3-border "
+																class="{{classApiMethodMethod}}_alternateName setAlternateName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AlternateName w3-input w3-border "
 																name="setAlternateName"
 		{{else}}
-																class="valueAlternateName w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AlternateName w3-input w3-border "
+																{{classApiMethodMethod}}_alternateName" class="valueAlternateName w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AlternateName w3-input w3-border "
 																name="alternateName"
 		{{/eq}}
 	{{/eq}}
@@ -2815,14 +2815,14 @@
 															placeholder="area served"
 															title="The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. "															id="{{classApiMethodMethod}}_areaServed"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAreaServed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AreaServed w3-input w3-border "
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AreaServed w3-input w3-border "
 																name="setAreaServed"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAreaServed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AreaServed w3-input w3-border "
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AreaServed w3-input w3-border "
 																name="setAreaServed"
 		{{else}}
-																class="valueAreaServed w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AreaServed w3-input w3-border "
+																{{classApiMethodMethod}}_areaServed" class="valueAreaServed w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AreaServed w3-input w3-border "
 																name="areaServed"
 		{{/eq}}
 	{{/eq}}
@@ -2871,14 +2871,14 @@
 															placeholder="average gap distance"
 															title="Average gap distance between consecutive vehicles"															id="{{classApiMethodMethod}}_averageGapDistance"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAverageGapDistance classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageGapDistance w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageGapDistance setAverageGapDistance classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageGapDistance w3-input w3-border "
 																name="setAverageGapDistance"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAverageGapDistance classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageGapDistance w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageGapDistance setAverageGapDistance classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageGapDistance w3-input w3-border "
 																name="setAverageGapDistance"
 		{{else}}
-																class="valueAverageGapDistance w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageGapDistance w3-input w3-border "
+																{{classApiMethodMethod}}_averageGapDistance" class="valueAverageGapDistance w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageGapDistance w3-input w3-border "
 																name="averageGapDistance"
 		{{/eq}}
 	{{/eq}}
@@ -2927,14 +2927,14 @@
 															placeholder="average headway time"
 															title="Average headway time. Headway time is the time ellapsed between two consecutive vehicles"															id="{{classApiMethodMethod}}_averageHeadwayTime"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAverageHeadwayTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageHeadwayTime setAverageHeadwayTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
 																name="setAverageHeadwayTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAverageHeadwayTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageHeadwayTime setAverageHeadwayTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
 																name="setAverageHeadwayTime"
 		{{else}}
-																class="valueAverageHeadwayTime w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
+																{{classApiMethodMethod}}_averageHeadwayTime" class="valueAverageHeadwayTime w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
 																name="averageHeadwayTime"
 		{{/eq}}
 	{{/eq}}
@@ -2983,14 +2983,14 @@
 															placeholder="average vehicle length"
 															title="Average length of the vehicles transiting during     the observation period"															id="{{classApiMethodMethod}}_averageVehicleLength"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAverageVehicleLength classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleLength w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageVehicleLength setAverageVehicleLength classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleLength w3-input w3-border "
 																name="setAverageVehicleLength"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAverageVehicleLength classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleLength w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageVehicleLength setAverageVehicleLength classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleLength w3-input w3-border "
 																name="setAverageVehicleLength"
 		{{else}}
-																class="valueAverageVehicleLength w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleLength w3-input w3-border "
+																{{classApiMethodMethod}}_averageVehicleLength" class="valueAverageVehicleLength w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleLength w3-input w3-border "
 																name="averageVehicleLength"
 		{{/eq}}
 	{{/eq}}
@@ -3039,14 +3039,14 @@
 															placeholder="average vehicle speed"
 															title="Average speed of the vehicles transiting during the observation period"															id="{{classApiMethodMethod}}_averageVehicleSpeed"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAverageVehicleSpeed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleSpeed w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageVehicleSpeed setAverageVehicleSpeed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleSpeed w3-input w3-border "
 																name="setAverageVehicleSpeed"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAverageVehicleSpeed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleSpeed w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageVehicleSpeed setAverageVehicleSpeed classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleSpeed w3-input w3-border "
 																name="setAverageVehicleSpeed"
 		{{else}}
-																class="valueAverageVehicleSpeed w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleSpeed w3-input w3-border "
+																{{classApiMethodMethod}}_averageVehicleSpeed" class="valueAverageVehicleSpeed w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}AverageVehicleSpeed w3-input w3-border "
 																name="averageVehicleSpeed"
 		{{/eq}}
 	{{/eq}}
@@ -3100,19 +3100,19 @@
 															id="{{classApiMethodMethod}}_congested"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Congested w3-input w3-border "
+															class="{{classApiMethodMethod}}_congested classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Congested w3-input w3-border "
 															name="setCongested"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Congested w3-input w3-border "
+																class="{{classApiMethodMethod}}_congested classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Congested w3-input w3-border "
 																name="setCongested"
 		{{else}}
-																class="setCongested valueCongested classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Congested w3-input w3-border "
+																class="{{classApiMethodMethod}}_congested setCongested valueCongested classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Congested w3-input w3-border "
 																name="setCongested"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setCongested', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_congested')); }, function() { addError($('#{{classApiMethodMethod}}_congested')); }); "
+															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setCongested', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_congested')); }, function() { addError($('.{{classApiMethodMethod}}_congested')); }); "
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if trafficFlowObserved_.congested}}
@@ -3163,14 +3163,14 @@
 															placeholder="data provider"
 															title="A sequence of characters identifying the provider of the harmonised data entity."															id="{{classApiMethodMethod}}_dataProvider"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDataProvider classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DataProvider w3-input w3-border "
+																class="{{classApiMethodMethod}}_dataProvider setDataProvider classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DataProvider w3-input w3-border "
 																name="setDataProvider"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDataProvider classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DataProvider w3-input w3-border "
+																class="{{classApiMethodMethod}}_dataProvider setDataProvider classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DataProvider w3-input w3-border "
 																name="setDataProvider"
 		{{else}}
-																class="valueDataProvider w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DataProvider w3-input w3-border "
+																{{classApiMethodMethod}}_dataProvider" class="valueDataProvider w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DataProvider w3-input w3-border "
 																name="dataProvider"
 		{{/eq}}
 	{{/eq}}
@@ -3219,14 +3219,14 @@
 															placeholder="date created"
 															title="Entity creation timestamp. This will usually be allocated by the storage platform."															id="{{classApiMethodMethod}}_dateCreated"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateCreated classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateCreated w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateCreated setDateCreated classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateCreated w3-input w3-border "
 																name="setDateCreated"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateCreated classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateCreated w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateCreated setDateCreated classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateCreated w3-input w3-border "
 																name="setDateCreated"
 		{{else}}
-																class="valueDateCreated w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateCreated w3-input w3-border "
+																{{classApiMethodMethod}}_dateCreated" class="valueDateCreated w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateCreated w3-input w3-border "
 																name="dateCreated"
 		{{/eq}}
 	{{/eq}}
@@ -3275,14 +3275,14 @@
 															placeholder="date modified"
 															title="Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."															id="{{classApiMethodMethod}}_dateModified"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateModified classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateModified w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateModified setDateModified classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateModified w3-input w3-border "
 																name="setDateModified"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateModified classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateModified w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateModified setDateModified classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateModified w3-input w3-border "
 																name="setDateModified"
 		{{else}}
-																class="valueDateModified w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateModified w3-input w3-border "
+																{{classApiMethodMethod}}_dateModified" class="valueDateModified w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateModified w3-input w3-border "
 																name="dateModified"
 		{{/eq}}
 	{{/eq}}
@@ -3331,14 +3331,14 @@
 															placeholder="date observed"
 															title="The date and time of this observation in ISO8601 UTC format. It can be represented by an specific time instant or by an ISO8601 interval. As a workaround for the lack of support of Orion Context Broker for datetime intervals, it can be used two separate attributes: `dateObservedFrom`, `dateObservedTo`. [DateTime](https://schema.org/DateTime) or an ISO8601 interval represented as [Text](https://schema.org/Text)"															id="{{classApiMethodMethod}}_dateObserved"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateObserved classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObserved w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObserved setDateObserved classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObserved w3-input w3-border "
 																name="setDateObserved"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateObserved classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObserved w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObserved setDateObserved classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObserved w3-input w3-border "
 																name="setDateObserved"
 		{{else}}
-																class="valueDateObserved w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObserved w3-input w3-border "
+																{{classApiMethodMethod}}_dateObserved" class="valueDateObserved w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObserved w3-input w3-border "
 																name="dateObserved"
 		{{/eq}}
 	{{/eq}}
@@ -3387,14 +3387,14 @@
 															placeholder="date observed from"
 															title="Observation period start date and time. See `dateObserved`"															id="{{classApiMethodMethod}}_dateObservedFrom"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateObservedFrom classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedFrom setDateObservedFrom classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
 																name="setDateObservedFrom"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateObservedFrom classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedFrom setDateObservedFrom classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
 																name="setDateObservedFrom"
 		{{else}}
-																class="valueDateObservedFrom w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
+																{{classApiMethodMethod}}_dateObservedFrom" class="valueDateObservedFrom w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
 																name="dateObservedFrom"
 		{{/eq}}
 	{{/eq}}
@@ -3443,14 +3443,14 @@
 															placeholder="date observed to"
 															title="Observation period end date and time. See `dateObserved`"															id="{{classApiMethodMethod}}_dateObservedTo"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateObservedTo classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedTo w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedTo setDateObservedTo classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedTo w3-input w3-border "
 																name="setDateObservedTo"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateObservedTo classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedTo w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedTo setDateObservedTo classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedTo w3-input w3-border "
 																name="setDateObservedTo"
 		{{else}}
-																class="valueDateObservedTo w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedTo w3-input w3-border "
+																{{classApiMethodMethod}}_dateObservedTo" class="valueDateObservedTo w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}DateObservedTo w3-input w3-border "
 																name="dateObservedTo"
 		{{/eq}}
 	{{/eq}}
@@ -3499,14 +3499,14 @@
 															placeholder="description"
 															title="A description of this item"															id="{{classApiMethodMethod}}_description"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDescription classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Description w3-input w3-border "
+																class="{{classApiMethodMethod}}_description setDescription classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Description w3-input w3-border "
 																name="setDescription"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDescription classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Description w3-input w3-border "
+																class="{{classApiMethodMethod}}_description setDescription classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Description w3-input w3-border "
 																name="setDescription"
 		{{else}}
-																class="valueDescription w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Description w3-input w3-border "
+																{{classApiMethodMethod}}_description" class="valueDescription w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Description w3-input w3-border "
 																name="description"
 		{{/eq}}
 	{{/eq}}
@@ -3555,14 +3555,14 @@
 															placeholder="intensity"
 															title="Total number of vehicles detected during this observation period"															id="{{classApiMethodMethod}}_intensity"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setIntensity classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Intensity w3-input w3-border "
+																class="{{classApiMethodMethod}}_intensity setIntensity classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Intensity w3-input w3-border "
 																name="setIntensity"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setIntensity classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Intensity w3-input w3-border "
+																class="{{classApiMethodMethod}}_intensity setIntensity classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Intensity w3-input w3-border "
 																name="setIntensity"
 		{{else}}
-																class="valueIntensity w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Intensity w3-input w3-border "
+																{{classApiMethodMethod}}_intensity" class="valueIntensity w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Intensity w3-input w3-border "
 																name="intensity"
 		{{/eq}}
 	{{/eq}}
@@ -3611,14 +3611,14 @@
 															placeholder="lane direction"
 															title="Usual direction of travel in the lane referred by this observation. This attribute is useful when the observation is not referencing any road segment, allowing to know the direction of travel of the traffic flow observed. Enum:forward, backward'. See RoadSegment for a description of the semantics of these values."															id="{{classApiMethodMethod}}_laneDirection"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLaneDirection classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneDirection w3-input w3-border "
+																class="{{classApiMethodMethod}}_laneDirection setLaneDirection classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneDirection w3-input w3-border "
 																name="setLaneDirection"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLaneDirection classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneDirection w3-input w3-border "
+																class="{{classApiMethodMethod}}_laneDirection setLaneDirection classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneDirection w3-input w3-border "
 																name="setLaneDirection"
 		{{else}}
-																class="valueLaneDirection w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneDirection w3-input w3-border "
+																{{classApiMethodMethod}}_laneDirection" class="valueLaneDirection w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneDirection w3-input w3-border "
 																name="laneDirection"
 		{{/eq}}
 	{{/eq}}
@@ -3667,14 +3667,14 @@
 															placeholder="lane id"
 															title="Lane identifier. Lane identification is done using the conventions defined by RoadSegment entity which are based on [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Forward_%26_backward,_left_%26_right)."															id="{{classApiMethodMethod}}_laneId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLaneId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneId w3-input w3-border "
+																class="{{classApiMethodMethod}}_laneId setLaneId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneId w3-input w3-border "
 																name="setLaneId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLaneId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneId w3-input w3-border "
+																class="{{classApiMethodMethod}}_laneId setLaneId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneId w3-input w3-border "
 																name="setLaneId"
 		{{else}}
-																class="valueLaneId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneId w3-input w3-border "
+																{{classApiMethodMethod}}_laneId" class="valueLaneId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneId w3-input w3-border "
 																name="laneId"
 		{{/eq}}
 	{{/eq}}
@@ -3723,14 +3723,14 @@
 															placeholder="name"
 															title="The name of this item."															id="{{classApiMethodMethod}}_name"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Name w3-input w3-border "
+																class="{{classApiMethodMethod}}_name setName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Name w3-input w3-border "
 																name="setName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Name w3-input w3-border "
+																class="{{classApiMethodMethod}}_name setName classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Name w3-input w3-border "
 																name="setName"
 		{{else}}
-																class="valueName w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Name w3-input w3-border "
+																{{classApiMethodMethod}}_name" class="valueName w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Name w3-input w3-border "
 																name="name"
 		{{/eq}}
 	{{/eq}}
@@ -3779,14 +3779,14 @@
 															placeholder="occupancy"
 															title="Fraction of the observation time where a vehicle has been occupying the observed lane"															id="{{classApiMethodMethod}}_occupancy"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setOccupancy classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Occupancy w3-input w3-border "
+																class="{{classApiMethodMethod}}_occupancy setOccupancy classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Occupancy w3-input w3-border "
 																name="setOccupancy"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setOccupancy classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Occupancy w3-input w3-border "
+																class="{{classApiMethodMethod}}_occupancy setOccupancy classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Occupancy w3-input w3-border "
 																name="setOccupancy"
 		{{else}}
-																class="valueOccupancy w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Occupancy w3-input w3-border "
+																{{classApiMethodMethod}}_occupancy" class="valueOccupancy w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Occupancy w3-input w3-border "
 																name="occupancy"
 		{{/eq}}
 	{{/eq}}
@@ -3835,14 +3835,14 @@
 															placeholder="owner"
 															title="A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)"															id="{{classApiMethodMethod}}_owner"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setOwner classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Owner w3-input w3-border "
+																class="{{classApiMethodMethod}}_owner setOwner classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Owner w3-input w3-border "
 																name="setOwner"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setOwner classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Owner w3-input w3-border "
+																class="{{classApiMethodMethod}}_owner setOwner classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Owner w3-input w3-border "
 																name="setOwner"
 		{{else}}
-																class="valueOwner w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Owner w3-input w3-border "
+																{{classApiMethodMethod}}_owner" class="valueOwner w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Owner w3-input w3-border "
 																name="owner"
 		{{/eq}}
 	{{/eq}}
@@ -3891,14 +3891,14 @@
 															placeholder="ref road segment"
 															title="Concerned road segment on which the observation has been made. Reference to an entity of type RoadSegment"															id="{{classApiMethodMethod}}_refRoadSegment"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setRefRoadSegment classTrafficFlowObserved inputTrafficFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
+																class="{{classApiMethodMethod}}_refRoadSegment setRefRoadSegment classTrafficFlowObserved inputTrafficFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
 																name="setRefRoadSegment"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setRefRoadSegment classTrafficFlowObserved inputTrafficFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
+																class="{{classApiMethodMethod}}_refRoadSegment setRefRoadSegment classTrafficFlowObserved inputTrafficFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
 																name="setRefRoadSegment"
 		{{else}}
-																class="valueRefRoadSegment w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
+																{{classApiMethodMethod}}_refRoadSegment" class="valueRefRoadSegment w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
 																name="refRoadSegment"
 		{{/eq}}
 	{{/eq}}
@@ -3952,19 +3952,19 @@
 															id="{{classApiMethodMethod}}_reversedLane"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}ReversedLane w3-input w3-border "
+															class="{{classApiMethodMethod}}_reversedLane classTrafficFlowObserved inputTrafficFlowObserved{{pk}}ReversedLane w3-input w3-border "
 															name="setReversedLane"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTrafficFlowObserved inputTrafficFlowObserved{{pk}}ReversedLane w3-input w3-border "
+																class="{{classApiMethodMethod}}_reversedLane classTrafficFlowObserved inputTrafficFlowObserved{{pk}}ReversedLane w3-input w3-border "
 																name="setReversedLane"
 		{{else}}
-																class="setReversedLane valueReversedLane classTrafficFlowObserved inputTrafficFlowObserved{{pk}}ReversedLane w3-input w3-border "
+																class="{{classApiMethodMethod}}_reversedLane setReversedLane valueReversedLane classTrafficFlowObserved inputTrafficFlowObserved{{pk}}ReversedLane w3-input w3-border "
 																name="setReversedLane"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setReversedLane', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_reversedLane')); }, function() { addError($('#{{classApiMethodMethod}}_reversedLane')); }); "
+															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setReversedLane', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_reversedLane')); }, function() { addError($('.{{classApiMethodMethod}}_reversedLane')); }); "
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if trafficFlowObserved_.reversedLane}}
@@ -4015,14 +4015,14 @@
 															placeholder="see also"
 															title="list of uri pointing to additional resources about the item"															id="{{classApiMethodMethod}}_seeAlso"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSeeAlso classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SeeAlso w3-input w3-border "
+																class="{{classApiMethodMethod}}_seeAlso setSeeAlso classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SeeAlso w3-input w3-border "
 																name="setSeeAlso"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSeeAlso classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SeeAlso w3-input w3-border "
+																class="{{classApiMethodMethod}}_seeAlso setSeeAlso classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SeeAlso w3-input w3-border "
 																name="setSeeAlso"
 		{{else}}
-																class="valueSeeAlso w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SeeAlso w3-input w3-border "
+																{{classApiMethodMethod}}_seeAlso" class="valueSeeAlso w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}SeeAlso w3-input w3-border "
 																name="seeAlso"
 		{{/eq}}
 	{{/eq}}
@@ -4071,14 +4071,14 @@
 															placeholder="source"
 															title="A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."															id="{{classApiMethodMethod}}_source"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSource classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Source w3-input w3-border "
+																class="{{classApiMethodMethod}}_source setSource classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Source w3-input w3-border "
 																name="setSource"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSource classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Source w3-input w3-border "
+																class="{{classApiMethodMethod}}_source setSource classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Source w3-input w3-border "
 																name="setSource"
 		{{else}}
-																class="valueSource w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Source w3-input w3-border "
+																{{classApiMethodMethod}}_source" class="valueSource w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}Source w3-input w3-border "
 																name="source"
 		{{/eq}}
 	{{/eq}}
@@ -4127,14 +4127,14 @@
 															placeholder="vehicle sub type"
 															title="It allows to specify a sub type of `vehicleType`, eg if the `vehicleType` is set to `Lorry` the `vehicleSubType` may be `OGV1` or `OGV2` to convey more information about the exact type of vehicle."															id="{{classApiMethodMethod}}_vehicleSubType"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setVehicleSubType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleSubType w3-input w3-border "
+																class="{{classApiMethodMethod}}_vehicleSubType setVehicleSubType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleSubType w3-input w3-border "
 																name="setVehicleSubType"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setVehicleSubType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleSubType w3-input w3-border "
+																class="{{classApiMethodMethod}}_vehicleSubType setVehicleSubType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleSubType w3-input w3-border "
 																name="setVehicleSubType"
 		{{else}}
-																class="valueVehicleSubType w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleSubType w3-input w3-border "
+																{{classApiMethodMethod}}_vehicleSubType" class="valueVehicleSubType w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleSubType w3-input w3-border "
 																name="vehicleSubType"
 		{{/eq}}
 	{{/eq}}
@@ -4183,14 +4183,14 @@
 															placeholder="vehicle type"
 															title="Type of vehicle from the point of view of its structural characteristics. Enum:'agriculturalVehicle, bicycle, bus, minibus, car, caravan, tram, tanker, carWithCaravan, carWithTrailer, lorry, moped, motorcycle, motorcycleWithSideCar, motorscooter, trailer, van, constructionOrMaintenanceVehicle, trolley, binTrolley, sweepingMachine, cleaningTrolley'"															id="{{classApiMethodMethod}}_vehicleType"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setVehicleType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleType w3-input w3-border "
+																class="{{classApiMethodMethod}}_vehicleType setVehicleType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleType w3-input w3-border "
 																name="setVehicleType"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setVehicleType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleType w3-input w3-border "
+																class="{{classApiMethodMethod}}_vehicleType setVehicleType classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleType w3-input w3-border "
 																name="setVehicleType"
 		{{else}}
-																class="valueVehicleType w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleType w3-input w3-border "
+																{{classApiMethodMethod}}_vehicleType" class="valueVehicleType w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}VehicleType w3-input w3-border "
 																name="vehicleType"
 		{{/eq}}
 	{{/eq}}
@@ -4239,14 +4239,14 @@
 															placeholder="lane area detector ID"
 															title="The unique ID of the lane area detector in SUMO. "															id="{{classApiMethodMethod}}_laneAreaDetectorId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLaneAreaDetectorId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneAreaDetectorId w3-input w3-border "
+																class="{{classApiMethodMethod}}_laneAreaDetectorId setLaneAreaDetectorId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneAreaDetectorId w3-input w3-border "
 																name="setLaneAreaDetectorId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLaneAreaDetectorId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneAreaDetectorId w3-input w3-border "
+																class="{{classApiMethodMethod}}_laneAreaDetectorId setLaneAreaDetectorId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneAreaDetectorId w3-input w3-border "
 																name="setLaneAreaDetectorId"
 		{{else}}
-																class="valueLaneAreaDetectorId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneAreaDetectorId w3-input w3-border "
+																{{classApiMethodMethod}}_laneAreaDetectorId" class="valueLaneAreaDetectorId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}LaneAreaDetectorId w3-input w3-border "
 																name="laneAreaDetectorId"
 		{{/eq}}
 	{{/eq}}
@@ -4295,14 +4295,14 @@
 															placeholder="sigma"
 															title="The driver imperfection as a floating point number [0,1] (0 denotes perfect driving). "															id="{{classApiMethodMethod}}_customSigma"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomSigma classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomSigma w3-input w3-border "
+																class="{{classApiMethodMethod}}_customSigma setCustomSigma classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomSigma w3-input w3-border "
 																name="setCustomSigma"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomSigma classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomSigma w3-input w3-border "
+																class="{{classApiMethodMethod}}_customSigma setCustomSigma classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomSigma w3-input w3-border "
 																name="setCustomSigma"
 		{{else}}
-																class="valueCustomSigma w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomSigma w3-input w3-border "
+																{{classApiMethodMethod}}_customSigma" class="valueCustomSigma w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomSigma w3-input w3-border "
 																name="customSigma"
 		{{/eq}}
 	{{/eq}}
@@ -4351,14 +4351,14 @@
 															placeholder="acceleration"
 															title="The acceleration ability of vehicles of this type (in m/s^2). "															id="{{classApiMethodMethod}}_customAcceleration"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomAcceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAcceleration w3-input w3-border "
+																class="{{classApiMethodMethod}}_customAcceleration setCustomAcceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAcceleration w3-input w3-border "
 																name="setCustomAcceleration"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomAcceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAcceleration w3-input w3-border "
+																class="{{classApiMethodMethod}}_customAcceleration setCustomAcceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAcceleration w3-input w3-border "
 																name="setCustomAcceleration"
 		{{else}}
-																class="valueCustomAcceleration w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAcceleration w3-input w3-border "
+																{{classApiMethodMethod}}_customAcceleration" class="valueCustomAcceleration w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAcceleration w3-input w3-border "
 																name="customAcceleration"
 		{{/eq}}
 	{{/eq}}
@@ -4407,14 +4407,14 @@
 															placeholder="deceleration"
 															title="The deceleration ability of vehicles of this type (in m/s^2). "															id="{{classApiMethodMethod}}_customDeceleration"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomDeceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDeceleration w3-input w3-border "
+																class="{{classApiMethodMethod}}_customDeceleration setCustomDeceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDeceleration w3-input w3-border "
 																name="setCustomDeceleration"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomDeceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDeceleration w3-input w3-border "
+																class="{{classApiMethodMethod}}_customDeceleration setCustomDeceleration classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDeceleration w3-input w3-border "
 																name="setCustomDeceleration"
 		{{else}}
-																class="valueCustomDeceleration w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDeceleration w3-input w3-border "
+																{{classApiMethodMethod}}_customDeceleration" class="valueCustomDeceleration w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDeceleration w3-input w3-border "
 																name="customDeceleration"
 		{{/eq}}
 	{{/eq}}
@@ -4463,14 +4463,14 @@
 															placeholder="min green time"
 															title="Min green time for the traffic light in seconds [1, 50]. "															id="{{classApiMethodMethod}}_customMinGreenTime"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomMinGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMinGreenTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_customMinGreenTime setCustomMinGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMinGreenTime w3-input w3-border "
 																name="setCustomMinGreenTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomMinGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMinGreenTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_customMinGreenTime setCustomMinGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMinGreenTime w3-input w3-border "
 																name="setCustomMinGreenTime"
 		{{else}}
-																class="valueCustomMinGreenTime w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMinGreenTime w3-input w3-border "
+																{{classApiMethodMethod}}_customMinGreenTime" class="valueCustomMinGreenTime w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMinGreenTime w3-input w3-border "
 																name="customMinGreenTime"
 		{{/eq}}
 	{{/eq}}
@@ -4519,14 +4519,14 @@
 															placeholder="max green time"
 															title="Max green time for the traffic light in seconds [1, 50]. "															id="{{classApiMethodMethod}}_customMaxGreenTime"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomMaxGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMaxGreenTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_customMaxGreenTime setCustomMaxGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMaxGreenTime w3-input w3-border "
 																name="setCustomMaxGreenTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomMaxGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMaxGreenTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_customMaxGreenTime setCustomMaxGreenTime classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMaxGreenTime w3-input w3-border "
 																name="setCustomMaxGreenTime"
 		{{else}}
-																class="valueCustomMaxGreenTime w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMaxGreenTime w3-input w3-border "
+																{{classApiMethodMethod}}_customMaxGreenTime" class="valueCustomMaxGreenTime w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomMaxGreenTime w3-input w3-border "
 																name="customMaxGreenTime"
 		{{/eq}}
 	{{/eq}}
@@ -4575,14 +4575,14 @@
 															placeholder="average vehicles/minute"
 															title="Average vehicle/min [1, 30]. "															id="{{classApiMethodMethod}}_customAverageVehiclesPerMinute"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomAverageVehiclesPerMinute classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAverageVehiclesPerMinute w3-input w3-border "
+																class="{{classApiMethodMethod}}_customAverageVehiclesPerMinute setCustomAverageVehiclesPerMinute classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAverageVehiclesPerMinute w3-input w3-border "
 																name="setCustomAverageVehiclesPerMinute"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomAverageVehiclesPerMinute classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAverageVehiclesPerMinute w3-input w3-border "
+																class="{{classApiMethodMethod}}_customAverageVehiclesPerMinute setCustomAverageVehiclesPerMinute classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAverageVehiclesPerMinute w3-input w3-border "
 																name="setCustomAverageVehiclesPerMinute"
 		{{else}}
-																class="valueCustomAverageVehiclesPerMinute w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAverageVehiclesPerMinute w3-input w3-border "
+																{{classApiMethodMethod}}_customAverageVehiclesPerMinute" class="valueCustomAverageVehiclesPerMinute w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomAverageVehiclesPerMinute w3-input w3-border "
 																name="customAverageVehiclesPerMinute"
 		{{/eq}}
 	{{/eq}}
@@ -4631,14 +4631,14 @@
 															placeholder="demand scaling factor"
 															title="Demand scaling factor (multiplies all vehicle demands) [1, 2]. "															id="{{classApiMethodMethod}}_customDemandScalingFactor"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomDemandScalingFactor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_customDemandScalingFactor setCustomDemandScalingFactor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDemandScalingFactor w3-input w3-border "
 																name="setCustomDemandScalingFactor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomDemandScalingFactor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_customDemandScalingFactor setCustomDemandScalingFactor classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDemandScalingFactor w3-input w3-border "
 																name="setCustomDemandScalingFactor"
 		{{else}}
-																class="valueCustomDemandScalingFactor w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDemandScalingFactor w3-input w3-border "
+																{{classApiMethodMethod}}_customDemandScalingFactor" class="valueCustomDemandScalingFactor w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomDemandScalingFactor w3-input w3-border "
 																name="customDemandScalingFactor"
 		{{/eq}}
 	{{/eq}}
@@ -4687,14 +4687,14 @@
 															placeholder="queue length threshold"
 															title="Demand scaling factor (multiplies all vehicle demands) [1, 2]. "															id="{{classApiMethodMethod}}_customQueueLengthThreshold"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomQueueLengthThreshold w3-input w3-border "
+																class="{{classApiMethodMethod}}_customQueueLengthThreshold setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomQueueLengthThreshold w3-input w3-border "
 																name="setCustomQueueLengthThreshold"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomQueueLengthThreshold w3-input w3-border "
+																class="{{classApiMethodMethod}}_customQueueLengthThreshold setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomQueueLengthThreshold w3-input w3-border "
 																name="setCustomQueueLengthThreshold"
 		{{else}}
-																class="valueCustomQueueLengthThreshold w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomQueueLengthThreshold w3-input w3-border "
+																{{classApiMethodMethod}}_customQueueLengthThreshold" class="valueCustomQueueLengthThreshold w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomQueueLengthThreshold w3-input w3-border "
 																name="customQueueLengthThreshold"
 		{{/eq}}
 	{{/eq}}
@@ -4743,14 +4743,14 @@
 															placeholder="traffic light ID"
 															title="The Smart Traffic Light ID"															id="{{classApiMethodMethod}}_customTrafficLightId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCustomTrafficLightId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomTrafficLightId w3-input w3-border "
+																class="{{classApiMethodMethod}}_customTrafficLightId setCustomTrafficLightId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomTrafficLightId w3-input w3-border "
 																name="setCustomTrafficLightId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCustomTrafficLightId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomTrafficLightId w3-input w3-border "
+																class="{{classApiMethodMethod}}_customTrafficLightId setCustomTrafficLightId classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomTrafficLightId w3-input w3-border "
 																name="setCustomTrafficLightId"
 		{{else}}
-																class="valueCustomTrafficLightId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomTrafficLightId w3-input w3-border "
+																{{classApiMethodMethod}}_customTrafficLightId" class="valueCustomTrafficLightId w3-input w3-border classTrafficFlowObserved inputTrafficFlowObserved{{pk}}CustomTrafficLightId w3-input w3-border "
 																name="customTrafficLightId"
 		{{/eq}}
 	{{/eq}}
