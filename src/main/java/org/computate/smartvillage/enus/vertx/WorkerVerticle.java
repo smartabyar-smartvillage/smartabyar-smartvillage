@@ -321,26 +321,33 @@ public class WorkerVerticle extends WorkerVerticleGen<AbstractVerticle> {
 	}
 
 	/**
+	 * Val.Success.enUS:The Kafka producer was initialized successfully. 
 	 **/
 	public Future<KafkaProducer<String, String>> configureKafka() {
 		Promise<KafkaProducer<String, String>> promise = Promise.promise();
 
 		try {
-			Map<String, String> kafkaConfig = new HashMap<>();
-			kafkaConfig.put("bootstrap.servers", config().getString(ConfigKeys.KAFKA_BROKERS));
-			kafkaConfig.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-			kafkaConfig.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-			kafkaConfig.put("acks", "1");
-			kafkaConfig.put("security.protocol", "SSL");
-			kafkaConfig.put("ssl.keystore.type", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_TYPE));
-			kafkaConfig.put("ssl.keystore.location", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_LOCATION));
-			kafkaConfig.put("ssl.keystore.password", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_PASSWORD));
-			kafkaConfig.put("ssl.truststore.type", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_TYPE));
-			kafkaConfig.put("ssl.truststore.location", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_LOCATION));
-			kafkaConfig.put("ssl.truststore.password", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_PASSWORD));
-
-			kafkaProducer = KafkaProducer.createShared(vertx, MainVerticle.SITE_NAME, kafkaConfig);
-			promise.complete(kafkaProducer);
+			if(config().getBoolean(ConfigKeys.ENABLE_KAFKA)) {
+				Map<String, String> kafkaConfig = new HashMap<>();
+				kafkaConfig.put("bootstrap.servers", config().getString(ConfigKeys.KAFKA_BROKERS));
+				kafkaConfig.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+				kafkaConfig.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+				kafkaConfig.put("acks", "1");
+				kafkaConfig.put("security.protocol", "SSL");
+				kafkaConfig.put("ssl.keystore.type", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_TYPE));
+				kafkaConfig.put("ssl.keystore.location", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_LOCATION));
+				kafkaConfig.put("ssl.keystore.password", config().getString(ConfigKeys.KAFKA_SSL_KEYSTORE_PASSWORD));
+				kafkaConfig.put("ssl.truststore.type", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_TYPE));
+				kafkaConfig.put("ssl.truststore.location", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_LOCATION));
+				kafkaConfig.put("ssl.truststore.password", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_PASSWORD));
+	
+				kafkaProducer = KafkaProducer.createShared(vertx, MainVerticle.SITE_NAME, kafkaConfig);
+				LOG.info(configureKafkaSuccess);
+				promise.complete(kafkaProducer);
+			} else {
+				LOG.info(configureKafkaSuccess);
+				promise.complete(null);
+			}
 		} catch(Exception ex) {
 			LOG.error("Unable to configure site context. ", ex);
 			promise.fail(ex);

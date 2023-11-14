@@ -54,11 +54,9 @@ public class TrafficFlowObservedEnUSApiServiceImpl extends TrafficFlowObservedEn
 		Promise<TrafficFlowObserved> promise = Promise.promise();
 		super.patchTrafficFlowObservedFuture(o, inheritPk).onSuccess(a -> {
 			if(
-					"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
-					|| "false".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
+					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
+					|| "true".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
 					) {
-				promise.complete(o);
-			} else {
 				sendSumoLocationInfo(o).onSuccess(b -> {
 					refreshTrafficFlowObserved(o).onSuccess(c -> {
 						promise.complete();
@@ -68,6 +66,8 @@ public class TrafficFlowObservedEnUSApiServiceImpl extends TrafficFlowObservedEn
 				}).onFailure(ex -> {
 					promise.fail(ex);
 				});
+			} else {
+				promise.complete(o);
 			}
 		}).onFailure(ex -> {
 			promise.fail(ex);
@@ -80,16 +80,16 @@ public class TrafficFlowObservedEnUSApiServiceImpl extends TrafficFlowObservedEn
 		Promise<TrafficFlowObserved> promise = Promise.promise();
 		super.postTrafficFlowObservedFuture(siteRequest, inheritPk).onSuccess(o -> {
 			if(
-					"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
-					|| "false".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
+					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
+					|| "true".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
 					) {
-				promise.complete(o);
-			} else {
 				sendSumoLocationInfo(o).onSuccess(b -> {
 					promise.complete(o);
 				}).onFailure(ex -> {
 					promise.fail(ex);
 				});
+			} else {
+				promise.complete(o);
 			}
 		}).onFailure(ex -> {
 			promise.fail(ex);
