@@ -110,8 +110,8 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 	 * DocValues: true
 	 * Persist: true
 	 * DisplayName: color
-	 * HtmRow: 3
-	 * HtmCell: 3
+	 * HtmRow: 5
+	 * HtmCell: 1
 	 * Facet: true
 	 * Color: true
 	 */
@@ -125,7 +125,7 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 	 * Persist: true
 	 * DisplayName: entity ID
 	 * Description: A unique ID for this Smart Data Model
-	 * HtmRow: 5
+	 * HtmRow: 3
 	 * HtmCell: 1
 	 * Facet: true
 	 */
@@ -137,7 +137,7 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 	 * Persist: true
 	 * DisplayName: traffic simulation ID
 	 * Description: The Traffic Simulation ID
-	 * HtmRow: 5
+	 * HtmRow: 4
 	 * HtmCell: 2
 	 * Facet: true
 	 */
@@ -184,7 +184,7 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 	 * DocValues: true
 	 * Persist: true
 	 * DisplayName: map location
-	 * HtmRow: 4
+	 * HtmRow: 3
 	 * HtmCell: 2
 	 * Facet: true
 	 */
@@ -193,10 +193,10 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * Modify: false
 	 * DocValues: true
-	 * Persist: true
 	 * DisplayName: simulation name
-	 * HtmRow: 5
+	 * HtmRow: 4
 	 * HtmCell: 2
 	 * Facet: true
 	 */

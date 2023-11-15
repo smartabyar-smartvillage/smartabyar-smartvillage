@@ -701,10 +701,6 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		return TrafficFlowObserved.staticSearchStrSimulationName(siteRequest_, TrafficFlowObserved.staticSearchSimulationName(siteRequest_, TrafficFlowObserved.staticSetSimulationName(siteRequest_, o)));
 	}
 
-	public String sqlSimulationName() {
-		return simulationName;
-	}
-
 	/////////////////
 	// sumocfgPath //
 	/////////////////
@@ -3994,12 +3990,6 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				}
 				saves.add("location");
 				return val;
-			} else if("simulationname".equals(varLower)) {
-				if(val instanceof String) {
-					setSimulationName((String)val);
-				}
-				saves.add("simulationName");
-				return val;
 			} else if("sumocfgpath".equals(varLower)) {
 				if(val instanceof String) {
 					setSumocfgPath((String)val);
@@ -5666,17 +5656,17 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	public static Integer htmRowTrafficFlowObserved(String var) {
 		switch(var) {
 		case VAR_color:
-			return 3;
+			return 5;
 		case VAR_entityId:
-			return 5;
+			return 3;
 		case VAR_trafficSimulationId:
-			return 5;
+			return 4;
 		case VAR_laneAreaDetectorId:
 			return 15;
 		case VAR_location:
-			return 4;
+			return 3;
 		case VAR_simulationName:
-			return 5;
+			return 4;
 		case VAR_customTrafficLightId:
 			return 17;
 		case VAR_address:
@@ -5757,7 +5747,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	public static Integer htmCellTrafficFlowObserved(String var) {
 		switch(var) {
 		case VAR_color:
-			return 3;
+			return 1;
 		case VAR_entityId:
 			return 1;
 		case VAR_trafficSimulationId:

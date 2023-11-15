@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved;
@@ -148,7 +149,7 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 		if(entityId != null) {
 			l.setC(BaseModel.class);
 			l.q("*:*");
-			l.fq(String.format("trafficSimulationId_docvalues_string:%s", entityId));
+			l.fq(String.format("trafficSimulationId_docvalues_string:%s", SearchTool.escapeQueryChars(entityId)));
 			l.fq(String.format(BaseModel.VAR_classSimpleName + "_docvalues_string:(%s OR %s)", TrafficFlowObserved.CLASS_SIMPLE_NAME, CrowdFlowObserved.CLASS_SIMPLE_NAME));
 			l.setStore(true);
 		}

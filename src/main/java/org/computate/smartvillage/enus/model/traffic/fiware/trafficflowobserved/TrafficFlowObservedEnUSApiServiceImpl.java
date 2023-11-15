@@ -49,75 +49,6 @@ public class TrafficFlowObservedEnUSApiServiceImpl extends TrafficFlowObservedEn
 		super(eventBus, config, workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine);
 	}
 
-	@Override
-	public Future<TrafficFlowObserved> patchTrafficFlowObservedFuture(TrafficFlowObserved o, Boolean inheritPk) {
-		Promise<TrafficFlowObserved> promise = Promise.promise();
-		super.patchTrafficFlowObservedFuture(o, inheritPk).onSuccess(a -> {
-			if(
-					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
-					|| "true".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
-					) {
-				sendSumoLocationInfo(o).onSuccess(b -> {
-					refreshTrafficFlowObserved(o).onSuccess(c -> {
-						promise.complete();
-					}).onFailure(ex -> {
-						promise.fail(ex);
-					});
-				}).onFailure(ex -> {
-					promise.fail(ex);
-				});
-			} else {
-				promise.complete(o);
-			}
-		}).onFailure(ex -> {
-			promise.fail(ex);
-		});
-		return promise.future();
-	}
-
-	@Override
-	public Future<TrafficFlowObserved> postTrafficFlowObservedFuture(SiteRequestEnUS siteRequest, Boolean inheritPk) {
-		Promise<TrafficFlowObserved> promise = Promise.promise();
-		super.postTrafficFlowObservedFuture(siteRequest, inheritPk).onSuccess(o -> {
-			if(
-					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
-					|| "true".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
-					) {
-				sendSumoLocationInfo(o).onSuccess(b -> {
-					promise.complete(o);
-				}).onFailure(ex -> {
-					promise.fail(ex);
-				});
-			} else {
-				promise.complete(o);
-			}
-		}).onFailure(ex -> {
-			promise.fail(ex);
-		});
-		return promise.future();
-	}
-
-	public Future<Void> sendSumoLocationInfo(TrafficFlowObserved o) {
-		Promise<Void> promise = Promise.promise();
-		LOG.info("Sending location info record to kafka");
-		try {
-			JsonObject body = JsonObject.mapFrom(o);
-			String topic = config.getString(ConfigKeys.KAFKA_TOPIC_SUMO_TRAFFIC_FLOW_OBSERVED_INFO);
-			KafkaProducerRecord<String, String> record = KafkaProducerRecord.create(topic, body.encode());
-			kafkaProducer.send(record).onSuccess(recordMetadata -> {
-				LOG.info(String.format("Sent record to kafka topic %s: %s", topic, body.encode()));
-				promise.complete();
-			}).onFailure(ex -> {
-				LOG.error(String.format("Could not send record to kafka topic %s: %s", topic, body.encode()), ex);
-				promise.fail(ex);
-			});
-		} catch(Exception ex) {
-			LOG.error(String.format("Could not send record to kafka: %s", Optional.ofNullable(JsonObject.mapFrom(o)).map(b -> b.encode()).orElse("")), ex);
-			promise.fail(ex);
-		}
-		return promise.future();
-	}
-
 	public Future<Void> refreshTrafficFlowObserved(TrafficFlowObserved o) {
 		Promise<Void> promise = Promise.promise();
 		SiteRequestEnUS siteRequest = o.getSiteRequest_();
@@ -236,6 +167,8 @@ public class TrafficFlowObservedEnUSApiServiceImpl extends TrafficFlowObservedEn
 						} else {
 							promise.complete();
 						}
+					} else {
+						promise.complete();
 					}
 				}).onFailure(ex -> {
 					promise.fail(ex);

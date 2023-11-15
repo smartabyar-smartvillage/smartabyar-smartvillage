@@ -76,16 +76,15 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 		Promise<TrafficSimulation> promise = Promise.promise();
 		super.postTrafficSimulationFuture(siteRequest, inheritPk).onSuccess(o -> {
 			if(
-					"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
-					|| "false".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
+					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
 					) {
-				promise.complete(o);
-			} else {
 				sendSumoSimulationInfo(o).onSuccess(b -> {
 					promise.complete(o);
 				}).onFailure(ex -> {
 					promise.fail(ex);
 				});
+			} else {
+				promise.complete(o);
 			}
 		}).onFailure(ex -> {
 			promise.fail(ex);
@@ -98,16 +97,15 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 		Promise<TrafficSimulation> promise = Promise.promise();
 		super.patchTrafficSimulationFuture(o, inheritPk).onSuccess(a -> {
 			if(
-					"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
-					|| "false".equals(o.getSiteRequest_().getRequestVars().get("refresh"))
+					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
 					) {
-				promise.complete(o);
-			} else {
 				sendSumoSimulationInfo(o).onSuccess(b -> {
 					promise.complete(a);
 				}).onFailure(ex -> {
 					promise.fail(ex);
 				});
+			} else {
+				promise.complete(o);
 			}
 		}).onFailure(ex -> {
 			promise.fail(ex);

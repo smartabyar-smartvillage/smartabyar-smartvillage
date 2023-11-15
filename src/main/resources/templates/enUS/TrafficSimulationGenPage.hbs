@@ -1111,19 +1111,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTrafficSimulation inputTrafficSimulation{{pk}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classTrafficSimulation inputTrafficSimulation{{pk}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTrafficSimulation inputTrafficSimulation{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classTrafficSimulation inputTrafficSimulation{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classTrafficSimulation inputTrafficSimulation{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classTrafficSimulation inputTrafficSimulation{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if trafficSimulation_.archived}}
@@ -1179,19 +1179,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTrafficSimulation inputTrafficSimulation{{pk}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classTrafficSimulation inputTrafficSimulation{{pk}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTrafficSimulation inputTrafficSimulation{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classTrafficSimulation inputTrafficSimulation{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classTrafficSimulation inputTrafficSimulation{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classTrafficSimulation inputTrafficSimulation{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if trafficSimulation_.deleted}}
@@ -1242,14 +1242,14 @@
 															placeholder="simulation name"
 															id="{{classApiMethodMethod}}_simulationName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSimulationName classTrafficSimulation inputTrafficSimulation{{pk}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classTrafficSimulation inputTrafficSimulation{{pk}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSimulationName classTrafficSimulation inputTrafficSimulation{{pk}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classTrafficSimulation inputTrafficSimulation{{pk}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 		{{else}}
-																class="valueSimulationName w3-input w3-border classTrafficSimulation inputTrafficSimulation{{pk}}SimulationName w3-input w3-border "
+																{{classApiMethodMethod}}_simulationName" class="valueSimulationName w3-input w3-border classTrafficSimulation inputTrafficSimulation{{pk}}SimulationName w3-input w3-border "
 																name="simulationName"
 		{{/eq}}
 	{{/eq}}
@@ -1298,14 +1298,14 @@
 															placeholder="entity ID"
 															title="A unique ID for this Smart Data Model"															id="{{classApiMethodMethod}}_entityId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setEntityId classTrafficSimulation inputTrafficSimulation{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classTrafficSimulation inputTrafficSimulation{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setEntityId classTrafficSimulation inputTrafficSimulation{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classTrafficSimulation inputTrafficSimulation{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 		{{else}}
-																class="valueEntityId w3-input w3-border classTrafficSimulation inputTrafficSimulation{{pk}}EntityId w3-input w3-border "
+																{{classApiMethodMethod}}_entityId" class="valueEntityId w3-input w3-border classTrafficSimulation inputTrafficSimulation{{pk}}EntityId w3-input w3-border "
 																name="entityId"
 		{{/eq}}
 	{{/eq}}
@@ -1383,7 +1383,7 @@
 																<input 
 																	type="checkbox"
 																	id="{{classApiMethodMethod}}_reportKeys_clear"
-																	class="reportKeys_clear "
+																	class="classApiMethodMethod}}_reportKeys_clear reportKeys_clear "
 																	>
 																<label for="{{classApiMethodMethod}}_reportKeys_clear">clear</label>
 															</div>
@@ -1391,7 +1391,7 @@
 														<input
 																type="text"
 																placeholder="simulation reports"
-																title="The generated reports for this simulation"															class="valueObjectSuggest suggestReportKeys w3-input w3-border w3-cell w3-cell-middle "
+																title="The generated reports for this simulation"															class="{{classApiMethodMethod}}_reportKeys valueObjectSuggest suggestReportKeys w3-input w3-border w3-cell w3-cell-middle "
 															name="setReportKeys"
 															id="{{classApiMethodMethod}}_reportKeys"
 															autocomplete="off"
@@ -1431,14 +1431,14 @@
 															placeholder="map location"
 															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classTrafficSimulation inputTrafficSimulation{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classTrafficSimulation inputTrafficSimulation{{pk}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classTrafficSimulation inputTrafficSimulation{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classTrafficSimulation inputTrafficSimulation{{pk}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classTrafficSimulation inputTrafficSimulation{{pk}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classTrafficSimulation inputTrafficSimulation{{pk}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}

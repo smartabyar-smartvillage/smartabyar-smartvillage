@@ -742,14 +742,6 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							num++;
 							bParams.add(o2.sqlLocation());
 						break;
-					case "setSimulationName":
-							o2.setSimulationName(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_simulationName + "=$" + num);
-							num++;
-							bParams.add(o2.sqlSimulationName());
-						break;
 					case "setSumocfgPath":
 							o2.setSumocfgPath(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -1451,15 +1443,6 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						bSql.append(TrafficFlowObserved.VAR_location + "=$" + num);
 						num++;
 						bParams.add(o2.sqlLocation());
-						break;
-					case TrafficFlowObserved.VAR_simulationName:
-						o2.setSimulationName(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_simulationName + "=$" + num);
-						num++;
-						bParams.add(o2.sqlSimulationName());
 						break;
 					case TrafficFlowObserved.VAR_sumocfgPath:
 						o2.setSumocfgPath(jsonObject.getString(entityVar));
