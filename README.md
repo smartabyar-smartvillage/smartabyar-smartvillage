@@ -1,5 +1,15 @@
 
 
+# Install openjdk dependencies
+
+```bash
+sudo yum install -y java-17-openjdk-devel
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk/bin/java 1
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk/bin/java 1
+echo 'JAVA_HOME=/usr/lib/jvm/java-17-openjdk' >> ~/.bashrc
+source ~/.bash_profile
+```
+
 # Install Ansible dependencies
 
 ```bash

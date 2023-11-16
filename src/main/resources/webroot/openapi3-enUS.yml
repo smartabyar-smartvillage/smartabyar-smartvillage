@@ -13877,7 +13877,7 @@ components:
   securitySchemes:
     openIdConnect:
       type: openIdConnect
-      openIdConnectUrl: https://sso.computate.org/realms/COMPUTATE/.well-known/openid-configuration
+      openIdConnectUrl: https://sso.smartabyarsmartvillage.org/realms/SMARTVILLAGE/.well-known/openid-configuration
   requestBodies:
     SearchSiteHtmResponse:
       content:
