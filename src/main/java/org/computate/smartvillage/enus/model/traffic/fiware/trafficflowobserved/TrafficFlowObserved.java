@@ -65,43 +65,6 @@ import io.vertx.pgclient.data.Point;
  * IconGroup: duotone
  * IconName: map-location-dot
  * Rows: 100
- * 
- * HtmTooltip: >-2
- *   <h3><i class="fa-duotone fa-map-location-dot  site-menu-icon "></i> Vehicle ${feature.properties.objectTitle}</h3>
- *   <div><span class="">Waiting time tolerance:</div>
- *   <div id="feature-${feature.properties.pk}-customMinGreenTime-slider-range">
- *     <div id="feature-${feature.properties.pk}-customMinGreenTime-slider-handle" class="ui-slider-handle"></div>
- *     <div id="feature-${feature.properties.pk}-customMaxGreenTime-slider-handle" class="ui-slider-handle"></div>
- *   </div>
- *   <div><span class="">Queue length threshold: </span><input type="text" placeholder="queue length threshold" title="Demand scaling factor (multiplies all vehicle demands) [1, 2]. " id="Page_customQueueLengthThreshold" class="Page_customQueueLengthThreshold setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved4CustomQueueLengthThreshold w3-input w3-border " name="setCustomQueueLengthThreshold" onclick="removeGlow($(this)); " onchange="patchTrafficFlowObservedVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:4' }], 'setCustomQueueLengthThreshold', $(this).val(), function() { addGlow($('#Page_customQueueLengthThreshold')); }, function() { addError($('#Page_customQueueLengthThreshold')); }); " value="${feature.properties.customQueueLengthThreshold}"></div>
- * JsWebsocket: |2
- *           if(vars.includes('customMinGreenTime') || vars.includes('customMaxGreenTime')) {
- *             $('#feature-' + pk + '-customMinGreenTime-slider-range').slider('values', [parseInt($response.find('.Page_customMinGreenTime').val()), parseInt($response.find('.Page_customMaxGreenTime').val())]);
- *             $('#feature-' + pk + '-customMinGreenTime-slider-handle').text(parseInt($response.find('.Page_customMinGreenTime').val()));
- *             $('#feature-' + pk + '-customMaxGreenTime-slider-handle').text(parseInt($response.find('.Page_customMaxGreenTime').val()));
- *           }
- * JsTooltip: |2
- *         if ($('#feature-' + feature.properties.pk + '-customMinGreenTime-slider-range').slider('instance') == undefined) {
- *           $('#feature-' + feature.properties.pk + '-customMinGreenTime-slider-range').slider({
- *             range: true
- *             , min: 1
- *             , max: 50
- *             , values: [ window.trafficFlowObserved.customMinGreenTime, window.trafficFlowObserved.customMaxGreenTime ]
- *             , create: function() {
- *               $('#feature-' + feature.properties.pk + '-customMinGreenTime-slider-handle').text(parseInt(window.trafficFlowObserved.customMinGreenTime));
- *               
- *               $('#feature-' + feature.properties.pk + '-customMaxGreenTime-slider-handle').text(parseInt(window.trafficFlowObserved.customMaxGreenTime));
- *             }
- *             , slide: function( event, ui ) {
- *               $('#feature-' + feature.properties.pk + '-customMinGreenTime-slider-handle').text(ui.values[0]);
- *               $('#feature-' + feature.properties.pk + '-customMaxGreenTime-slider-handle').text(ui.values[1]);
- *             }
- *             , stop: function( event, ui ) {
- *               patchTrafficFlowObservedVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:' + feature.properties.pk }], 'setCustomMinGreenTime', ui.values[0].toString(), function() { addGlow($('.Page_customMinGreenTime')); }, function() { addError($('.Page_customMinGreenTime')); }); 
- *               patchTrafficFlowObservedVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:' + feature.properties.pk }], 'setCustomMaxGreenTime', ui.values[1].toString(), function() { addGlow($('.Page_customMaxGreenTime')); }, function() { addError($('.Page_customMaxGreenTime')); }); 
- *             }
- *           });
- *         }
  */
 public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 
