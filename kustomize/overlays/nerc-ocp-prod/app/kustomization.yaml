@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- sso/
+- solr/
+#  - roles/
+#  - rolebindings/
+#  - services/
+#  - configmaps/
+#  - deployments/
+#  - ingresses/
+#  - issuers/
+#  - edgepostgress/
+#  - edgekafkas/
+#  - edgemongodbs/
+#  - edgeamqbrokers/
+#  - scorpiobrokers/
+#  - iotagentjsons/
+#    #  - ../../bundles/amq-streams/base/
+#    #  - ../../bundles/amq-broker/base/
+#    #  - ../../bundles/postgres/base/
+#    #- ../../bundles/solr/base/
+#
+##  - orionldcontextbrokers/
+##  - iotagentjsons/
+##  - smartabyarsmartvillages/
+#    #  - trafficflowobserveds/
