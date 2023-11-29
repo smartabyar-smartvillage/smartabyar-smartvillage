@@ -111,6 +111,16 @@ public abstract class MainVerticleGen<DEV> extends AbstractVerticle {
 	public static final String configureDataInitSuccess1 = "The database was initialized successfully. ";
 	public static final String configureDataInitSuccess = configureDataInitSuccess1;
 
+	public static final String configureAuthPrivateError1 = "Could not configure the auth server and API. ";
+	public static final String configureAuthPrivateError = configureAuthPrivateError1;
+	public static final String configureAuthPrivateSuccess1 = "The auth server and API was configured successfully. ";
+	public static final String configureAuthPrivateSuccess = configureAuthPrivateSuccess1;
+
+	public static final String configureAuthPublicError1 = "Could not configure the auth server and API. ";
+	public static final String configureAuthPublicError = configureAuthPublicError1;
+	public static final String configureAuthPublicSuccess1 = "The auth server and API was configured successfully. ";
+	public static final String configureAuthPublicSuccess = configureAuthPublicSuccess1;
+
 	public static final String configureOpenApiError1 = "Could not configure the auth server and API. ";
 	public static final String configureOpenApiError = configureOpenApiError1;
 	public static final String configureOpenApiSuccess1 = "The auth server and API was configured successfully. ";
@@ -318,7 +328,7 @@ public abstract class MainVerticleGen<DEV> extends AbstractVerticle {
 		return sb.toString();
 	}
 
-	public static final String[] MainVerticleVals = new String[] { configureKafkaSuccess1, configureMqttSuccess1, configureMqttFail1, configureDataConnectionError1, configureDataConnectionSuccess1, configureDataInitError1, configureDataInitSuccess1, configureOpenApiError1, configureOpenApiSuccess1, configureConfigComplete1, configureConfigFail1, configureSharedWorkerExecutorFail1, configureSharedWorkerExecutorComplete1, configureHealthChecksComplete1, configureHealthChecksFail1, configureHealthChecksErrorDatabase1, configureHealthChecksEmptySolr1, configureHealthChecksErrorSolr1, configureHealthChecksErrorVertx1, configureWebsocketsComplete1, configureWebsocketsFail1, configureHandlebarsFail1, configureHandlebarsComplete1, configureApiFail1, configureApiComplete1, configureUiFail1, configureUiComplete1, startServerErrorServer1, startServerSuccessServer1, startServerBeforeServer1, startServerSsl1, stopPgPoolFail1, stopPgPoolComplete1, stopMqttFail1, stopMqttComplete1 };
+	public static final String[] MainVerticleVals = new String[] { configureKafkaSuccess1, configureMqttSuccess1, configureMqttFail1, configureDataConnectionError1, configureDataConnectionSuccess1, configureDataInitError1, configureDataInitSuccess1, configureAuthPrivateError1, configureAuthPrivateSuccess1, configureAuthPublicError1, configureAuthPublicSuccess1, configureOpenApiError1, configureOpenApiSuccess1, configureConfigComplete1, configureConfigFail1, configureSharedWorkerExecutorFail1, configureSharedWorkerExecutorComplete1, configureHealthChecksComplete1, configureHealthChecksFail1, configureHealthChecksErrorDatabase1, configureHealthChecksEmptySolr1, configureHealthChecksErrorSolr1, configureHealthChecksErrorVertx1, configureWebsocketsComplete1, configureWebsocketsFail1, configureHandlebarsFail1, configureHandlebarsComplete1, configureApiFail1, configureApiComplete1, configureUiFail1, configureUiComplete1, startServerErrorServer1, startServerSuccessServer1, startServerBeforeServer1, startServerSsl1, stopPgPoolFail1, stopPgPoolComplete1, stopMqttFail1, stopMqttComplete1 };
 
 	public static final String CLASS_SIMPLE_NAME = "MainVerticle";
 	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-MainVerticle";

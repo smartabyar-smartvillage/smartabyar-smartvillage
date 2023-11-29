@@ -1,4 +1,10 @@
 
+- Run a debug pod that can run Ansible and OpenShift
+
+```bash
+oc -n smart-village-faeeb6c debug --image quay.io/computateorg/smartvillage-operator
+```
+
 # Clone the smartabyar-smartvillage project
 
 ```bash
@@ -53,4 +59,10 @@ oc apply -k kustomize/overlays/nerc-ocp-prod/app/sso/
 
 ```bash
 ansible-playbook ~/.local/src/smartvillage-operator/apply-smartabyarsmartvillage.yaml -e crd_path=~/.local/src/smartabyar-smartvillage/kustomize/overlays/nerc-ocp-prod/ansible/smartabyarsmartvillages/smartvillage/smartabyarsmartvillage.yaml
+```
+
+# Run the Ansible Playbook to install a TrafficSimulation
+
+```bash
+ansible-playbook apply-trafficsimulation.yaml -e crd_path=kustomize/overlays/nerc-ocp-prod/trafficsimulations/veberod-intersection-1/trafficsimulation.yaml
 ```

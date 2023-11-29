@@ -57,8 +57,13 @@ JDBC_USERNAME: "smartvillage"
 
 AUTH_REALM: SMARTVILLAGE
 AUTH_CLIENT: smartvillage
+AUTH_HOST_NAME: "sso.smartabyarsmartvillage.org"
+AUTH_PORT: 443
+AUTH_SSL: true
+AUTH_URL: "https://sso.smartabyarsmartvillage.org/auth"
+AUTH_TOKEN_URI: "/auth/realms/SMARTVILLAGE/protocol/openid-connect/token"
 
-SOLR_HOST_NAME: solr-smartvillage.apps-crc.testing
+SOLR_HOST_NAME: solr-solr.apps-crc.testing
 SOLR_PORT: 443
 SOLR_COLLECTION: "smartvillage"
 SOLR_URL: "https://solr-solr.apps-crc.testing/solr/smartvillage"

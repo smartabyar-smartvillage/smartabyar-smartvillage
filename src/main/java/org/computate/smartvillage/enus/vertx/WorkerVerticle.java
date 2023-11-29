@@ -95,7 +95,6 @@ import org.computate.smartvillage.enus.camel.CamelIntegration;
 import org.computate.smartvillage.enus.model.user.SiteUser;
 import org.computate.smartvillage.enus.model.htm.SiteHtm;
 import org.computate.smartvillage.enus.model.page.SitePage;
-import org.computate.smartvillage.enus.model.system.event.SystemEvent;
 import org.computate.smartvillage.enus.result.map.MapResult;
 import org.computate.smartvillage.enus.model.iotnode.IotNode;
 import org.computate.smartvillage.enus.model.traffic.bicycle.step.BicycleStep;
@@ -593,7 +592,6 @@ public class WorkerVerticle extends WorkerVerticleGen<AbstractVerticle> {
 				refreshData(SiteUser.CLASS_SIMPLE_NAME).onSuccess(q -> {
 					refreshData(SiteHtm.CLASS_SIMPLE_NAME).onSuccess(q1 -> {
 						refreshData(SitePage.CLASS_SIMPLE_NAME).onSuccess(q2 -> {
-							refreshData(SystemEvent.CLASS_SIMPLE_NAME).onSuccess(q3 -> {
 								refreshData(MapResult.CLASS_SIMPLE_NAME).onSuccess(q4 -> {
 									refreshData(IotNode.CLASS_SIMPLE_NAME).onSuccess(q5 -> {
 										refreshData(BicycleStep.CLASS_SIMPLE_NAME).onSuccess(q6 -> {
@@ -626,7 +624,6 @@ public class WorkerVerticle extends WorkerVerticleGen<AbstractVerticle> {
 										}).onFailure(ex -> promise.fail(ex));
 									}).onFailure(ex -> promise.fail(ex));
 								}).onFailure(ex -> promise.fail(ex));
-							}).onFailure(ex -> promise.fail(ex));
 						}).onFailure(ex -> promise.fail(ex));
 					}).onFailure(ex -> promise.fail(ex));
 				}).onFailure(ex -> {

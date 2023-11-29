@@ -18,7 +18,6 @@ import org.computate.smartvillage.enus.model.htm.SiteHtmEnUSGenApiService;
 import org.computate.smartvillage.enus.model.iotnode.IotNodeEnUSGenApiService;
 import org.computate.smartvillage.enus.model.page.SitePage;
 import org.computate.smartvillage.enus.model.page.SitePageEnUSGenApiService;
-import org.computate.smartvillage.enus.model.system.event.SystemEventEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.bicycle.step.BicycleStepEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObservedEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.fiware.parkingaccess.ParkingAccessEnUSGenApiService;
@@ -227,6 +226,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 
 	public static Future<Void> run(JsonObject config) {
 		Promise<Void> promise = Promise.promise();
+		LOG.info("stuff");
 		try {
 			Boolean enableZookeeperCluster = Optional.ofNullable(config.getBoolean(ConfigKeys.ENABLE_ZOOKEEPER_CLUSTER)).orElse(false);
 			VertxOptions vertxOptions = new VertxOptions();
@@ -708,6 +708,112 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 	 *	Setup a logout route for logging out completely of the application. 
 	 *	Return a promise that configures the authentication server and OpenAPI. 
 	 **/
+	public Future<OAuth2AuthHandler> configureAuthPrivate() {
+		Promise<OAuth2AuthHandler> promise = Promise.promise();
+		try {
+			String siteBaseUrl = config().getString(ConfigKeys.SITE_BASE_URL);
+
+			OAuth2Options oauth2ClientOptions = new OAuth2Options();
+			Boolean authSsl = config().getBoolean(ConfigKeys.AUTH_SSL);
+			String authHostName = config().getString(ConfigKeys.AUTH_HOST_NAME);
+			Integer authPort = config().getInteger(ConfigKeys.AUTH_PORT);
+			String authUrl = String.format("%s", config().getString(ConfigKeys.AUTH_URL));
+			oauth2ClientOptions.setSite(authUrl + "/realms/" + config().getString(ConfigKeys.AUTH_REALM));
+			oauth2ClientOptions.setTenant(config().getString(ConfigKeys.AUTH_REALM));
+			oauth2ClientOptions.setClientId(config().getString(ConfigKeys.AUTH_CLIENT));
+			oauth2ClientOptions.setClientSecret(config().getString(ConfigKeys.AUTH_SECRET));
+			oauth2ClientOptions.setAuthorizationPath("/oauth/authorize");
+			JsonObject extraParams = new JsonObject();
+			extraParams.put("scope", "profile");
+			oauth2ClientOptions.setExtraParameters(extraParams);
+			oauth2ClientOptions.setHttpClientOptions(new HttpClientOptions().setTrustAll(true).setVerifyHost(false).setConnectTimeout(120000));
+
+			OpenIDConnectAuth.discover(vertx, oauth2ClientOptions).onSuccess(oauth2AuthenticationProvider -> {
+				authorizationProvider = KeycloakAuthorization.create();
+
+				String callbackUrl = "/callback";
+				ComputateOAuth2AuthHandlerImpl oauth2AuthHandler = new ComputateOAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + "/callback");
+//					OAuth2AuthHandlerImpl oauth2AuthHandler = new OAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + callbackUrl);
+				{
+					Router tempRouter = Router.router(vertx);
+					oauth2AuthHandler.setupCallback(tempRouter.get(callbackUrl));
+				}
+				promise.complete(oauth2AuthHandler);
+			}).onFailure(ex -> {
+				Exception ex2 = new RuntimeException("OpenID Connect Discovery failed", ex);
+				LOG.error(configureAuthPrivateError, ex2);
+				promise.fail(ex2);
+			});
+		} catch (Exception ex) {
+			LOG.error(configureAuthPrivateError, ex);
+			promise.fail(ex);
+		}
+		return promise.future();
+	}
+
+	/**	
+	 * 
+	 * Val.Error.enUS:Could not configure the auth server and API. 
+	 * Val.Success.enUS:The auth server and API was configured successfully. 
+	 * 
+	 *	Configure the connection to the auth server and setup the routes based on the OpenAPI definition. 
+	 *	Setup a callback route when returning from the auth server after successful authentication. 
+	 *	Setup a logout route for logging out completely of the application. 
+	 *	Return a promise that configures the authentication server and OpenAPI. 
+	 **/
+	public Future<OAuth2AuthHandler> configureAuthPublic() {
+		Promise<OAuth2AuthHandler> promise = Promise.promise();
+		try {
+			String siteBaseUrl = config().getString(ConfigKeys.SITE_BASE_URL);
+
+			OAuth2Options oauth2ClientOptions = new OAuth2Options();
+			Boolean authSsl = config().getBoolean(ConfigKeys.AUTH_SSL);
+			String authHostName = config().getString(ConfigKeys.AUTH_HOST_NAME);
+			Integer authPort = config().getInteger(ConfigKeys.AUTH_PORT);
+			String authUrl = String.format("%s", config().getString(ConfigKeys.AUTH_URL));
+			oauth2ClientOptions.setSite(authUrl + "/realms/" + config().getString(ConfigKeys.AUTH_REALM));
+			oauth2ClientOptions.setTenant(config().getString(ConfigKeys.AUTH_REALM));
+			oauth2ClientOptions.setClientId(config().getString(ConfigKeys.AUTH_CLIENT));
+			oauth2ClientOptions.setClientSecret(config().getString(ConfigKeys.AUTH_SECRET));
+			oauth2ClientOptions.setAuthorizationPath("/oauth/authorize");
+			JsonObject extraParams = new JsonObject();
+			extraParams.put("scope", "profile");
+			oauth2ClientOptions.setExtraParameters(extraParams);
+			oauth2ClientOptions.setHttpClientOptions(new HttpClientOptions().setTrustAll(true).setVerifyHost(false).setConnectTimeout(120000));
+
+			OpenIDConnectAuth.discover(vertx, oauth2ClientOptions).onSuccess(oauth2AuthenticationProvider -> {
+				authorizationProvider = KeycloakAuthorization.create();
+
+				String callbackUrl = "/callback";
+				ComputateOAuth2AuthHandlerImpl oauth2AuthHandler = new ComputateOAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + "/callback");
+//					OAuth2AuthHandlerImpl oauth2AuthHandler = new OAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + callbackUrl);
+				{
+					Router tempRouter = Router.router(vertx);
+					oauth2AuthHandler.setupCallback(tempRouter.get(callbackUrl));
+				}
+				promise.complete(oauth2AuthHandler);
+			}).onFailure(ex -> {
+				Exception ex2 = new RuntimeException("OpenID Connect Discovery failed", ex);
+				LOG.error(configureAuthPublicError, ex2);
+				promise.fail(ex2);
+			});
+		} catch (Exception ex) {
+			LOG.error(configureAuthPublicError, ex);
+			promise.fail(ex);
+		}
+		return promise.future();
+	}
+
+	/**	
+	 * 
+	 * Val.Error.enUS:Could not configure the auth server and API. 
+	 * Val.Success.enUS:The auth server and API was configured successfully. 
+	 * 
+	 *	Configure the connection to the auth server and setup the routes based on the OpenAPI definition. 
+	 *	Setup a callback route when returning from the auth server after successful authentication. 
+	 *	Setup a logout route for logging out completely of the application. 
+	 *	Return a promise that configures the authentication server and OpenAPI. 
+	 **/
 	public Future<Void> configureOpenApi() {
 		Promise<Void> promise = Promise.promise();
 		try {
@@ -1013,7 +1119,6 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 			SiteUserEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			SiteHtmEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			SitePageEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
-			SystemEventEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			MapResultEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			IotNodeEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			BicycleStepEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);

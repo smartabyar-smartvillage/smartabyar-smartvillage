@@ -10,6 +10,17 @@ echo 'JAVA_HOME=/usr/lib/jvm/java-17-openjdk' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+# Install latest maven 3.9 or later
+
+Download maven here: https://maven.apache.org/download.cgi
+
+```bash
+install -d ~/.local/opt/maven/
+tar xvf ~/Downloads/apache-maven-3.9.5-bin.tar.gz --strip-components=1 -C ~/.local/opt/maven/
+echo 'PATH=$PATH:~/.local/opt/maven/bin' | tee -a ~/.bashrc
+source ~/.bashrc
+```
+
 # Obtain postgres password
 
 ```bash
@@ -90,6 +101,10 @@ ansible-galaxy collection install kubernetes.core
 
 ```bash
 install -d ~/.local/src/smartabyar-smartvillage
+git clone git@github.com:computate-org/computate.git ~/.local/src/computate
+git clone git@github.com:computate-org/computate-search.git ~/.local/src/computate-search
+git clone git@github.com:computate-org/computate-vertx.git ~/.local/src/computate-vertx
+git clone git@github.com:computate-org/smartvillage-platform.git ~/.local/src/smartvillage-platform
 git clone git@github.com:computate-org/smartabyar-smartvillage.git ~/.local/src/smartabyar-smartvillage
 ```
 
@@ -103,6 +118,9 @@ git clone git@github.com:computate-org/computate_project.git ~/.ansible/roles/co
 ## Run the Ansible Galaxy roles to install the complete project locally. 
 
 ```bash
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=computate-search -e ENABLE_CODE_GENERATION_SERVICE=true
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=computate-vertx -e ENABLE_CODE_GENERATION_SERVICE=true
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=smartvillage-platform -e ENABLE_CODE_GENERATION_SERVICE=true
 ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true
 ```
 

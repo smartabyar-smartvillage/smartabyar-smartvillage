@@ -76,7 +76,8 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 		Promise<TrafficSimulation> promise = Promise.promise();
 		super.postTrafficSimulationFuture(siteRequest, inheritPk).onSuccess(o -> {
 			if(
-					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
+					o.getSiteRequest_().getRequestHeaders().contains("NGSILD-Path")
+					&& !"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
 					) {
 				sendSumoSimulationInfo(o).onSuccess(b -> {
 					promise.complete(o);
@@ -97,7 +98,8 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 		Promise<TrafficSimulation> promise = Promise.promise();
 		super.patchTrafficSimulationFuture(o, inheritPk).onSuccess(a -> {
 			if(
-					"true".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
+					o.getSiteRequest_().getRequestHeaders().contains("NGSILD-Path")
+					&& !"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
 					) {
 				sendSumoSimulationInfo(o).onSuccess(b -> {
 					promise.complete(a);

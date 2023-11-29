@@ -7,6 +7,9 @@ SITE_POWERED_BY_IMAGE_URI: "/png/nerc/nerc-logo.png"
 SITE_NAME: "smartabyar-smartvillage"
 SITE_SHORT_NAME: "smartvillage"
 SITE_POM_GROUP_ID: "org.computate"
+SITE_POM_ARTIFACT_ID: "smartabyar-smartvillage"
+PLATFORM_POM_GROUP_ID: "org.computate"
+PLATFORM_POM_ARTIFACT_ID: "smartvillage-platform"
 SITE_PUBLIC_URL: "https://smartabyarsmartvillage.org"
 SITE_DISPLAY_NAME: "Smart Village Project"
 SITE_SERVICES:
@@ -32,6 +35,7 @@ API_COUNTER_FETCH: 50
 API_COUNTER_RESUME: 10
 COMPUTATE_SRC: "/home/ctate/.local/src/computate"
 
+SITE_INSTANCES: 2
 SITE_HOST_NAME: "localhost"
 SITE_BASE_URL: "http://localhost:12080"
 SITE_PORT: 12080
@@ -43,22 +47,27 @@ TEMPLATE_PATH: "/home/ctate/.local/src/smartabyar-smartvillage/src/main/resource
 API_CONTACT_EMAIL: ""
 FONTAWESOME_KIT: ""
 
-JDBC_HOST: "localhost"
-JDBC_PORT: 5432
+ZOOKEEPER_HOST_NAME: "zookeeper.apps-crc.testing"
+ZOOKEEPER_PORT: 30081
+
+JDBC_HOST: "postgres.apps-crc.testing"
+JDBC_PORT: 30432
 JDBC_DATABASE: "smartvillage"
 JDBC_USERNAME: "smartvillage"
 
-AUTH_HOST_NAME: "sso.computate.org"
+KAFKA_BROKERS: "kafka0.apps-crc.testing:32000"
+
+AUTH_HOST_NAME: "sso.smartabyarsmartvillage.org"
 AUTH_PORT: 443
 AUTH_SSL: true
 AUTH_SSL_REQUIRED: all
 AUTH_REALM: "SMARTVILLAGE"
 AUTH_CLIENT: "smartvillage"
-AUTH_SECRET: ""
-AUTH_URL: "https://sso.computate.org/auth"
+AUTH_SECRET: "24878e65-aa86-4d67-9965-ba83467914b6"
+AUTH_URL: "https://sso.smartabyarsmartvillage.org/auth"
 AUTH_TOKEN_URI: "/auth/realms/SMARTVILLAGE/protocol/openid-connect/token"
 
-SOLR_HOST_NAME: solr-smartvillage.apps-crc.testing
+SOLR_HOST_NAME: solr-olr.apps-crc.testing
 SOLR_PORT: 443
 SOLR_COLLECTION: "smartvillage"
 SOLR_URL: "https://solr-solr.apps-crc.testing/solr/smartvillage"

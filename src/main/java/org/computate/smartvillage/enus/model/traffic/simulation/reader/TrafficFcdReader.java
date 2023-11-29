@@ -39,7 +39,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.config.ConfigKeys;
-import org.computate.smartvillage.enus.model.system.event.SystemEvent;
 import org.computate.smartvillage.enus.model.traffic.light.TrafficLight;
 import org.computate.smartvillage.enus.model.traffic.light.step.TrafficLightStep;
 import org.computate.smartvillage.enus.model.traffic.person.step.PersonStep;
@@ -137,83 +136,46 @@ public class TrafficFcdReader extends TrafficFcdReaderGen<Object> {
 	public Future<Void> importFcd() {
 		Promise<Void> promise = Promise.promise();
 		ZonedDateTime now = ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE)));
-		SystemEvent systemEvent = new SystemEvent();
-		String id = String.format("%s_%s", SystemEvent.CLASS_SIMPLE_NAME, UUID.randomUUID());
-		systemEvent.setCreated(now);
-		systemEvent.setId(id);
-		systemEvent.setObjectId(id);
-		systemEvent.setInheritPk(id);
-		systemEvent.setStatus(SystemEvent.statusStarted_enUS);
 
 		LOG.info(importFcdStarted);
 		workerExecutor.executeBlocking(blockingCodeHandler -> {
-			importSystemEvent(systemEvent).onSuccess(a -> {
+//			importSystemEvent(systemEvent).onSuccess(a -> {
 				searchTrafficSimulation().onSuccess(b -> {
-					systemEvent.setCompleted(ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE))));
-					systemEvent.setStatus(SystemEvent.statusCompleted_enUS);
-					importSystemEvent(systemEvent).onSuccess(c -> {
+//					systemEvent.setCompleted(ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE))));
+//					systemEvent.setStatus(SystemEvent.statusCompleted_enUS);
+//					importSystemEvent(systemEvent).onSuccess(c -> {
 						LOG.info(importFcdComplete);
 						promise.complete();
-					}).onFailure(ex -> {
-						LOG.error(importFcdFail, ex);
-						promise.fail(ex);
-					});
+//					}).onFailure(ex -> {
+//						LOG.error(importFcdFail, ex);
+//						promise.fail(ex);
+//					});
 				}).onFailure(ex -> {
-					LOG.error(importFcdFail, ex);
-					systemEvent.setCompleted(ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE))));
-					systemEvent.setStatus(SystemEvent.statusError_enUS);
-					importSystemEvent(systemEvent).onSuccess(c -> {
+//					LOG.error(importFcdFail, ex);
+//					systemEvent.setCompleted(ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE))));
+//					systemEvent.setStatus(SystemEvent.statusError_enUS);
+//					importSystemEvent(systemEvent).onSuccess(c -> {
 						promise.complete();
-					}).onFailure(ex2 -> {
-						LOG.error(importFcdFail, ex2);
-						promise.fail(ex2);
-					});
+//					}).onFailure(ex2 -> {
+//						LOG.error(importFcdFail, ex2);
+//						promise.fail(ex2);
+//					});
 				});
-			}).onFailure(ex -> {
-				LOG.error(importFcdFail, ex);
-				systemEvent.setCompleted(ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE))));
-				systemEvent.setStatus(SystemEvent.statusError_enUS);
-				importSystemEvent(systemEvent).onSuccess(c -> {
-					promise.complete();
-				}).onFailure(ex2 -> {
-					LOG.error(importFcdFail, ex2);
-					promise.fail(ex2);
-				});
-			});
+//			}).onFailure(ex -> {
+//				LOG.error(importFcdFail, ex);
+//				systemEvent.setCompleted(ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE))));
+//				systemEvent.setStatus(SystemEvent.statusError_enUS);
+//				importSystemEvent(systemEvent).onSuccess(c -> {
+//					promise.complete();
+//				}).onFailure(ex2 -> {
+//					LOG.error(importFcdFail, ex2);
+//					promise.fail(ex2);
+//				});
+//			});
 		}, false).onSuccess(b -> {
 			promise.complete();
 		}).onFailure(ex -> {
 			LOG.error(String.format(importFcdFail), ex);
-			promise.fail(ex);
-		});
-		return promise.future();
-	}
-
-	/**
-	 * Val.Started.enUS:Syncing FCD record started: %s
-	 * Val.Complete.enUS:Syncing FCD record completed: %s
-	 * Val.Fail.enUS:Syncing FCD record failed: %s
-	 * Val.WebSocket.enUS:websocket%s
-	 */
-	private Future<Void> importSystemEvent(SystemEvent systemEvent) {
-		Promise<Void> promise = Promise.promise();
-		String id = systemEvent.getId();
-		JsonObject params = new JsonObject();
-		JsonObject body = JsonObject.mapFrom(systemEvent);
-		params.put("body", body);
-		params.put("path", new JsonObject());
-		params.put("cookie", new JsonObject());
-		params.put("query", new JsonObject().put("softCommit", true).put("q", "*:*").put("var", new JsonArray().add("refresh:false")));
-		JsonObject context = new JsonObject().put("params", params);
-		JsonObject request = new JsonObject().put("context", context);
-		vertx.eventBus().request(
-				String.format("%s-enUS-%s", config.getString(ConfigKeys.SITE_NAME), SystemEvent.CLASS_SIMPLE_NAME)
-				, request
-				, new DeliveryOptions().addHeader("action", String.format("putimport%sFuture", SystemEvent.CLASS_SIMPLE_NAME))
-				).onSuccess(a -> {
-			promise.complete();
-		}).onFailure(ex -> {
-			LOG.error(String.format(importFcdHandleBodyFail, id), ex);
 			promise.fail(ex);
 		});
 		return promise.future();
