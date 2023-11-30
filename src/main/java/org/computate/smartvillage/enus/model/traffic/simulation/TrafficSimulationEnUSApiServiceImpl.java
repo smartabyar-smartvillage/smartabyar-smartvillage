@@ -74,10 +74,12 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 	@Override
 	public Future<TrafficSimulation> postTrafficSimulationFuture(SiteRequestEnUS siteRequest, Boolean inheritPk) {
 		Promise<TrafficSimulation> promise = Promise.promise();
+		LOG.info(String.format("NGSILD-Path: %s", siteRequest.getRequestHeaders().get("NGSILD-Path")));
+		LOG.info(String.format("sendToSumo: %s", siteRequest.getRequestVars().get("sendToSumo")));
 		super.postTrafficSimulationFuture(siteRequest, inheritPk).onSuccess(o -> {
 			if(
-					o.getSiteRequest_().getRequestHeaders().contains("NGSILD-Path")
-					&& !"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
+					siteRequest.getRequestHeaders().contains("NGSILD-Path")
+					&& !"false".equals(siteRequest.getRequestVars().get("sendToSumo"))
 					) {
 				sendSumoSimulationInfo(o).onSuccess(b -> {
 					promise.complete(o);
@@ -96,6 +98,8 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 	@Override
 	public Future<TrafficSimulation> patchTrafficSimulationFuture(TrafficSimulation o, Boolean inheritPk) {
 		Promise<TrafficSimulation> promise = Promise.promise();
+		LOG.info(String.format("NGSILD-Path: %s", o.getSiteRequest_().getRequestHeaders().get("NGSILD-Path")));
+		LOG.info(String.format("sendToSumo: %s", o.getSiteRequest_().getRequestVars().get("sendToSumo")));
 		super.patchTrafficSimulationFuture(o, inheritPk).onSuccess(a -> {
 			if(
 					o.getSiteRequest_().getRequestHeaders().contains("NGSILD-Path")

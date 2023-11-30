@@ -2,13 +2,16 @@ package org.computate.smartvillage.enus.vertx;
 
 import java.net.URLDecoder;
 import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -61,6 +64,7 @@ import io.vertx.config.ConfigRetriever;
 import io.vertx.config.ConfigRetrieverOptions;
 import io.vertx.config.ConfigStoreOptions;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.CompositeFuture;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
 import io.vertx.core.MultiMap;
@@ -141,6 +145,8 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 	private Router router;
 
 	private WorkerExecutor workerExecutor;
+//
+//	private OAuth2Auth oauth2AuthenticationProvider;
 
 	private OAuth2Auth oauth2AuthenticationProvider;
 
@@ -701,104 +707,57 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 	/**	
 	 * 
 	 * Val.Error.enUS:Could not configure the auth server and API. 
-	 * Val.Success.enUS:The auth server and API was configured successfully. 
+	 * Val.Success.enUS:The auth client %s was configured successfully. 
+	 * Val.AuthCallbackUriEmpty.enUS:Please configure an AUTH_CALLBACK_URI for the AUTH_CLIENT %s. 
+	 * Val.AuthClientOpenApiIdEmpty.enUS:Please configure an AUTH_OPEN_API_ID for the AUTH_CLIENT %s. 
 	 * 
 	 *	Configure the connection to the auth server and setup the routes based on the OpenAPI definition. 
 	 *	Setup a callback route when returning from the auth server after successful authentication. 
 	 *	Setup a logout route for logging out completely of the application. 
 	 *	Return a promise that configures the authentication server and OpenAPI. 
 	 **/
-	public Future<OAuth2AuthHandler> configureAuthPrivate() {
+	public Future<OAuth2AuthHandler> configureAuthClient(String authClientOpenApiId, JsonObject clientConfig, Map<String, OAuth2AuthHandler> authHandlers, Map<String, OAuth2Auth> authProviders) {
 		Promise<OAuth2AuthHandler> promise = Promise.promise();
 		try {
 			String siteBaseUrl = config().getString(ConfigKeys.SITE_BASE_URL);
 
 			OAuth2Options oauth2ClientOptions = new OAuth2Options();
-			Boolean authSsl = config().getBoolean(ConfigKeys.AUTH_SSL);
-			String authHostName = config().getString(ConfigKeys.AUTH_HOST_NAME);
-			Integer authPort = config().getInteger(ConfigKeys.AUTH_PORT);
-			String authUrl = String.format("%s", config().getString(ConfigKeys.AUTH_URL));
-			oauth2ClientOptions.setSite(authUrl + "/realms/" + config().getString(ConfigKeys.AUTH_REALM));
-			oauth2ClientOptions.setTenant(config().getString(ConfigKeys.AUTH_REALM));
-			oauth2ClientOptions.setClientId(config().getString(ConfigKeys.AUTH_CLIENT));
-			oauth2ClientOptions.setClientSecret(config().getString(ConfigKeys.AUTH_SECRET));
+			Boolean authSsl = clientConfig.getBoolean(ConfigKeys.AUTH_SSL);
+			String authHostName = clientConfig.getString(ConfigKeys.AUTH_HOST_NAME);
+			Integer authPort = clientConfig.getInteger(ConfigKeys.AUTH_PORT);
+			String authUrl = String.format("%s", clientConfig.getString(ConfigKeys.AUTH_URL));
+			oauth2ClientOptions.setSite(authUrl + "/realms/" + clientConfig.getString(ConfigKeys.AUTH_REALM));
+			oauth2ClientOptions.setTenant(clientConfig.getString(ConfigKeys.AUTH_REALM));
+			String authClient = clientConfig.getString(ConfigKeys.AUTH_CLIENT);
+			oauth2ClientOptions.setClientId(authClient);
+			oauth2ClientOptions.setClientSecret(clientConfig.getString(ConfigKeys.AUTH_SECRET));
 			oauth2ClientOptions.setAuthorizationPath("/oauth/authorize");
 			JsonObject extraParams = new JsonObject();
 			extraParams.put("scope", "profile");
 			oauth2ClientOptions.setExtraParameters(extraParams);
 			oauth2ClientOptions.setHttpClientOptions(new HttpClientOptions().setTrustAll(true).setVerifyHost(false).setConnectTimeout(120000));
+			String authCallbackUri = clientConfig.getString(ConfigKeys.AUTH_CALLBACK_URI);
+			if(authCallbackUri == null)
+				throw new RuntimeException(String.format(configureAuthClientAuthCallbackUriEmpty, authClient));
 
 			OpenIDConnectAuth.discover(vertx, oauth2ClientOptions).onSuccess(oauth2AuthenticationProvider -> {
 				authorizationProvider = KeycloakAuthorization.create();
 
-				String callbackUrl = "/callback";
-				ComputateOAuth2AuthHandlerImpl oauth2AuthHandler = new ComputateOAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + "/callback");
+				ComputateOAuth2AuthHandlerImpl oauth2AuthHandler = new ComputateOAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + authCallbackUri);
 //					OAuth2AuthHandlerImpl oauth2AuthHandler = new OAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + callbackUrl);
-				{
-					Router tempRouter = Router.router(vertx);
-					oauth2AuthHandler.setupCallback(tempRouter.get(callbackUrl));
-				}
+				Router tempRouter = Router.router(vertx);
+				oauth2AuthHandler.setupCallback(tempRouter.get(authCallbackUri));
+				authHandlers.put(authClientOpenApiId, oauth2AuthHandler);
+				authProviders.put(authClientOpenApiId, oauth2AuthenticationProvider);
+				LOG.info(String.format(configureAuthClientSuccess, authClient));
 				promise.complete(oauth2AuthHandler);
 			}).onFailure(ex -> {
 				Exception ex2 = new RuntimeException("OpenID Connect Discovery failed", ex);
-				LOG.error(configureAuthPrivateError, ex2);
+				LOG.error(configureAuthClientError, ex2);
 				promise.fail(ex2);
 			});
 		} catch (Exception ex) {
-			LOG.error(configureAuthPrivateError, ex);
-			promise.fail(ex);
-		}
-		return promise.future();
-	}
-
-	/**	
-	 * 
-	 * Val.Error.enUS:Could not configure the auth server and API. 
-	 * Val.Success.enUS:The auth server and API was configured successfully. 
-	 * 
-	 *	Configure the connection to the auth server and setup the routes based on the OpenAPI definition. 
-	 *	Setup a callback route when returning from the auth server after successful authentication. 
-	 *	Setup a logout route for logging out completely of the application. 
-	 *	Return a promise that configures the authentication server and OpenAPI. 
-	 **/
-	public Future<OAuth2AuthHandler> configureAuthPublic() {
-		Promise<OAuth2AuthHandler> promise = Promise.promise();
-		try {
-			String siteBaseUrl = config().getString(ConfigKeys.SITE_BASE_URL);
-
-			OAuth2Options oauth2ClientOptions = new OAuth2Options();
-			Boolean authSsl = config().getBoolean(ConfigKeys.AUTH_SSL);
-			String authHostName = config().getString(ConfigKeys.AUTH_HOST_NAME);
-			Integer authPort = config().getInteger(ConfigKeys.AUTH_PORT);
-			String authUrl = String.format("%s", config().getString(ConfigKeys.AUTH_URL));
-			oauth2ClientOptions.setSite(authUrl + "/realms/" + config().getString(ConfigKeys.AUTH_REALM));
-			oauth2ClientOptions.setTenant(config().getString(ConfigKeys.AUTH_REALM));
-			oauth2ClientOptions.setClientId(config().getString(ConfigKeys.AUTH_CLIENT));
-			oauth2ClientOptions.setClientSecret(config().getString(ConfigKeys.AUTH_SECRET));
-			oauth2ClientOptions.setAuthorizationPath("/oauth/authorize");
-			JsonObject extraParams = new JsonObject();
-			extraParams.put("scope", "profile");
-			oauth2ClientOptions.setExtraParameters(extraParams);
-			oauth2ClientOptions.setHttpClientOptions(new HttpClientOptions().setTrustAll(true).setVerifyHost(false).setConnectTimeout(120000));
-
-			OpenIDConnectAuth.discover(vertx, oauth2ClientOptions).onSuccess(oauth2AuthenticationProvider -> {
-				authorizationProvider = KeycloakAuthorization.create();
-
-				String callbackUrl = "/callback";
-				ComputateOAuth2AuthHandlerImpl oauth2AuthHandler = new ComputateOAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + "/callback");
-//					OAuth2AuthHandlerImpl oauth2AuthHandler = new OAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + callbackUrl);
-				{
-					Router tempRouter = Router.router(vertx);
-					oauth2AuthHandler.setupCallback(tempRouter.get(callbackUrl));
-				}
-				promise.complete(oauth2AuthHandler);
-			}).onFailure(ex -> {
-				Exception ex2 = new RuntimeException("OpenID Connect Discovery failed", ex);
-				LOG.error(configureAuthPublicError, ex2);
-				promise.fail(ex2);
-			});
-		} catch (Exception ex) {
-			LOG.error(configureAuthPublicError, ex);
+			LOG.error(configureAuthClientError, ex);
 			promise.fail(ex);
 		}
 		return promise.future();
@@ -818,132 +777,121 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 		Promise<Void> promise = Promise.promise();
 		try {
 			String siteBaseUrl = config().getString(ConfigKeys.SITE_BASE_URL);
-
-			OAuth2Options oauth2ClientOptions = new OAuth2Options();
-			Boolean authSsl = config().getBoolean(ConfigKeys.AUTH_SSL);
-			String authHostName = config().getString(ConfigKeys.AUTH_HOST_NAME);
-			Integer authPort = config().getInteger(ConfigKeys.AUTH_PORT);
-			String authUrl = String.format("%s", config().getString(ConfigKeys.AUTH_URL));
-			oauth2ClientOptions.setSite(authUrl + "/realms/" + config().getString(ConfigKeys.AUTH_REALM));
-			oauth2ClientOptions.setTenant(config().getString(ConfigKeys.AUTH_REALM));
-			oauth2ClientOptions.setClientId(config().getString(ConfigKeys.AUTH_CLIENT));
-			oauth2ClientOptions.setClientSecret(config().getString(ConfigKeys.AUTH_SECRET));
-			oauth2ClientOptions.setAuthorizationPath("/oauth/authorize");
-			JsonObject extraParams = new JsonObject();
-			extraParams.put("scope", "profile");
-			oauth2ClientOptions.setExtraParameters(extraParams);
-			oauth2ClientOptions.setHttpClientOptions(new HttpClientOptions().setTrustAll(true).setVerifyHost(false).setConnectTimeout(120000));
-
-			OpenIDConnectAuth.discover(vertx, oauth2ClientOptions, a -> {
-				if(a.succeeded()) {
-					oauth2AuthenticationProvider = a.result();
-
-					authorizationProvider = KeycloakAuthorization.create();
-
-					String callbackUrl = "/callback";
-					ComputateOAuth2AuthHandlerImpl oauth2AuthHandler = new ComputateOAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + "/callback");
-//					OAuth2AuthHandlerImpl oauth2AuthHandler = new OAuth2AuthHandlerImpl(vertx, oauth2AuthenticationProvider, siteBaseUrl + callbackUrl);
-					{
-						Router tempRouter = Router.router(vertx);
-						oauth2AuthHandler.setupCallback(tempRouter.get(callbackUrl));
-					}
 			
-					//ClusteredSessionStore sessionStore = ClusteredSessionStore.create(vertx);
-					LocalSessionStore sessionStore = LocalSessionStore.create(vertx, SITE_NAME);
-					SessionHandler sessionHandler = SessionHandler.create(sessionStore);
-					if(StringUtils.startsWith(siteBaseUrl, "https://"))
-						sessionHandler.setCookieSecureFlag(true);
-			
-					RouterBuilder.create(vertx, "webroot/openapi3-enUS.yml").onSuccess(routerBuilder -> {
-						routerBuilder.mountServicesFromExtensions();
-		
-						routerBuilder.serviceExtraPayloadMapper(routingContext -> new JsonObject()
-								.put("uri", routingContext.request().uri())
-								.put("method", routingContext.request().method().name())
-								);
-						routerBuilder.rootHandler(sessionHandler);
-						routerBuilder.securityHandler("openIdConnect", oauth2AuthHandler);
-						routerBuilder.operation("callback").handler(ctx -> {
-		
-							// Handle the callback of the flow
-							final String code = ctx.request().getParam("code");
-		
-							// code is a require value
-							if (code == null) {
-								ctx.fail(400);
-								return;
-							}
-		
-							final String state = ctx.request().getParam("state");
-		
-							final JsonObject config = new JsonObject().put("code", code);
-		
-							config.put("redirectUri", siteBaseUrl + callbackUrl);
-		
-							oauth2AuthenticationProvider.authenticate(config, res -> {
-								if (res.failed()) {
-									LOG.error("Failed to authenticate user. ", res.cause());
-									ctx.fail(res.cause());
-								} else {
-									ctx.setUser(res.result());
-									Session session = ctx.session();
-									if (session != null) {
-										// the user has upgraded from unauthenticated to authenticated
-										// session should be upgraded as recommended by owasp
-										Cookie cookie = Cookie.cookie("sessionIdBefore", session.id());
-										if(StringUtils.startsWith(siteBaseUrl, "https://"))
-											cookie.setSecure(true);
-										ctx.addCookie(cookie);
-										session.regenerateId();
-										String redirectUri = session.get("redirect_uri");
-										// we should redirect the UA so this link becomes invalid
-										ctx.response()
-												// disable all caching
-												.putHeader(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate")
-												.putHeader("Pragma", "no-cache")
-												.putHeader(HttpHeaders.EXPIRES, "0")
-												// redirect (when there is no state, redirect to home
-												.putHeader(HttpHeaders.LOCATION, redirectUri != null ? redirectUri : "/")
-												.setStatusCode(302)
-												.end("Redirecting to " + (redirectUri != null ? redirectUri : "/") + ".");
-									} else {
-										// there is no session object so we cannot keep state
-										ctx.reroute(state != null ? state : "/");
-									}
-								}
-							});
-						});
-						routerBuilder.operation("callback").failureHandler(ex -> {
-							LOG.error("Failed callback. ", ex);
-						});
-		
-						routerBuilder.operation("logout").handler(rc -> {
-							String redirectUri = rc.request().params().get("redirect_uri");
-							if(redirectUri == null)
-								redirectUri = "/";
-							rc.clearUser();
-							rc.response()
-									.putHeader(HttpHeaders.LOCATION, redirectUri)
-									.setStatusCode(302)
-									.end("Redirecting to " + redirectUri + ".");
-						});
-						routerBuilder.operation("logout").handler(c -> {});
-		
-						router = routerBuilder.createRouter();
-//						mountCallback(oauth2AuthenticationProvider, router, callbackUrl, siteBaseUrl + callbackUrl);
-		
-						LOG.info(configureOpenApiSuccess);
-						promise.complete();
+			JsonObject authClients = Optional.ofNullable(config().getValue(ConfigKeys.AUTH_CLIENTS)).map(v -> v instanceof JsonObject ? (JsonObject)v : new JsonObject(v.toString())).orElse(new JsonObject());
+			List<Future<OAuth2AuthHandler>> futures = new ArrayList<>();
+			Map<String, OAuth2AuthHandler> authHandlers = new LinkedHashMap<>();
+			Map<String, OAuth2Auth> authProviders = new LinkedHashMap<>();
+			authClients.fieldNames().forEach(authClientOpenApiId -> {
+				JsonObject authClient = authClients.getJsonObject(authClientOpenApiId);
+				futures.add(Future.future(promise1 -> {
+					configureAuthClient(authClientOpenApiId, authClient, authHandlers, authProviders).onSuccess(a -> {
+						promise1.complete();
 					}).onFailure(ex -> {
-						Exception ex2 = new RuntimeException("OpenID Connect Discovery failed", ex);
-						LOG.error(configureOpenApiError, ex2);
-						promise.fail(ex2);
+						LOG.error(String.format("configureAuthClient failed. "), ex);
+						promise1.fail(ex);
 					});
-				} else {
-					Exception ex = new RuntimeException("OpenID Connect Discovery failed", a.cause());
-					LOG.error(configureOpenApiError, ex);
-					promise.fail(ex);
-				}
+				}));
+			});
+			Future.all(futures).onSuccess(a -> {
+				oauth2AuthenticationProvider = authProviders.get(authProviders.keySet().toArray()[0]);
+				authorizationProvider = KeycloakAuthorization.create();
+		
+				//ClusteredSessionStore sessionStore = ClusteredSessionStore.create(vertx);
+				LocalSessionStore sessionStore = LocalSessionStore.create(vertx, SITE_NAME);
+				SessionHandler sessionHandler = SessionHandler.create(sessionStore);
+				if(StringUtils.startsWith(siteBaseUrl, "https://"))
+					sessionHandler.setCookieSecureFlag(true);
+		
+				RouterBuilder.create(vertx, "webroot/openapi3-enUS.yml").onSuccess(routerBuilder -> {
+					routerBuilder.mountServicesFromExtensions();
+	
+					routerBuilder.serviceExtraPayloadMapper(routingContext -> new JsonObject()
+							.put("uri", routingContext.request().uri())
+							.put("method", routingContext.request().method().name())
+							);
+					routerBuilder.rootHandler(sessionHandler);
+					for(String authClientOpenApiId : authHandlers.keySet()) {
+						OAuth2AuthHandler authHandler = authHandlers.get(authClientOpenApiId);
+						routerBuilder.securityHandler(authClientOpenApiId, authHandler);
+					}
+					routerBuilder.operation("callback").handler(ctx -> {
+	
+						// Handle the callback of the flow
+						final String code = ctx.request().getParam("code");
+	
+						// code is a require value
+						if (code == null) {
+							ctx.fail(400);
+							return;
+						}
+	
+						final String state = ctx.request().getParam("state");
+	
+						final JsonObject config = new JsonObject().put("code", code);
+	
+						String authClientOpenApiId = authHandlers.keySet().stream().findFirst().orElse(null);
+						JsonObject clientConfig = authClients.getJsonObject(authClientOpenApiId);
+						String authCallbackUri = clientConfig.getString(ConfigKeys.AUTH_CALLBACK_URI);
+						config.put("redirectUri", siteBaseUrl + authCallbackUri);
+						OAuth2Auth authProvider = authProviders.get(authClientOpenApiId);
+
+						authProvider.authenticate(config, res -> {
+							if (res.failed()) {
+								LOG.error("Failed to authenticate user. ", res.cause());
+								ctx.fail(res.cause());
+							} else {
+								ctx.setUser(res.result());
+								Session session = ctx.session();
+								if (session != null) {
+									// the user has upgraded from unauthenticated to authenticated
+									// session should be upgraded as recommended by owasp
+									Cookie cookie = Cookie.cookie("sessionIdBefore", session.id());
+									if(StringUtils.startsWith(siteBaseUrl, "https://"))
+										cookie.setSecure(true);
+									ctx.addCookie(cookie);
+									session.regenerateId();
+									String redirectUri = session.get("redirect_uri");
+									// we should redirect the UA so this link becomes invalid
+									ctx.response()
+											// disable all caching
+											.putHeader(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate")
+											.putHeader("Pragma", "no-cache")
+											.putHeader(HttpHeaders.EXPIRES, "0")
+											// redirect (when there is no state, redirect to home
+											.putHeader(HttpHeaders.LOCATION, redirectUri != null ? redirectUri : "/")
+											.setStatusCode(302)
+											.end("Redirecting to " + (redirectUri != null ? redirectUri : "/") + ".");
+								} else {
+									// there is no session object so we cannot keep state
+									ctx.reroute(state != null ? state : "/");
+								}
+							}
+						});
+	
+					});
+					routerBuilder.operation("callback").failureHandler(ex -> {
+						LOG.error("Failed callback. ", ex);
+					});
+	
+					routerBuilder.operation("logout").handler(rc -> {
+						String redirectUri = rc.request().params().get("redirect_uri");
+						if(redirectUri == null)
+							redirectUri = "/";
+						rc.clearUser();
+						rc.response()
+								.putHeader(HttpHeaders.LOCATION, redirectUri)
+								.setStatusCode(302)
+								.end("Redirecting to " + redirectUri + ".");
+					});
+					routerBuilder.operation("logout").handler(c -> {});
+	
+					router = routerBuilder.createRouter();
+	//						mountCallback(oauth2AuthenticationProvider, router, callbackUrl, siteBaseUrl + callbackUrl);
+	
+					LOG.info(configureOpenApiSuccess);
+					promise.complete();
+				});
 			});
 		} catch (Exception ex) {
 			LOG.error(configureOpenApiError, ex);
