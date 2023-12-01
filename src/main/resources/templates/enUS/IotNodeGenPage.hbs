@@ -48,7 +48,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketIotNode(vars, $response) {
+			function jsWebsocketIotNode(, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -68,9 +68,6 @@
 {{#*inline "jsWebsocketIotNodePage"}}{{/inline}}
 {{#*inline "jsTooltipIotNodePage"}}{{/inline}}
 {{#*inline "htmTooltipIotNodePage"}}{{/inline}}
-{{#partial "jsWebsocket"}}{{> jsWebsocketIotNodePage}}{{/partial}}
-{{#partial "jsTooltip"}}{{> jsTooltipIotNodePage}}{{/partial}}
-{{#partial "htmTooltip"}}{{> htmTooltipIotNodePage}}{{/partial}}
 {{#*inline "htmUrlIotNode"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadIotNodePage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchIotNodePage"}}								<!-- #*inline "htmBodySearchIotNodePage" -->

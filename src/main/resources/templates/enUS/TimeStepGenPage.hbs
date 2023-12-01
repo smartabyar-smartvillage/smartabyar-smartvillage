@@ -48,7 +48,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketTimeStep(vars, $response) {
+			function jsWebsocketTimeStep(, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -68,9 +68,6 @@
 {{#*inline "jsWebsocketTimeStepPage"}}{{/inline}}
 {{#*inline "jsTooltipTimeStepPage"}}{{/inline}}
 {{#*inline "htmTooltipTimeStepPage"}}{{/inline}}
-{{#partial "jsWebsocket"}}{{> jsWebsocketTimeStepPage}}{{/partial}}
-{{#partial "jsTooltip"}}{{> jsTooltipTimeStepPage}}{{/partial}}
-{{#partial "htmTooltip"}}{{> htmTooltipTimeStepPage}}{{/partial}}
 {{#*inline "htmUrlTimeStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTimeStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTimeStepPage"}}								<!-- #*inline "htmBodySearchTimeStepPage" -->

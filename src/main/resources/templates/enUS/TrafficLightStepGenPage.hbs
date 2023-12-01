@@ -48,7 +48,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketTrafficLightStep(vars, $response) {
+			function jsWebsocketTrafficLightStep(, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -68,9 +68,6 @@
 {{#*inline "jsWebsocketTrafficLightStepPage"}}{{/inline}}
 {{#*inline "jsTooltipTrafficLightStepPage"}}{{/inline}}
 {{#*inline "htmTooltipTrafficLightStepPage"}}{{/inline}}
-{{#partial "jsWebsocket"}}{{> jsWebsocketTrafficLightStepPage}}{{/partial}}
-{{#partial "jsTooltip"}}{{> jsTooltipTrafficLightStepPage}}{{/partial}}
-{{#partial "htmTooltip"}}{{> htmTooltipTrafficLightStepPage}}{{/partial}}
 {{#*inline "htmUrlTrafficLightStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTrafficLightStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTrafficLightStepPage"}}								<!-- #*inline "htmBodySearchTrafficLightStepPage" -->

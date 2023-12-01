@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObservedGen;
@@ -113,7 +114,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 		if(trafficSimulationId != null) {
 			l.setC(TrafficSimulation.class);
 			l.q("*:*");
-			l.fq(String.format(TrafficSimulation.VAR_entityId + "_docvalues_string:%s", trafficSimulationId));
+			l.fq(String.format(TrafficSimulation.VAR_entityId + "_docvalues_string:%s", SearchTool.escapeQueryChars(trafficSimulationId)));
 			l.setStore(true);
 		}
 		promise.complete(l);

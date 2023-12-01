@@ -58,7 +58,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketSmartTrafficLight(vars, $response) {
+			function jsWebsocketSmartTrafficLight(pk, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -78,9 +78,6 @@
 {{#*inline "jsWebsocketSmartTrafficLightPage"}}{{/inline}}
 {{#*inline "jsTooltipSmartTrafficLightPage"}}{{/inline}}
 {{#*inline "htmTooltipSmartTrafficLightPage"}}{{/inline}}
-{{#partial "jsWebsocket"}}{{> jsWebsocketSmartTrafficLightPage}}{{/partial}}
-{{#partial "jsTooltip"}}{{> jsTooltipSmartTrafficLightPage}}{{/partial}}
-{{#partial "htmTooltip"}}{{> htmTooltipSmartTrafficLightPage}}{{/partial}}
 {{#*inline "htmUrlSmartTrafficLight"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadSmartTrafficLightPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchSmartTrafficLightPage"}}								<!-- #*inline "htmBodySearchSmartTrafficLightPage" -->

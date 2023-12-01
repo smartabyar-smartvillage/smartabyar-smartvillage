@@ -48,7 +48,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketBicycleStep(vars, $response) {
+			function jsWebsocketBicycleStep(, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -68,9 +68,6 @@
 {{#*inline "jsWebsocketBicycleStepPage"}}{{/inline}}
 {{#*inline "jsTooltipBicycleStepPage"}}{{/inline}}
 {{#*inline "htmTooltipBicycleStepPage"}}{{/inline}}
-{{#partial "jsWebsocket"}}{{> jsWebsocketBicycleStepPage}}{{/partial}}
-{{#partial "jsTooltip"}}{{> jsTooltipBicycleStepPage}}{{/partial}}
-{{#partial "htmTooltip"}}{{> htmTooltipBicycleStepPage}}{{/partial}}
 {{#*inline "htmUrlBicycleStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadBicycleStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchBicycleStepPage"}}								<!-- #*inline "htmBodySearchBicycleStepPage" -->

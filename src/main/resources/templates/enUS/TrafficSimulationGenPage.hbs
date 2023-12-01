@@ -58,7 +58,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketTrafficSimulation(vars, $response) {
+			function jsWebsocketTrafficSimulation(pk, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -78,9 +78,6 @@
 {{#*inline "jsWebsocketTrafficSimulationPage"}}{{/inline}}
 {{#*inline "jsTooltipTrafficSimulationPage"}}{{/inline}}
 {{#*inline "htmTooltipTrafficSimulationPage"}}{{/inline}}
-{{#partial "jsWebsocket"}}{{> jsWebsocketTrafficSimulationPage}}{{/partial}}
-{{#partial "jsTooltip"}}{{> jsTooltipTrafficSimulationPage}}{{/partial}}
-{{#partial "htmTooltip"}}{{> htmTooltipTrafficSimulationPage}}{{/partial}}
 {{#*inline "htmUrlTrafficSimulation"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTrafficSimulationPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTrafficSimulationPage"}}								<!-- #*inline "htmBodySearchTrafficSimulationPage" -->

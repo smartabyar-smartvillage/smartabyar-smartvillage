@@ -1,11 +1,4 @@
 {{#eq classSimpleName "TrafficFlowObserved"}}
-{{#partial "htmHead"}}{{> htmHeadTrafficFlowObservedPage}}{{/partial}}
-{{#partial "htmTitle"}}{{> htmTitleTrafficFlowObservedPage}}{{/partial}}
-{{#partial "htmMeta"}}{{> htmMetaTrafficFlowObservedPage}}{{/partial}}
-{{#partial "htmStyle"}}{{> htmStyleTrafficFlowObservedPage}}{{/partial}}
-{{#partial "htmScripts"}}{{> htmScriptsTrafficFlowObservedPage}}{{/partial}}
-{{#partial "htmScript"}}{{> htmScriptTrafficFlowObservedPage}}{{/partial}}
-{{#partial "websocket"}}{{> websocketTrafficFlowObservedPage}}{{/partial}}
 {{#partial "jsWebsocket"}}
           if(vars.includes('customMinGreenTime') || vars.includes('customMaxGreenTime')) {
             $('#feature-' + pk + '-customMinGreenTime-slider-range').slider('values', [parseInt($response.find('.Page_customMinGreenTime').val()), parseInt($response.find('.Page_customMaxGreenTime').val())]);
@@ -43,8 +36,15 @@
     <div id="feature-${feature.properties.pk}-customMinGreenTime-slider-handle" class="ui-slider-handle"></div>
     <div id="feature-${feature.properties.pk}-customMaxGreenTime-slider-handle" class="ui-slider-handle"></div>
   </div>
-  <div><span class="">Queue length threshold: </span><input type="text" placeholder="queue length threshold" title="Demand scaling factor (multiplies all vehicle demands) [1, 2]. " id="Page_customQueueLengthThreshold" class="Page_customQueueLengthThreshold setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved4CustomQueueLengthThreshold w3-input w3-border " name="setCustomQueueLengthThreshold" onclick="removeGlow($(this)); " onchange="patchTrafficFlowObservedVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:4' }], 'setCustomQueueLengthThreshold', $(this).val(), function() { addGlow($('#Page_customQueueLengthThreshold')); }, function() { addError($('#Page_customQueueLengthThreshold')); }); " value="${feature.properties.customQueueLengthThreshold}"></div>
+  <div><span class="">Queue length threshold: </span><input type="text" placeholder="queue length threshold" title="Demand scaling factor (multiplies all vehicle demands) [1, 2]. " id="Page_customQueueLengthThreshold" class="Page_customQueueLengthThreshold setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved4CustomQueueLengthThreshold w3-input w3-border " name="setCustomQueueLengthThreshold" onclick="removeGlow($(this)); " onchange="patchTrafficFlowObservedVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:${feature.properties.pk}' }], 'setCustomQueueLengthThreshold', $(this).val(), function() { addGlow($('#Page_customQueueLengthThreshold')); }, function() { addError($('#Page_customQueueLengthThreshold')); }); " value="${feature.properties.customQueueLengthThreshold}"></div>
 {{/partial}}
+{{#partial "htmHead"}}{{> htmHeadTrafficFlowObservedPage}}{{/partial}}
+{{#partial "htmTitle"}}{{> htmTitleTrafficFlowObservedPage}}{{/partial}}
+{{#partial "htmMeta"}}{{> htmMetaTrafficFlowObservedPage}}{{/partial}}
+{{#partial "htmStyle"}}{{> htmStyleTrafficFlowObservedPage}}{{/partial}}
+{{#partial "htmScripts"}}{{> htmScriptsTrafficFlowObservedPage}}{{/partial}}
+{{#partial "websocket"}}{{> websocketTrafficFlowObservedPage}}{{/partial}}
+{{#partial "htmScript"}}{{> htmScriptTrafficFlowObservedPage}}{{/partial}}
 {{#partial "htmBodySidebar"}}{{> htmBodySidebarTrafficFlowObservedPage}}{{/partial}}
 {{#partial "htmBodyStart"}}{{> htmBodyStartTrafficFlowObservedPage}}{{/partial}}
 {{#partial "htmBodyMiddle"}}{{> htmBodyMiddleTrafficFlowObservedPage}}{{/partial}}

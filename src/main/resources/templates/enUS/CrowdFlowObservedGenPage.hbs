@@ -48,7 +48,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketCrowdFlowObserved(vars, $response) {
+			function jsWebsocketCrowdFlowObserved(pk, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -68,9 +68,6 @@
 {{#*inline "jsWebsocketCrowdFlowObservedPage"}}{{/inline}}
 {{#*inline "jsTooltipCrowdFlowObservedPage"}}{{/inline}}
 {{#*inline "htmTooltipCrowdFlowObservedPage"}}{{/inline}}
-{{#partial "jsWebsocket"}}{{> jsWebsocketCrowdFlowObservedPage}}{{/partial}}
-{{#partial "jsTooltip"}}{{> jsTooltipCrowdFlowObservedPage}}{{/partial}}
-{{#partial "htmTooltip"}}{{> htmTooltipCrowdFlowObservedPage}}{{/partial}}
 {{#*inline "htmUrlCrowdFlowObserved"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadCrowdFlowObservedPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchCrowdFlowObservedPage"}}								<!-- #*inline "htmBodySearchCrowdFlowObservedPage" -->
