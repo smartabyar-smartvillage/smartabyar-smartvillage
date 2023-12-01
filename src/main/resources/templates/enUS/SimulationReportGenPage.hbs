@@ -67,12 +67,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketSimulationReport(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipSimulationReport(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipSimulationReport(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketSimulationReportPage"}}
 				<!-- inline "websocketSimulationReportPage" -->
 				websocketSimulationReport(websocketSimulationReportInner);
 {{/inline}}
+{{#*inline "jsWebsocketSimulationReportPage"}}{{/inline}}
+{{#*inline "jsTooltipSimulationReportPage"}}{{/inline}}
+{{#*inline "htmTooltipSimulationReportPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketSimulationReportPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipSimulationReportPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipSimulationReportPage}}{{/partial}}
 {{#*inline "htmUrlSimulationReport"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadSimulationReportPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchSimulationReportPage"}}								<!-- #*inline "htmBodySearchSimulationReportPage" -->
@@ -2531,19 +2549,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classSimulationReport inputSimulationReport{{pk}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classSimulationReport inputSimulationReport{{pk}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classSimulationReport inputSimulationReport{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classSimulationReport inputSimulationReport{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classSimulationReport inputSimulationReport{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classSimulationReport inputSimulationReport{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if simulationReport_.archived}}
@@ -2599,19 +2617,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classSimulationReport inputSimulationReport{{pk}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classSimulationReport inputSimulationReport{{pk}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classSimulationReport inputSimulationReport{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classSimulationReport inputSimulationReport{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classSimulationReport inputSimulationReport{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classSimulationReport inputSimulationReport{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if simulationReport_.deleted}}
@@ -2662,14 +2680,14 @@
 															placeholder="report name"
 															id="{{classApiMethodMethod}}_reportName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setReportName classSimulationReport inputSimulationReport{{pk}}ReportName w3-input w3-border "
+																class="{{classApiMethodMethod}}_reportName setReportName classSimulationReport inputSimulationReport{{pk}}ReportName w3-input w3-border "
 																name="setReportName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setReportName classSimulationReport inputSimulationReport{{pk}}ReportName w3-input w3-border "
+																class="{{classApiMethodMethod}}_reportName setReportName classSimulationReport inputSimulationReport{{pk}}ReportName w3-input w3-border "
 																name="setReportName"
 		{{else}}
-																class="valueReportName w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ReportName w3-input w3-border "
+																{{classApiMethodMethod}}_reportName" class="valueReportName w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ReportName w3-input w3-border "
 																name="reportName"
 		{{/eq}}
 	{{/eq}}
@@ -2718,14 +2736,14 @@
 															placeholder="map location"
 															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classSimulationReport inputSimulationReport{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classSimulationReport inputSimulationReport{{pk}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classSimulationReport inputSimulationReport{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classSimulationReport inputSimulationReport{{pk}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classSimulationReport inputSimulationReport{{pk}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classSimulationReport inputSimulationReport{{pk}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}
@@ -2803,7 +2821,7 @@
 																<input 
 																	type="checkbox"
 																	id="{{classApiMethodMethod}}_simulationKey_clear"
-																	class="simulationKey_clear "
+																	class="classApiMethodMethod}}_simulationKey_clear simulationKey_clear "
 																	>
 																<label for="{{classApiMethodMethod}}_simulationKey_clear">clear</label>
 															</div>
@@ -2811,7 +2829,7 @@
 														<input
 																type="text"
 																placeholder="traffic simulation"
-																title="The traffic simulation for this report. "															class="valueObjectSuggest suggestSimulationKey w3-input w3-border w3-cell w3-cell-middle "
+																title="The traffic simulation for this report. "															class="{{classApiMethodMethod}}_simulationKey valueObjectSuggest suggestSimulationKey w3-input w3-border w3-cell w3-cell-middle "
 															name="setSimulationKey"
 															id="{{classApiMethodMethod}}_simulationKey"
 															autocomplete="off"
@@ -2880,7 +2898,7 @@
 																<input 
 																	type="checkbox"
 																	id="{{classApiMethodMethod}}_smartTrafficLightKey_clear"
-																	class="smartTrafficLightKey_clear "
+																	class="classApiMethodMethod}}_smartTrafficLightKey_clear smartTrafficLightKey_clear "
 																	>
 																<label for="{{classApiMethodMethod}}_smartTrafficLightKey_clear">clear</label>
 															</div>
@@ -2888,7 +2906,7 @@
 														<input
 																type="text"
 																placeholder="smart traffic light"
-																title="The smart traffic light for this report. "															class="valueObjectSuggest suggestSmartTrafficLightKey w3-input w3-border w3-cell w3-cell-middle "
+																title="The smart traffic light for this report. "															class="{{classApiMethodMethod}}_smartTrafficLightKey valueObjectSuggest suggestSmartTrafficLightKey w3-input w3-border w3-cell w3-cell-middle "
 															name="setSmartTrafficLightKey"
 															id="{{classApiMethodMethod}}_smartTrafficLightKey"
 															autocomplete="off"
@@ -2921,14 +2939,14 @@
 															placeholder="Average vehicle/min from WEST to EAST"
 															title="[1, 30] corresponding to 1st value in list"															id="{{classApiMethodMethod}}_paramAvgVehiclePerMinFromWestToEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamAvgVehiclePerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromWestToEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgVehiclePerMinFromWestToEast setParamAvgVehiclePerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromWestToEast w3-input w3-border "
 																name="setParamAvgVehiclePerMinFromWestToEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamAvgVehiclePerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromWestToEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgVehiclePerMinFromWestToEast setParamAvgVehiclePerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromWestToEast w3-input w3-border "
 																name="setParamAvgVehiclePerMinFromWestToEast"
 		{{else}}
-																class="valueParamAvgVehiclePerMinFromWestToEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromWestToEast w3-input w3-border "
+																{{classApiMethodMethod}}_paramAvgVehiclePerMinFromWestToEast" class="valueParamAvgVehiclePerMinFromWestToEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromWestToEast w3-input w3-border "
 																name="paramAvgVehiclePerMinFromWestToEast"
 		{{/eq}}
 	{{/eq}}
@@ -2970,14 +2988,14 @@
 															placeholder="Average vehicle/min from SOUTH to NORTH"
 															title="[1, 30] corresponding to 2nd value in list"															id="{{classApiMethodMethod}}_paramAvgVehiclePerMinFromSouthToNorth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamAvgVehiclePerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgVehiclePerMinFromSouthToNorth setParamAvgVehiclePerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border "
 																name="setParamAvgVehiclePerMinFromSouthToNorth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamAvgVehiclePerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgVehiclePerMinFromSouthToNorth setParamAvgVehiclePerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border "
 																name="setParamAvgVehiclePerMinFromSouthToNorth"
 		{{else}}
-																class="valueParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border "
+																{{classApiMethodMethod}}_paramAvgVehiclePerMinFromSouthToNorth" class="valueParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgVehiclePerMinFromSouthToNorth w3-input w3-border "
 																name="paramAvgVehiclePerMinFromSouthToNorth"
 		{{/eq}}
 	{{/eq}}
@@ -3019,14 +3037,14 @@
 															placeholder="Demand scaling factor (multiplies all vehicle demands)"
 															title="[1, 2] corresponding to &quot;demand scale&quot;"															id="{{classApiMethodMethod}}_paramVehicleDemandScalingFactor"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamVehicleDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleDemandScalingFactor setParamVehicleDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
 																name="setParamVehicleDemandScalingFactor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamVehicleDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleDemandScalingFactor setParamVehicleDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
 																name="setParamVehicleDemandScalingFactor"
 		{{else}}
-																class="valueParamVehicleDemandScalingFactor w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
+																{{classApiMethodMethod}}_paramVehicleDemandScalingFactor" class="valueParamVehicleDemandScalingFactor w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
 																name="paramVehicleDemandScalingFactor"
 		{{/eq}}
 	{{/eq}}
@@ -3068,14 +3086,14 @@
 															placeholder="Average pedestrian/min from WEST to EAST"
 															title="[1, 30] corresponding to 3rd value in list"															id="{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromWestToEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamAvgPedestrianPerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromWestToEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromWestToEast setParamAvgPedestrianPerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromWestToEast w3-input w3-border "
 																name="setParamAvgPedestrianPerMinFromWestToEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamAvgPedestrianPerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromWestToEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromWestToEast setParamAvgPedestrianPerMinFromWestToEast classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromWestToEast w3-input w3-border "
 																name="setParamAvgPedestrianPerMinFromWestToEast"
 		{{else}}
-																class="valueParamAvgPedestrianPerMinFromWestToEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromWestToEast w3-input w3-border "
+																{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromWestToEast" class="valueParamAvgPedestrianPerMinFromWestToEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromWestToEast w3-input w3-border "
 																name="paramAvgPedestrianPerMinFromWestToEast"
 		{{/eq}}
 	{{/eq}}
@@ -3117,14 +3135,14 @@
 															placeholder="Average pedestrian/min from WEST to EAST"
 															title="[1, 30] corresponding to 4th value in list"															id="{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromSouthToNorth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamAvgPedestrianPerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromSouthToNorth setParamAvgPedestrianPerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border "
 																name="setParamAvgPedestrianPerMinFromSouthToNorth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamAvgPedestrianPerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromSouthToNorth setParamAvgPedestrianPerMinFromSouthToNorth classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border "
 																name="setParamAvgPedestrianPerMinFromSouthToNorth"
 		{{else}}
-																class="valueParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border "
+																{{classApiMethodMethod}}_paramAvgPedestrianPerMinFromSouthToNorth" class="valueParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamAvgPedestrianPerMinFromSouthToNorth w3-input w3-border "
 																name="paramAvgPedestrianPerMinFromSouthToNorth"
 		{{/eq}}
 	{{/eq}}
@@ -3166,14 +3184,14 @@
 															placeholder="Demand scaling factor (multiplies all pedestrian demands)"
 															title="[1, 2] corresponding to &quot;demand scale&quot;"															id="{{classApiMethodMethod}}_paramPedestrianDemandScalingFactor"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamPedestrianDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamPedestrianDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianDemandScalingFactor setParamPedestrianDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamPedestrianDemandScalingFactor w3-input w3-border "
 																name="setParamPedestrianDemandScalingFactor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamPedestrianDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamPedestrianDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianDemandScalingFactor setParamPedestrianDemandScalingFactor classSimulationReport inputSimulationReport{{pk}}ParamPedestrianDemandScalingFactor w3-input w3-border "
 																name="setParamPedestrianDemandScalingFactor"
 		{{else}}
-																class="valueParamPedestrianDemandScalingFactor w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianDemandScalingFactor w3-input w3-border "
+																{{classApiMethodMethod}}_paramPedestrianDemandScalingFactor" class="valueParamPedestrianDemandScalingFactor w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianDemandScalingFactor w3-input w3-border "
 																name="paramPedestrianDemandScalingFactor"
 		{{/eq}}
 	{{/eq}}
@@ -3215,14 +3233,14 @@
 															placeholder="Min GREEN time for WEST-EAST traffic (sec)"
 															title="[1, 50]"															id="{{classApiMethodMethod}}_paramMinGreenTimeSecWestEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamMinGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMinGreenTimeSecWestEast setParamMinGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecWestEast w3-input w3-border "
 																name="setParamMinGreenTimeSecWestEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamMinGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMinGreenTimeSecWestEast setParamMinGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecWestEast w3-input w3-border "
 																name="setParamMinGreenTimeSecWestEast"
 		{{else}}
-																class="valueParamMinGreenTimeSecWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecWestEast w3-input w3-border "
+																{{classApiMethodMethod}}_paramMinGreenTimeSecWestEast" class="valueParamMinGreenTimeSecWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecWestEast w3-input w3-border "
 																name="paramMinGreenTimeSecWestEast"
 		{{/eq}}
 	{{/eq}}
@@ -3264,14 +3282,14 @@
 															placeholder="Max GREEN time for WEST-EAST traffic (sec)"
 															title="[1, 100], also greater than min value"															id="{{classApiMethodMethod}}_paramMaxGreenTimeSecWestEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamMaxGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMaxGreenTimeSecWestEast setParamMaxGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecWestEast w3-input w3-border "
 																name="setParamMaxGreenTimeSecWestEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamMaxGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMaxGreenTimeSecWestEast setParamMaxGreenTimeSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecWestEast w3-input w3-border "
 																name="setParamMaxGreenTimeSecWestEast"
 		{{else}}
-																class="valueParamMaxGreenTimeSecWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecWestEast w3-input w3-border "
+																{{classApiMethodMethod}}_paramMaxGreenTimeSecWestEast" class="valueParamMaxGreenTimeSecWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecWestEast w3-input w3-border "
 																name="paramMaxGreenTimeSecWestEast"
 		{{/eq}}
 	{{/eq}}
@@ -3313,14 +3331,14 @@
 															placeholder="Min GREEN time for SOUTH-NORTH traffic (sec)"
 															title="[1, 50]"															id="{{classApiMethodMethod}}_paramMinGreenTimeSecSouthNorth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamMinGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecSouthNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMinGreenTimeSecSouthNorth setParamMinGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecSouthNorth w3-input w3-border "
 																name="setParamMinGreenTimeSecSouthNorth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamMinGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecSouthNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMinGreenTimeSecSouthNorth setParamMinGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecSouthNorth w3-input w3-border "
 																name="setParamMinGreenTimeSecSouthNorth"
 		{{else}}
-																class="valueParamMinGreenTimeSecSouthNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecSouthNorth w3-input w3-border "
+																{{classApiMethodMethod}}_paramMinGreenTimeSecSouthNorth" class="valueParamMinGreenTimeSecSouthNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMinGreenTimeSecSouthNorth w3-input w3-border "
 																name="paramMinGreenTimeSecSouthNorth"
 		{{/eq}}
 	{{/eq}}
@@ -3362,14 +3380,14 @@
 															placeholder="Max GREEN time for SOUTH-NORTH traffic (sec)"
 															title="[1, 100], also greater than min value"															id="{{classApiMethodMethod}}_paramMaxGreenTimeSecSouthNorth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamMaxGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecSouthNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMaxGreenTimeSecSouthNorth setParamMaxGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecSouthNorth w3-input w3-border "
 																name="setParamMaxGreenTimeSecSouthNorth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamMaxGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecSouthNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramMaxGreenTimeSecSouthNorth setParamMaxGreenTimeSecSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecSouthNorth w3-input w3-border "
 																name="setParamMaxGreenTimeSecSouthNorth"
 		{{else}}
-																class="valueParamMaxGreenTimeSecSouthNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecSouthNorth w3-input w3-border "
+																{{classApiMethodMethod}}_paramMaxGreenTimeSecSouthNorth" class="valueParamMaxGreenTimeSecSouthNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamMaxGreenTimeSecSouthNorth w3-input w3-border "
 																name="paramMaxGreenTimeSecSouthNorth"
 		{{/eq}}
 	{{/eq}}
@@ -3411,14 +3429,14 @@
 															placeholder="Pedestrian waiting time tolerance threshold for NORTH-SOUTH (sec)"
 															title="[1, 60]"															id="{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecNorthSouth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamPedestrianWaitThresholdSecNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecNorthSouth setParamPedestrianWaitThresholdSecNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border "
 																name="setParamPedestrianWaitThresholdSecNorthSouth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamPedestrianWaitThresholdSecNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecNorthSouth setParamPedestrianWaitThresholdSecNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border "
 																name="setParamPedestrianWaitThresholdSecNorthSouth"
 		{{else}}
-																class="valueParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border "
+																{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecNorthSouth" class="valueParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecNorthSouth w3-input w3-border "
 																name="paramPedestrianWaitThresholdSecNorthSouth"
 		{{/eq}}
 	{{/eq}}
@@ -3460,14 +3478,14 @@
 															placeholder="Pedestrian waiting time tolerance threshold for WEST-EAST (sec)"
 															title="[1, 60]"															id="{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecWestEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamPedestrianWaitThresholdSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecWestEast setParamPedestrianWaitThresholdSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecWestEast w3-input w3-border "
 																name="setParamPedestrianWaitThresholdSecWestEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamPedestrianWaitThresholdSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecWestEast setParamPedestrianWaitThresholdSecWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecWestEast w3-input w3-border "
 																name="setParamPedestrianWaitThresholdSecWestEast"
 		{{else}}
-																class="valueParamPedestrianWaitThresholdSecWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecWestEast w3-input w3-border "
+																{{classApiMethodMethod}}_paramPedestrianWaitThresholdSecWestEast" class="valueParamPedestrianWaitThresholdSecWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianWaitThresholdSecWestEast w3-input w3-border "
 																name="paramPedestrianWaitThresholdSecWestEast"
 		{{/eq}}
 	{{/eq}}
@@ -3509,14 +3527,14 @@
 															placeholder="Vehicle queue length threshold between low-high content for WEST-EAST"
 															title="[1, 15]"															id="{{classApiMethodMethod}}_paramVehicleQueueThresholdWestEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamVehicleQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleQueueThresholdWestEast setParamVehicleQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdWestEast w3-input w3-border "
 																name="setParamVehicleQueueThresholdWestEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamVehicleQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleQueueThresholdWestEast setParamVehicleQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdWestEast w3-input w3-border "
 																name="setParamVehicleQueueThresholdWestEast"
 		{{else}}
-																class="valueParamVehicleQueueThresholdWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdWestEast w3-input w3-border "
+																{{classApiMethodMethod}}_paramVehicleQueueThresholdWestEast" class="valueParamVehicleQueueThresholdWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdWestEast w3-input w3-border "
 																name="paramVehicleQueueThresholdWestEast"
 		{{/eq}}
 	{{/eq}}
@@ -3558,14 +3576,14 @@
 															placeholder="Vehicle queue length threshold between low-high content for SOUTH-NORTH"
 															title="[1, 15]"															id="{{classApiMethodMethod}}_paramVehicleQueueThresholdSouthNorth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamVehicleQueueThresholdSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdSouthNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleQueueThresholdSouthNorth setParamVehicleQueueThresholdSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdSouthNorth w3-input w3-border "
 																name="setParamVehicleQueueThresholdSouthNorth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamVehicleQueueThresholdSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdSouthNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleQueueThresholdSouthNorth setParamVehicleQueueThresholdSouthNorth classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdSouthNorth w3-input w3-border "
 																name="setParamVehicleQueueThresholdSouthNorth"
 		{{else}}
-																class="valueParamVehicleQueueThresholdSouthNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdSouthNorth w3-input w3-border "
+																{{classApiMethodMethod}}_paramVehicleQueueThresholdSouthNorth" class="valueParamVehicleQueueThresholdSouthNorth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamVehicleQueueThresholdSouthNorth w3-input w3-border "
 																name="paramVehicleQueueThresholdSouthNorth"
 		{{/eq}}
 	{{/eq}}
@@ -3607,14 +3625,14 @@
 															placeholder="Pedestrian queue length threshold between low-high content for NORTH-SOUTH"
 															title="[1, 15]"															id="{{classApiMethodMethod}}_paramPedestrianQueueThresholdNorthSouth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamPedestrianQueueThresholdNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdNorthSouth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianQueueThresholdNorthSouth setParamPedestrianQueueThresholdNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdNorthSouth w3-input w3-border "
 																name="setParamPedestrianQueueThresholdNorthSouth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamPedestrianQueueThresholdNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdNorthSouth w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianQueueThresholdNorthSouth setParamPedestrianQueueThresholdNorthSouth classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdNorthSouth w3-input w3-border "
 																name="setParamPedestrianQueueThresholdNorthSouth"
 		{{else}}
-																class="valueParamPedestrianQueueThresholdNorthSouth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdNorthSouth w3-input w3-border "
+																{{classApiMethodMethod}}_paramPedestrianQueueThresholdNorthSouth" class="valueParamPedestrianQueueThresholdNorthSouth w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdNorthSouth w3-input w3-border "
 																name="paramPedestrianQueueThresholdNorthSouth"
 		{{/eq}}
 	{{/eq}}
@@ -3656,14 +3674,14 @@
 															placeholder="Pedestrian queue length threshold between low-high content for WEST-EAST"
 															title="[1, 15]"															id="{{classApiMethodMethod}}_paramPedestrianQueueThresholdWestEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamPedestrianQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianQueueThresholdWestEast setParamPedestrianQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdWestEast w3-input w3-border "
 																name="setParamPedestrianQueueThresholdWestEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamPedestrianQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdWestEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramPedestrianQueueThresholdWestEast setParamPedestrianQueueThresholdWestEast classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdWestEast w3-input w3-border "
 																name="setParamPedestrianQueueThresholdWestEast"
 		{{else}}
-																class="valueParamPedestrianQueueThresholdWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdWestEast w3-input w3-border "
+																{{classApiMethodMethod}}_paramPedestrianQueueThresholdWestEast" class="valueParamPedestrianQueueThresholdWestEast w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamPedestrianQueueThresholdWestEast w3-input w3-border "
 																name="paramPedestrianQueueThresholdWestEast"
 		{{/eq}}
 	{{/eq}}
@@ -3705,14 +3723,14 @@
 															placeholder="Simulation time step (sec)"
 															title="[0.5, 2.0]"															id="{{classApiMethodMethod}}_paramStepSize"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamStepSize classSimulationReport inputSimulationReport{{pk}}ParamStepSize w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramStepSize setParamStepSize classSimulationReport inputSimulationReport{{pk}}ParamStepSize w3-input w3-border "
 																name="setParamStepSize"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamStepSize classSimulationReport inputSimulationReport{{pk}}ParamStepSize w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramStepSize setParamStepSize classSimulationReport inputSimulationReport{{pk}}ParamStepSize w3-input w3-border "
 																name="setParamStepSize"
 		{{else}}
-																class="valueParamStepSize w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamStepSize w3-input w3-border "
+																{{classApiMethodMethod}}_paramStepSize" class="valueParamStepSize w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamStepSize w3-input w3-border "
 																name="paramStepSize"
 		{{/eq}}
 	{{/eq}}
@@ -3754,14 +3772,14 @@
 															placeholder="time for each round of traffic simulation (sec)"
 															title="[500, 3600]"															id="{{classApiMethodMethod}}_paramRunTime"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamRunTime classSimulationReport inputSimulationReport{{pk}}ParamRunTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramRunTime setParamRunTime classSimulationReport inputSimulationReport{{pk}}ParamRunTime w3-input w3-border "
 																name="setParamRunTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamRunTime classSimulationReport inputSimulationReport{{pk}}ParamRunTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramRunTime setParamRunTime classSimulationReport inputSimulationReport{{pk}}ParamRunTime w3-input w3-border "
 																name="setParamRunTime"
 		{{else}}
-																class="valueParamRunTime w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamRunTime w3-input w3-border "
+																{{classApiMethodMethod}}_paramRunTime" class="valueParamRunTime w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamRunTime w3-input w3-border "
 																name="paramRunTime"
 		{{/eq}}
 	{{/eq}}
@@ -3803,14 +3821,14 @@
 															placeholder="Number of simulation repetitions with same input (for statistical accuracy)"
 															title="[1, 30]"															id="{{classApiMethodMethod}}_paramItersPerPar"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamItersPerPar classSimulationReport inputSimulationReport{{pk}}ParamItersPerPar w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramItersPerPar setParamItersPerPar classSimulationReport inputSimulationReport{{pk}}ParamItersPerPar w3-input w3-border "
 																name="setParamItersPerPar"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamItersPerPar classSimulationReport inputSimulationReport{{pk}}ParamItersPerPar w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramItersPerPar setParamItersPerPar classSimulationReport inputSimulationReport{{pk}}ParamItersPerPar w3-input w3-border "
 																name="setParamItersPerPar"
 		{{else}}
-																class="valueParamItersPerPar w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamItersPerPar w3-input w3-border "
+																{{classApiMethodMethod}}_paramItersPerPar" class="valueParamItersPerPar w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamItersPerPar w3-input w3-border "
 																name="paramItersPerPar"
 		{{/eq}}
 	{{/eq}}
@@ -3852,14 +3870,14 @@
 															placeholder="Number of parameter update iterations before output"
 															title="[1, 30]"															id="{{classApiMethodMethod}}_paramTotalIterNum"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamTotalIterNum classSimulationReport inputSimulationReport{{pk}}ParamTotalIterNum w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramTotalIterNum setParamTotalIterNum classSimulationReport inputSimulationReport{{pk}}ParamTotalIterNum w3-input w3-border "
 																name="setParamTotalIterNum"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamTotalIterNum classSimulationReport inputSimulationReport{{pk}}ParamTotalIterNum w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramTotalIterNum setParamTotalIterNum classSimulationReport inputSimulationReport{{pk}}ParamTotalIterNum w3-input w3-border "
 																name="setParamTotalIterNum"
 		{{else}}
-																class="valueParamTotalIterNum w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamTotalIterNum w3-input w3-border "
+																{{classApiMethodMethod}}_paramTotalIterNum" class="valueParamTotalIterNum w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ParamTotalIterNum w3-input w3-border "
 																name="paramTotalIterNum"
 		{{/eq}}
 	{{/eq}}
@@ -4205,14 +4223,14 @@
 															placeholder="report status"
 															title="The current status of the simulation report. "															id="{{classApiMethodMethod}}_reportStatus"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setReportStatus classSimulationReport inputSimulationReport{{pk}}ReportStatus w3-input w3-border "
+																class="{{classApiMethodMethod}}_reportStatus setReportStatus classSimulationReport inputSimulationReport{{pk}}ReportStatus w3-input w3-border "
 																name="setReportStatus"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setReportStatus classSimulationReport inputSimulationReport{{pk}}ReportStatus w3-input w3-border "
+																class="{{classApiMethodMethod}}_reportStatus setReportStatus classSimulationReport inputSimulationReport{{pk}}ReportStatus w3-input w3-border "
 																name="setReportStatus"
 		{{else}}
-																class="valueReportStatus w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ReportStatus w3-input w3-border "
+																{{classApiMethodMethod}}_reportStatus" class="valueReportStatus w3-input w3-border classSimulationReport inputSimulationReport{{pk}}ReportStatus w3-input w3-border "
 																name="reportStatus"
 		{{/eq}}
 	{{/eq}}

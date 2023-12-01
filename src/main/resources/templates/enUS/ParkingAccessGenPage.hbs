@@ -47,12 +47,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketParkingAccess(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipParkingAccess(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipParkingAccess(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketParkingAccessPage"}}
 				<!-- inline "websocketParkingAccessPage" -->
 				websocketParkingAccess(websocketParkingAccessInner);
 {{/inline}}
+{{#*inline "jsWebsocketParkingAccessPage"}}{{/inline}}
+{{#*inline "jsTooltipParkingAccessPage"}}{{/inline}}
+{{#*inline "htmTooltipParkingAccessPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketParkingAccessPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipParkingAccessPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipParkingAccessPage}}{{/partial}}
 {{#*inline "htmUrlParkingAccess"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadParkingAccessPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchParkingAccessPage"}}								<!-- #*inline "htmBodySearchParkingAccessPage" -->
@@ -1536,19 +1554,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classParkingAccess inputParkingAccess{{pk}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classParkingAccess inputParkingAccess{{pk}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classParkingAccess inputParkingAccess{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classParkingAccess inputParkingAccess{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classParkingAccess inputParkingAccess{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classParkingAccess inputParkingAccess{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if parkingAccess_.archived}}
@@ -1604,19 +1622,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classParkingAccess inputParkingAccess{{pk}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classParkingAccess inputParkingAccess{{pk}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classParkingAccess inputParkingAccess{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classParkingAccess inputParkingAccess{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classParkingAccess inputParkingAccess{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classParkingAccess inputParkingAccess{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if parkingAccess_.deleted}}
@@ -1667,14 +1685,14 @@
 															placeholder="address"
 															title="The mailing address"															id="{{classApiMethodMethod}}_address"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAddress classParkingAccess inputParkingAccess{{pk}}Address w3-input w3-border "
+																class="{{classApiMethodMethod}}_address setAddress classParkingAccess inputParkingAccess{{pk}}Address w3-input w3-border "
 																name="setAddress"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAddress classParkingAccess inputParkingAccess{{pk}}Address w3-input w3-border "
+																class="{{classApiMethodMethod}}_address setAddress classParkingAccess inputParkingAccess{{pk}}Address w3-input w3-border "
 																name="setAddress"
 		{{else}}
-																class="valueAddress w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Address w3-input w3-border "
+																{{classApiMethodMethod}}_address" class="valueAddress w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Address w3-input w3-border "
 																name="address"
 		{{/eq}}
 	{{/eq}}
@@ -1723,14 +1741,14 @@
 															placeholder="alternate name"
 															title="An alternative name for this item"															id="{{classApiMethodMethod}}_alternateName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAlternateName classParkingAccess inputParkingAccess{{pk}}AlternateName w3-input w3-border "
+																class="{{classApiMethodMethod}}_alternateName setAlternateName classParkingAccess inputParkingAccess{{pk}}AlternateName w3-input w3-border "
 																name="setAlternateName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAlternateName classParkingAccess inputParkingAccess{{pk}}AlternateName w3-input w3-border "
+																class="{{classApiMethodMethod}}_alternateName setAlternateName classParkingAccess inputParkingAccess{{pk}}AlternateName w3-input w3-border "
 																name="setAlternateName"
 		{{else}}
-																class="valueAlternateName w3-input w3-border classParkingAccess inputParkingAccess{{pk}}AlternateName w3-input w3-border "
+																{{classApiMethodMethod}}_alternateName" class="valueAlternateName w3-input w3-border classParkingAccess inputParkingAccess{{pk}}AlternateName w3-input w3-border "
 																name="alternateName"
 		{{/eq}}
 	{{/eq}}
@@ -1779,14 +1797,14 @@
 															placeholder="area served"
 															title="The geographic area where a service or offered item is provided"															id="{{classApiMethodMethod}}_areaServed"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAreaServed classParkingAccess inputParkingAccess{{pk}}AreaServed w3-input w3-border "
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classParkingAccess inputParkingAccess{{pk}}AreaServed w3-input w3-border "
 																name="setAreaServed"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAreaServed classParkingAccess inputParkingAccess{{pk}}AreaServed w3-input w3-border "
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classParkingAccess inputParkingAccess{{pk}}AreaServed w3-input w3-border "
 																name="setAreaServed"
 		{{else}}
-																class="valueAreaServed w3-input w3-border classParkingAccess inputParkingAccess{{pk}}AreaServed w3-input w3-border "
+																{{classApiMethodMethod}}_areaServed" class="valueAreaServed w3-input w3-border classParkingAccess inputParkingAccess{{pk}}AreaServed w3-input w3-border "
 																name="areaServed"
 		{{/eq}}
 	{{/eq}}
@@ -1835,14 +1853,14 @@
 															placeholder="category"
 															title="Category of the access point (entrance, exit, etc.). Allowed values: Those specified by the DATEX II _AccessCategoryEnum_ or other values meaningful to the application."															id="{{classApiMethodMethod}}_category"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setCategory classParkingAccess inputParkingAccess{{pk}}Category w3-input w3-border "
+																class="{{classApiMethodMethod}}_category setCategory classParkingAccess inputParkingAccess{{pk}}Category w3-input w3-border "
 																name="setCategory"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setCategory classParkingAccess inputParkingAccess{{pk}}Category w3-input w3-border "
+																class="{{classApiMethodMethod}}_category setCategory classParkingAccess inputParkingAccess{{pk}}Category w3-input w3-border "
 																name="setCategory"
 		{{else}}
-																class="valueCategory w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Category w3-input w3-border "
+																{{classApiMethodMethod}}_category" class="valueCategory w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Category w3-input w3-border "
 																name="category"
 		{{/eq}}
 	{{/eq}}
@@ -1891,14 +1909,14 @@
 															placeholder="data provider"
 															title="A sequence of characters identifying the provider of the harmonised data entity."															id="{{classApiMethodMethod}}_dataProvider"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDataProvider classParkingAccess inputParkingAccess{{pk}}DataProvider w3-input w3-border "
+																class="{{classApiMethodMethod}}_dataProvider setDataProvider classParkingAccess inputParkingAccess{{pk}}DataProvider w3-input w3-border "
 																name="setDataProvider"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDataProvider classParkingAccess inputParkingAccess{{pk}}DataProvider w3-input w3-border "
+																class="{{classApiMethodMethod}}_dataProvider setDataProvider classParkingAccess inputParkingAccess{{pk}}DataProvider w3-input w3-border "
 																name="setDataProvider"
 		{{else}}
-																class="valueDataProvider w3-input w3-border classParkingAccess inputParkingAccess{{pk}}DataProvider w3-input w3-border "
+																{{classApiMethodMethod}}_dataProvider" class="valueDataProvider w3-input w3-border classParkingAccess inputParkingAccess{{pk}}DataProvider w3-input w3-border "
 																name="dataProvider"
 		{{/eq}}
 	{{/eq}}
@@ -1947,14 +1965,14 @@
 															placeholder="date created"
 															title="Entity creation timestamp. This will usually be allocated by the storage platform."															id="{{classApiMethodMethod}}_dateCreated"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateCreated classParkingAccess inputParkingAccess{{pk}}DateCreated w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateCreated setDateCreated classParkingAccess inputParkingAccess{{pk}}DateCreated w3-input w3-border "
 																name="setDateCreated"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateCreated classParkingAccess inputParkingAccess{{pk}}DateCreated w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateCreated setDateCreated classParkingAccess inputParkingAccess{{pk}}DateCreated w3-input w3-border "
 																name="setDateCreated"
 		{{else}}
-																class="valueDateCreated w3-input w3-border classParkingAccess inputParkingAccess{{pk}}DateCreated w3-input w3-border "
+																{{classApiMethodMethod}}_dateCreated" class="valueDateCreated w3-input w3-border classParkingAccess inputParkingAccess{{pk}}DateCreated w3-input w3-border "
 																name="dateCreated"
 		{{/eq}}
 	{{/eq}}
@@ -2003,14 +2021,14 @@
 															placeholder="date modified"
 															title="Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."															id="{{classApiMethodMethod}}_dateModified"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateModified classParkingAccess inputParkingAccess{{pk}}DateModified w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateModified setDateModified classParkingAccess inputParkingAccess{{pk}}DateModified w3-input w3-border "
 																name="setDateModified"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateModified classParkingAccess inputParkingAccess{{pk}}DateModified w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateModified setDateModified classParkingAccess inputParkingAccess{{pk}}DateModified w3-input w3-border "
 																name="setDateModified"
 		{{else}}
-																class="valueDateModified w3-input w3-border classParkingAccess inputParkingAccess{{pk}}DateModified w3-input w3-border "
+																{{classApiMethodMethod}}_dateModified" class="valueDateModified w3-input w3-border classParkingAccess inputParkingAccess{{pk}}DateModified w3-input w3-border "
 																name="dateModified"
 		{{/eq}}
 	{{/eq}}
@@ -2059,14 +2077,14 @@
 															placeholder="description"
 															title="A description of this item"															id="{{classApiMethodMethod}}_description"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDescription classParkingAccess inputParkingAccess{{pk}}Description w3-input w3-border "
+																class="{{classApiMethodMethod}}_description setDescription classParkingAccess inputParkingAccess{{pk}}Description w3-input w3-border "
 																name="setDescription"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDescription classParkingAccess inputParkingAccess{{pk}}Description w3-input w3-border "
+																class="{{classApiMethodMethod}}_description setDescription classParkingAccess inputParkingAccess{{pk}}Description w3-input w3-border "
 																name="setDescription"
 		{{else}}
-																class="valueDescription w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Description w3-input w3-border "
+																{{classApiMethodMethod}}_description" class="valueDescription w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Description w3-input w3-border "
 																name="description"
 		{{/eq}}
 	{{/eq}}
@@ -2115,14 +2133,14 @@
 															placeholder="features"
 															title="Those specified by the DATEX II _essEquipmentEnum_ and by _AccessibilityEnum_ or other values meaningful to the application."															id="{{classApiMethodMethod}}_features"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setFeatures classParkingAccess inputParkingAccess{{pk}}Features w3-input w3-border "
+																class="{{classApiMethodMethod}}_features setFeatures classParkingAccess inputParkingAccess{{pk}}Features w3-input w3-border "
 																name="setFeatures"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setFeatures classParkingAccess inputParkingAccess{{pk}}Features w3-input w3-border "
+																class="{{classApiMethodMethod}}_features setFeatures classParkingAccess inputParkingAccess{{pk}}Features w3-input w3-border "
 																name="setFeatures"
 		{{else}}
-																class="valueFeatures w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Features w3-input w3-border "
+																{{classApiMethodMethod}}_features" class="valueFeatures w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Features w3-input w3-border "
 																name="features"
 		{{/eq}}
 	{{/eq}}
@@ -2171,14 +2189,14 @@
 															placeholder="height"
 															title="Height of the access point"															id="{{classApiMethodMethod}}_height"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setHeight classParkingAccess inputParkingAccess{{pk}}Height w3-input w3-border "
+																class="{{classApiMethodMethod}}_height setHeight classParkingAccess inputParkingAccess{{pk}}Height w3-input w3-border "
 																name="setHeight"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setHeight classParkingAccess inputParkingAccess{{pk}}Height w3-input w3-border "
+																class="{{classApiMethodMethod}}_height setHeight classParkingAccess inputParkingAccess{{pk}}Height w3-input w3-border "
 																name="setHeight"
 		{{else}}
-																class="valueHeight w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Height w3-input w3-border "
+																{{classApiMethodMethod}}_height" class="valueHeight w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Height w3-input w3-border "
 																name="height"
 		{{/eq}}
 	{{/eq}}
@@ -2227,14 +2245,14 @@
 															placeholder="location"
 															title="Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon"															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classParkingAccess inputParkingAccess{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classParkingAccess inputParkingAccess{{pk}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classParkingAccess inputParkingAccess{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classParkingAccess inputParkingAccess{{pk}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}
@@ -2283,14 +2301,14 @@
 															placeholder="name"
 															title="The name of this item."															id="{{classApiMethodMethod}}_name"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setName classParkingAccess inputParkingAccess{{pk}}Name w3-input w3-border "
+																class="{{classApiMethodMethod}}_name setName classParkingAccess inputParkingAccess{{pk}}Name w3-input w3-border "
 																name="setName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setName classParkingAccess inputParkingAccess{{pk}}Name w3-input w3-border "
+																class="{{classApiMethodMethod}}_name setName classParkingAccess inputParkingAccess{{pk}}Name w3-input w3-border "
 																name="setName"
 		{{else}}
-																class="valueName w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Name w3-input w3-border "
+																{{classApiMethodMethod}}_name" class="valueName w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Name w3-input w3-border "
 																name="name"
 		{{/eq}}
 	{{/eq}}
@@ -2339,14 +2357,14 @@
 															placeholder="owner"
 															title="A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)"															id="{{classApiMethodMethod}}_owner"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setOwner classParkingAccess inputParkingAccess{{pk}}Owner w3-input w3-border "
+																class="{{classApiMethodMethod}}_owner setOwner classParkingAccess inputParkingAccess{{pk}}Owner w3-input w3-border "
 																name="setOwner"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setOwner classParkingAccess inputParkingAccess{{pk}}Owner w3-input w3-border "
+																class="{{classApiMethodMethod}}_owner setOwner classParkingAccess inputParkingAccess{{pk}}Owner w3-input w3-border "
 																name="setOwner"
 		{{else}}
-																class="valueOwner w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Owner w3-input w3-border "
+																{{classApiMethodMethod}}_owner" class="valueOwner w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Owner w3-input w3-border "
 																name="owner"
 		{{/eq}}
 	{{/eq}}
@@ -2395,14 +2413,14 @@
 															placeholder="ref off street parking"
 															title="The offstreet parking site this access point gives access to."															id="{{classApiMethodMethod}}_refOffStreetParking"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setRefOffStreetParking classParkingAccess inputParkingAccess{{pk}}RefOffStreetParking w3-input w3-border "
+																class="{{classApiMethodMethod}}_refOffStreetParking setRefOffStreetParking classParkingAccess inputParkingAccess{{pk}}RefOffStreetParking w3-input w3-border "
 																name="setRefOffStreetParking"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setRefOffStreetParking classParkingAccess inputParkingAccess{{pk}}RefOffStreetParking w3-input w3-border "
+																class="{{classApiMethodMethod}}_refOffStreetParking setRefOffStreetParking classParkingAccess inputParkingAccess{{pk}}RefOffStreetParking w3-input w3-border "
 																name="setRefOffStreetParking"
 		{{else}}
-																class="valueRefOffStreetParking w3-input w3-border classParkingAccess inputParkingAccess{{pk}}RefOffStreetParking w3-input w3-border "
+																{{classApiMethodMethod}}_refOffStreetParking" class="valueRefOffStreetParking w3-input w3-border classParkingAccess inputParkingAccess{{pk}}RefOffStreetParking w3-input w3-border "
 																name="refOffStreetParking"
 		{{/eq}}
 	{{/eq}}
@@ -2451,14 +2469,14 @@
 															placeholder="see also"
 															title="list of uri pointing to additional resources about the item"															id="{{classApiMethodMethod}}_seeAlso"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSeeAlso classParkingAccess inputParkingAccess{{pk}}SeeAlso w3-input w3-border "
+																class="{{classApiMethodMethod}}_seeAlso setSeeAlso classParkingAccess inputParkingAccess{{pk}}SeeAlso w3-input w3-border "
 																name="setSeeAlso"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSeeAlso classParkingAccess inputParkingAccess{{pk}}SeeAlso w3-input w3-border "
+																class="{{classApiMethodMethod}}_seeAlso setSeeAlso classParkingAccess inputParkingAccess{{pk}}SeeAlso w3-input w3-border "
 																name="setSeeAlso"
 		{{else}}
-																class="valueSeeAlso w3-input w3-border classParkingAccess inputParkingAccess{{pk}}SeeAlso w3-input w3-border "
+																{{classApiMethodMethod}}_seeAlso" class="valueSeeAlso w3-input w3-border classParkingAccess inputParkingAccess{{pk}}SeeAlso w3-input w3-border "
 																name="seeAlso"
 		{{/eq}}
 	{{/eq}}
@@ -2507,14 +2525,14 @@
 															placeholder="slope"
 															title="Slope of the access point (in relative terms)"															id="{{classApiMethodMethod}}_slope"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSlope classParkingAccess inputParkingAccess{{pk}}Slope w3-input w3-border "
+																class="{{classApiMethodMethod}}_slope setSlope classParkingAccess inputParkingAccess{{pk}}Slope w3-input w3-border "
 																name="setSlope"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSlope classParkingAccess inputParkingAccess{{pk}}Slope w3-input w3-border "
+																class="{{classApiMethodMethod}}_slope setSlope classParkingAccess inputParkingAccess{{pk}}Slope w3-input w3-border "
 																name="setSlope"
 		{{else}}
-																class="valueSlope w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Slope w3-input w3-border "
+																{{classApiMethodMethod}}_slope" class="valueSlope w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Slope w3-input w3-border "
 																name="slope"
 		{{/eq}}
 	{{/eq}}
@@ -2563,14 +2581,14 @@
 															placeholder="source"
 															title="A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."															id="{{classApiMethodMethod}}_source"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSource classParkingAccess inputParkingAccess{{pk}}Source w3-input w3-border "
+																class="{{classApiMethodMethod}}_source setSource classParkingAccess inputParkingAccess{{pk}}Source w3-input w3-border "
 																name="setSource"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSource classParkingAccess inputParkingAccess{{pk}}Source w3-input w3-border "
+																class="{{classApiMethodMethod}}_source setSource classParkingAccess inputParkingAccess{{pk}}Source w3-input w3-border "
 																name="setSource"
 		{{else}}
-																class="valueSource w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Source w3-input w3-border "
+																{{classApiMethodMethod}}_source" class="valueSource w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Source w3-input w3-border "
 																name="source"
 		{{/eq}}
 	{{/eq}}
@@ -2619,14 +2637,14 @@
 															placeholder="width"
 															title="Width of the access point"															id="{{classApiMethodMethod}}_width"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setWidth classParkingAccess inputParkingAccess{{pk}}Width w3-input w3-border "
+																class="{{classApiMethodMethod}}_width setWidth classParkingAccess inputParkingAccess{{pk}}Width w3-input w3-border "
 																name="setWidth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setWidth classParkingAccess inputParkingAccess{{pk}}Width w3-input w3-border "
+																class="{{classApiMethodMethod}}_width setWidth classParkingAccess inputParkingAccess{{pk}}Width w3-input w3-border "
 																name="setWidth"
 		{{else}}
-																class="valueWidth w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Width w3-input w3-border "
+																{{classApiMethodMethod}}_width" class="valueWidth w3-input w3-border classParkingAccess inputParkingAccess{{pk}}Width w3-input w3-border "
 																name="width"
 		{{/eq}}
 	{{/eq}}

@@ -47,12 +47,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketCrowdFlowObserved(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipCrowdFlowObserved(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipCrowdFlowObserved(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketCrowdFlowObservedPage"}}
 				<!-- inline "websocketCrowdFlowObservedPage" -->
 				websocketCrowdFlowObserved(websocketCrowdFlowObservedInner);
 {{/inline}}
+{{#*inline "jsWebsocketCrowdFlowObservedPage"}}{{/inline}}
+{{#*inline "jsTooltipCrowdFlowObservedPage"}}{{/inline}}
+{{#*inline "htmTooltipCrowdFlowObservedPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketCrowdFlowObservedPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipCrowdFlowObservedPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipCrowdFlowObservedPage}}{{/partial}}
 {{#*inline "htmUrlCrowdFlowObserved"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadCrowdFlowObservedPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchCrowdFlowObservedPage"}}								<!-- #*inline "htmBodySearchCrowdFlowObservedPage" -->
@@ -1749,19 +1767,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if crowdFlowObserved_.archived}}
@@ -1817,19 +1835,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if crowdFlowObserved_.deleted}}
@@ -1880,14 +1898,14 @@
 															placeholder="walking area ID"
 															title="The walking area ID of pedestrians in SUMO"															id="{{classApiMethodMethod}}_walkingAreaId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setWalkingAreaId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}WalkingAreaId w3-input w3-border "
+																class="{{classApiMethodMethod}}_walkingAreaId setWalkingAreaId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}WalkingAreaId w3-input w3-border "
 																name="setWalkingAreaId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setWalkingAreaId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}WalkingAreaId w3-input w3-border "
+																class="{{classApiMethodMethod}}_walkingAreaId setWalkingAreaId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}WalkingAreaId w3-input w3-border "
 																name="setWalkingAreaId"
 		{{else}}
-																class="valueWalkingAreaId w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}WalkingAreaId w3-input w3-border "
+																{{classApiMethodMethod}}_walkingAreaId" class="valueWalkingAreaId w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}WalkingAreaId w3-input w3-border "
 																name="walkingAreaId"
 		{{/eq}}
 	{{/eq}}
@@ -1936,14 +1954,14 @@
 															placeholder="alternate name"
 															title="An alternative name for this item"															id="{{classApiMethodMethod}}_alternateName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAlternateName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AlternateName w3-input w3-border "
+																class="{{classApiMethodMethod}}_alternateName setAlternateName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AlternateName w3-input w3-border "
 																name="setAlternateName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAlternateName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AlternateName w3-input w3-border "
+																class="{{classApiMethodMethod}}_alternateName setAlternateName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AlternateName w3-input w3-border "
 																name="setAlternateName"
 		{{else}}
-																class="valueAlternateName w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AlternateName w3-input w3-border "
+																{{classApiMethodMethod}}_alternateName" class="valueAlternateName w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AlternateName w3-input w3-border "
 																name="alternateName"
 		{{/eq}}
 	{{/eq}}
@@ -1992,14 +2010,14 @@
 															placeholder="color"
 															id="{{classApiMethodMethod}}_color"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setColor classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Color w3-input w3-border "
 																name="setColor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setColor classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Color w3-input w3-border "
 																name="setColor"
 		{{else}}
-																class="valueColor w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Color w3-input w3-border "
+																{{classApiMethodMethod}}_color" class="valueColor w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Color w3-input w3-border "
 																name="color"
 		{{/eq}}
 	{{/eq}}
@@ -2048,14 +2066,14 @@
 															placeholder="area served"
 															title="The geographic area where a service or offered item is provided"															id="{{classApiMethodMethod}}_areaServed"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAreaServed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AreaServed w3-input w3-border "
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AreaServed w3-input w3-border "
 																name="setAreaServed"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAreaServed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AreaServed w3-input w3-border "
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AreaServed w3-input w3-border "
 																name="setAreaServed"
 		{{else}}
-																class="valueAreaServed w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AreaServed w3-input w3-border "
+																{{classApiMethodMethod}}_areaServed" class="valueAreaServed w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AreaServed w3-input w3-border "
 																name="areaServed"
 		{{/eq}}
 	{{/eq}}
@@ -2104,14 +2122,14 @@
 															placeholder="average crowd speed"
 															title="Average speed of the crowd transiting during the observation period"															id="{{classApiMethodMethod}}_averageCrowdSpeed"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAverageCrowdSpeed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageCrowdSpeed w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageCrowdSpeed setAverageCrowdSpeed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageCrowdSpeed w3-input w3-border "
 																name="setAverageCrowdSpeed"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAverageCrowdSpeed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageCrowdSpeed w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageCrowdSpeed setAverageCrowdSpeed classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageCrowdSpeed w3-input w3-border "
 																name="setAverageCrowdSpeed"
 		{{else}}
-																class="valueAverageCrowdSpeed w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageCrowdSpeed w3-input w3-border "
+																{{classApiMethodMethod}}_averageCrowdSpeed" class="valueAverageCrowdSpeed w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageCrowdSpeed w3-input w3-border "
 																name="averageCrowdSpeed"
 		{{/eq}}
 	{{/eq}}
@@ -2160,14 +2178,14 @@
 															placeholder="average headway time"
 															title="Average headway time. Headway time is the time elapsed between two consecutive persons"															id="{{classApiMethodMethod}}_averageHeadwayTime"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAverageHeadwayTime classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageHeadwayTime setAverageHeadwayTime classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
 																name="setAverageHeadwayTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAverageHeadwayTime classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_averageHeadwayTime setAverageHeadwayTime classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
 																name="setAverageHeadwayTime"
 		{{else}}
-																class="valueAverageHeadwayTime w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
+																{{classApiMethodMethod}}_averageHeadwayTime" class="valueAverageHeadwayTime w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}AverageHeadwayTime w3-input w3-border "
 																name="averageHeadwayTime"
 		{{/eq}}
 	{{/eq}}
@@ -2221,19 +2239,19 @@
 															id="{{classApiMethodMethod}}_congested"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Congested w3-input w3-border "
+															class="{{classApiMethodMethod}}_congested classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Congested w3-input w3-border "
 															name="setCongested"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Congested w3-input w3-border "
+																class="{{classApiMethodMethod}}_congested classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Congested w3-input w3-border "
 																name="setCongested"
 		{{else}}
-																class="setCongested valueCongested classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Congested w3-input w3-border "
+																class="{{classApiMethodMethod}}_congested setCongested valueCongested classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Congested w3-input w3-border "
 																name="setCongested"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setCongested', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_congested')); }, function() { addError($('#{{classApiMethodMethod}}_congested')); }); "
+															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setCongested', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_congested')); }, function() { addError($('.{{classApiMethodMethod}}_congested')); }); "
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if crowdFlowObserved_.congested}}
@@ -2284,14 +2302,14 @@
 															placeholder="entity ID"
 															title="A unique ID for this Smart Data Model"															id="{{classApiMethodMethod}}_entityId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setEntityId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setEntityId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 		{{else}}
-																class="valueEntityId w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}EntityId w3-input w3-border "
+																{{classApiMethodMethod}}_entityId" class="valueEntityId w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}EntityId w3-input w3-border "
 																name="entityId"
 		{{/eq}}
 	{{/eq}}
@@ -2340,14 +2358,14 @@
 															placeholder="data provider"
 															title="A sequence of characters identifying the provider of the harmonised data entity."															id="{{classApiMethodMethod}}_dataProvider"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDataProvider classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DataProvider w3-input w3-border "
+																class="{{classApiMethodMethod}}_dataProvider setDataProvider classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DataProvider w3-input w3-border "
 																name="setDataProvider"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDataProvider classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DataProvider w3-input w3-border "
+																class="{{classApiMethodMethod}}_dataProvider setDataProvider classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DataProvider w3-input w3-border "
 																name="setDataProvider"
 		{{else}}
-																class="valueDataProvider w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DataProvider w3-input w3-border "
+																{{classApiMethodMethod}}_dataProvider" class="valueDataProvider w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DataProvider w3-input w3-border "
 																name="dataProvider"
 		{{/eq}}
 	{{/eq}}
@@ -2396,14 +2414,14 @@
 															placeholder="traffic simulation ID"
 															title="The Traffic Simulation ID"															id="{{classApiMethodMethod}}_trafficSimulationId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTrafficSimulationId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficSimulationId setTrafficSimulationId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
 																name="setTrafficSimulationId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTrafficSimulationId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficSimulationId setTrafficSimulationId classCrowdFlowObserved inputCrowdFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
 																name="setTrafficSimulationId"
 		{{else}}
-																class="valueTrafficSimulationId w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
+																{{classApiMethodMethod}}_trafficSimulationId" class="valueTrafficSimulationId w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}TrafficSimulationId w3-input w3-border "
 																name="trafficSimulationId"
 		{{/eq}}
 	{{/eq}}
@@ -2452,14 +2470,14 @@
 															placeholder="date created"
 															title="Entity creation timestamp. This will usually be allocated by the storage platform."															id="{{classApiMethodMethod}}_dateCreated"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateCreated classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateCreated w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateCreated setDateCreated classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateCreated w3-input w3-border "
 																name="setDateCreated"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateCreated classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateCreated w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateCreated setDateCreated classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateCreated w3-input w3-border "
 																name="setDateCreated"
 		{{else}}
-																class="valueDateCreated w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateCreated w3-input w3-border "
+																{{classApiMethodMethod}}_dateCreated" class="valueDateCreated w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateCreated w3-input w3-border "
 																name="dateCreated"
 		{{/eq}}
 	{{/eq}}
@@ -2508,14 +2526,14 @@
 															placeholder="date modified"
 															title="Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."															id="{{classApiMethodMethod}}_dateModified"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateModified classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateModified w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateModified setDateModified classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateModified w3-input w3-border "
 																name="setDateModified"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateModified classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateModified w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateModified setDateModified classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateModified w3-input w3-border "
 																name="setDateModified"
 		{{else}}
-																class="valueDateModified w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateModified w3-input w3-border "
+																{{classApiMethodMethod}}_dateModified" class="valueDateModified w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateModified w3-input w3-border "
 																name="dateModified"
 		{{/eq}}
 	{{/eq}}
@@ -2564,14 +2582,14 @@
 															placeholder="date observed"
 															title="The date and time of this observation in ISO8601 UTC format. It can be represented by an specific time instant or by an ISO8601 interval. As a workaround for the lack of support of Orion Context Broker for datetime intervals, it can be used two separate attributes: `dateObservedFrom`, `dateObservedTo`"															id="{{classApiMethodMethod}}_dateObserved"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateObserved classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObserved w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObserved setDateObserved classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObserved w3-input w3-border "
 																name="setDateObserved"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateObserved classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObserved w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObserved setDateObserved classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObserved w3-input w3-border "
 																name="setDateObserved"
 		{{else}}
-																class="valueDateObserved w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObserved w3-input w3-border "
+																{{classApiMethodMethod}}_dateObserved" class="valueDateObserved w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObserved w3-input w3-border "
 																name="dateObserved"
 		{{/eq}}
 	{{/eq}}
@@ -2620,14 +2638,14 @@
 															placeholder="date observed from"
 															title="Observation period start date and time. See `dateObserved`."															id="{{classApiMethodMethod}}_dateObservedFrom"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateObservedFrom classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedFrom setDateObservedFrom classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
 																name="setDateObservedFrom"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateObservedFrom classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedFrom setDateObservedFrom classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
 																name="setDateObservedFrom"
 		{{else}}
-																class="valueDateObservedFrom w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
+																{{classApiMethodMethod}}_dateObservedFrom" class="valueDateObservedFrom w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedFrom w3-input w3-border "
 																name="dateObservedFrom"
 		{{/eq}}
 	{{/eq}}
@@ -2676,14 +2694,14 @@
 															placeholder="date observed to"
 															title="Observation period end date and time. See `dateObserved`."															id="{{classApiMethodMethod}}_dateObservedTo"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDateObservedTo classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedTo w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedTo setDateObservedTo classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedTo w3-input w3-border "
 																name="setDateObservedTo"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDateObservedTo classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedTo w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateObservedTo setDateObservedTo classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedTo w3-input w3-border "
 																name="setDateObservedTo"
 		{{else}}
-																class="valueDateObservedTo w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedTo w3-input w3-border "
+																{{classApiMethodMethod}}_dateObservedTo" class="valueDateObservedTo w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}DateObservedTo w3-input w3-border "
 																name="dateObservedTo"
 		{{/eq}}
 	{{/eq}}
@@ -2732,14 +2750,14 @@
 															placeholder="description"
 															title="A description of this item"															id="{{classApiMethodMethod}}_description"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDescription classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Description w3-input w3-border "
+																class="{{classApiMethodMethod}}_description setDescription classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Description w3-input w3-border "
 																name="setDescription"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDescription classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Description w3-input w3-border "
+																class="{{classApiMethodMethod}}_description setDescription classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Description w3-input w3-border "
 																name="setDescription"
 		{{else}}
-																class="valueDescription w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Description w3-input w3-border "
+																{{classApiMethodMethod}}_description" class="valueDescription w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Description w3-input w3-border "
 																name="description"
 		{{/eq}}
 	{{/eq}}
@@ -2788,14 +2806,14 @@
 															placeholder="direction"
 															title="Usual direction of travel in the walkway referred by this observation with respect to the city center. Enum:'inbound, outbound'"															id="{{classApiMethodMethod}}_direction"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setDirection classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Direction w3-input w3-border "
+																class="{{classApiMethodMethod}}_direction setDirection classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Direction w3-input w3-border "
 																name="setDirection"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setDirection classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Direction w3-input w3-border "
+																class="{{classApiMethodMethod}}_direction setDirection classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Direction w3-input w3-border "
 																name="setDirection"
 		{{else}}
-																class="valueDirection w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Direction w3-input w3-border "
+																{{classApiMethodMethod}}_direction" class="valueDirection w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Direction w3-input w3-border "
 																name="direction"
 		{{/eq}}
 	{{/eq}}
@@ -2844,14 +2862,14 @@
 															placeholder="location"
 															title="Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon"															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}
@@ -2900,14 +2918,14 @@
 															placeholder="name"
 															title="The name of this item."															id="{{classApiMethodMethod}}_name"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Name w3-input w3-border "
+																class="{{classApiMethodMethod}}_name setName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Name w3-input w3-border "
 																name="setName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Name w3-input w3-border "
+																class="{{classApiMethodMethod}}_name setName classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Name w3-input w3-border "
 																name="setName"
 		{{else}}
-																class="valueName w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Name w3-input w3-border "
+																{{classApiMethodMethod}}_name" class="valueName w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Name w3-input w3-border "
 																name="name"
 		{{/eq}}
 	{{/eq}}
@@ -2956,14 +2974,14 @@
 															placeholder="occupancy"
 															title="Fraction of the observation time where a person has been occupying the observed walkway"															id="{{classApiMethodMethod}}_occupancy"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setOccupancy classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Occupancy w3-input w3-border "
+																class="{{classApiMethodMethod}}_occupancy setOccupancy classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Occupancy w3-input w3-border "
 																name="setOccupancy"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setOccupancy classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Occupancy w3-input w3-border "
+																class="{{classApiMethodMethod}}_occupancy setOccupancy classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Occupancy w3-input w3-border "
 																name="setOccupancy"
 		{{else}}
-																class="valueOccupancy w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Occupancy w3-input w3-border "
+																{{classApiMethodMethod}}_occupancy" class="valueOccupancy w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Occupancy w3-input w3-border "
 																name="occupancy"
 		{{/eq}}
 	{{/eq}}
@@ -3012,14 +3030,14 @@
 															placeholder="owner"
 															title="A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)"															id="{{classApiMethodMethod}}_owner"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setOwner classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Owner w3-input w3-border "
+																class="{{classApiMethodMethod}}_owner setOwner classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Owner w3-input w3-border "
 																name="setOwner"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setOwner classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Owner w3-input w3-border "
+																class="{{classApiMethodMethod}}_owner setOwner classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Owner w3-input w3-border "
 																name="setOwner"
 		{{else}}
-																class="valueOwner w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Owner w3-input w3-border "
+																{{classApiMethodMethod}}_owner" class="valueOwner w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Owner w3-input w3-border "
 																name="owner"
 		{{/eq}}
 	{{/eq}}
@@ -3068,14 +3086,14 @@
 															placeholder="people count"
 															title="Total number of people detected during this observation."															id="{{classApiMethodMethod}}_peopleCount"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setPeopleCount classCrowdFlowObserved inputCrowdFlowObserved{{pk}}PeopleCount w3-input w3-border "
+																class="{{classApiMethodMethod}}_peopleCount setPeopleCount classCrowdFlowObserved inputCrowdFlowObserved{{pk}}PeopleCount w3-input w3-border "
 																name="setPeopleCount"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setPeopleCount classCrowdFlowObserved inputCrowdFlowObserved{{pk}}PeopleCount w3-input w3-border "
+																class="{{classApiMethodMethod}}_peopleCount setPeopleCount classCrowdFlowObserved inputCrowdFlowObserved{{pk}}PeopleCount w3-input w3-border "
 																name="setPeopleCount"
 		{{else}}
-																class="valuePeopleCount w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}PeopleCount w3-input w3-border "
+																{{classApiMethodMethod}}_peopleCount" class="valuePeopleCount w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}PeopleCount w3-input w3-border "
 																name="peopleCount"
 		{{/eq}}
 	{{/eq}}
@@ -3124,14 +3142,14 @@
 															placeholder="ref road segment"
 															title="Concerned road segment on which the observation has been made"															id="{{classApiMethodMethod}}_refRoadSegment"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setRefRoadSegment classCrowdFlowObserved inputCrowdFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
+																class="{{classApiMethodMethod}}_refRoadSegment setRefRoadSegment classCrowdFlowObserved inputCrowdFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
 																name="setRefRoadSegment"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setRefRoadSegment classCrowdFlowObserved inputCrowdFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
+																class="{{classApiMethodMethod}}_refRoadSegment setRefRoadSegment classCrowdFlowObserved inputCrowdFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
 																name="setRefRoadSegment"
 		{{else}}
-																class="valueRefRoadSegment w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
+																{{classApiMethodMethod}}_refRoadSegment" class="valueRefRoadSegment w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}RefRoadSegment w3-input w3-border "
 																name="refRoadSegment"
 		{{/eq}}
 	{{/eq}}
@@ -3180,14 +3198,14 @@
 															placeholder="see also"
 															title="list of uri pointing to additional resources about the item"															id="{{classApiMethodMethod}}_seeAlso"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSeeAlso classCrowdFlowObserved inputCrowdFlowObserved{{pk}}SeeAlso w3-input w3-border "
+																class="{{classApiMethodMethod}}_seeAlso setSeeAlso classCrowdFlowObserved inputCrowdFlowObserved{{pk}}SeeAlso w3-input w3-border "
 																name="setSeeAlso"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSeeAlso classCrowdFlowObserved inputCrowdFlowObserved{{pk}}SeeAlso w3-input w3-border "
+																class="{{classApiMethodMethod}}_seeAlso setSeeAlso classCrowdFlowObserved inputCrowdFlowObserved{{pk}}SeeAlso w3-input w3-border "
 																name="setSeeAlso"
 		{{else}}
-																class="valueSeeAlso w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}SeeAlso w3-input w3-border "
+																{{classApiMethodMethod}}_seeAlso" class="valueSeeAlso w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}SeeAlso w3-input w3-border "
 																name="seeAlso"
 		{{/eq}}
 	{{/eq}}
@@ -3236,14 +3254,14 @@
 															placeholder="source"
 															title="A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."															id="{{classApiMethodMethod}}_source"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSource classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Source w3-input w3-border "
+																class="{{classApiMethodMethod}}_source setSource classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Source w3-input w3-border "
 																name="setSource"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSource classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Source w3-input w3-border "
+																class="{{classApiMethodMethod}}_source setSource classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Source w3-input w3-border "
 																name="setSource"
 		{{else}}
-																class="valueSource w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Source w3-input w3-border "
+																{{classApiMethodMethod}}_source" class="valueSource w3-input w3-border classCrowdFlowObserved inputCrowdFlowObserved{{pk}}Source w3-input w3-border "
 																name="source"
 		{{/eq}}
 	{{/eq}}

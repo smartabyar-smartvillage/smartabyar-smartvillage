@@ -3,33 +3,6 @@ info:
   title: "smartabyar-smartvillage"
   version: 3.0.0
 paths:
-
-  /callback:
-    get:
-      operationId: callback
-      x-vertx-event-bus: smartabyar-smartvillage-enUS-openIdConnect-callback
-      description: >+
-      responses:
-        '200':
-          description: >+
-          content:
-            application/json; charset=utf-8:
-              schema:
-                type: string
-
-  /logout:
-    get:
-      operationId: logout
-      x-vertx-event-bus: smartabyar-smartvillage-enUS-openIdConnect-logout
-      description: >+
-      responses:
-        '200':
-          description: >+
-          content:
-            application/json; charset=utf-8:
-              schema:
-                type: string
-
   /api/htm:
     get:
       operationId: searchSiteHtm
@@ -3595,6 +3568,22 @@ paths:
       tags:
         - CrowdFlowObserved
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -3773,6 +3762,22 @@ paths:
       tags:
         - CrowdFlowObserved
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -3828,6 +3833,31 @@ paths:
       summary: >+
       tags:
         - CrowdFlowObserved
+      parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
+        - name: vertx-web.session
+          in: cookie
+          schema:
+            type: string
+        - name: sessionIdBefore
+          in: cookie
+          schema:
+            type: string
       requestBody:
         description: >+
         required: true
@@ -3854,6 +3884,22 @@ paths:
       tags:
         - CrowdFlowObserved
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -3911,6 +3957,22 @@ paths:
       tags:
         - CrowdFlowObserved
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -4129,6 +4191,22 @@ paths:
       tags:
         - CrowdFlowObserved
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -4308,6 +4386,22 @@ paths:
       tags:
         - ParkingAccess
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -4486,6 +4580,22 @@ paths:
       tags:
         - ParkingAccess
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -4541,6 +4651,31 @@ paths:
       summary: >+
       tags:
         - ParkingAccess
+      parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
+        - name: vertx-web.session
+          in: cookie
+          schema:
+            type: string
+        - name: sessionIdBefore
+          in: cookie
+          schema:
+            type: string
       requestBody:
         description: >+
         required: true
@@ -4567,6 +4702,22 @@ paths:
       tags:
         - ParkingAccess
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -4624,6 +4775,22 @@ paths:
       tags:
         - ParkingAccess
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -4842,6 +5009,22 @@ paths:
       tags:
         - ParkingAccess
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5021,6 +5204,22 @@ paths:
       tags:
         - Smart Traffic Light
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5199,6 +5398,22 @@ paths:
       tags:
         - Smart Traffic Light
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5254,6 +5469,31 @@ paths:
       summary: >+
       tags:
         - Smart Traffic Light
+      parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
+        - name: vertx-web.session
+          in: cookie
+          schema:
+            type: string
+        - name: sessionIdBefore
+          in: cookie
+          schema:
+            type: string
       requestBody:
         description: >+
         required: true
@@ -5280,6 +5520,22 @@ paths:
       tags:
         - Smart Traffic Light
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5337,6 +5593,22 @@ paths:
       tags:
         - Smart Traffic Light
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5555,6 +5827,22 @@ paths:
       tags:
         - Smart Traffic Light
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5734,6 +6022,22 @@ paths:
       tags:
         - Traffic Flow Observed
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5912,6 +6216,22 @@ paths:
       tags:
         - Traffic Flow Observed
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -5967,6 +6287,31 @@ paths:
       summary: >+
       tags:
         - Traffic Flow Observed
+      parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
+        - name: vertx-web.session
+          in: cookie
+          schema:
+            type: string
+        - name: sessionIdBefore
+          in: cookie
+          schema:
+            type: string
       requestBody:
         description: >+
         required: true
@@ -5993,6 +6338,22 @@ paths:
       tags:
         - Traffic Flow Observed
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -6050,6 +6411,22 @@ paths:
       tags:
         - Traffic Flow Observed
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -6268,6 +6645,22 @@ paths:
       tags:
         - Traffic Flow Observed
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -8586,6 +8979,22 @@ paths:
       tags:
         - Traffic Simulation
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -8764,6 +9173,22 @@ paths:
       tags:
         - Traffic Simulation
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -8819,6 +9244,31 @@ paths:
       summary: >+
       tags:
         - Traffic Simulation
+      parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
+        - name: vertx-web.session
+          in: cookie
+          schema:
+            type: string
+        - name: sessionIdBefore
+          in: cookie
+          schema:
+            type: string
       requestBody:
         description: >+
         required: true
@@ -8845,6 +9295,22 @@ paths:
       tags:
         - Traffic Simulation
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -8902,6 +9368,22 @@ paths:
       tags:
         - Traffic Simulation
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -9120,6 +9602,22 @@ paths:
       tags:
         - Traffic Simulation
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -9484,6 +9982,22 @@ paths:
       tags:
         - Traffic Simulation
       parameters:
+        - name: Fiware-Service
+          in: header
+          schema:
+            type: string
+        - name: Fiware-ServicePath
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Tenant
+          in: header
+          schema:
+            type: string
+        - name: NGSILD-Path
+          in: header
+          schema:
+            type: string
         - name: vertx-web.session
           in: cookie
           schema:
@@ -13873,6 +14387,32 @@ paths:
             text/html; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/SearchPageMapResultResponse'
+
+  /logout:
+    get:
+      operationId: logout
+      x-vertx-event-bus: smartabyar-smartvillage-enUS-openIdConnect-logout
+      description: >+
+      responses:
+        '200':
+          description: >+
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+
+  /callback:
+    get:
+      operationId: callback
+      x-vertx-event-bus: smartabyar-smartvillage-enUS-openIdConnect-callback
+      description: >+
+      responses:
+        '200':
+          description: >+
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
 components:
   securitySchemes:
     openIdConnect:

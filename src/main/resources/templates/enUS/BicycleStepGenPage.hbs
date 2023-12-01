@@ -47,12 +47,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketBicycleStep(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipBicycleStep(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipBicycleStep(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketBicycleStepPage"}}
 				<!-- inline "websocketBicycleStepPage" -->
 				websocketBicycleStep(websocketBicycleStepInner);
 {{/inline}}
+{{#*inline "jsWebsocketBicycleStepPage"}}{{/inline}}
+{{#*inline "jsTooltipBicycleStepPage"}}{{/inline}}
+{{#*inline "htmTooltipBicycleStepPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketBicycleStepPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipBicycleStepPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipBicycleStepPage}}{{/partial}}
 {{#*inline "htmUrlBicycleStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadBicycleStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchBicycleStepPage"}}								<!-- #*inline "htmBodySearchBicycleStepPage" -->
@@ -960,14 +978,14 @@
 															placeholder="Time in seconds"
 															title="The time in seconds. "															id="{{classApiMethodMethod}}_time"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTime classBicycleStep inputBicycleStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classBicycleStep inputBicycleStep{{id}}Time w3-input w3-border "
 																name="setTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTime classBicycleStep inputBicycleStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classBicycleStep inputBicycleStep{{id}}Time w3-input w3-border "
 																name="setTime"
 		{{else}}
-																class="valueTime w3-input w3-border classBicycleStep inputBicycleStep{{id}}Time w3-input w3-border "
+																{{classApiMethodMethod}}_time" class="valueTime w3-input w3-border classBicycleStep inputBicycleStep{{id}}Time w3-input w3-border "
 																name="time"
 		{{/eq}}
 	{{/eq}}
@@ -1013,7 +1031,7 @@
 		{{#eq roleForWriteBool "true"}}
 														<input
 																type="text"
-																class="w3-input w3-border datetimepicker setDateTime classBicycleStep inputBicycleStep{{id}}DateTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classBicycleStep inputBicycleStep{{id}}DateTime w3-input w3-border "
 																placeholder="MM/dd/yyyy h:mm a '['VV']'"
 																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
 																id="{{classApiMethodMethod}}_dateTime"
@@ -1021,7 +1039,7 @@
 																value="{{#if bicycleStep_.dateTime}}{{formatZonedDateTime bicycleStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
 														{{#eq 'Page' classApiMethodMethod}}
 															onclick="removeGlow($(this)); ";
-															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('#{{classApiMethodMethod}}_dateTime')); }, function() { addError($('#{{classApiMethodMethod}}_dateTime')); }); } "
+															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
 														{{/eq}}
 														/>
 													{{else}}
@@ -1065,19 +1083,19 @@
 															id="{{classApiMethodMethod}}_step"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classBicycleStep inputBicycleStep{{id}}Step w3-input w3-border "
+															class="{{classApiMethodMethod}}_step classBicycleStep inputBicycleStep{{id}}Step w3-input w3-border "
 															name="setStep"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classBicycleStep inputBicycleStep{{id}}Step w3-input w3-border "
+																class="{{classApiMethodMethod}}_step classBicycleStep inputBicycleStep{{id}}Step w3-input w3-border "
 																name="setStep"
 		{{else}}
-																class="setStep valueStep classBicycleStep inputBicycleStep{{id}}Step w3-input w3-border "
+																class="{{classApiMethodMethod}}_step setStep valueStep classBicycleStep inputBicycleStep{{id}}Step w3-input w3-border "
 																name="setStep"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setStep', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_step')); }, function() { addError($('#{{classApiMethodMethod}}_step')); }); "
+															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setStep', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_step')); }, function() { addError($('.{{classApiMethodMethod}}_step')); }); "
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if bicycleStep_.step}}
@@ -1128,14 +1146,14 @@
 															placeholder="map location"
 															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classBicycleStep inputBicycleStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classBicycleStep inputBicycleStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classBicycleStep inputBicycleStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classBicycleStep inputBicycleStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classBicycleStep inputBicycleStep{{id}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classBicycleStep inputBicycleStep{{id}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}
@@ -1184,14 +1202,14 @@
 															placeholder="color"
 															id="{{classApiMethodMethod}}_color"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
 																name="setColor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
 																name="setColor"
 		{{else}}
-																class="valueColor w3-input w3-border classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
+																{{classApiMethodMethod}}_color" class="valueColor w3-input w3-border classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
 																name="color"
 		{{/eq}}
 	{{/eq}}
@@ -1240,14 +1258,14 @@
 															placeholder="bicycle ID"
 															id="{{classApiMethodMethod}}_bicycleId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
+																class="{{classApiMethodMethod}}_bicycleId setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
 																name="setBicycleId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
+																class="{{classApiMethodMethod}}_bicycleId setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
 																name="setBicycleId"
 		{{else}}
-																class="valueBicycleId w3-input w3-border classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
+																{{classApiMethodMethod}}_bicycleId" class="valueBicycleId w3-input w3-border classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
 																name="bicycleId"
 		{{/eq}}
 	{{/eq}}

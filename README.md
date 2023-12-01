@@ -424,3 +424,27 @@ conn.simulationStep()
 conn.simulationStep()
 conn.simulationStep()
 ```
+
+# Get the AUTH_CLIENTS as JSON for OpenShift deployment
+
+Install jq
+
+```bash
+pkcon install -y jq
+```
+
+Install yq
+
+```bash
+curl https://github.com/mikefarah/yq/releases/download/v4.40.2/yq_linux_amd64.tar.gz -o ~/Downloads/yq_linux_amd64.tar.gz
+install -d ~/.local/opt/yq/
+tar xvf ~/Downloads/yq_linux_amd64.tar.gz -C ~/.local/opt/yq/
+mv ~/.local/opt/yq/yq_linux_amd64 ~/.local/bin/yq
+```
+
+Run the command
+
+```bash
+yq -o json '.AUTH_CLIENTS' ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yml | jq -c
+```
+

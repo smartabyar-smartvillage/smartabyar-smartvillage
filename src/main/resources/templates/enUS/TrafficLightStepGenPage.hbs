@@ -47,12 +47,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketTrafficLightStep(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipTrafficLightStep(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipTrafficLightStep(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketTrafficLightStepPage"}}
 				<!-- inline "websocketTrafficLightStepPage" -->
 				websocketTrafficLightStep(websocketTrafficLightStepInner);
 {{/inline}}
+{{#*inline "jsWebsocketTrafficLightStepPage"}}{{/inline}}
+{{#*inline "jsTooltipTrafficLightStepPage"}}{{/inline}}
+{{#*inline "htmTooltipTrafficLightStepPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketTrafficLightStepPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipTrafficLightStepPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipTrafficLightStepPage}}{{/partial}}
 {{#*inline "htmUrlTrafficLightStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTrafficLightStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTrafficLightStepPage"}}								<!-- #*inline "htmBodySearchTrafficLightStepPage" -->
@@ -1185,14 +1203,14 @@
 															placeholder="simulation name"
 															id="{{classApiMethodMethod}}_simulationName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSimulationName classTrafficLightStep inputTrafficLightStep{{id}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classTrafficLightStep inputTrafficLightStep{{id}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSimulationName classTrafficLightStep inputTrafficLightStep{{id}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classTrafficLightStep inputTrafficLightStep{{id}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 		{{else}}
-																class="valueSimulationName w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}SimulationName w3-input w3-border "
+																{{classApiMethodMethod}}_simulationName" class="valueSimulationName w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}SimulationName w3-input w3-border "
 																name="simulationName"
 		{{/eq}}
 	{{/eq}}
@@ -1241,14 +1259,14 @@
 															placeholder="sumocfg path"
 															id="{{classApiMethodMethod}}_sumocfgPath"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSumocfgPath classTrafficLightStep inputTrafficLightStep{{id}}SumocfgPath w3-input w3-border "
+																class="{{classApiMethodMethod}}_sumocfgPath setSumocfgPath classTrafficLightStep inputTrafficLightStep{{id}}SumocfgPath w3-input w3-border "
 																name="setSumocfgPath"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSumocfgPath classTrafficLightStep inputTrafficLightStep{{id}}SumocfgPath w3-input w3-border "
+																class="{{classApiMethodMethod}}_sumocfgPath setSumocfgPath classTrafficLightStep inputTrafficLightStep{{id}}SumocfgPath w3-input w3-border "
 																name="setSumocfgPath"
 		{{else}}
-																class="valueSumocfgPath w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}SumocfgPath w3-input w3-border "
+																{{classApiMethodMethod}}_sumocfgPath" class="valueSumocfgPath w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}SumocfgPath w3-input w3-border "
 																name="sumocfgPath"
 		{{/eq}}
 	{{/eq}}
@@ -1297,14 +1315,14 @@
 															placeholder="Time in seconds"
 															title="The time in seconds. "															id="{{classApiMethodMethod}}_time"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTime classTrafficLightStep inputTrafficLightStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classTrafficLightStep inputTrafficLightStep{{id}}Time w3-input w3-border "
 																name="setTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTime classTrafficLightStep inputTrafficLightStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classTrafficLightStep inputTrafficLightStep{{id}}Time w3-input w3-border "
 																name="setTime"
 		{{else}}
-																class="valueTime w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Time w3-input w3-border "
+																{{classApiMethodMethod}}_time" class="valueTime w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Time w3-input w3-border "
 																name="time"
 		{{/eq}}
 	{{/eq}}
@@ -1350,7 +1368,7 @@
 		{{#eq roleForWriteBool "true"}}
 														<input
 																type="text"
-																class="w3-input w3-border datetimepicker setDateTime classTrafficLightStep inputTrafficLightStep{{id}}DateTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classTrafficLightStep inputTrafficLightStep{{id}}DateTime w3-input w3-border "
 																placeholder="MM/dd/yyyy h:mm a '['VV']'"
 																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
 																id="{{classApiMethodMethod}}_dateTime"
@@ -1358,7 +1376,7 @@
 																value="{{#if trafficLightStep_.dateTime}}{{formatZonedDateTime trafficLightStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
 														{{#eq 'Page' classApiMethodMethod}}
 															onclick="removeGlow($(this)); ";
-															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('#{{classApiMethodMethod}}_dateTime')); }, function() { addError($('#{{classApiMethodMethod}}_dateTime')); }); } "
+															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
 														{{/eq}}
 														/>
 													{{else}}
@@ -1402,19 +1420,19 @@
 															id="{{classApiMethodMethod}}_step"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTrafficLightStep inputTrafficLightStep{{id}}Step w3-input w3-border "
+															class="{{classApiMethodMethod}}_step classTrafficLightStep inputTrafficLightStep{{id}}Step w3-input w3-border "
 															name="setStep"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTrafficLightStep inputTrafficLightStep{{id}}Step w3-input w3-border "
+																class="{{classApiMethodMethod}}_step classTrafficLightStep inputTrafficLightStep{{id}}Step w3-input w3-border "
 																name="setStep"
 		{{else}}
-																class="setStep valueStep classTrafficLightStep inputTrafficLightStep{{id}}Step w3-input w3-border "
+																class="{{classApiMethodMethod}}_step setStep valueStep classTrafficLightStep inputTrafficLightStep{{id}}Step w3-input w3-border "
 																name="setStep"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setStep', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_step')); }, function() { addError($('#{{classApiMethodMethod}}_step')); }); "
+															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setStep', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_step')); }, function() { addError($('.{{classApiMethodMethod}}_step')); }); "
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if trafficLightStep_.step}}
@@ -1465,14 +1483,14 @@
 															placeholder="map location"
 															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classTrafficLightStep inputTrafficLightStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classTrafficLightStep inputTrafficLightStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classTrafficLightStep inputTrafficLightStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classTrafficLightStep inputTrafficLightStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}
@@ -1521,14 +1539,14 @@
 															placeholder="color"
 															id="{{classApiMethodMethod}}_color"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setColor classTrafficLightStep inputTrafficLightStep{{id}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classTrafficLightStep inputTrafficLightStep{{id}}Color w3-input w3-border "
 																name="setColor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setColor classTrafficLightStep inputTrafficLightStep{{id}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classTrafficLightStep inputTrafficLightStep{{id}}Color w3-input w3-border "
 																name="setColor"
 		{{else}}
-																class="valueColor w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Color w3-input w3-border "
+																{{classApiMethodMethod}}_color" class="valueColor w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Color w3-input w3-border "
 																name="color"
 		{{/eq}}
 	{{/eq}}
@@ -1577,14 +1595,14 @@
 															placeholder="traffic light ID"
 															id="{{classApiMethodMethod}}_trafficLightId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTrafficLightId classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightId w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficLightId setTrafficLightId classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightId w3-input w3-border "
 																name="setTrafficLightId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTrafficLightId classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightId w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficLightId setTrafficLightId classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightId w3-input w3-border "
 																name="setTrafficLightId"
 		{{else}}
-																class="valueTrafficLightId w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightId w3-input w3-border "
+																{{classApiMethodMethod}}_trafficLightId" class="valueTrafficLightId w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightId w3-input w3-border "
 																name="trafficLightId"
 		{{/eq}}
 	{{/eq}}
@@ -1633,14 +1651,14 @@
 															placeholder="traffic light type"
 															id="{{classApiMethodMethod}}_trafficLightType"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTrafficLightType classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightType w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficLightType setTrafficLightType classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightType w3-input w3-border "
 																name="setTrafficLightType"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTrafficLightType classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightType w3-input w3-border "
+																class="{{classApiMethodMethod}}_trafficLightType setTrafficLightType classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightType w3-input w3-border "
 																name="setTrafficLightType"
 		{{else}}
-																class="valueTrafficLightType w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightType w3-input w3-border "
+																{{classApiMethodMethod}}_trafficLightType" class="valueTrafficLightType w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}TrafficLightType w3-input w3-border "
 																name="trafficLightType"
 		{{/eq}}
 	{{/eq}}
@@ -1689,14 +1707,14 @@
 															placeholder="Angle in degrees"
 															id="{{classApiMethodMethod}}_angle"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAngle classTrafficLightStep inputTrafficLightStep{{id}}Angle w3-input w3-border "
+																class="{{classApiMethodMethod}}_angle setAngle classTrafficLightStep inputTrafficLightStep{{id}}Angle w3-input w3-border "
 																name="setAngle"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAngle classTrafficLightStep inputTrafficLightStep{{id}}Angle w3-input w3-border "
+																class="{{classApiMethodMethod}}_angle setAngle classTrafficLightStep inputTrafficLightStep{{id}}Angle w3-input w3-border "
 																name="setAngle"
 		{{else}}
-																class="valueAngle w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Angle w3-input w3-border "
+																{{classApiMethodMethod}}_angle" class="valueAngle w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Angle w3-input w3-border "
 																name="angle"
 		{{/eq}}
 	{{/eq}}
@@ -1745,14 +1763,14 @@
 															placeholder="state"
 															id="{{classApiMethodMethod}}_state"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setState classTrafficLightStep inputTrafficLightStep{{id}}State w3-input w3-border "
+																class="{{classApiMethodMethod}}_state setState classTrafficLightStep inputTrafficLightStep{{id}}State w3-input w3-border "
 																name="setState"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setState classTrafficLightStep inputTrafficLightStep{{id}}State w3-input w3-border "
+																class="{{classApiMethodMethod}}_state setState classTrafficLightStep inputTrafficLightStep{{id}}State w3-input w3-border "
 																name="setState"
 		{{else}}
-																class="valueState w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}State w3-input w3-border "
+																{{classApiMethodMethod}}_state" class="valueState w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}State w3-input w3-border "
 																name="state"
 		{{/eq}}
 	{{/eq}}
@@ -1801,14 +1819,14 @@
 															placeholder="program ID"
 															id="{{classApiMethodMethod}}_programId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setProgramId classTrafficLightStep inputTrafficLightStep{{id}}ProgramId w3-input w3-border "
+																class="{{classApiMethodMethod}}_programId setProgramId classTrafficLightStep inputTrafficLightStep{{id}}ProgramId w3-input w3-border "
 																name="setProgramId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setProgramId classTrafficLightStep inputTrafficLightStep{{id}}ProgramId w3-input w3-border "
+																class="{{classApiMethodMethod}}_programId setProgramId classTrafficLightStep inputTrafficLightStep{{id}}ProgramId w3-input w3-border "
 																name="setProgramId"
 		{{else}}
-																class="valueProgramId w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}ProgramId w3-input w3-border "
+																{{classApiMethodMethod}}_programId" class="valueProgramId w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}ProgramId w3-input w3-border "
 																name="programId"
 		{{/eq}}
 	{{/eq}}
@@ -1857,14 +1875,14 @@
 															placeholder="phase"
 															id="{{classApiMethodMethod}}_phase"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setPhase classTrafficLightStep inputTrafficLightStep{{id}}Phase w3-input w3-border "
+																class="{{classApiMethodMethod}}_phase setPhase classTrafficLightStep inputTrafficLightStep{{id}}Phase w3-input w3-border "
 																name="setPhase"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setPhase classTrafficLightStep inputTrafficLightStep{{id}}Phase w3-input w3-border "
+																class="{{classApiMethodMethod}}_phase setPhase classTrafficLightStep inputTrafficLightStep{{id}}Phase w3-input w3-border "
 																name="setPhase"
 		{{else}}
-																class="valuePhase w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Phase w3-input w3-border "
+																{{classApiMethodMethod}}_phase" class="valuePhase w3-input w3-border classTrafficLightStep inputTrafficLightStep{{id}}Phase w3-input w3-border "
 																name="phase"
 		{{/eq}}
 	{{/eq}}

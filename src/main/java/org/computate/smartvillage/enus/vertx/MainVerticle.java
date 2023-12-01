@@ -101,6 +101,7 @@ import io.vertx.ext.web.Session;
 import io.vertx.ext.web.api.service.ServiceRequest;
 import io.vertx.ext.web.client.WebClient;
 import io.vertx.ext.web.client.WebClientOptions;
+import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.OAuth2AuthHandler;
 import io.vertx.ext.web.handler.SessionHandler;
 import io.vertx.ext.web.handler.StaticHandler;
@@ -198,8 +199,13 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 						future = future.compose(a -> api.writeFiware());
 					future.compose(a -> vertx.close());
 				} else {
-					future = future.compose(a -> run(config));
-					future.compose(a -> vertx.close());
+					future = future.compose(a -> run(config).onSuccess(b -> {
+						LOG.info("MainVerticle run completed");
+					}).onFailure(ex -> {
+						LOG.info("MainVerticle run failed");
+						vertx.close();
+					}));
+//					future.compose(a -> vertx.close());
 				}
 			} catch(Exception ex) {
 				LOG.error(String.format("Error loading config: %s", configPath), ex);
@@ -230,9 +236,56 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 		});
 	}
 
+	public static Future<Void> runVerticles(Vertx vertx, JsonObject config) {
+		Promise<Void> promise = Promise.promise();
+		try {
+			Long vertxWarningExceptionSeconds = config.getLong(ConfigKeys.VERTX_WARNING_EXCEPTION_SECONDS);
+			Long vertxMaxEventLoopExecuteTime = config.getLong(ConfigKeys.VERTX_MAX_EVENT_LOOP_EXECUTE_TIME);
+			Long vertxMaxWorkerExecuteTime = config.getLong(ConfigKeys.VERTX_MAX_WORKER_EXECUTE_TIME);
+			Integer siteInstances = config.getInteger(ConfigKeys.SITE_INSTANCES);
+
+			DeploymentOptions deploymentOptions = new DeploymentOptions();
+			deploymentOptions.setInstances(siteInstances);
+			deploymentOptions.setConfig(config);
+			deploymentOptions.setMaxWorkerExecuteTime(vertxMaxWorkerExecuteTime);
+			deploymentOptions.setMaxWorkerExecuteTimeUnit(TimeUnit.SECONDS);
+
+			DeploymentOptions emailVerticleDeploymentOptions = new DeploymentOptions();
+			emailVerticleDeploymentOptions.setConfig(config);
+			emailVerticleDeploymentOptions.setWorker(true);
+			emailVerticleDeploymentOptions.setMaxWorkerExecuteTime(vertxMaxWorkerExecuteTime);
+			emailVerticleDeploymentOptions.setMaxWorkerExecuteTimeUnit(TimeUnit.SECONDS);
+
+			DeploymentOptions WorkerVerticleDeploymentOptions = new DeploymentOptions();
+			WorkerVerticleDeploymentOptions.setConfig(config);
+			WorkerVerticleDeploymentOptions.setInstances(1);
+			WorkerVerticleDeploymentOptions.setMaxWorkerExecuteTime(vertxMaxWorkerExecuteTime);
+			WorkerVerticleDeploymentOptions.setMaxWorkerExecuteTimeUnit(TimeUnit.SECONDS);
+
+			vertx.deployVerticle(MainVerticle.class, deploymentOptions).onSuccess(a -> {
+				LOG.info("Started main verticle. ");
+				if(config.getBoolean(ConfigKeys.ENABLE_IMPORT_DATA)) {
+					vertx.deployVerticle(WorkerVerticle.class, WorkerVerticleDeploymentOptions).onSuccess(b -> {
+						LOG.info("Started worker verticle. ");
+					}).onFailure(ex -> {
+						LOG.error("Failed to start worker verticle. ", ex);
+						vertx.close();
+					});
+				}
+			}).onFailure(ex -> {
+				LOG.error("Failed to start main verticle. ", ex);
+				vertx.close();
+			});
+		} catch (Throwable ex) {
+			vertx.close();
+			LOG.error("Creating clustered Vertx failed. ", ex);
+			ExceptionUtils.rethrow(ex);
+		}
+		return promise.future();
+	}
+
 	public static Future<Void> run(JsonObject config) {
 		Promise<Void> promise = Promise.promise();
-		LOG.info("stuff");
 		try {
 			Boolean enableZookeeperCluster = Optional.ofNullable(config.getBoolean(ConfigKeys.ENABLE_ZOOKEEPER_CLUSTER)).orElse(false);
 			VertxOptions vertxOptions = new VertxOptions();
@@ -315,57 +368,23 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 				vertxOptions.setTracingOptions(new OpenTelemetryOptions(openTelemetry));
 			}
 
-			Consumer<Vertx> runner = vertx -> {
-				try {
-					DeploymentOptions deploymentOptions = new DeploymentOptions();
-					deploymentOptions.setInstances(siteInstances);
-					deploymentOptions.setConfig(config);
-					deploymentOptions.setMaxWorkerExecuteTime(vertxMaxWorkerExecuteTime);
-					deploymentOptions.setMaxWorkerExecuteTimeUnit(TimeUnit.SECONDS);
-		
-					DeploymentOptions emailVerticleDeploymentOptions = new DeploymentOptions();
-					emailVerticleDeploymentOptions.setConfig(config);
-					emailVerticleDeploymentOptions.setWorker(true);
-					emailVerticleDeploymentOptions.setMaxWorkerExecuteTime(vertxMaxWorkerExecuteTime);
-					emailVerticleDeploymentOptions.setMaxWorkerExecuteTimeUnit(TimeUnit.SECONDS);
-		
-					DeploymentOptions WorkerVerticleDeploymentOptions = new DeploymentOptions();
-					WorkerVerticleDeploymentOptions.setConfig(config);
-					WorkerVerticleDeploymentOptions.setInstances(1);
-					WorkerVerticleDeploymentOptions.setMaxWorkerExecuteTime(vertxMaxWorkerExecuteTime);
-					WorkerVerticleDeploymentOptions.setMaxWorkerExecuteTimeUnit(TimeUnit.SECONDS);
-		
-					vertx.deployVerticle(MainVerticle.class, deploymentOptions).onSuccess(a -> {
-						LOG.info("Started main verticle. ");
-						if(config.getBoolean(ConfigKeys.ENABLE_IMPORT_DATA)) {
-							vertx.deployVerticle(WorkerVerticle.class, WorkerVerticleDeploymentOptions).onSuccess(b -> {
-							LOG.info("Started worker verticle. ");
-								LOG.info("Started worker verticle. ");
-							}).onFailure(ex -> {
-								LOG.error("Failed to start worker verticle. ", ex);
-							});
-						}
-					}).onFailure(ex -> {
-						LOG.error("Failed to start main verticle. ", ex);
-					});
-				} catch (Throwable ex) {
-					LOG.error("Creating clustered Vertx failed. ", ex);
-					ExceptionUtils.rethrow(ex);
-				}
-			};
-	
 			if(enableZookeeperCluster) {
 				Vertx.clusteredVertx(vertxOptions).onSuccess(vertx -> {
-					runner.accept(vertx);
-					promise.complete();
+					runVerticles(vertx, config).onSuccess(a -> {
+						promise.complete();
+					});
 				}).onFailure(ex -> {
 					LOG.error("Creating clustered Vertx failed. ", ex);
 					promise.fail(ex);
 				});
 			} else {
 				Vertx vertx = Vertx.vertx(vertxOptions);
-				runner.accept(vertx);
-				promise.complete();
+				runVerticles(vertx, config).onSuccess(a -> {
+					promise.complete();
+				}).onFailure(ex -> {
+					LOG.error("Creating clustered Vertx failed. ", ex);
+					promise.fail(ex);
+				});
 			}
 		} catch (Throwable ex) {
 			LOG.error("Creating clustered Vertx failed. ", ex);
@@ -382,17 +401,17 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 	@Override()
 	public void  start(Promise<Void> startPromise) throws Exception, Exception {
 		try {
-			configureWebClient().onComplete(a ->
-				configureDataLoop().onComplete(b -> 
-					configureOpenApi().onComplete(d -> 
-						configureHealthChecks().onComplete(e -> 
-							configureSharedWorkerExecutor().onComplete(f -> 
-								configureWebsockets().onComplete(g -> 
-									configureHandlebars().onComplete(j -> 
-										configureKafka().onComplete(k -> 
-											configureApi().onComplete(m -> 
-												configureUi().onComplete(n -> 
-													startServer().onComplete(o -> startPromise.complete())
+			configureWebClient().onSuccess(a ->
+				configureDataLoop().onSuccess(b -> 
+					configureOpenApi().onSuccess(d -> 
+						configureHealthChecks().onSuccess(e -> 
+							configureSharedWorkerExecutor().onSuccess(f -> 
+								configureWebsockets().onSuccess(g -> 
+									configureHandlebars().onSuccess(j -> 
+										configureKafka().onSuccess(k -> 
+											configureApi().onSuccess(m -> 
+												configureUi().onSuccess(n -> 
+													startServer().onSuccess(o -> startPromise.complete())
 												).onFailure(ex -> startPromise.fail(ex))
 											).onFailure(ex -> startPromise.fail(ex))
 										).onFailure(ex -> startPromise.fail(ex))
@@ -405,6 +424,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 			).onFailure(ex -> startPromise.fail(ex));
 		} catch (Exception ex) {
 			LOG.error("Couldn't start verticle. ", ex);
+			startPromise.fail(ex);
 		}
 	}
 
@@ -804,13 +824,15 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 					sessionHandler.setCookieSecureFlag(true);
 		
 				RouterBuilder.create(vertx, "webroot/openapi3-enUS.yml").onSuccess(routerBuilder -> {
+					routerBuilder.rootHandler(sessionHandler);
+					routerBuilder.rootHandler(BodyHandler.create());
+
 					routerBuilder.mountServicesFromExtensions();
 	
 					routerBuilder.serviceExtraPayloadMapper(routingContext -> new JsonObject()
 							.put("uri", routingContext.request().uri())
 							.put("method", routingContext.request().method().name())
 							);
-					routerBuilder.rootHandler(sessionHandler);
 					for(String authClientOpenApiId : authHandlers.keySet()) {
 						OAuth2AuthHandler authHandler = authHandlers.get(authClientOpenApiId);
 						routerBuilder.securityHandler(authClientOpenApiId, authHandler);
@@ -830,7 +852,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 	
 						final JsonObject config = new JsonObject().put("code", code);
 	
-						String authClientOpenApiId = authHandlers.keySet().stream().findFirst().orElse(null);
+						String authClientOpenApiId = config().getString(ConfigKeys.AUTH_CLIENT);
 						JsonObject clientConfig = authClients.getJsonObject(authClientOpenApiId);
 						String authCallbackUri = clientConfig.getString(ConfigKeys.AUTH_CALLBACK_URI);
 						config.put("redirectUri", siteBaseUrl + authCallbackUri);
@@ -891,7 +913,13 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 	
 					LOG.info(configureOpenApiSuccess);
 					promise.complete();
+				}).onFailure(ex -> {
+					LOG.error(configureOpenApiError, ex);
+					promise.fail(ex);
 				});
+			}).onFailure(ex -> {
+				LOG.error(configureOpenApiError, ex);
+				promise.fail(ex);
 			});
 		} catch (Exception ex) {
 			LOG.error(configureOpenApiError, ex);

@@ -47,12 +47,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketIotNodeStep(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipIotNodeStep(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipIotNodeStep(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketIotNodeStepPage"}}
 				<!-- inline "websocketIotNodeStepPage" -->
 				websocketIotNodeStep(websocketIotNodeStepInner);
 {{/inline}}
+{{#*inline "jsWebsocketIotNodeStepPage"}}{{/inline}}
+{{#*inline "jsTooltipIotNodeStepPage"}}{{/inline}}
+{{#*inline "htmTooltipIotNodeStepPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketIotNodeStepPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipIotNodeStepPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipIotNodeStepPage}}{{/partial}}
 {{#*inline "htmUrlIotNodeStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadIotNodeStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchIotNodeStepPage"}}								<!-- #*inline "htmBodySearchIotNodeStepPage" -->
@@ -1448,14 +1466,14 @@
 															placeholder="ID"
 															title="A URL friendly unique ID for this object"															id="{{classApiMethodMethod}}_objectId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setObjectId classIotNodeStep inputIotNodeStep{{id}}ObjectId w3-input w3-border "
+																class="{{classApiMethodMethod}}_objectId setObjectId classIotNodeStep inputIotNodeStep{{id}}ObjectId w3-input w3-border "
 																name="setObjectId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setObjectId classIotNodeStep inputIotNodeStep{{id}}ObjectId w3-input w3-border "
+																class="{{classApiMethodMethod}}_objectId setObjectId classIotNodeStep inputIotNodeStep{{id}}ObjectId w3-input w3-border "
 																name="setObjectId"
 		{{else}}
-																class="valueObjectId w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}ObjectId w3-input w3-border "
+																{{classApiMethodMethod}}_objectId" class="valueObjectId w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}ObjectId w3-input w3-border "
 																name="objectId"
 		{{/eq}}
 	{{/eq}}
@@ -1509,19 +1527,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classIotNodeStep inputIotNodeStep{{id}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classIotNodeStep inputIotNodeStep{{id}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classIotNodeStep inputIotNodeStep{{id}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classIotNodeStep inputIotNodeStep{{id}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classIotNodeStep inputIotNodeStep{{id}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classIotNodeStep inputIotNodeStep{{id}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if iotNodeStep_.archived}}
@@ -1577,19 +1595,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classIotNodeStep inputIotNodeStep{{id}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classIotNodeStep inputIotNodeStep{{id}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classIotNodeStep inputIotNodeStep{{id}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classIotNodeStep inputIotNodeStep{{id}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classIotNodeStep inputIotNodeStep{{id}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classIotNodeStep inputIotNodeStep{{id}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if iotNodeStep_.deleted}}
@@ -1640,14 +1658,14 @@
 															placeholder="node name"
 															id="{{classApiMethodMethod}}_nodeName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setNodeName classIotNodeStep inputIotNodeStep{{id}}NodeName w3-input w3-border "
+																class="{{classApiMethodMethod}}_nodeName setNodeName classIotNodeStep inputIotNodeStep{{id}}NodeName w3-input w3-border "
 																name="setNodeName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setNodeName classIotNodeStep inputIotNodeStep{{id}}NodeName w3-input w3-border "
+																class="{{classApiMethodMethod}}_nodeName setNodeName classIotNodeStep inputIotNodeStep{{id}}NodeName w3-input w3-border "
 																name="setNodeName"
 		{{else}}
-																class="valueNodeName w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}NodeName w3-input w3-border "
+																{{classApiMethodMethod}}_nodeName" class="valueNodeName w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}NodeName w3-input w3-border "
 																name="nodeName"
 		{{/eq}}
 	{{/eq}}
@@ -1696,14 +1714,14 @@
 															placeholder="node type"
 															id="{{classApiMethodMethod}}_nodeType"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setNodeType classIotNodeStep inputIotNodeStep{{id}}NodeType w3-input w3-border "
+																class="{{classApiMethodMethod}}_nodeType setNodeType classIotNodeStep inputIotNodeStep{{id}}NodeType w3-input w3-border "
 																name="setNodeType"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setNodeType classIotNodeStep inputIotNodeStep{{id}}NodeType w3-input w3-border "
+																class="{{classApiMethodMethod}}_nodeType setNodeType classIotNodeStep inputIotNodeStep{{id}}NodeType w3-input w3-border "
 																name="setNodeType"
 		{{else}}
-																class="valueNodeType w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}NodeType w3-input w3-border "
+																{{classApiMethodMethod}}_nodeType" class="valueNodeType w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}NodeType w3-input w3-border "
 																name="nodeType"
 		{{/eq}}
 	{{/eq}}
@@ -1752,14 +1770,14 @@
 															placeholder="node ID"
 															id="{{classApiMethodMethod}}_nodeId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setNodeId classIotNodeStep inputIotNodeStep{{id}}NodeId w3-input w3-border "
+																class="{{classApiMethodMethod}}_nodeId setNodeId classIotNodeStep inputIotNodeStep{{id}}NodeId w3-input w3-border "
 																name="setNodeId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setNodeId classIotNodeStep inputIotNodeStep{{id}}NodeId w3-input w3-border "
+																class="{{classApiMethodMethod}}_nodeId setNodeId classIotNodeStep inputIotNodeStep{{id}}NodeId w3-input w3-border "
 																name="setNodeId"
 		{{else}}
-																class="valueNodeId w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}NodeId w3-input w3-border "
+																{{classApiMethodMethod}}_nodeId" class="valueNodeId w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}NodeId w3-input w3-border "
 																name="nodeId"
 		{{/eq}}
 	{{/eq}}
@@ -1808,14 +1826,14 @@
 															placeholder="map location"
 															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classIotNodeStep inputIotNodeStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classIotNodeStep inputIotNodeStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classIotNodeStep inputIotNodeStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classIotNodeStep inputIotNodeStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classIotNodeStep inputIotNodeStep{{id}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}

@@ -57,12 +57,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketSmartTrafficLight(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipSmartTrafficLight(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipSmartTrafficLight(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketSmartTrafficLightPage"}}
 				<!-- inline "websocketSmartTrafficLightPage" -->
 				websocketSmartTrafficLight(websocketSmartTrafficLightInner);
 {{/inline}}
+{{#*inline "jsWebsocketSmartTrafficLightPage"}}{{/inline}}
+{{#*inline "jsTooltipSmartTrafficLightPage"}}{{/inline}}
+{{#*inline "htmTooltipSmartTrafficLightPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketSmartTrafficLightPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipSmartTrafficLightPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipSmartTrafficLightPage}}{{/partial}}
 {{#*inline "htmUrlSmartTrafficLight"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadSmartTrafficLightPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchSmartTrafficLightPage"}}								<!-- #*inline "htmBodySearchSmartTrafficLightPage" -->
@@ -1503,19 +1521,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classSmartTrafficLight inputSmartTrafficLight{{pk}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classSmartTrafficLight inputSmartTrafficLight{{pk}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classSmartTrafficLight inputSmartTrafficLight{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classSmartTrafficLight inputSmartTrafficLight{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classSmartTrafficLight inputSmartTrafficLight{{pk}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classSmartTrafficLight inputSmartTrafficLight{{pk}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if smartTrafficLight_.archived}}
@@ -1571,19 +1589,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classSmartTrafficLight inputSmartTrafficLight{{pk}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classSmartTrafficLight inputSmartTrafficLight{{pk}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classSmartTrafficLight inputSmartTrafficLight{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classSmartTrafficLight inputSmartTrafficLight{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classSmartTrafficLight inputSmartTrafficLight{{pk}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classSmartTrafficLight inputSmartTrafficLight{{pk}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if smartTrafficLight_.deleted}}
@@ -1634,14 +1652,14 @@
 															placeholder="entity ID"
 															title="A unique ID for this Smart Data Model"															id="{{classApiMethodMethod}}_entityId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setEntityId classSmartTrafficLight inputSmartTrafficLight{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classSmartTrafficLight inputSmartTrafficLight{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setEntityId classSmartTrafficLight inputSmartTrafficLight{{pk}}EntityId w3-input w3-border "
+																class="{{classApiMethodMethod}}_entityId setEntityId classSmartTrafficLight inputSmartTrafficLight{{pk}}EntityId w3-input w3-border "
 																name="setEntityId"
 		{{else}}
-																class="valueEntityId w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}EntityId w3-input w3-border "
+																{{classApiMethodMethod}}_entityId" class="valueEntityId w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}EntityId w3-input w3-border "
 																name="entityId"
 		{{/eq}}
 	{{/eq}}
@@ -1690,14 +1708,14 @@
 															placeholder="smart traffic light name"
 															id="{{classApiMethodMethod}}_smartTrafficLightName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSmartTrafficLightName classSmartTrafficLight inputSmartTrafficLight{{pk}}SmartTrafficLightName w3-input w3-border "
+																class="{{classApiMethodMethod}}_smartTrafficLightName setSmartTrafficLightName classSmartTrafficLight inputSmartTrafficLight{{pk}}SmartTrafficLightName w3-input w3-border "
 																name="setSmartTrafficLightName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSmartTrafficLightName classSmartTrafficLight inputSmartTrafficLight{{pk}}SmartTrafficLightName w3-input w3-border "
+																class="{{classApiMethodMethod}}_smartTrafficLightName setSmartTrafficLightName classSmartTrafficLight inputSmartTrafficLight{{pk}}SmartTrafficLightName w3-input w3-border "
 																name="setSmartTrafficLightName"
 		{{else}}
-																class="valueSmartTrafficLightName w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}SmartTrafficLightName w3-input w3-border "
+																{{classApiMethodMethod}}_smartTrafficLightName" class="valueSmartTrafficLightName w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}SmartTrafficLightName w3-input w3-border "
 																name="smartTrafficLightName"
 		{{/eq}}
 	{{/eq}}
@@ -1746,14 +1764,14 @@
 															placeholder="route IDs"
 															id="{{classApiMethodMethod}}_routeIds"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setRouteIds classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIds w3-input w3-border "
+																class="{{classApiMethodMethod}}_routeIds setRouteIds classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIds w3-input w3-border "
 																name="setRouteIds"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setRouteIds classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIds w3-input w3-border "
+																class="{{classApiMethodMethod}}_routeIds setRouteIds classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIds w3-input w3-border "
 																name="setRouteIds"
 		{{else}}
-																class="valueRouteIds w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIds w3-input w3-border "
+																{{classApiMethodMethod}}_routeIds" class="valueRouteIds w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIds w3-input w3-border "
 																name="routeIds"
 		{{/eq}}
 	{{/eq}}
@@ -1802,14 +1820,14 @@
 															placeholder="route ID North"
 															id="{{classApiMethodMethod}}_routeIdNorth"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setRouteIdNorth classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_routeIdNorth setRouteIdNorth classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdNorth w3-input w3-border "
 																name="setRouteIdNorth"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setRouteIdNorth classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdNorth w3-input w3-border "
+																class="{{classApiMethodMethod}}_routeIdNorth setRouteIdNorth classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdNorth w3-input w3-border "
 																name="setRouteIdNorth"
 		{{else}}
-																class="valueRouteIdNorth w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdNorth w3-input w3-border "
+																{{classApiMethodMethod}}_routeIdNorth" class="valueRouteIdNorth w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdNorth w3-input w3-border "
 																name="routeIdNorth"
 		{{/eq}}
 	{{/eq}}
@@ -1858,14 +1876,14 @@
 															placeholder="route ID East"
 															id="{{classApiMethodMethod}}_routeIdEast"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setRouteIdEast classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_routeIdEast setRouteIdEast classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdEast w3-input w3-border "
 																name="setRouteIdEast"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setRouteIdEast classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdEast w3-input w3-border "
+																class="{{classApiMethodMethod}}_routeIdEast setRouteIdEast classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdEast w3-input w3-border "
 																name="setRouteIdEast"
 		{{else}}
-																class="valueRouteIdEast w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdEast w3-input w3-border "
+																{{classApiMethodMethod}}_routeIdEast" class="valueRouteIdEast w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}RouteIdEast w3-input w3-border "
 																name="routeIdEast"
 		{{/eq}}
 	{{/eq}}
@@ -1966,14 +1984,14 @@
 															placeholder="Demand scaling factor (multiplies all vehicle demands)"
 															title="Min: 1"															id="{{classApiMethodMethod}}_paramVehicleDemandScalingFactor"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamVehicleDemandScalingFactor classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleDemandScalingFactor setParamVehicleDemandScalingFactor classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
 																name="setParamVehicleDemandScalingFactor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamVehicleDemandScalingFactor classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramVehicleDemandScalingFactor setParamVehicleDemandScalingFactor classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
 																name="setParamVehicleDemandScalingFactor"
 		{{else}}
-																class="valueParamVehicleDemandScalingFactor w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
+																{{classApiMethodMethod}}_paramVehicleDemandScalingFactor" class="valueParamVehicleDemandScalingFactor w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamVehicleDemandScalingFactor w3-input w3-border "
 																name="paramVehicleDemandScalingFactor"
 		{{/eq}}
 	{{/eq}}
@@ -2360,14 +2378,14 @@
 															placeholder="time for each round of traffic simulation (sec)"
 															title="Time duration of each simulated sample path. "															id="{{classApiMethodMethod}}_paramRunTime"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamRunTime classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamRunTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramRunTime setParamRunTime classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamRunTime w3-input w3-border "
 																name="setParamRunTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamRunTime classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamRunTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramRunTime setParamRunTime classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamRunTime w3-input w3-border "
 																name="setParamRunTime"
 		{{else}}
-																class="valueParamRunTime w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamRunTime w3-input w3-border "
+																{{classApiMethodMethod}}_paramRunTime" class="valueParamRunTime w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamRunTime w3-input w3-border "
 																name="paramRunTime"
 		{{/eq}}
 	{{/eq}}
@@ -2416,14 +2434,14 @@
 															placeholder="Simulation time step (sec)"
 															title="Min: 0.5"															id="{{classApiMethodMethod}}_paramStepSize"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamStepSize classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamStepSize w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramStepSize setParamStepSize classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamStepSize w3-input w3-border "
 																name="setParamStepSize"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamStepSize classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamStepSize w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramStepSize setParamStepSize classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamStepSize w3-input w3-border "
 																name="setParamStepSize"
 		{{else}}
-																class="valueParamStepSize w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamStepSize w3-input w3-border "
+																{{classApiMethodMethod}}_paramStepSize" class="valueParamStepSize w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamStepSize w3-input w3-border "
 																name="paramStepSize"
 		{{/eq}}
 	{{/eq}}
@@ -2472,14 +2490,14 @@
 															placeholder="Number of simulation repetitions with same input (for statistical accuracy)"
 															title="Number of repeats per round. "															id="{{classApiMethodMethod}}_paramItersPerPar"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamItersPerPar classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamItersPerPar w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramItersPerPar setParamItersPerPar classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamItersPerPar w3-input w3-border "
 																name="setParamItersPerPar"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamItersPerPar classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamItersPerPar w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramItersPerPar setParamItersPerPar classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamItersPerPar w3-input w3-border "
 																name="setParamItersPerPar"
 		{{else}}
-																class="valueParamItersPerPar w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamItersPerPar w3-input w3-border "
+																{{classApiMethodMethod}}_paramItersPerPar" class="valueParamItersPerPar w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamItersPerPar w3-input w3-border "
 																name="paramItersPerPar"
 		{{/eq}}
 	{{/eq}}
@@ -2528,14 +2546,14 @@
 															placeholder="Number of parameter update iterations before output"
 															title="Total iterations to update performance. "															id="{{classApiMethodMethod}}_paramTotalIterNum"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setParamTotalIterNum classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamTotalIterNum w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramTotalIterNum setParamTotalIterNum classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamTotalIterNum w3-input w3-border "
 																name="setParamTotalIterNum"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setParamTotalIterNum classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamTotalIterNum w3-input w3-border "
+																class="{{classApiMethodMethod}}_paramTotalIterNum setParamTotalIterNum classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamTotalIterNum w3-input w3-border "
 																name="setParamTotalIterNum"
 		{{else}}
-																class="valueParamTotalIterNum w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamTotalIterNum w3-input w3-border "
+																{{classApiMethodMethod}}_paramTotalIterNum" class="valueParamTotalIterNum w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}ParamTotalIterNum w3-input w3-border "
 																name="paramTotalIterNum"
 		{{/eq}}
 	{{/eq}}
@@ -2613,7 +2631,7 @@
 																<input 
 																	type="checkbox"
 																	id="{{classApiMethodMethod}}_reportKeys_clear"
-																	class="reportKeys_clear "
+																	class="classApiMethodMethod}}_reportKeys_clear reportKeys_clear "
 																	>
 																<label for="{{classApiMethodMethod}}_reportKeys_clear">clear</label>
 															</div>
@@ -2621,7 +2639,7 @@
 														<input
 																type="text"
 																placeholder="simulation reports"
-																title="The generated reports for this smart traffic light"															class="valueObjectSuggest suggestReportKeys w3-input w3-border w3-cell w3-cell-middle "
+																title="The generated reports for this smart traffic light"															class="{{classApiMethodMethod}}_reportKeys valueObjectSuggest suggestReportKeys w3-input w3-border w3-cell w3-cell-middle "
 															name="setReportKeys"
 															id="{{classApiMethodMethod}}_reportKeys"
 															autocomplete="off"

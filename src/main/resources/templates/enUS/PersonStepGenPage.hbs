@@ -47,12 +47,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketPersonStep(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipPersonStep(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipPersonStep(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketPersonStepPage"}}
 				<!-- inline "websocketPersonStepPage" -->
 				websocketPersonStep(websocketPersonStepInner);
 {{/inline}}
+{{#*inline "jsWebsocketPersonStepPage"}}{{/inline}}
+{{#*inline "jsTooltipPersonStepPage"}}{{/inline}}
+{{#*inline "htmTooltipPersonStepPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketPersonStepPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipPersonStepPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipPersonStepPage}}{{/partial}}
 {{#*inline "htmUrlPersonStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadPersonStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchPersonStepPage"}}								<!-- #*inline "htmBodySearchPersonStepPage" -->
@@ -1173,14 +1191,14 @@
 															placeholder="simulation name"
 															id="{{classApiMethodMethod}}_simulationName"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSimulationName classPersonStep inputPersonStep{{id}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classPersonStep inputPersonStep{{id}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSimulationName classPersonStep inputPersonStep{{id}}SimulationName w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationName setSimulationName classPersonStep inputPersonStep{{id}}SimulationName w3-input w3-border "
 																name="setSimulationName"
 		{{else}}
-																class="valueSimulationName w3-input w3-border classPersonStep inputPersonStep{{id}}SimulationName w3-input w3-border "
+																{{classApiMethodMethod}}_simulationName" class="valueSimulationName w3-input w3-border classPersonStep inputPersonStep{{id}}SimulationName w3-input w3-border "
 																name="simulationName"
 		{{/eq}}
 	{{/eq}}
@@ -1229,14 +1247,14 @@
 															placeholder="sumocfg path"
 															id="{{classApiMethodMethod}}_sumocfgPath"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSumocfgPath classPersonStep inputPersonStep{{id}}SumocfgPath w3-input w3-border "
+																class="{{classApiMethodMethod}}_sumocfgPath setSumocfgPath classPersonStep inputPersonStep{{id}}SumocfgPath w3-input w3-border "
 																name="setSumocfgPath"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSumocfgPath classPersonStep inputPersonStep{{id}}SumocfgPath w3-input w3-border "
+																class="{{classApiMethodMethod}}_sumocfgPath setSumocfgPath classPersonStep inputPersonStep{{id}}SumocfgPath w3-input w3-border "
 																name="setSumocfgPath"
 		{{else}}
-																class="valueSumocfgPath w3-input w3-border classPersonStep inputPersonStep{{id}}SumocfgPath w3-input w3-border "
+																{{classApiMethodMethod}}_sumocfgPath" class="valueSumocfgPath w3-input w3-border classPersonStep inputPersonStep{{id}}SumocfgPath w3-input w3-border "
 																name="sumocfgPath"
 		{{/eq}}
 	{{/eq}}
@@ -1285,14 +1303,14 @@
 															placeholder="Time in seconds"
 															title="The time in seconds. "															id="{{classApiMethodMethod}}_time"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTime classPersonStep inputPersonStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classPersonStep inputPersonStep{{id}}Time w3-input w3-border "
 																name="setTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTime classPersonStep inputPersonStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classPersonStep inputPersonStep{{id}}Time w3-input w3-border "
 																name="setTime"
 		{{else}}
-																class="valueTime w3-input w3-border classPersonStep inputPersonStep{{id}}Time w3-input w3-border "
+																{{classApiMethodMethod}}_time" class="valueTime w3-input w3-border classPersonStep inputPersonStep{{id}}Time w3-input w3-border "
 																name="time"
 		{{/eq}}
 	{{/eq}}
@@ -1338,7 +1356,7 @@
 		{{#eq roleForWriteBool "true"}}
 														<input
 																type="text"
-																class="w3-input w3-border datetimepicker setDateTime classPersonStep inputPersonStep{{id}}DateTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classPersonStep inputPersonStep{{id}}DateTime w3-input w3-border "
 																placeholder="MM/dd/yyyy h:mm a '['VV']'"
 																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
 																id="{{classApiMethodMethod}}_dateTime"
@@ -1346,7 +1364,7 @@
 																value="{{#if personStep_.dateTime}}{{formatZonedDateTime personStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
 														{{#eq 'Page' classApiMethodMethod}}
 															onclick="removeGlow($(this)); ";
-															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('#{{classApiMethodMethod}}_dateTime')); }, function() { addError($('#{{classApiMethodMethod}}_dateTime')); }); } "
+															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
 														{{/eq}}
 														/>
 													{{else}}
@@ -1390,19 +1408,19 @@
 															id="{{classApiMethodMethod}}_step"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classPersonStep inputPersonStep{{id}}Step w3-input w3-border "
+															class="{{classApiMethodMethod}}_step classPersonStep inputPersonStep{{id}}Step w3-input w3-border "
 															name="setStep"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classPersonStep inputPersonStep{{id}}Step w3-input w3-border "
+																class="{{classApiMethodMethod}}_step classPersonStep inputPersonStep{{id}}Step w3-input w3-border "
 																name="setStep"
 		{{else}}
-																class="setStep valueStep classPersonStep inputPersonStep{{id}}Step w3-input w3-border "
+																class="{{classApiMethodMethod}}_step setStep valueStep classPersonStep inputPersonStep{{id}}Step w3-input w3-border "
 																name="setStep"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setStep', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_step')); }, function() { addError($('#{{classApiMethodMethod}}_step')); }); "
+															onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setStep', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_step')); }, function() { addError($('.{{classApiMethodMethod}}_step')); }); "
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if personStep_.step}}
@@ -1453,14 +1471,14 @@
 															placeholder="map location"
 															id="{{classApiMethodMethod}}_location"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setLocation classPersonStep inputPersonStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classPersonStep inputPersonStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setLocation classPersonStep inputPersonStep{{id}}Location w3-input w3-border "
+																class="{{classApiMethodMethod}}_location setLocation classPersonStep inputPersonStep{{id}}Location w3-input w3-border "
 																name="setLocation"
 		{{else}}
-																class="valueLocation w3-input w3-border classPersonStep inputPersonStep{{id}}Location w3-input w3-border "
+																{{classApiMethodMethod}}_location" class="valueLocation w3-input w3-border classPersonStep inputPersonStep{{id}}Location w3-input w3-border "
 																name="location"
 		{{/eq}}
 	{{/eq}}
@@ -1509,14 +1527,14 @@
 															placeholder="color"
 															id="{{classApiMethodMethod}}_color"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setColor classPersonStep inputPersonStep{{id}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classPersonStep inputPersonStep{{id}}Color w3-input w3-border "
 																name="setColor"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setColor classPersonStep inputPersonStep{{id}}Color w3-input w3-border "
+																class="{{classApiMethodMethod}}_color setColor classPersonStep inputPersonStep{{id}}Color w3-input w3-border "
 																name="setColor"
 		{{else}}
-																class="valueColor w3-input w3-border classPersonStep inputPersonStep{{id}}Color w3-input w3-border "
+																{{classApiMethodMethod}}_color" class="valueColor w3-input w3-border classPersonStep inputPersonStep{{id}}Color w3-input w3-border "
 																name="color"
 		{{/eq}}
 	{{/eq}}
@@ -1565,14 +1583,14 @@
 															placeholder="person ID"
 															id="{{classApiMethodMethod}}_personId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setPersonId classPersonStep inputPersonStep{{id}}PersonId w3-input w3-border "
+																class="{{classApiMethodMethod}}_personId setPersonId classPersonStep inputPersonStep{{id}}PersonId w3-input w3-border "
 																name="setPersonId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setPersonId classPersonStep inputPersonStep{{id}}PersonId w3-input w3-border "
+																class="{{classApiMethodMethod}}_personId setPersonId classPersonStep inputPersonStep{{id}}PersonId w3-input w3-border "
 																name="setPersonId"
 		{{else}}
-																class="valuePersonId w3-input w3-border classPersonStep inputPersonStep{{id}}PersonId w3-input w3-border "
+																{{classApiMethodMethod}}_personId" class="valuePersonId w3-input w3-border classPersonStep inputPersonStep{{id}}PersonId w3-input w3-border "
 																name="personId"
 		{{/eq}}
 	{{/eq}}
@@ -1621,14 +1639,14 @@
 															placeholder="person type"
 															id="{{classApiMethodMethod}}_personType"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setPersonType classPersonStep inputPersonStep{{id}}PersonType w3-input w3-border "
+																class="{{classApiMethodMethod}}_personType setPersonType classPersonStep inputPersonStep{{id}}PersonType w3-input w3-border "
 																name="setPersonType"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setPersonType classPersonStep inputPersonStep{{id}}PersonType w3-input w3-border "
+																class="{{classApiMethodMethod}}_personType setPersonType classPersonStep inputPersonStep{{id}}PersonType w3-input w3-border "
 																name="setPersonType"
 		{{else}}
-																class="valuePersonType w3-input w3-border classPersonStep inputPersonStep{{id}}PersonType w3-input w3-border "
+																{{classApiMethodMethod}}_personType" class="valuePersonType w3-input w3-border classPersonStep inputPersonStep{{id}}PersonType w3-input w3-border "
 																name="personType"
 		{{/eq}}
 	{{/eq}}
@@ -1677,14 +1695,14 @@
 															placeholder="Angle in degrees"
 															id="{{classApiMethodMethod}}_angle"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setAngle classPersonStep inputPersonStep{{id}}Angle w3-input w3-border "
+																class="{{classApiMethodMethod}}_angle setAngle classPersonStep inputPersonStep{{id}}Angle w3-input w3-border "
 																name="setAngle"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setAngle classPersonStep inputPersonStep{{id}}Angle w3-input w3-border "
+																class="{{classApiMethodMethod}}_angle setAngle classPersonStep inputPersonStep{{id}}Angle w3-input w3-border "
 																name="setAngle"
 		{{else}}
-																class="valueAngle w3-input w3-border classPersonStep inputPersonStep{{id}}Angle w3-input w3-border "
+																{{classApiMethodMethod}}_angle" class="valueAngle w3-input w3-border classPersonStep inputPersonStep{{id}}Angle w3-input w3-border "
 																name="angle"
 		{{/eq}}
 	{{/eq}}
@@ -1733,14 +1751,14 @@
 															placeholder="Speed"
 															id="{{classApiMethodMethod}}_speed"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSpeed classPersonStep inputPersonStep{{id}}Speed w3-input w3-border "
+																class="{{classApiMethodMethod}}_speed setSpeed classPersonStep inputPersonStep{{id}}Speed w3-input w3-border "
 																name="setSpeed"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSpeed classPersonStep inputPersonStep{{id}}Speed w3-input w3-border "
+																class="{{classApiMethodMethod}}_speed setSpeed classPersonStep inputPersonStep{{id}}Speed w3-input w3-border "
 																name="setSpeed"
 		{{else}}
-																class="valueSpeed w3-input w3-border classPersonStep inputPersonStep{{id}}Speed w3-input w3-border "
+																{{classApiMethodMethod}}_speed" class="valueSpeed w3-input w3-border classPersonStep inputPersonStep{{id}}Speed w3-input w3-border "
 																name="speed"
 		{{/eq}}
 	{{/eq}}
@@ -1789,14 +1807,14 @@
 															placeholder="Position"
 															id="{{classApiMethodMethod}}_pos"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setPos classPersonStep inputPersonStep{{id}}Pos w3-input w3-border "
+																class="{{classApiMethodMethod}}_pos setPos classPersonStep inputPersonStep{{id}}Pos w3-input w3-border "
 																name="setPos"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setPos classPersonStep inputPersonStep{{id}}Pos w3-input w3-border "
+																class="{{classApiMethodMethod}}_pos setPos classPersonStep inputPersonStep{{id}}Pos w3-input w3-border "
 																name="setPos"
 		{{else}}
-																class="valuePos w3-input w3-border classPersonStep inputPersonStep{{id}}Pos w3-input w3-border "
+																{{classApiMethodMethod}}_pos" class="valuePos w3-input w3-border classPersonStep inputPersonStep{{id}}Pos w3-input w3-border "
 																name="pos"
 		{{/eq}}
 	{{/eq}}
@@ -1845,14 +1863,14 @@
 															placeholder="Slope"
 															id="{{classApiMethodMethod}}_slope"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSlope classPersonStep inputPersonStep{{id}}Slope w3-input w3-border "
+																class="{{classApiMethodMethod}}_slope setSlope classPersonStep inputPersonStep{{id}}Slope w3-input w3-border "
 																name="setSlope"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSlope classPersonStep inputPersonStep{{id}}Slope w3-input w3-border "
+																class="{{classApiMethodMethod}}_slope setSlope classPersonStep inputPersonStep{{id}}Slope w3-input w3-border "
 																name="setSlope"
 		{{else}}
-																class="valueSlope w3-input w3-border classPersonStep inputPersonStep{{id}}Slope w3-input w3-border "
+																{{classApiMethodMethod}}_slope" class="valueSlope w3-input w3-border classPersonStep inputPersonStep{{id}}Slope w3-input w3-border "
 																name="slope"
 		{{/eq}}
 	{{/eq}}

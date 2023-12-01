@@ -611,10 +611,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 		if(o != null) {
 			try {
 				Path shape = new Path();
-				o.getJsonArray("coordinates").stream().map(a -> (JsonArray)a).forEach(g -> {
-					g.stream().map(a -> (JsonArray)a).forEach(points -> {
-						shape.addPoint(new Point(Double.parseDouble(points.getString(0)), Double.parseDouble(points.getString(1))));
-					});
+				o.getJsonArray("coordinates").stream().map(a -> (JsonArray)a).forEach(points -> {
+					shape.addPoint(new Point(Double.parseDouble(points.getString(0)), Double.parseDouble(points.getString(1))));
 				});
 				return shape;
 			} catch(Exception ex) {

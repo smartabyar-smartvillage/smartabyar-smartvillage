@@ -74,11 +74,11 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 	@Override
 	public Future<TrafficSimulation> postTrafficSimulationFuture(SiteRequestEnUS siteRequest, Boolean inheritPk) {
 		Promise<TrafficSimulation> promise = Promise.promise();
-		LOG.info(String.format("NGSILD-Path: %s", siteRequest.getRequestHeaders().get("NGSILD-Path")));
-		LOG.info(String.format("sendToSumo: %s", siteRequest.getRequestVars().get("sendToSumo")));
+		LOG.info(String.format("header: %s", siteRequest.getServiceRequest().getParams().getJsonObject("header")));
+		LOG.info(String.format("sendToSumo: %s", siteRequest.getServiceRequest().getParams().getJsonObject("header").getString("sendToSumo")));
 		super.postTrafficSimulationFuture(siteRequest, inheritPk).onSuccess(o -> {
 			if(
-					siteRequest.getRequestHeaders().contains("NGSILD-Path")
+					siteRequest.getServiceRequest().getParams().getJsonObject("header").containsKey("ngsild-path")
 					&& !"false".equals(siteRequest.getRequestVars().get("sendToSumo"))
 					) {
 				sendSumoSimulationInfo(o).onSuccess(b -> {
@@ -98,11 +98,11 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 	@Override
 	public Future<TrafficSimulation> patchTrafficSimulationFuture(TrafficSimulation o, Boolean inheritPk) {
 		Promise<TrafficSimulation> promise = Promise.promise();
-		LOG.info(String.format("NGSILD-Path: %s", o.getSiteRequest_().getRequestHeaders().get("NGSILD-Path")));
+		LOG.info(String.format("header: %s", o.getSiteRequest_().getServiceRequest().getParams().getJsonObject("header")));
 		LOG.info(String.format("sendToSumo: %s", o.getSiteRequest_().getRequestVars().get("sendToSumo")));
 		super.patchTrafficSimulationFuture(o, inheritPk).onSuccess(a -> {
 			if(
-					o.getSiteRequest_().getRequestHeaders().contains("NGSILD-Path")
+					o.getSiteRequest_().getServiceRequest().getParams().getJsonObject("header").containsKey("ngsild-path")
 					&& !"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
 					) {
 				sendSumoSimulationInfo(o).onSuccess(b -> {

@@ -706,14 +706,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setUpdatedPerformance":
-							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
-							num++;
-							bParams.add(o2.sqlUpdatedPerformance());
-						break;
 					case "setReportName":
 							o2.setReportName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -998,6 +990,14 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUpdatedParameters());
 						break;
+					case "setUpdatedPerformance":
+							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+							num++;
+							bParams.add(o2.sqlUpdatedPerformance());
+						break;
 					case "setAverageQueueLength":
 							o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
 							if(bParams.size() > 0)
@@ -1121,7 +1121,7 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						params.put("body", siteRequest.getJsonObject());
 						params.put("path", new JsonObject());
 						params.put("cookie", new JsonObject());
-						params.put("header", new JsonObject());
+						params.put("header", siteRequest.getServiceRequest().getParams().getJsonObject("header"));
 						params.put("form", new JsonObject());
 						JsonObject query = new JsonObject();
 						Boolean softCommit = Optional.ofNullable(siteRequest.getServiceRequest().getParams()).map(p -> p.getJsonObject("query")).map( q -> q.getBoolean("softCommit")).orElse(null);
@@ -1382,15 +1382,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						bSql.append(SimulationReport.VAR_userKey + "=$" + num);
 						num++;
 						bParams.add(o2.sqlUserKey());
-						break;
-					case SimulationReport.VAR_updatedPerformance:
-						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
-						num++;
-						bParams.add(o2.sqlUpdatedPerformance());
 						break;
 					case SimulationReport.VAR_reportName:
 						o2.setReportName(jsonObject.getString(entityVar));
@@ -1673,6 +1664,15 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUpdatedParameters());
 						break;
+					case SimulationReport.VAR_updatedPerformance:
+						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+						num++;
+						bParams.add(o2.sqlUpdatedPerformance());
+						break;
 					case SimulationReport.VAR_averageQueueLength:
 						o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
 						if(bParams.size() > 0) {
@@ -1856,7 +1856,7 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 					params.put("body", obj);
 					params.put("path", new JsonObject());
 					params.put("cookie", new JsonObject());
-					params.put("header", new JsonObject());
+					params.put("header", siteRequest.getServiceRequest().getParams().getJsonObject("header"));
 					params.put("form", new JsonObject());
 					JsonObject query = new JsonObject();
 					Boolean softCommit = Optional.ofNullable(siteRequest.getServiceRequest().getParams()).map(p -> p.getJsonObject("query")).map( q -> q.getBoolean("softCommit")).orElse(null);
@@ -2331,15 +2331,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case SimulationReport.VAR_updatedPerformance:
-						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
-						num++;
-						bParams.add(o2.sqlUpdatedPerformance());
-						break;
 					case SimulationReport.VAR_reportName:
 						o2.setReportName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -2620,6 +2611,15 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						bSql.append(SimulationReport.VAR_updatedParameters + "=$" + num);
 						num++;
 						bParams.add(o2.sqlUpdatedParameters());
+						break;
+					case SimulationReport.VAR_updatedPerformance:
+						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+						num++;
+						bParams.add(o2.sqlUpdatedPerformance());
 						break;
 					case SimulationReport.VAR_averageQueueLength:
 						o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
@@ -3030,14 +3030,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setUpdatedPerformance":
-							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
-							num++;
-							bParams.add(o2.sqlUpdatedPerformance());
-						break;
 					case "setReportName":
 							o2.setReportName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -3321,6 +3313,14 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							bSql.append(SimulationReport.VAR_updatedParameters + "=$" + num);
 							num++;
 							bParams.add(o2.sqlUpdatedParameters());
+						break;
+					case "setUpdatedPerformance":
+							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+							num++;
+							bParams.add(o2.sqlUpdatedPerformance());
 						break;
 					case "setAverageQueueLength":
 							o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
@@ -4060,7 +4060,7 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 					JsonObject params = new JsonObject();
 					params.put("body", new JsonObject());
 					params.put("cookie", new JsonObject());
-					params.put("header", new JsonObject());
+					params.put("header", siteRequest.getServiceRequest().getParams().getJsonObject("header"));
 					params.put("form", new JsonObject());
 					params.put("path", new JsonObject());
 					JsonObject query = new JsonObject();

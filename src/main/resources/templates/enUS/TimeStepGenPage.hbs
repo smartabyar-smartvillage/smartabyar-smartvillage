@@ -47,12 +47,30 @@
 				//calendar.render();
 {{#block "websocket"}}{{/block}}
 			});
+
+			function jsWebsocketTimeStep(vars, $response) {
+{{#block "jsWebsocket"}}{{/block}}
+			}
+
+			function jsTooltipTimeStep(e, feature) {
+{{#block "jsTooltip"}}{{/block}}
+			}
+
+			function htmTooltipTimeStep(feature, layer) {
+				return `{{#block "htmTooltip"}}{{/block}}`;
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketTimeStepPage"}}
 				<!-- inline "websocketTimeStepPage" -->
 				websocketTimeStep(websocketTimeStepInner);
 {{/inline}}
+{{#*inline "jsWebsocketTimeStepPage"}}{{/inline}}
+{{#*inline "jsTooltipTimeStepPage"}}{{/inline}}
+{{#*inline "htmTooltipTimeStepPage"}}{{/inline}}
+{{#partial "jsWebsocket"}}{{> jsWebsocketTimeStepPage}}{{/partial}}
+{{#partial "jsTooltip"}}{{> jsTooltipTimeStepPage}}{{/partial}}
+{{#partial "htmTooltip"}}{{> htmTooltipTimeStepPage}}{{/partial}}
 {{#*inline "htmUrlTimeStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTimeStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTimeStepPage"}}								<!-- #*inline "htmBodySearchTimeStepPage" -->
@@ -1101,14 +1119,14 @@
 															placeholder="ID"
 															title="A URL friendly unique ID for this object"															id="{{classApiMethodMethod}}_objectId"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setObjectId classTimeStep inputTimeStep{{id}}ObjectId w3-input w3-border "
+																class="{{classApiMethodMethod}}_objectId setObjectId classTimeStep inputTimeStep{{id}}ObjectId w3-input w3-border "
 																name="setObjectId"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setObjectId classTimeStep inputTimeStep{{id}}ObjectId w3-input w3-border "
+																class="{{classApiMethodMethod}}_objectId setObjectId classTimeStep inputTimeStep{{id}}ObjectId w3-input w3-border "
 																name="setObjectId"
 		{{else}}
-																class="valueObjectId w3-input w3-border classTimeStep inputTimeStep{{id}}ObjectId w3-input w3-border "
+																{{classApiMethodMethod}}_objectId" class="valueObjectId w3-input w3-border classTimeStep inputTimeStep{{id}}ObjectId w3-input w3-border "
 																name="objectId"
 		{{/eq}}
 	{{/eq}}
@@ -1162,19 +1180,19 @@
 															id="{{classApiMethodMethod}}_archived"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTimeStep inputTimeStep{{id}}Archived w3-input w3-border "
+															class="{{classApiMethodMethod}}_archived classTimeStep inputTimeStep{{id}}Archived w3-input w3-border "
 															name="setArchived"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTimeStep inputTimeStep{{id}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived classTimeStep inputTimeStep{{id}}Archived w3-input w3-border "
 																name="setArchived"
 		{{else}}
-																class="setArchived valueArchived classTimeStep inputTimeStep{{id}}Archived w3-input w3-border "
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classTimeStep inputTimeStep{{id}}Archived w3-input w3-border "
 																name="setArchived"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_archived')); }, function() { addError($('#{{classApiMethodMethod}}_archived')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if timeStep_.archived}}
@@ -1230,19 +1248,19 @@
 															id="{{classApiMethodMethod}}_deleted"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															class="classTimeStep inputTimeStep{{id}}Deleted w3-input w3-border "
+															class="{{classApiMethodMethod}}_deleted classTimeStep inputTimeStep{{id}}Deleted w3-input w3-border "
 															name="setDeleted"
 	{{else}}
 		{{#eq 'Page' classApiMethodMethod}}
-																class="classTimeStep inputTimeStep{{id}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted classTimeStep inputTimeStep{{id}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{else}}
-																class="setDeleted valueDeleted classTimeStep inputTimeStep{{id}}Deleted w3-input w3-border "
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classTimeStep inputTimeStep{{id}}Deleted w3-input w3-border "
 																name="setDeleted"
 		{{/eq}}
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
-															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('#{{classApiMethodMethod}}_deleted')); }, function() { addError($('#{{classApiMethodMethod}}_deleted')); }); }"
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
 	{{/eq}}
 	{{#eq 'Page' classApiMethodMethod}}
 		{{#if timeStep_.deleted}}
@@ -1293,14 +1311,14 @@
 															placeholder="Simulation"
 															title="The simulation key. "															id="{{classApiMethodMethod}}_simulationKey"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setSimulationKey classTimeStep inputTimeStep{{id}}SimulationKey w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationKey setSimulationKey classTimeStep inputTimeStep{{id}}SimulationKey w3-input w3-border "
 																name="setSimulationKey"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setSimulationKey classTimeStep inputTimeStep{{id}}SimulationKey w3-input w3-border "
+																class="{{classApiMethodMethod}}_simulationKey setSimulationKey classTimeStep inputTimeStep{{id}}SimulationKey w3-input w3-border "
 																name="setSimulationKey"
 		{{else}}
-																class="valueSimulationKey w3-input w3-border classTimeStep inputTimeStep{{id}}SimulationKey w3-input w3-border "
+																{{classApiMethodMethod}}_simulationKey" class="valueSimulationKey w3-input w3-border classTimeStep inputTimeStep{{id}}SimulationKey w3-input w3-border "
 																name="simulationKey"
 		{{/eq}}
 	{{/eq}}
@@ -1349,14 +1367,14 @@
 															placeholder="Path"
 															title="The file path. "															id="{{classApiMethodMethod}}_path"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setPath classTimeStep inputTimeStep{{id}}Path w3-input w3-border "
+																class="{{classApiMethodMethod}}_path setPath classTimeStep inputTimeStep{{id}}Path w3-input w3-border "
 																name="setPath"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setPath classTimeStep inputTimeStep{{id}}Path w3-input w3-border "
+																class="{{classApiMethodMethod}}_path setPath classTimeStep inputTimeStep{{id}}Path w3-input w3-border "
 																name="setPath"
 		{{else}}
-																class="valuePath w3-input w3-border classTimeStep inputTimeStep{{id}}Path w3-input w3-border "
+																{{classApiMethodMethod}}_path" class="valuePath w3-input w3-border classTimeStep inputTimeStep{{id}}Path w3-input w3-border "
 																name="path"
 		{{/eq}}
 	{{/eq}}
@@ -1405,14 +1423,14 @@
 															placeholder="Time in seconds"
 															title="The time in seconds. "															id="{{classApiMethodMethod}}_time"
 	{{#eq "Page" classApiMethodMethod}}
-																class="setTime classTimeStep inputTimeStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classTimeStep inputTimeStep{{id}}Time w3-input w3-border "
 																name="setTime"
 	{{else}}
 		{{#eq "PATCH" classApiMethodMethod}}
-																class="setTime classTimeStep inputTimeStep{{id}}Time w3-input w3-border "
+																class="{{classApiMethodMethod}}_time setTime classTimeStep inputTimeStep{{id}}Time w3-input w3-border "
 																name="setTime"
 		{{else}}
-																class="valueTime w3-input w3-border classTimeStep inputTimeStep{{id}}Time w3-input w3-border "
+																{{classApiMethodMethod}}_time" class="valueTime w3-input w3-border classTimeStep inputTimeStep{{id}}Time w3-input w3-border "
 																name="time"
 		{{/eq}}
 	{{/eq}}
@@ -1458,7 +1476,7 @@
 		{{#eq roleForWriteBool "true"}}
 														<input
 																type="text"
-																class="w3-input w3-border datetimepicker setDateTime classTimeStep inputTimeStep{{id}}DateTime w3-input w3-border "
+																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classTimeStep inputTimeStep{{id}}DateTime w3-input w3-border "
 																placeholder="MM/dd/yyyy h:mm a '['VV']'"
 																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
 																id="{{classApiMethodMethod}}_dateTime"
@@ -1466,7 +1484,7 @@
 																value="{{#if timeStep_.dateTime}}{{formatZonedDateTime timeStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
 														{{#eq 'Page' classApiMethodMethod}}
 															onclick="removeGlow($(this)); ";
-															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('#{{classApiMethodMethod}}_dateTime')); }, function() { addError($('#{{classApiMethodMethod}}_dateTime')); }); } "
+															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
 														{{/eq}}
 														/>
 													{{else}}
