@@ -45,6 +45,7 @@ JDBC_USERNAME: "{{ JDBC_USERNAME }}"
 # oc get -n smartvillage secret/postgres-pguser-smartvillage -o 'jsonpath={.data.password}' | base64 -d && echo
 JDBC_PASSWORD: "{{ JDBC_PASSWORD }}"
 
+{% if KAFKA_SSL_KEYSTORE_PASSWORD is defined %}
 KAFKA_BROKERS: "{{ KAFKA_BROKERS }}"
 KAFKA_GROUP: "smartvillage-kafka-group"
 KAFKA_SECURITY_PROTOCOL: "{{ KAFKA_SECURITY_PROTOCOL }}"
@@ -58,6 +59,7 @@ KAFKA_SSL_TRUSTSTORE_TYPE: "{{ KAFKA_SSL_TRUSTSTORE_TYPE }}"
 KAFKA_SSL_TRUSTSTORE_LOCATION: "{{ KAFKA_SSL_TRUSTSTORE_LOCATION }}"
 # oc get -n smartvillage secret/smartvillage-kafka-cluster-ca-cert -o 'jsonpath={.data.ca\.password}' | base64 -d && echo
 KAFKA_SSL_TRUSTSTORE_PASSWORD: "{{ KAFKA_SSL_TRUSTSTORE_PASSWORD }}"
+{% endif %}
 
 AUTH_HOST_NAME: "{{ AUTH_HOST_NAME | default('') }}"
 AUTH_PORT: {{ AUTH_PORT }}
