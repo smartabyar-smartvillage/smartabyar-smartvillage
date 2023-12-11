@@ -4,8 +4,33 @@
   vars: 
     GITHUB_ORG: "computate-org"
     SITE_NAME: "smartabyar-smartvillage"
+    SITE_PREFIX: "{{ playbook_dir | dirname }}"
+    SYSTEMD_ENABLED: true
+
     SITE_REPO: "git@github.com:computate-org/smartabyar-smartvillage.git"
-    SITE_SRC: "{{ playbook_dir }}"
+    SITE_REPO_HTTPS: "{{ SITE_REPO | replace('git@github.com:', 'https://github.com/') }}"
+    SITE_SRC: "{{ SITE_PREFIX }}/{{ SITE_NAME }}"
+
+    COMPUTATE_SEARCH_REPO: "git@github.com:computate-org/computate-search.git"
+    COMPUTATE_SEARCH_REPO_HTTPS: "{{ COMPUTATE_SEARCH_REPO | replace('git@github.com:', 'https://github.com/') }}"
+    COMPUTATE_SEARCH_SRC: "{{ SITE_PREFIX }}/computate-search"
+
+    COMPUTATE_VERTX_REPO: "git@github.com:computate-org/computate-vertx.git"
+    COMPUTATE_VERTX_REPO_HTTPS: "{{ COMPUTATE_VERTX_REPO | replace('git@github.com:', 'https://github.com/') }}"
+    COMPUTATE_VERTX_SRC: "{{ SITE_PREFIX }}/computate-vertx"
+
+    COMPUTATE_REPO: "git@github.com:computate-org/computate.git"
+    COMPUTATE_REPO_HTTPS: "{{ COMPUTATE_REPO | replace('git@github.com:', 'https://github.com/') }}"
+    COMPUTATE_SRC: "{{ SITE_PREFIX }}/computate"
+
+    COMPUTATE_PROJECT_REPO: "git@github.com:computate-org/computate_project.git"
+    COMPUTATE_PROJECT_REPO_HTTPS: "{{ COMPUTATE_PROJECT_REPO | replace('git@github.com:', 'https://github.com/') }}"
+    COMPUTATE_PROJECT_SRC: "{{ lookup('env', 'HOME') }}/.ansible/roles/computate.computate_project"
+
+    OPERATOR_REPO: "git@github.com:computate-org/smartvillage-operator.git"
+    OPERATOR_REPO_HTTPS: "{{ OPERATOR_REPO | replace('git@github.com:', 'https://github.com/') }}"
+    OPERATOR_SRC: "{{ SITE_PREFIX }}/smartvillage-operator"
+
     SITE_JAVA_PACKAGE: "org.computate.smartvillage.enus"
     RELATIVE_PATHS_TO_WATCH: "src/main/java/org/computate/smartvillage/enus"
     SITE_CONFIG:
@@ -16,17 +41,74 @@
       enableArchived: true
   tasks: 
 
-    - include_role:
-        name: computate.computate_postgres
-      when: FILTER_POSTGRES is defined and FILTER_POSTGRES == 'true' or (FILTER_ZOOKEEPER is not defined and FILTER_SOLR is not defined and FILTER_PROJECT is not defined)
+    - name: Create the {{ SITE_PREFIX }} source code prefix directory
+      file:
+        name: "{{ SITE_PREFIX }}"
+        state: directory
 
-    - include_role:
-        name: computate.computate_zookeeper
-      when: FILTER_ZOOKEEPER is defined and FILTER_ZOOKEEPER == 'true' or (FILTER_POSTGRES is not defined and FILTER_SOLR is not defined and FILTER_PROJECT is not defined)
+    - name: Clone the {{ COMPUTATE_SEARCH_REPO }} source code into {{ COMPUTATE_SEARCH_SRC }}
+      git:
+        repo: "{{ COMPUTATE_SEARCH_REPO }}"
+        dest: "{{ COMPUTATE_SEARCH_SRC }}"
+      ignore_errors: true
+      register: COMPUTATE_SEARCH_REPO_CLONE
+    - name: Clone the public {{ COMPUTATE_SEARCH_REPO_HTTPS }} source code into {{ COMPUTATE_SEARCH_SRC }}
+      git:
+        repo: "{{ COMPUTATE_SEARCH_REPO_HTTPS }}"
+        dest: "{{ COMPUTATE_SEARCH_SRC }}"
+      when: COMPUTATE_SEARCH_REPO_CLONE.failed
 
-    - include_role:
-        name: computate.computate_solr
-      when: FILTER_SOLR is defined and FILTER_SOLR == 'true' or (FILTER_POSTGRES is not defined and FILTER_ZOOKEEPER is not defined and FILTER_PROJECT is not defined)
+    - name: Clone the {{ COMPUTATE_VERTX_REPO }} source code into {{ COMPUTATE_VERTX_SRC }}
+      git:
+        repo: "{{ COMPUTATE_VERTX_REPO }}"
+        dest: "{{ COMPUTATE_VERTX_SRC }}"
+      ignore_errors: true
+      register: COMPUTATE_VERTX_REPO_CLONE
+    - name: Clone the public {{ COMPUTATE_VERTX_REPO_HTTPS }} source code into {{ COMPUTATE_VERTX_SRC }}
+      git:
+        repo: "{{ COMPUTATE_VERTX_REPO_HTTPS }}"
+        dest: "{{ COMPUTATE_VERTX_SRC }}"
+      when: COMPUTATE_VERTX_REPO_CLONE.failed
+
+    - name: Clone the {{ COMPUTATE_REPO }} source code into {{ COMPUTATE_SRC }}
+      git:
+        repo: "{{ COMPUTATE_REPO }}"
+        dest: "{{ COMPUTATE_SRC }}"
+      ignore_errors: true
+      register: COMPUTATE_REPO_CLONE
+    - name: Clone the public {{ COMPUTATE_REPO_HTTPS }} source code into {{ COMPUTATE_SRC }}
+      git:
+        repo: "{{ COMPUTATE_REPO_HTTPS }}"
+        dest: "{{ COMPUTATE_SRC }}"
+      when: COMPUTATE_REPO_CLONE.failed
+
+    - name: Clone the {{ OPERATOR_REPO }} source code into {{ OPERATOR_SRC }}
+      git:
+        repo: "{{ OPERATOR_REPO }}"
+        dest: "{{ OPERATOR_SRC }}"
+      ignore_errors: true
+      register: OPERATOR_REPO_CLONE
+    - name: Clone the public {{ OPERATOR_REPO_HTTPS }} source code into {{ OPERATOR_SRC }}
+      git:
+        repo: "{{ OPERATOR_REPO_HTTPS }}"
+        dest: "{{ OPERATOR_SRC }}"
+      when: OPERATOR_REPO_CLONE.failed
+
+    - name: Create the {{ COMPUTATE_PROJECT_SRC }} Ansible Role directory
+      file:
+        name: "{{ COMPUTATE_PROJECT_SRC }}"
+        state: directory
+    - name: Clone the {{ COMPUTATE_PROJECT_REPO }} source code into {{ COMPUTATE_PROJECT_SRC }}
+      git:
+        repo: "{{ COMPUTATE_PROJECT_REPO }}"
+        dest: "{{ COMPUTATE_PROJECT_SRC }}"
+      ignore_errors: true
+      register: COMPUTATE_PROJECT_REPO_CLONE
+    - name: Clone the public {{ COMPUTATE_PROJECT_REPO_HTTPS }} source code into {{ COMPUTATE_PROJECT_SRC }}
+      git:
+        repo: "{{ COMPUTATE_PROJECT_REPO_HTTPS }}"
+        dest: "{{ COMPUTATE_PROJECT_SRC }}"
+      when: COMPUTATE_PROJECT_REPO_CLONE.failed
 
     - include_role:
         name: computate.computate_project
@@ -34,6 +116,8 @@
         SITE_SERVICES: 
           - SITE_NAME: "{{ SITE_NAME }}"
             SITE_SRC: "{{ SITE_SRC }}"
+            SITE_PREFIX: "{{ SITE_PREFIX }}"
             SITE_JAVA_PACKAGE: "{{ SITE_JAVA_PACKAGE }}"
             RELATIVE_PATHS_TO_WATCH: "{{ RELATIVE_PATHS_TO_WATCH }}"
+            SYSTEMD_ENABLED: "{{ SYSTEMD_ENABLED | bool }}"
       when: FILTER_PROJECT is defined and FILTER_PROJECT == 'true' or (FILTER_POSTGRES is not defined and FILTER_ZOOKEEPER is not defined and FILTER_SOLR is not defined)

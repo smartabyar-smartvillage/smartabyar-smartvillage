@@ -3,10 +3,10 @@
 # Install openjdk dependencies
 
 ```bash
-sudo yum install -y java-17-openjdk-devel
-sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk/bin/java
-sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk/bin/java
-echo 'JAVA_HOME=/usr/lib/jvm/java-17-openjdk' >> ~/.bashrc
+sudo yum install -y java-11-openjdk-devel
+sudo alternatives --set java java-11-openjdk.x86_64
+sudo alternatives --set javac java-11-openjdk.x86_64
+echo 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk' >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -86,13 +86,7 @@ pip install ansible
 ## Update the Ansible Galaxy collections for kubernetes.core
 
 ```bash
-ansible-galaxy collection install kubernetes.core
-```
-
-## Update the Ansible Galaxy collections for kubernetes.core
-
-```bash
-ansible-galaxy collection install kubernetes.core
+ansible-galaxy collection install kubernetes.core -U
 ```
 
 # Setup the project
