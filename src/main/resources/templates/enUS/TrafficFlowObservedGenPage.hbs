@@ -59,6 +59,10 @@
 			function htmTooltipTrafficFlowObserved(feature, layer) {
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
+
+			function jsStyleTrafficFlowObserved(feature) {
+{{#block "jsStyle"}}{{/block}}
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketTrafficFlowObservedPage"}}
@@ -68,6 +72,7 @@
 {{#*inline "jsWebsocketTrafficFlowObservedPage"}}{{/inline}}
 {{#*inline "jsTooltipTrafficFlowObservedPage"}}{{/inline}}
 {{#*inline "htmTooltipTrafficFlowObservedPage"}}{{/inline}}
+{{#*inline "jsStyleTrafficFlowObservedPage"}}{{/inline}}
 {{#*inline "htmUrlTrafficFlowObserved"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTrafficFlowObservedPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTrafficFlowObservedPage"}}								<!-- #*inline "htmBodySearchTrafficFlowObservedPage" -->

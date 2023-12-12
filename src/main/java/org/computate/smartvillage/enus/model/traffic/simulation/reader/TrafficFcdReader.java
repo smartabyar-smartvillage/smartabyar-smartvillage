@@ -1106,7 +1106,7 @@ public class TrafficFcdReader extends TrafficFcdReaderGen<Object> {
 //					fileStream.flush();
 //					fileStream.close();
 				vertx.eventBus().publish(String.format("websocket%s", TimeStep.CLASS_SIMPLE_NAME), JsonObject.mapFrom(apiRequest));
-				LOG.info(String.format(importVehicleComplete, timeStep.getPath()));
+				LOG.debug(String.format(importVehicleComplete, timeStep.getDateTime()));
 				promise.tryComplete(apiRequest);
 			});
 			recordParser.fetch(apiCounterFetch);

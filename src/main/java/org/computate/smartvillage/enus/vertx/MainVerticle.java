@@ -798,11 +798,14 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 		try {
 			String siteBaseUrl = config().getString(ConfigKeys.SITE_BASE_URL);
 			
-			JsonObject authClients = Optional.ofNullable(config().getValue(ConfigKeys.AUTH_CLIENTS)).map(v -> v instanceof JsonObject ? (JsonObject)v : new JsonObject(v.toString())).orElse(new JsonObject());
+			JsonObject authClients = Optional.ofNullable(config().getValue(ConfigKeys.AUTH_CLIENTS))
+					.map(v -> v instanceof JsonObject ? (JsonObject)v : new JsonObject(v.toString()))
+					.orElse(new JsonObject().put(Optional.ofNullable(config().getString(ConfigKeys.AUTH_OPEN_API_ID)).orElse("openIdConnect"), config()))
+					;
 			List<Future<OAuth2AuthHandler>> futures = new ArrayList<>();
 			Map<String, OAuth2AuthHandler> authHandlers = new LinkedHashMap<>();
 			Map<String, OAuth2Auth> authProviders = new LinkedHashMap<>();
-			authClients.fieldNames().forEach(authClientOpenApiId -> {
+			for(String authClientOpenApiId : authClients.fieldNames()) {
 				JsonObject authClient = authClients.getJsonObject(authClientOpenApiId);
 				futures.add(Future.future(promise1 -> {
 					configureAuthClient(authClientOpenApiId, authClient, authHandlers, authProviders).onSuccess(a -> {
@@ -812,7 +815,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 						promise1.fail(ex);
 					});
 				}));
-			});
+			}
 			Future.all(futures).onSuccess(a -> {
 				oauth2AuthenticationProvider = authProviders.get(authProviders.keySet().toArray()[0]);
 				authorizationProvider = KeycloakAuthorization.create();
@@ -852,7 +855,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 	
 						final JsonObject config = new JsonObject().put("code", code);
 	
-						String authClientOpenApiId = config().getString(ConfigKeys.AUTH_CLIENT);
+						String authClientOpenApiId = config().getString(ConfigKeys.AUTH_OPEN_API_ID);
 						JsonObject clientConfig = authClients.getJsonObject(authClientOpenApiId);
 						String authCallbackUri = clientConfig.getString(ConfigKeys.AUTH_CALLBACK_URI);
 						config.put("redirectUri", siteBaseUrl + authCallbackUri);

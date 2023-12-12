@@ -361,6 +361,33 @@ podman push computateorg/smartabyar-smartvillage:latest quay.io/computateorg/sma
 ansible-playbook -e @~/.local/src/smartabyar-smartvillage/local/ansible_install_vars.yml ~/.local/src/computate-org/vertx_project.yml
 ```
 
+# Install the TLC Traffic Light Controller application
+
+```bash
+sudo install -d -o $USER -g $USER /usr/local/src/TLC
+git clone git@github.com:computate-org/TLC.git /usr/local/src/TLC/ -b computate-api
+cd /usr/local/src/TLC/
+```
+
+# Install SUMO Traffic Simulator
+
+```bash
+install -d ~/.ansible/roles/computate.computate_fox
+git clone git@github.com:computate-org/computate_fox.git ~/.ansible/roles/computate.computate_fox
+cd ~/.ansible/roles/computate.computate_fox
+ansible-playbook install.yml
+install -d ~/.ansible/roles/computate.computate_sumo
+git clone git@github.com:computate-org/computate_sumo.git ~/.ansible/roles/computate.computate_sumo
+cd ~/.ansible/roles/computate.computate_sumo
+ansible-playbook install.yml
+```
+
+# Install sumolib python library
+
+```bash
+pip install sumolib pyproj
+```
+
 # Load a new map traffic data into SUMO
 
 ```bash
@@ -371,13 +398,15 @@ env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/su
 # Export SUMO vehicle coordinate data
 
 ```bash
-env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo sumo --fcd-output ~/.local/share/sumo/data/veberod/veberod-fcd.xml -c ~/.local/share/sumo/data/veberod/veberod.sumocfg --fcd-output.geo -b 10 -e 360 --step-length 0.1
+env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo \
+  sumo --fcd-output /usr/local/src/TLC/output/veberod-fcd.xml -c /usr/local/src/TLC/input/Veberod_intersection_pedestrian.sumocfg --fcd-output.geo -b 0 -e 86400 --step-length 1
 ```
 
 # Export SUMO full data
 
 ```bash
-env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo sumo --full-output ~/.local/share/sumo/data/veberod/veberod-full.xml -c ~/.local/share/sumo/data/veberod/veberod.sumocfg --fcd-output.geo -b 10 -e 360 --step-length 0.1
+env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo \
+  sumo --full-output /usr/local/src/TLC//output/veberod-full.xml -c /usr/local/src/TLC/input/Veberod_intersection_pedestrian.sumocfg --fcd-output.geo -b 0 -e 86400 --step-length 1
 ```
 
 # Convert X,Y coordinates to geo coordinates with python

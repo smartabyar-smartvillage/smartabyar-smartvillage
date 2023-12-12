@@ -12,11 +12,11 @@
             range: true
             , min: 1
             , max: 50
-            , values: [ window.trafficFlowObserved.customMinGreenTime, window.trafficFlowObserved.customMaxGreenTime ]
+            , values: [ feature.properties.customMinGreenTime, feature.properties.customMaxGreenTime ]
             , create: function() {
-              $('#feature-' + feature.properties.pk + '-customMinGreenTime-slider-handle').text(parseInt(window.trafficFlowObserved.customMinGreenTime));
+              $('#feature-' + feature.properties.pk + '-customMinGreenTime-slider-handle').text(parseInt(feature.properties.customMinGreenTime));
               
-              $('#feature-' + feature.properties.pk + '-customMaxGreenTime-slider-handle').text(parseInt(window.trafficFlowObserved.customMaxGreenTime));
+              $('#feature-' + feature.properties.pk + '-customMaxGreenTime-slider-handle').text(parseInt(feature.properties.customMaxGreenTime));
             }
             , slide: function( event, ui ) {
               $('#feature-' + feature.properties.pk + '-customMinGreenTime-slider-handle').text(ui.values[0]);
@@ -37,6 +37,9 @@
     <div id="feature-${feature.properties.pk}-customMaxGreenTime-slider-handle" class="ui-slider-handle"></div>
   </div>
   <div><span class="">Queue length threshold: </span><input type="text" placeholder="queue length threshold" title="Demand scaling factor (multiplies all vehicle demands) [1, 2]. " id="Page_customQueueLengthThreshold" class="Page_customQueueLengthThreshold setCustomQueueLengthThreshold classTrafficFlowObserved inputTrafficFlowObserved4CustomQueueLengthThreshold w3-input w3-border " name="setCustomQueueLengthThreshold" onclick="removeGlow($(this)); " onchange="patchTrafficFlowObservedVal([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:${feature.properties.pk}' }], 'setCustomQueueLengthThreshold', $(this).val(), function() { addGlow($('#Page_customQueueLengthThreshold')); }, function() { addError($('#Page_customQueueLengthThreshold')); }); " value="${feature.properties.customQueueLengthThreshold}"></div>
+{{/partial}}
+{{#partial "jsStyle"}}
+              return {color: feature.properties.color, weight: 5, opacity: 1};
 {{/partial}}
 {{#partial "htmHead"}}{{> htmHeadTrafficFlowObservedPage}}{{/partial}}
 {{#partial "htmTitle"}}{{> htmTitleTrafficFlowObservedPage}}{{/partial}}
