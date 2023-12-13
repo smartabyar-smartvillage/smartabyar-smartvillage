@@ -5265,9 +5265,9 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<BigDecimal>)val).stream().forEach(v -> addParamDemandScale(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setParamDemandScale(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addParamDemandScale(staticSetParamDemandScale(siteRequest_, v.toString())));
 				} else if(val instanceof BigDecimal[]) {
-					Arrays.asList((BigDecimal[])val).stream().forEach(v -> setParamDemandScale((BigDecimal)v));
+					Arrays.asList((BigDecimal[])val).stream().forEach(v -> addParamDemandScale((BigDecimal)v));
 				} else if(val instanceof Number[]) {
 					Arrays.asList((Number[])val).stream().forEach(v -> setParamDemandScale((Number)v));
 				}

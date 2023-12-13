@@ -531,6 +531,15 @@
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmAreaServed" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmAreaServed" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmAreaServed" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmRouteIds" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
@@ -700,6 +709,15 @@
 							</div>
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmAreaServed" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmAreaServed" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmAreaServed" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmRouteIds" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
@@ -935,6 +953,15 @@
 							</div>
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmAreaServed" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmAreaServed" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmAreaServed" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmRouteIds" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
@@ -1831,6 +1858,62 @@
 			{{/ifContainsKeys}}
 		{{else}}
 														<span class="varSmartTrafficLight{{pk}}SmartTrafficLightName varSmartTrafficLightSmartTrafficLightName ">{{smartTrafficLight_.smartTrafficLightName}}</span>
+		{{/eq}}
+{{/inline}}
+
+{{#*inline "htmAreaServed"}}
+<!-- #*inline "htmAreaServed" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}SmartTrafficLightAreaServed">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_areaServed">area served</label>
+												</div>
+											<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{#each smartTrafficLight_.areaServed}}<td>{{.}}</td>{{/each}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputAreaServed"}}
+		{{#eq roleForWriteBool "true"}}
+														<input
+															type="text"
+															placeholder="area served"
+															title="The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. "															id="{{classApiMethodMethod}}_areaServed"
+	{{#eq "Page" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classSmartTrafficLight inputSmartTrafficLight{{pk}}AreaServed w3-input w3-border "
+																name="setAreaServed"
+	{{else}}
+		{{#eq "PATCH" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_areaServed setAreaServed classSmartTrafficLight inputSmartTrafficLight{{pk}}AreaServed w3-input w3-border "
+																name="setAreaServed"
+		{{else}}
+																{{classApiMethodMethod}}_areaServed" class="valueAreaServed w3-input w3-border classSmartTrafficLight inputSmartTrafficLight{{pk}}AreaServed w3-input w3-border "
+																name="areaServed"
+		{{/eq}}
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+																onclick="removeGlow($(this)); "
+																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setAreaServed', $(this).val() == '' ? null : JSON.parse($(this).val()), function() { addGlow($('#{{classApiMethodMethod}}_areaServed')); }, function() { addError($('#{{classApiMethodMethod}}_areaServed')); }); "
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+															value="{{toJsonArrayString smartTrafficLight_.areaServed}}"
+	{{/eq}}
+														/>
+
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varSmartTrafficLight{{pk}}AreaServed varSmartTrafficLightAreaServed ">{{smartTrafficLight_.areaServed}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varSmartTrafficLight{{pk}}AreaServed varSmartTrafficLightAreaServed ">{{smartTrafficLight_.areaServed}}</span>
 		{{/eq}}
 {{/inline}}
 

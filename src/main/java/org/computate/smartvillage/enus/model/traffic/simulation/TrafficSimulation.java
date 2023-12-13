@@ -162,6 +162,8 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 	 * {@inheritDoc}
 	 * Location: true
 	 * DocValues: true
+	 * DisplayName: area served
+	 * Description: The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. 
 	 */
 	protected void _areaServed(List<Path> l) {
 		observedSearch.getList().forEach(baseModel -> {

@@ -536,6 +536,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		return SmartTrafficLight.staticSearchStrAreaServed(siteRequest_, SmartTrafficLight.staticSearchAreaServed(siteRequest_, SmartTrafficLight.staticSetAreaServed(siteRequest_, o)));
 	}
 
+	public JsonArray sqlAreaServed() {
+		return areaServed;
+	}
+
 	//////////////
 	// routeIds //
 	//////////////
@@ -3333,13 +3337,21 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 				}
 				saves.add("location");
 				return val;
+			} else if("areaserved".equals(varLower)) {
+				if(val instanceof String) {
+					setAreaServed((String)val);
+				} else if(val instanceof JsonArray) {
+					setAreaServed((JsonArray)val);
+				}
+				saves.add("areaServed");
+				return val;
 			} else if("routeids".equals(varLower)) {
 				if(val instanceof List<?>) {
 					((List<String>)val).stream().forEach(v -> addRouteIds(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setRouteIds(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addRouteIds(staticSetRouteIds(siteRequest_, v.toString())));
 				} else if(val instanceof String[]) {
-					Arrays.asList((String[])val).stream().forEach(v -> setRouteIds((String)v));
+					Arrays.asList((String[])val).stream().forEach(v -> addRouteIds((String)v));
 				}
 				if(!saves.contains("routeIds")) {
 					saves.add("routeIds");
@@ -4143,6 +4155,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		vars.add(VAR_entityId);
 		vars.add(VAR_smartTrafficLightName);
 		vars.add(VAR_location);
+		vars.add(VAR_areaServed);
 		vars.add(VAR_routeIds);
 		vars.add(VAR_routeIdNorth);
 		vars.add(VAR_routeIdEast);
@@ -4178,6 +4191,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 	public static List<String> varsRangeSmartTrafficLight(List<String> vars) {
 		vars.add(VAR_location);
+		vars.add(VAR_areaServed);
 		vars.add(VAR_paramAvgVehiclePerMinFromWestToEast);
 		vars.add(VAR_paramAvgVehiclePerMinFromSouthToNorth);
 		vars.add(VAR_paramVehicleDemandScalingFactor);
@@ -4206,7 +4220,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	public static final String DISPLAY_NAME_smartTrafficLightName = "smart traffic light name";
 	public static final String DISPLAY_NAME_location = "map location";
 	public static final String DISPLAY_NAME_observedSearch = "";
-	public static final String DISPLAY_NAME_areaServed = "";
+	public static final String DISPLAY_NAME_areaServed = "area served";
 	public static final String DISPLAY_NAME_routeIds = "route IDs";
 	public static final String DISPLAY_NAME_routeIdNorth = "route ID North";
 	public static final String DISPLAY_NAME_routeIdEast = "route ID East";
@@ -4328,6 +4342,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(var) {
 		case VAR_entityId:
 			return "A unique ID for this Smart Data Model";
+		case VAR_areaServed:
+			return "The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. ";
 		case VAR_trafficFlowObservedIds:
 			return "The related TrafficFlowObserved entities";
 		case VAR_paramAvgVehiclePerMinFromWestToEast:
@@ -4477,6 +4493,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			return 5;
 		case VAR_location:
 			return 4;
+		case VAR_areaServed:
+			return 6;
 		case VAR_routeIds:
 			return 6;
 		case VAR_routeIdNorth:
@@ -4537,6 +4555,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		case VAR_smartTrafficLightName:
 			return 2;
 		case VAR_location:
+			return 1;
+		case VAR_areaServed:
 			return 1;
 		case VAR_routeIds:
 			return 2;

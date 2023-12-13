@@ -1,6 +1,6 @@
 DROP TABLE SiteUser CASCADE;
-DROP TABLE CrowdFlowObserved CASCADE;
 DROP TABLE ParkingAccess CASCADE;
+DROP TABLE CrowdFlowObserved CASCADE;
 DROP TABLE TrafficFlowObserved CASCADE;
 DROP TABLE SimulationReport CASCADE;
 DROP TABLE TrafficSimulation CASCADE;

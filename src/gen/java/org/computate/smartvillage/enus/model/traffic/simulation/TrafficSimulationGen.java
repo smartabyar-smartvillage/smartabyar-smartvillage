@@ -4244,9 +4244,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<BigDecimal>)val).stream().forEach(v -> addParamDemandScale(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setParamDemandScale(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addParamDemandScale(staticSetParamDemandScale(siteRequest_, v.toString())));
 				} else if(val instanceof BigDecimal[]) {
-					Arrays.asList((BigDecimal[])val).stream().forEach(v -> setParamDemandScale((BigDecimal)v));
+					Arrays.asList((BigDecimal[])val).stream().forEach(v -> addParamDemandScale((BigDecimal)v));
 				} else if(val instanceof Number[]) {
 					Arrays.asList((Number[])val).stream().forEach(v -> setParamDemandScale((Number)v));
 				}
@@ -4370,9 +4370,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<String>)val).stream().forEach(v -> addLaneAreaDetectorIds(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setLaneAreaDetectorIds(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addLaneAreaDetectorIds(staticSetLaneAreaDetectorIds(siteRequest_, v.toString())));
 				} else if(val instanceof String[]) {
-					Arrays.asList((String[])val).stream().forEach(v -> setLaneAreaDetectorIds((String)v));
+					Arrays.asList((String[])val).stream().forEach(v -> addLaneAreaDetectorIds((String)v));
 				}
 				if(!saves.contains("laneAreaDetectorIds")) {
 					saves.add("laneAreaDetectorIds");
@@ -4390,9 +4390,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<String>)val).stream().forEach(v -> addLaneAreaDetectorPaths(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setLaneAreaDetectorPaths(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addLaneAreaDetectorPaths(staticSetLaneAreaDetectorPaths(siteRequest_, v.toString())));
 				} else if(val instanceof String[]) {
-					Arrays.asList((String[])val).stream().forEach(v -> setLaneAreaDetectorPaths((String)v));
+					Arrays.asList((String[])val).stream().forEach(v -> addLaneAreaDetectorPaths((String)v));
 				}
 				if(!saves.contains("laneAreaDetectorPaths")) {
 					saves.add("laneAreaDetectorPaths");
@@ -4402,9 +4402,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<String>)val).stream().forEach(v -> addE1DetectorIds(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setE1DetectorIds(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addE1DetectorIds(staticSetE1DetectorIds(siteRequest_, v.toString())));
 				} else if(val instanceof String[]) {
-					Arrays.asList((String[])val).stream().forEach(v -> setE1DetectorIds((String)v));
+					Arrays.asList((String[])val).stream().forEach(v -> addE1DetectorIds((String)v));
 				}
 				if(!saves.contains("e1DetectorIds")) {
 					saves.add("e1DetectorIds");
@@ -4414,9 +4414,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<String>)val).stream().forEach(v -> addE1DetectorLanes(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setE1DetectorLanes(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addE1DetectorLanes(staticSetE1DetectorLanes(siteRequest_, v.toString())));
 				} else if(val instanceof String[]) {
-					Arrays.asList((String[])val).stream().forEach(v -> setE1DetectorLanes((String)v));
+					Arrays.asList((String[])val).stream().forEach(v -> addE1DetectorLanes((String)v));
 				}
 				if(!saves.contains("e1DetectorLanes")) {
 					saves.add("e1DetectorLanes");
@@ -4426,9 +4426,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<String>)val).stream().forEach(v -> addE1DetectorPaths(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setE1DetectorPaths(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addE1DetectorPaths(staticSetE1DetectorPaths(siteRequest_, v.toString())));
 				} else if(val instanceof String[]) {
-					Arrays.asList((String[])val).stream().forEach(v -> setE1DetectorPaths((String)v));
+					Arrays.asList((String[])val).stream().forEach(v -> addE1DetectorPaths((String)v));
 				}
 				if(!saves.contains("e1DetectorPaths")) {
 					saves.add("e1DetectorPaths");
@@ -4438,9 +4438,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				if(val instanceof List<?>) {
 					((List<String>)val).stream().forEach(v -> addWalkingAreaIds(v));
 				} else if(val instanceof JsonArray) {
-					((JsonArray)val).stream().forEach(v -> setWalkingAreaIds(v.toString()));
+					((JsonArray)val).stream().forEach(v -> addWalkingAreaIds(staticSetWalkingAreaIds(siteRequest_, v.toString())));
 				} else if(val instanceof String[]) {
-					Arrays.asList((String[])val).stream().forEach(v -> setWalkingAreaIds((String)v));
+					Arrays.asList((String[])val).stream().forEach(v -> addWalkingAreaIds((String)v));
 				}
 				if(!saves.contains("walkingAreaIds")) {
 					saves.add("walkingAreaIds");
@@ -5533,7 +5533,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 	public static final String DISPLAY_NAME_reportKeys = "simulation reports";
 	public static final String DISPLAY_NAME_location = "map location";
 	public static final String DISPLAY_NAME_observedSearch = "";
-	public static final String DISPLAY_NAME_areaServed = "";
+	public static final String DISPLAY_NAME_areaServed = "area served";
 	public static final String DISPLAY_NAME_sumocfgPath = "sumocfg path";
 	public static final String DISPLAY_NAME_fcdFilePath = "Floating Car Data file path";
 	public static final String DISPLAY_NAME_netFilePath = "net file path";
@@ -5678,6 +5678,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return "A unique ID for this Smart Data Model";
 		case VAR_reportKeys:
 			return "The generated reports for this simulation";
+		case VAR_areaServed:
+			return "The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. ";
 		case VAR_startSeconds:
 			return "-b, --begin TIME Defines the begin time in seconds; The simulation starts at this time";
 		case VAR_endSeconds:

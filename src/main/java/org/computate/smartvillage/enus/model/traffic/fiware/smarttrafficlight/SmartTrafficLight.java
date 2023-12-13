@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
@@ -26,9 +27,11 @@ import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved;
 import org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved;
 import org.computate.vertx.search.list.SearchList;
+import org.computate.vertx.tool.VertxTool;
 
 import io.vertx.core.Promise;
 import io.vertx.core.json.JsonArray;
+import io.vertx.core.json.JsonObject;
 import io.vertx.pgclient.data.Path;
 import io.vertx.pgclient.data.Point;
 
@@ -123,8 +126,16 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * FiwareType: geo:linestring
 	 * Location: true
+	 * DisplayName: area served
+	 * Description: The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. 
+	 * Required: true
 	 * DocValues: true
+	 * Persist: true
+	 * HtmRow: 6
+	 * HtmCell: 1
+	 * Facet: true
 	 */
 	protected void _areaServed(JsonArray l) {
 		observedSearch.getList().forEach(baseModel -> {
@@ -133,14 +144,14 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 				Optional.ofNullable(((TrafficFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
 					path.addPoint(point);
 				});
-				l.add(path);
+				l.add(VertxTool.toGeoJson(path));
 			} else if(baseModel instanceof CrowdFlowObserved) {
 				Path path = new Path();
 				Optional.ofNullable(((CrowdFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
 					path.addPoint(point);
 				});
 				path.addPoint(path.getPoints().get(0));
-				l.add(path);
+				l.add(VertxTool.toGeoJson(path));
 			}
 		});
 	}

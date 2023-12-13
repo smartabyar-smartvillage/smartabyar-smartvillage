@@ -17600,7 +17600,6 @@ components:
                     type: string
                   modified:
                     type: string
-                    format: date-time
                   pageImageUri:
                     type: string
                   pageImageWidth:
@@ -17665,7 +17664,6 @@ components:
               type: string
             modified:
               type: string
-              format: date-time
             pageImageUri:
               type: string
             pageImageWidth:
@@ -17730,7 +17728,6 @@ components:
               type: string
             modified:
               type: string
-              format: date-time
             pageImageUri:
               type: string
             pageImageWidth:
@@ -17826,13 +17823,10 @@ components:
             setModified:
               type: string
               nullable: true
-              format: date-time
             removeModified:
               type: string
-              format: date-time
             removeAllModified:
               type: string
-              format: date-time
             setPageImageUri:
               type: string
               nullable: true
@@ -18052,13 +18046,10 @@ components:
             setModified:
               type: string
               nullable: true
-              format: date-time
             removeModified:
               type: string
-              format: date-time
             removeAllModified:
               type: string
-              format: date-time
             setPageImageUri:
               type: string
               nullable: true
@@ -18247,7 +18238,6 @@ components:
               type: string
             modified:
               type: string
-              format: date-time
             pageImageUri:
               type: string
             pageImageWidth:
@@ -18312,7 +18302,6 @@ components:
               type: string
             modified:
               type: string
-              format: date-time
             pageImageUri:
               type: string
             pageImageWidth:
@@ -18377,7 +18366,6 @@ components:
               type: string
             modified:
               type: string
-              format: date-time
             pageImageUri:
               type: string
             pageImageWidth:
@@ -28670,7 +28658,6 @@ components:
                     type: string
                   dateTime:
                     type: string
-                    format: date-time
                   x:
                     type: string
                   y:
@@ -28691,7 +28678,6 @@ components:
               type: string
             dateTime:
               type: string
-              format: date-time
             x:
               type: string
             y:
