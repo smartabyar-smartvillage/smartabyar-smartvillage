@@ -705,14 +705,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setWalkingAreaIds":
-							o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
-							num++;
-							bParams.add(o2.sqlWalkingAreaIds());
-						break;
 					case "setStartDateTime":
 							o2.setStartDateTime(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -880,14 +872,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlStepSeconds());
 						break;
-					case "setParamAvgVehiclePerMinFromWestToEast":
-							o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
-						break;
 					case "setParamAvgVehiclePerMinFromSouthToNorth":
 							o2.setParamAvgVehiclePerMinFromSouthToNorth(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -904,14 +888,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlParamVehicleDemandScalingFactor());
 						break;
-					case "setParamAvgPedestrianPerMinFromWestToEast":
-							o2.setParamAvgPedestrianPerMinFromWestToEast(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_paramAvgPedestrianPerMinFromWestToEast + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamAvgPedestrianPerMinFromWestToEast());
-						break;
 					case "setParamAvgPedestrianPerMinFromSouthToNorth":
 							o2.setParamAvgPedestrianPerMinFromSouthToNorth(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -919,14 +895,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(TrafficSimulation.VAR_paramAvgPedestrianPerMinFromSouthToNorth + "=$" + num);
 							num++;
 							bParams.add(o2.sqlParamAvgPedestrianPerMinFromSouthToNorth());
-						break;
-					case "setParamPedestrianDemandScalingFactor":
-							o2.setParamPedestrianDemandScalingFactor(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_paramPedestrianDemandScalingFactor + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamPedestrianDemandScalingFactor());
 						break;
 					case "setParamDemandScale":
 							o2.setParamDemandScale(jsonObject.getJsonArray(entityVar));
@@ -967,6 +935,110 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(TrafficSimulation.VAR_paramMaxGreenTimeSecSouthNorth + "=$" + num);
 							num++;
 							bParams.add(o2.sqlParamMaxGreenTimeSecSouthNorth());
+						break;
+					case "setParamItersPerPar":
+							o2.setParamItersPerPar(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_paramItersPerPar + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamItersPerPar());
+						break;
+					case "setLaneAreaDetectorIds":
+							o2.setLaneAreaDetectorIds(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_laneAreaDetectorIds + "=$" + num);
+							num++;
+							bParams.add(o2.sqlLaneAreaDetectorIds());
+						break;
+					case "setLaneAreaDetectorPaths":
+							o2.setLaneAreaDetectorPaths(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_laneAreaDetectorPaths + "=$" + num);
+							num++;
+							bParams.add(o2.sqlLaneAreaDetectorPaths());
+						break;
+					case "setE1DetectorIds":
+							o2.setE1DetectorIds(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_e1DetectorIds + "=$" + num);
+							num++;
+							bParams.add(o2.sqlE1DetectorIds());
+						break;
+					case "setE1DetectorLanes":
+							o2.setE1DetectorLanes(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_e1DetectorLanes + "=$" + num);
+							num++;
+							bParams.add(o2.sqlE1DetectorLanes());
+						break;
+					case "setParamTotalIterNum":
+							o2.setParamTotalIterNum(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_paramTotalIterNum + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamTotalIterNum());
+						break;
+					case "setLaneAreaDetectorLanes":
+							o2.setLaneAreaDetectorLanes(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_laneAreaDetectorLanes + "=$" + num);
+							num++;
+							bParams.add(o2.sqlLaneAreaDetectorLanes());
+						break;
+					case "setE1DetectorPaths":
+							o2.setE1DetectorPaths(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_e1DetectorPaths + "=$" + num);
+							num++;
+							bParams.add(o2.sqlE1DetectorPaths());
+						break;
+					case "setWalkingAreaIds":
+							o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
+							num++;
+							bParams.add(o2.sqlWalkingAreaIds());
+						break;
+					case "setWalkingAreaLanes":
+							o2.setWalkingAreaLanes(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_walkingAreaLanes + "=$" + num);
+							num++;
+							bParams.add(o2.sqlWalkingAreaLanes());
+						break;
+					case "setParamAvgVehiclePerMinFromWestToEast":
+							o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
+						break;
+					case "setParamAvgPedestrianPerMinFromWestToEast":
+							o2.setParamAvgPedestrianPerMinFromWestToEast(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_paramAvgPedestrianPerMinFromWestToEast + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamAvgPedestrianPerMinFromWestToEast());
+						break;
+					case "setParamPedestrianDemandScalingFactor":
+							o2.setParamPedestrianDemandScalingFactor(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_paramPedestrianDemandScalingFactor + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamPedestrianDemandScalingFactor());
 						break;
 					case "setParamPedestrianWaitThresholdSecNorthSouth":
 							o2.setParamPedestrianWaitThresholdSecNorthSouth(jsonObject.getString(entityVar));
@@ -1031,78 +1103,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(TrafficSimulation.VAR_paramRunTime + "=$" + num);
 							num++;
 							bParams.add(o2.sqlParamRunTime());
-						break;
-					case "setParamItersPerPar":
-							o2.setParamItersPerPar(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_paramItersPerPar + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamItersPerPar());
-						break;
-					case "setParamTotalIterNum":
-							o2.setParamTotalIterNum(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_paramTotalIterNum + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamTotalIterNum());
-						break;
-					case "setLaneAreaDetectorIds":
-							o2.setLaneAreaDetectorIds(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_laneAreaDetectorIds + "=$" + num);
-							num++;
-							bParams.add(o2.sqlLaneAreaDetectorIds());
-						break;
-					case "setLaneAreaDetectorLanes":
-							o2.setLaneAreaDetectorLanes(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_laneAreaDetectorLanes + "=$" + num);
-							num++;
-							bParams.add(o2.sqlLaneAreaDetectorLanes());
-						break;
-					case "setLaneAreaDetectorPaths":
-							o2.setLaneAreaDetectorPaths(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_laneAreaDetectorPaths + "=$" + num);
-							num++;
-							bParams.add(o2.sqlLaneAreaDetectorPaths());
-						break;
-					case "setE1DetectorIds":
-							o2.setE1DetectorIds(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_e1DetectorIds + "=$" + num);
-							num++;
-							bParams.add(o2.sqlE1DetectorIds());
-						break;
-					case "setE1DetectorLanes":
-							o2.setE1DetectorLanes(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_e1DetectorLanes + "=$" + num);
-							num++;
-							bParams.add(o2.sqlE1DetectorLanes());
-						break;
-					case "setE1DetectorPaths":
-							o2.setE1DetectorPaths(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_e1DetectorPaths + "=$" + num);
-							num++;
-							bParams.add(o2.sqlE1DetectorPaths());
-						break;
-					case "setWalkingAreaLanes":
-							o2.setWalkingAreaLanes(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_walkingAreaLanes + "=$" + num);
-							num++;
-							bParams.add(o2.sqlWalkingAreaLanes());
 						break;
 				}
 			}
@@ -1465,15 +1465,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case TrafficSimulation.VAR_walkingAreaIds:
-						o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
-						num++;
-						bParams.add(o2.sqlWalkingAreaIds());
-						break;
 					case TrafficSimulation.VAR_startDateTime:
 						o2.setStartDateTime(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1583,15 +1574,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlStepSeconds());
 						break;
-					case TrafficSimulation.VAR_paramAvgVehiclePerMinFromWestToEast:
-						o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
-						break;
 					case TrafficSimulation.VAR_paramAvgVehiclePerMinFromSouthToNorth:
 						o2.setParamAvgVehiclePerMinFromSouthToNorth(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1610,15 +1592,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlParamVehicleDemandScalingFactor());
 						break;
-					case TrafficSimulation.VAR_paramAvgPedestrianPerMinFromWestToEast:
-						o2.setParamAvgPedestrianPerMinFromWestToEast(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_paramAvgPedestrianPerMinFromWestToEast + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamAvgPedestrianPerMinFromWestToEast());
-						break;
 					case TrafficSimulation.VAR_paramAvgPedestrianPerMinFromSouthToNorth:
 						o2.setParamAvgPedestrianPerMinFromSouthToNorth(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1627,15 +1600,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(TrafficSimulation.VAR_paramAvgPedestrianPerMinFromSouthToNorth + "=$" + num);
 						num++;
 						bParams.add(o2.sqlParamAvgPedestrianPerMinFromSouthToNorth());
-						break;
-					case TrafficSimulation.VAR_paramPedestrianDemandScalingFactor:
-						o2.setParamPedestrianDemandScalingFactor(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_paramPedestrianDemandScalingFactor + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamPedestrianDemandScalingFactor());
 						break;
 					case TrafficSimulation.VAR_paramDemandScale:
 						o2.setParamDemandScale(jsonObject.getJsonArray(entityVar));
@@ -1681,6 +1645,123 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(TrafficSimulation.VAR_paramMaxGreenTimeSecSouthNorth + "=$" + num);
 						num++;
 						bParams.add(o2.sqlParamMaxGreenTimeSecSouthNorth());
+						break;
+					case TrafficSimulation.VAR_paramItersPerPar:
+						o2.setParamItersPerPar(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_paramItersPerPar + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamItersPerPar());
+						break;
+					case TrafficSimulation.VAR_laneAreaDetectorIds:
+						o2.setLaneAreaDetectorIds(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_laneAreaDetectorIds + "=$" + num);
+						num++;
+						bParams.add(o2.sqlLaneAreaDetectorIds());
+						break;
+					case TrafficSimulation.VAR_laneAreaDetectorPaths:
+						o2.setLaneAreaDetectorPaths(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_laneAreaDetectorPaths + "=$" + num);
+						num++;
+						bParams.add(o2.sqlLaneAreaDetectorPaths());
+						break;
+					case TrafficSimulation.VAR_e1DetectorIds:
+						o2.setE1DetectorIds(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_e1DetectorIds + "=$" + num);
+						num++;
+						bParams.add(o2.sqlE1DetectorIds());
+						break;
+					case TrafficSimulation.VAR_e1DetectorLanes:
+						o2.setE1DetectorLanes(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_e1DetectorLanes + "=$" + num);
+						num++;
+						bParams.add(o2.sqlE1DetectorLanes());
+						break;
+					case TrafficSimulation.VAR_paramTotalIterNum:
+						o2.setParamTotalIterNum(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_paramTotalIterNum + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamTotalIterNum());
+						break;
+					case TrafficSimulation.VAR_laneAreaDetectorLanes:
+						o2.setLaneAreaDetectorLanes(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_laneAreaDetectorLanes + "=$" + num);
+						num++;
+						bParams.add(o2.sqlLaneAreaDetectorLanes());
+						break;
+					case TrafficSimulation.VAR_e1DetectorPaths:
+						o2.setE1DetectorPaths(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_e1DetectorPaths + "=$" + num);
+						num++;
+						bParams.add(o2.sqlE1DetectorPaths());
+						break;
+					case TrafficSimulation.VAR_walkingAreaIds:
+						o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
+						num++;
+						bParams.add(o2.sqlWalkingAreaIds());
+						break;
+					case TrafficSimulation.VAR_walkingAreaLanes:
+						o2.setWalkingAreaLanes(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_walkingAreaLanes + "=$" + num);
+						num++;
+						bParams.add(o2.sqlWalkingAreaLanes());
+						break;
+					case TrafficSimulation.VAR_paramAvgVehiclePerMinFromWestToEast:
+						o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
+						break;
+					case TrafficSimulation.VAR_paramAvgPedestrianPerMinFromWestToEast:
+						o2.setParamAvgPedestrianPerMinFromWestToEast(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_paramAvgPedestrianPerMinFromWestToEast + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamAvgPedestrianPerMinFromWestToEast());
+						break;
+					case TrafficSimulation.VAR_paramPedestrianDemandScalingFactor:
+						o2.setParamPedestrianDemandScalingFactor(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_paramPedestrianDemandScalingFactor + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamPedestrianDemandScalingFactor());
 						break;
 					case TrafficSimulation.VAR_paramPedestrianWaitThresholdSecNorthSouth:
 						o2.setParamPedestrianWaitThresholdSecNorthSouth(jsonObject.getString(entityVar));
@@ -1753,87 +1834,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(TrafficSimulation.VAR_paramRunTime + "=$" + num);
 						num++;
 						bParams.add(o2.sqlParamRunTime());
-						break;
-					case TrafficSimulation.VAR_paramItersPerPar:
-						o2.setParamItersPerPar(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_paramItersPerPar + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamItersPerPar());
-						break;
-					case TrafficSimulation.VAR_paramTotalIterNum:
-						o2.setParamTotalIterNum(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_paramTotalIterNum + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamTotalIterNum());
-						break;
-					case TrafficSimulation.VAR_laneAreaDetectorIds:
-						o2.setLaneAreaDetectorIds(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_laneAreaDetectorIds + "=$" + num);
-						num++;
-						bParams.add(o2.sqlLaneAreaDetectorIds());
-						break;
-					case TrafficSimulation.VAR_laneAreaDetectorLanes:
-						o2.setLaneAreaDetectorLanes(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_laneAreaDetectorLanes + "=$" + num);
-						num++;
-						bParams.add(o2.sqlLaneAreaDetectorLanes());
-						break;
-					case TrafficSimulation.VAR_laneAreaDetectorPaths:
-						o2.setLaneAreaDetectorPaths(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_laneAreaDetectorPaths + "=$" + num);
-						num++;
-						bParams.add(o2.sqlLaneAreaDetectorPaths());
-						break;
-					case TrafficSimulation.VAR_e1DetectorIds:
-						o2.setE1DetectorIds(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_e1DetectorIds + "=$" + num);
-						num++;
-						bParams.add(o2.sqlE1DetectorIds());
-						break;
-					case TrafficSimulation.VAR_e1DetectorLanes:
-						o2.setE1DetectorLanes(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_e1DetectorLanes + "=$" + num);
-						num++;
-						bParams.add(o2.sqlE1DetectorLanes());
-						break;
-					case TrafficSimulation.VAR_e1DetectorPaths:
-						o2.setE1DetectorPaths(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_e1DetectorPaths + "=$" + num);
-						num++;
-						bParams.add(o2.sqlE1DetectorPaths());
-						break;
-					case TrafficSimulation.VAR_walkingAreaLanes:
-						o2.setWalkingAreaLanes(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_walkingAreaLanes + "=$" + num);
-						num++;
-						bParams.add(o2.sqlWalkingAreaLanes());
 						break;
 					}
 				}
@@ -2462,7 +2462,7 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 		if(varIndexed == null)
 			throw new RuntimeException(String.format("\"%s\" is not an indexed entity. ", entityVar));
 		if(StringUtils.startsWith(valueIndexed, "[")) {
-			String[] fqs = StringUtils.substringBefore(StringUtils.substringAfter(valueIndexed, "["), "]").split(" TO ");
+			String[] fqs = StringUtils.substringAfter(StringUtils.substringBeforeLast(valueIndexed, "]"), "[").split(" TO ");
 			if(fqs.length != 2)
 				throw new RuntimeException(String.format("\"%s\" invalid range query. ", valueIndexed));
 			String fq1 = fqs[0].equals("*") ? fqs[0] : TrafficSimulation.staticSearchFqForClass(entityVar, searchList.getSiteRequest_(SiteRequestEnUS.class), fqs[0]);

@@ -1877,7 +1877,7 @@
 																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setRouteIds', $(this).val().replace('[','').replace(']','').split(/[ ,]+/), function() { addGlow($('#{{classApiMethodMethod}}_routeIds')); }, function() { addError($('#{{classApiMethodMethod}}_routeIds')); }); "
 	{{/eq}}
 	{{#eq "Page" classApiMethodMethod}}
-															value="{{toJsonObjectString smartTrafficLight_.routeIds}}"
+															value="{{toJsonArrayString smartTrafficLight_.routeIds}}"
 	{{/eq}}
 														/>
 
