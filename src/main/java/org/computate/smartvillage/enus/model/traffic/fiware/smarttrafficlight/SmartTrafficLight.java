@@ -211,7 +211,7 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 			l.setC(TrafficFlowObserved.class);
 			l.q("*:*");
 			l.rows(100);
-			l.fq(String.format("customTrafficLightId_docvalues_string:%s", entityId));
+			l.fq(String.format("customTrafficLightId_docvalues_string:%s", SearchTool.escapeQueryChars(entityId)));
 			l.setStore(true);
 		}
 		promise.complete(l);
