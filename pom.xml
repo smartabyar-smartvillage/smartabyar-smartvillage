@@ -753,6 +753,7 @@
 				</configuration>
 			</plugin>
 
+			<!--
 			<plugin>
 				<groupId>${quarkus.platform.group-id}</groupId>
 				<artifactId>quarkus-maven-plugin</artifactId>
@@ -768,6 +769,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			-->
 
 			<!-- JaCoCo Code Coverage Plugin -->
 			<plugin>

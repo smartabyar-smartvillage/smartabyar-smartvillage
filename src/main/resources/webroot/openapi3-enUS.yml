@@ -19742,6 +19742,10 @@ components:
                     type: string
                   smartTrafficLightName:
                     type: string
+                  location:
+                    type: string
+                  areaServed:
+                    type: array
                   routeIds:
                     type: array
                     items:
@@ -19830,6 +19834,20 @@ components:
               type: string
             removeAllSmartTrafficLightName:
               type: string
+            setLocation:
+              type: string
+              nullable: true
+            removeLocation:
+              type: string
+            removeAllLocation:
+              type: string
+            setAreaServed:
+              type: array
+              nullable: true
+            removeAreaServed:
+              type: array
+            removeAllAreaServed:
+              type: array
             setRouteIds:
               type: array
               nullable: true
@@ -20111,6 +20129,20 @@ components:
               type: string
             removeAllSmartTrafficLightName:
               type: string
+            setLocation:
+              type: string
+              nullable: true
+            removeLocation:
+              type: string
+            removeAllLocation:
+              type: string
+            setAreaServed:
+              type: array
+              nullable: true
+            removeAreaServed:
+              type: array
+            removeAllAreaServed:
+              type: array
             setRouteIds:
               type: array
               nullable: true
@@ -20382,6 +20414,10 @@ components:
               type: string
             smartTrafficLightName:
               type: string
+            location:
+              type: string
+            areaServed:
+              type: array
             routeIds:
               type: array
               items:
@@ -20460,6 +20496,10 @@ components:
               type: string
             smartTrafficLightName:
               type: string
+            location:
+              type: string
+            areaServed:
+              type: array
             routeIds:
               type: array
               items:
@@ -20538,6 +20578,10 @@ components:
               type: string
             smartTrafficLightName:
               type: string
+            location:
+              type: string
+            areaServed:
+              type: array
             routeIds:
               type: array
               items:
@@ -20616,6 +20660,10 @@ components:
               type: string
             smartTrafficLightName:
               type: string
+            location:
+              type: string
+            areaServed:
+              type: array
             routeIds:
               type: array
               items:
@@ -20694,6 +20742,10 @@ components:
               type: string
             smartTrafficLightName:
               type: string
+            location:
+              type: string
+            areaServed:
+              type: array
             routeIds:
               type: array
               items:
@@ -22679,7 +22731,6 @@ components:
                 properties:
                   startDateTime:
                     type: string
-                    format: date-time
                   simulationName:
                     type: string
                   entityId:
@@ -22791,13 +22842,10 @@ components:
             setStartDateTime:
               type: string
               nullable: true
-              format: date-time
             removeStartDateTime:
               type: string
-              format: date-time
             removeAllStartDateTime:
               type: string
-              format: date-time
             setSimulationName:
               type: string
               nullable: true
@@ -23199,13 +23247,10 @@ components:
             setStartDateTime:
               type: string
               nullable: true
-              format: date-time
             removeStartDateTime:
               type: string
-              format: date-time
             removeAllStartDateTime:
               type: string
-              format: date-time
             setSimulationName:
               type: string
               nullable: true
@@ -23606,7 +23651,6 @@ components:
           properties:
             startDateTime:
               type: string
-              format: date-time
             simulationName:
               type: string
             entityId:
@@ -23717,7 +23761,6 @@ components:
           properties:
             startDateTime:
               type: string
-              format: date-time
             simulationName:
               type: string
             entityId:
@@ -23828,7 +23871,6 @@ components:
           properties:
             startDateTime:
               type: string
-              format: date-time
             simulationName:
               type: string
             entityId:
@@ -23939,7 +23981,6 @@ components:
           properties:
             startDateTime:
               type: string
-              format: date-time
             simulationName:
               type: string
             entityId:
@@ -24050,7 +24091,6 @@ components:
           properties:
             startDateTime:
               type: string
-              format: date-time
             simulationName:
               type: string
             entityId:
@@ -26840,7 +26880,6 @@ components:
                     type: string
                   dateTime:
                     type: string
-                    format: date-time
     PATCHTimeStepRequest:
       allOf:
         - type: object
@@ -26869,13 +26908,10 @@ components:
             setDateTime:
               type: string
               nullable: true
-              format: date-time
             removeDateTime:
               type: string
-              format: date-time
             removeAllDateTime:
               type: string
-              format: date-time
     PATCHTimeStepResponse:
       allOf:
         - type: object
@@ -26904,13 +26940,10 @@ components:
             setDateTime:
               type: string
               nullable: true
-              format: date-time
             removeDateTime:
               type: string
-              format: date-time
             removeAllDateTime:
               type: string
-              format: date-time
     POSTTimeStepRequest:
       allOf:
         - type: object
@@ -26923,7 +26956,6 @@ components:
               type: string
             dateTime:
               type: string
-              format: date-time
     POSTTimeStepResponse:
       allOf:
         - type: object
@@ -26936,7 +26968,6 @@ components:
               type: string
             dateTime:
               type: string
-              format: date-time
     PUTImportTimeStepRequest:
       allOf:
         - type: object
@@ -26949,7 +26980,6 @@ components:
               type: string
             dateTime:
               type: string
-              format: date-time
     PUTImportTimeStepResponse:
       allOf:
         - type: object
@@ -26962,7 +26992,6 @@ components:
               type: string
             dateTime:
               type: string
-              format: date-time
     GETTimeStepResponse:
       allOf:
         - type: object
@@ -26975,7 +27004,6 @@ components:
               type: string
             dateTime:
               type: string
-              format: date-time
     SearchPageTimeStepResponse:
       allOf:
         - type: string

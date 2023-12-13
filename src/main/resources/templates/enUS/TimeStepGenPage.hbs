@@ -59,6 +59,10 @@
 			function htmTooltipTimeStep(feature, layer) {
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
+
+			function jsStyleTimeStep(feature) {
+{{#block "jsStyle"}}{{/block}}
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketTimeStepPage"}}
@@ -68,6 +72,7 @@
 {{#*inline "jsWebsocketTimeStepPage"}}{{/inline}}
 {{#*inline "jsTooltipTimeStepPage"}}{{/inline}}
 {{#*inline "htmTooltipTimeStepPage"}}{{/inline}}
+{{#*inline "jsStyleTimeStepPage"}}{{/inline}}
 {{#*inline "htmUrlTimeStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTimeStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTimeStepPage"}}								<!-- #*inline "htmBodySearchTimeStepPage" -->

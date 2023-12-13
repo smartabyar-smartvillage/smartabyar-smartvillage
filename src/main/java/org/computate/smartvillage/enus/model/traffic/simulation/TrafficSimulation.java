@@ -82,6 +82,8 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 	 * {@inheritDoc}
 	 * DocValues: true
 	 * Persist: true
+	 * HtmRow: 4
+	 * HtmCell: 1
 	 * Facet: true
 	 * DisplayName: Start date and Time
 	 * Description: The start date and time. 
@@ -122,7 +124,7 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 	 * Facet: true
 	 * DisplayName: simulation reports
 	 * Description: The generated reports for this simulation
-	 * HtmRow: 4
+	 * HtmRow: 5
 	 * HtmCell: 1
 	 */
 	protected void _reportKeys(List<Long> w) {
@@ -135,7 +137,7 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 	 * Persist: true
 	 * DisplayName: map location
 	 * HtmRow: 4
-	 * HtmCell: 2
+	 * HtmCell: 1
 	 * Facet: true
 	 */
 	protected void _location(Wrap<Point> w) {

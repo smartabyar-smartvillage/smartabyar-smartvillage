@@ -705,6 +705,14 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
+					case "setWalkingAreaIds":
+							o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
+							num++;
+							bParams.add(o2.sqlWalkingAreaIds());
+						break;
 					case "setStartDateTime":
 							o2.setStartDateTime(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -1088,14 +1096,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlE1DetectorPaths());
 						break;
-					case "setWalkingAreaIds":
-							o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
-							num++;
-							bParams.add(o2.sqlWalkingAreaIds());
-						break;
 					case "setWalkingAreaLanes":
 							o2.setWalkingAreaLanes(jsonObject.getJsonArray(entityVar));
 							if(bParams.size() > 0)
@@ -1465,6 +1465,15 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
+					case TrafficSimulation.VAR_walkingAreaIds:
+						o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
+						num++;
+						bParams.add(o2.sqlWalkingAreaIds());
+						break;
 					case TrafficSimulation.VAR_startDateTime:
 						o2.setStartDateTime(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1816,15 +1825,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(TrafficSimulation.VAR_e1DetectorPaths + "=$" + num);
 						num++;
 						bParams.add(o2.sqlE1DetectorPaths());
-						break;
-					case TrafficSimulation.VAR_walkingAreaIds:
-						o2.setWalkingAreaIds(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_walkingAreaIds + "=$" + num);
-						num++;
-						bParams.add(o2.sqlWalkingAreaIds());
 						break;
 					case TrafficSimulation.VAR_walkingAreaLanes:
 						o2.setWalkingAreaLanes(jsonObject.getJsonArray(entityVar));

@@ -385,8 +385,18 @@ ansible-playbook install.yml
 # Install sumolib python library
 
 ```bash
-pip install sumolib pyproj
+pip install sumolib pyproj numpy
 ```
+
+# Regenerate a route file
+
+```bash
+cd /usr/local/src/TLC/
+
+python -c 'from route_file_generation import generate_routefile_Veberod,generate_routefile_pedestrian
+generate_routefile_Veberod("input/Veberod_intersection_pedestrian.rou.xml", 86400, 0.11, 0.125, 666)
+generate_routefile_pedestrian("input/Veberod_intersection_pedestrian.trip.xml", 86400, 0.01, 0.01, 3570926575676058649)
+'
 
 # Load a new map traffic data into SUMO
 

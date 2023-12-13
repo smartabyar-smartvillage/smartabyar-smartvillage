@@ -16,16 +16,21 @@ package org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight;
 
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
-import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLightGen;
+import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved;
 import org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved;
 import org.computate.vertx.search.list.SearchList;
 
 import io.vertx.core.Promise;
+import io.vertx.core.json.JsonArray;
+import io.vertx.pgclient.data.Path;
+import io.vertx.pgclient.data.Point;
 
 /**
  * {@inheritDoc}
@@ -86,6 +91,58 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 	 * Facet: true
 	 */
 	protected void _smartTrafficLightName(Wrap<String> w) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * FiwareType: geo:point
+	 * DocValues: true
+	 * Persist: true
+	 * DisplayName: map location
+	 * HtmRow: 4
+	 * HtmCell: 1
+	 * Facet: true
+	 */
+	protected void _location(Wrap<Point> w) {
+	}
+
+	/**
+	 * Ignore: true
+	 */
+	protected void _observedSearch(Promise<SearchList<BaseModel>> promise) {
+		SearchList<BaseModel> l = new SearchList<>();
+		if(entityId != null) {
+			l.setC(BaseModel.class);
+			l.q("*:*");
+			l.fq(String.format("trafficSimulationId_docvalues_string:%s", SearchTool.escapeQueryChars(entityId)));
+			l.fq(String.format(BaseModel.VAR_classSimpleName + "_docvalues_string:(%s OR %s)", TrafficFlowObserved.CLASS_SIMPLE_NAME, CrowdFlowObserved.CLASS_SIMPLE_NAME));
+			l.setStore(true);
+		}
+		promise.complete(l);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Location: true
+	 * DocValues: true
+	 */
+	protected void _areaServed(JsonArray l) {
+		observedSearch.getList().forEach(baseModel -> {
+			if(baseModel instanceof TrafficFlowObserved) {
+				Path path = new Path();
+				Optional.ofNullable(((TrafficFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
+					path.addPoint(point);
+				});
+				l.add(path);
+			} else if(baseModel instanceof CrowdFlowObserved) {
+				Path path = new Path();
+				Optional.ofNullable(((CrowdFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
+					path.addPoint(point);
+				});
+				path.addPoint(path.getPoints().get(0));
+				l.add(path);
+			}
+		});
 	}
 
 	/**

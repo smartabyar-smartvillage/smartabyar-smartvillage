@@ -59,6 +59,10 @@
 			function htmTooltipVehicleStep(feature, layer) {
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
+
+			function jsStyleVehicleStep(feature) {
+{{#block "jsStyle"}}{{/block}}
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketVehicleStepPage"}}
@@ -68,6 +72,7 @@
 {{#*inline "jsWebsocketVehicleStepPage"}}{{/inline}}
 {{#*inline "jsTooltipVehicleStepPage"}}{{/inline}}
 {{#*inline "htmTooltipVehicleStepPage"}}{{/inline}}
+{{#*inline "jsStyleVehicleStepPage"}}{{/inline}}
 {{#*inline "htmUrlVehicleStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadVehicleStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchVehicleStepPage"}}								<!-- #*inline "htmBodySearchVehicleStepPage" -->

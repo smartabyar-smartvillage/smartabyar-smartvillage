@@ -59,6 +59,10 @@
 			function htmTooltipIotNodeStep(feature, layer) {
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
+
+			function jsStyleIotNodeStep(feature) {
+{{#block "jsStyle"}}{{/block}}
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketIotNodeStepPage"}}
@@ -68,6 +72,7 @@
 {{#*inline "jsWebsocketIotNodeStepPage"}}{{/inline}}
 {{#*inline "jsTooltipIotNodeStepPage"}}{{/inline}}
 {{#*inline "htmTooltipIotNodeStepPage"}}{{/inline}}
+{{#*inline "jsStyleIotNodeStepPage"}}{{/inline}}
 {{#*inline "htmUrlIotNodeStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadIotNodeStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchIotNodeStepPage"}}								<!-- #*inline "htmBodySearchIotNodeStepPage" -->

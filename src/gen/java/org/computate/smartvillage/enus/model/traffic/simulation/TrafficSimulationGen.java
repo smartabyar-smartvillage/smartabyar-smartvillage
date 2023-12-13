@@ -5837,12 +5837,14 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 
 	public static Integer htmRowTrafficSimulation(String var) {
 		switch(var) {
+		case VAR_startDateTime:
+			return 4;
 		case VAR_simulationName:
 			return 3;
 		case VAR_entityId:
 			return 3;
 		case VAR_reportKeys:
-			return 4;
+			return 5;
 		case VAR_location:
 			return 4;
 			default:
@@ -5852,6 +5854,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 
 	public static Integer htmCellTrafficSimulation(String var) {
 		switch(var) {
+		case VAR_startDateTime:
+			return 1;
 		case VAR_simulationName:
 			return 1;
 		case VAR_entityId:
@@ -5859,7 +5863,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		case VAR_reportKeys:
 			return 1;
 		case VAR_location:
-			return 2;
+			return 1;
 			default:
 				return BaseModel.htmCellBaseModel(var);
 		}

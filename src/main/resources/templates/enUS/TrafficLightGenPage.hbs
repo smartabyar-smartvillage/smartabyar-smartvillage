@@ -59,6 +59,10 @@
 			function htmTooltipTrafficLight(feature, layer) {
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
+
+			function jsStyleTrafficLight(feature) {
+{{#block "jsStyle"}}{{/block}}
+			}
 		</script>
 {{/inline}}
 {{#*inline "websocketTrafficLightPage"}}
@@ -68,6 +72,7 @@
 {{#*inline "jsWebsocketTrafficLightPage"}}{{/inline}}
 {{#*inline "jsTooltipTrafficLightPage"}}{{/inline}}
 {{#*inline "htmTooltipTrafficLightPage"}}{{/inline}}
+{{#*inline "jsStyleTrafficLightPage"}}{{/inline}}
 {{#*inline "htmUrlTrafficLight"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTrafficLightPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTrafficLightPage"}}								<!-- #*inline "htmBodySearchTrafficLightPage" -->
