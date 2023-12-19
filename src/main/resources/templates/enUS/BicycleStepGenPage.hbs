@@ -73,14 +73,24 @@
 {{#*inline "jsTooltipBicycleStepPage"}}{{/inline}}
 {{#*inline "htmTooltipBicycleStepPage"}}{{/inline}}
 {{#*inline "jsStyleBicycleStepPage"}}
-				return {
-					radius: 8
-					, fillColor: '#ff7800'
-					, color: '#000'
-					, weight: 1
-					, opacity: 1
-					, fillOpacity: 0.8
-				};
+				if(feature.geometry.type == 'Point') {
+					return {
+						radius: 8
+						, fillColor: '#ff7800'
+						, color: '#000'
+						, weight: 1
+						, opacity: 1
+						, fillOpacity: 0.8
+					};
+				} else {
+					return {
+						 fillColor: '#ff7800'
+						, color: (feature.properties.areaServedColors ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, weight: 5
+						, opacity: 1
+						, fillOpacity: 0.8
+					};
+				}
 {{/inline}}
 {{#*inline "htmUrlBicycleStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadBicycleStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
@@ -321,33 +331,6 @@
 				<span class="">no bicycle step found</span>
 			</span>
 		</h2>
-{{#block "htmBodyGraphLocation"}}{{/block}}
-{{#block "htmBodyGraph"}}{{/block}}
-	<div class="pageContent w3-content ">
-		<div id="site-calendar-box">
-			<div id="site-calendar"><!-- // --></div>
-		</div>
-{{/inline}}
-{{#*inline "htmBodyCount1AllBicycleStepPage"}}		<!-- #*inline "htmBodyCount1AllBicycleStepPage" -->
-		<h1 class="w3-center ">
-			<a href="{{pageUri}}" class="w3-bar-item w3-btn w3-block w3-2017-shaded-spruce w3-hover-2017-shaded-spruce">
-			{{#if classIconCssClasses}}
-				<i class="{{ classIconCssClasses }} site-menu-icon "></i>
-			{{/if}}
-				<span class="">bicycle step</span>
-			</a>
-		</h1>
-		<h2 class="w3-center ">
-			<span class="w3-bar-item w3-padding w3-center w3-block w3-2017-shaded-spruce">
-				<span class="">{{bicycleStep_.objectTitle}}</span>
-			</span>
-		</h2>
-{{#block "htmBodyGraphLocation"}}{{/block}}
-{{#block "htmBodyGraph"}}{{/block}}
-	<div class="pageContent w3-content ">
-		<div id="site-calendar-box">
-			<div id="site-calendar"><!-- // --></div>
-		</div>
 {{/inline}}
 {{#*inline "htmBodyCount1BicycleStepPage"}}		<!-- #*inline "htmBodyCount1BicycleStepPage" -->
 		<h1>
@@ -363,12 +346,6 @@
 				<span class="">{{bicycleStep_.objectTitle}}</span>
 			</span>
 		</h2>
-{{#block "htmBodyGraphLocation"}}{{/block}}
-{{#block "htmBodyGraph"}}{{/block}}
-	<div class="pageContent w3-content ">
-		<div id="site-calendar-box">
-			<div id="site-calendar"><!-- // --></div>
-		</div>
 {{/inline}}
 {{#*inline "htmBodyAllBicycleStepPage"}}		<!-- #*inline "htmBodyAllBicycleStepPage" -->
 		<h1>
@@ -538,21 +515,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 							</div>
@@ -643,21 +620,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 							</div>
@@ -813,21 +790,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 							</div>
@@ -926,6 +903,11 @@
 		</div>
 {{#block "htmBodyGraphLocation"}}{{/block}}
 {{#block "htmBodyGraph"}}{{/block}}
+	<div class="pageContent w3-content ">
+		<div id="site-calendar-box">
+			<div id="site-calendar"><!-- // --></div>
+		</div>
+	</div>
 	<div class="pageContent w3-content ">
 	{{#eq bicycleStepCount int0}}
 {{#block "htmBodyCount0"}}{{/block}}
@@ -1573,62 +1555,6 @@
 		{{/eq}}
 {{/inline}}
 
-{{#*inline "htmColor"}}
-<!-- #*inline "htmColor" -->
-								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
-									<div class="w3-padding ">
-										<div id="suggest{{classApiMethodMethod}}BicycleStepColor">
-											<div class="w3-card ">
-												<div class="w3-cell-row w3-2017-shaded-spruce">
-													<label for="{{classApiMethodMethod}}_color">color</label>
-												</div>
-											<div class="w3-cell-row w3-padding ">
-													<div class="w3-cell ">
-														{{> "inputColor" roleForWrite=roleForWrite roleForRead=roleForRead}}
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-{{/inline}}
-
-{{#*inline "inputColor"}}
-		{{#eq roleForWriteBool "true"}}
-														<input
-															type="text"
-															placeholder="color"
-															id="{{classApiMethodMethod}}_color"
-	{{#eq "Page" classApiMethodMethod}}
-																class="{{classApiMethodMethod}}_color setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
-																name="setColor"
-	{{else}}
-		{{#eq "PATCH" classApiMethodMethod}}
-																class="{{classApiMethodMethod}}_color setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
-																name="setColor"
-		{{else}}
-																{{classApiMethodMethod}}_color" class="valueColor w3-input w3-border classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
-																name="color"
-		{{/eq}}
-	{{/eq}}
-	{{#eq "Page" classApiMethodMethod}}
-																onclick="removeGlow($(this)); "
-																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setColor', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_color')); }, function() { addError($('#{{classApiMethodMethod}}_color')); }); "
-	{{/eq}}
-	{{#eq "Page" classApiMethodMethod}}
-															value="{{bicycleStep_.color}}"
-	{{/eq}}
-														/>
-
-													{{else}}
-														{{#ifContainsKeys userKeys}}
-															<span class="varBicycleStep{{id}}Color varBicycleStepColor ">{{bicycleStep_.color}}</span>
-			{{/ifContainsKeys}}
-		{{else}}
-														<span class="varBicycleStep{{id}}Color varBicycleStepColor ">{{bicycleStep_.color}}</span>
-		{{/eq}}
-{{/inline}}
-
 {{#*inline "htmBicycleId"}}
 <!-- #*inline "htmBicycleId" -->
 								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
@@ -1682,5 +1608,61 @@
 			{{/ifContainsKeys}}
 		{{else}}
 														<span class="varBicycleStep{{id}}BicycleId varBicycleStepBicycleId ">{{bicycleStep_.bicycleId}}</span>
+		{{/eq}}
+{{/inline}}
+
+{{#*inline "htmColor"}}
+<!-- #*inline "htmColor" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}BicycleStepColor">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_color">color</label>
+												</div>
+											<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputColor" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputColor"}}
+		{{#eq roleForWriteBool "true"}}
+														<input
+															type="text"
+															placeholder="color"
+															id="{{classApiMethodMethod}}_color"
+	{{#eq "Page" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_color setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
+																name="setColor"
+	{{else}}
+		{{#eq "PATCH" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_color setColor classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
+																name="setColor"
+		{{else}}
+																{{classApiMethodMethod}}_color" class="valueColor w3-input w3-border classBicycleStep inputBicycleStep{{id}}Color w3-input w3-border "
+																name="color"
+		{{/eq}}
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+																onclick="removeGlow($(this)); "
+																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setColor', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_color')); }, function() { addError($('#{{classApiMethodMethod}}_color')); }); "
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+															value="{{bicycleStep_.color}}"
+	{{/eq}}
+														/>
+
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varBicycleStep{{id}}Color varBicycleStepColor ">{{bicycleStep_.color}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varBicycleStep{{id}}Color varBicycleStepColor ">{{bicycleStep_.color}}</span>
 		{{/eq}}
 {{/inline}}

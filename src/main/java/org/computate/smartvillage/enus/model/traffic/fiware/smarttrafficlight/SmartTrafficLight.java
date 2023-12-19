@@ -117,7 +117,7 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 		if(entityId != null) {
 			l.setC(BaseModel.class);
 			l.q("*:*");
-			l.fq(String.format("trafficSimulationId_docvalues_string:%s", SearchTool.escapeQueryChars(entityId)));
+			l.fq(String.format("customTrafficLightId_docvalues_string:%s", SearchTool.escapeQueryChars(entityId)));
 			l.fq(String.format(BaseModel.VAR_classSimpleName + "_docvalues_string:(%s OR %s)", TrafficFlowObserved.CLASS_SIMPLE_NAME, CrowdFlowObserved.CLASS_SIMPLE_NAME));
 			l.setStore(true);
 		}

@@ -260,6 +260,118 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	public static final String CrowdFlowObserved_IconName = "map-location-dot";
 	public static final Integer CrowdFlowObserved_Rows = 100;
 
+	//////////////////////////
+	// customTrafficLightId //
+	//////////////////////////
+
+
+	/**	 The entity customTrafficLightId
+	 *	 is defined as null before being initialized. 
+	 */
+	@JsonProperty
+	@JsonInclude(Include.NON_NULL)
+	protected String customTrafficLightId;
+
+	/**	<br> The entity customTrafficLightId
+	 *  is defined as null before being initialized. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved&fq=entiteVar_enUS_indexed_string:customTrafficLightId">Find the entity customTrafficLightId in Solr</a>
+	 * <br>
+	 * @param w is for wrapping a value to assign to this entity during initialization. 
+	 **/
+	protected abstract void _customTrafficLightId(Wrap<String> w);
+
+	public String getCustomTrafficLightId() {
+		return customTrafficLightId;
+	}
+	public void setCustomTrafficLightId(String o) {
+		this.customTrafficLightId = CrowdFlowObserved.staticSetCustomTrafficLightId(siteRequest_, o);
+	}
+	public static String staticSetCustomTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	protected CrowdFlowObserved customTrafficLightIdInit() {
+		Wrap<String> customTrafficLightIdWrap = new Wrap<String>().var("customTrafficLightId");
+		if(customTrafficLightId == null) {
+			_customTrafficLightId(customTrafficLightIdWrap);
+			Optional.ofNullable(customTrafficLightIdWrap.getO()).ifPresent(o -> {
+				setCustomTrafficLightId(o);
+			});
+		}
+		return (CrowdFlowObserved)this;
+	}
+
+	public static String staticSearchCustomTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrCustomTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqCustomTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
+		return CrowdFlowObserved.staticSearchStrCustomTrafficLightId(siteRequest_, CrowdFlowObserved.staticSearchCustomTrafficLightId(siteRequest_, CrowdFlowObserved.staticSetCustomTrafficLightId(siteRequest_, o)));
+	}
+
+	public String sqlCustomTrafficLightId() {
+		return customTrafficLightId;
+	}
+
+	/////////////////////////
+	// trafficSimulationId //
+	/////////////////////////
+
+
+	/**	 The entity trafficSimulationId
+	 *	 is defined as null before being initialized. 
+	 */
+	@JsonProperty
+	@JsonInclude(Include.NON_NULL)
+	protected String trafficSimulationId;
+
+	/**	<br> The entity trafficSimulationId
+	 *  is defined as null before being initialized. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved&fq=entiteVar_enUS_indexed_string:trafficSimulationId">Find the entity trafficSimulationId in Solr</a>
+	 * <br>
+	 * @param w is for wrapping a value to assign to this entity during initialization. 
+	 **/
+	protected abstract void _trafficSimulationId(Wrap<String> w);
+
+	public String getTrafficSimulationId() {
+		return trafficSimulationId;
+	}
+	public void setTrafficSimulationId(String o) {
+		this.trafficSimulationId = CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o);
+	}
+	public static String staticSetTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	protected CrowdFlowObserved trafficSimulationIdInit() {
+		Wrap<String> trafficSimulationIdWrap = new Wrap<String>().var("trafficSimulationId");
+		if(trafficSimulationId == null) {
+			_trafficSimulationId(trafficSimulationIdWrap);
+			Optional.ofNullable(trafficSimulationIdWrap.getO()).ifPresent(o -> {
+				setTrafficSimulationId(o);
+			});
+		}
+		return (CrowdFlowObserved)this;
+	}
+
+	public static String staticSearchTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
+		return CrowdFlowObserved.staticSearchStrTrafficSimulationId(siteRequest_, CrowdFlowObserved.staticSearchTrafficSimulationId(siteRequest_, CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o)));
+	}
+
+	public String sqlTrafficSimulationId() {
+		return trafficSimulationId;
+	}
+
 	///////////
 	// color //
 	///////////
@@ -370,62 +482,6 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 
 	public String sqlEntityId() {
 		return entityId;
-	}
-
-	/////////////////////////
-	// trafficSimulationId //
-	/////////////////////////
-
-
-	/**	 The entity trafficSimulationId
-	 *	 is defined as null before being initialized. 
-	 */
-	@JsonProperty
-	@JsonInclude(Include.NON_NULL)
-	protected String trafficSimulationId;
-
-	/**	<br> The entity trafficSimulationId
-	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved&fq=entiteVar_enUS_indexed_string:trafficSimulationId">Find the entity trafficSimulationId in Solr</a>
-	 * <br>
-	 * @param w is for wrapping a value to assign to this entity during initialization. 
-	 **/
-	protected abstract void _trafficSimulationId(Wrap<String> w);
-
-	public String getTrafficSimulationId() {
-		return trafficSimulationId;
-	}
-	public void setTrafficSimulationId(String o) {
-		this.trafficSimulationId = CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o);
-	}
-	public static String staticSetTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
-		return o;
-	}
-	protected CrowdFlowObserved trafficSimulationIdInit() {
-		Wrap<String> trafficSimulationIdWrap = new Wrap<String>().var("trafficSimulationId");
-		if(trafficSimulationId == null) {
-			_trafficSimulationId(trafficSimulationIdWrap);
-			Optional.ofNullable(trafficSimulationIdWrap.getO()).ifPresent(o -> {
-				setTrafficSimulationId(o);
-			});
-		}
-		return (CrowdFlowObserved)this;
-	}
-
-	public static String staticSearchTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
-		return o;
-	}
-
-	public static String staticSearchStrTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
-		return o == null ? null : o.toString();
-	}
-
-	public static String staticSearchFqTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrTrafficSimulationId(siteRequest_, CrowdFlowObserved.staticSearchTrafficSimulationId(siteRequest_, CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o)));
-	}
-
-	public String sqlTrafficSimulationId() {
-		return trafficSimulationId;
 	}
 
 	/////////////////////////////
@@ -1948,9 +2004,10 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		Future.future(a -> a.complete()).compose(a -> {
 			Promise<Void> promise2 = Promise.promise();
 			try {
+				customTrafficLightIdInit();
+				trafficSimulationIdInit();
 				colorInit();
 				entityIdInit();
-				trafficSimulationIdInit();
 				promise2.complete();
 			} catch(Exception ex) {
 				promise2.fail(ex);
@@ -2045,12 +2102,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	public Object obtainCrowdFlowObserved(String var) {
 		CrowdFlowObserved oCrowdFlowObserved = (CrowdFlowObserved)this;
 		switch(var) {
+			case "customTrafficLightId":
+				return oCrowdFlowObserved.customTrafficLightId;
+			case "trafficSimulationId":
+				return oCrowdFlowObserved.trafficSimulationId;
 			case "color":
 				return oCrowdFlowObserved.color;
 			case "entityId":
 				return oCrowdFlowObserved.entityId;
-			case "trafficSimulationId":
-				return oCrowdFlowObserved.trafficSimulationId;
 			case "trafficSimulationSearch":
 				return oCrowdFlowObserved.trafficSimulationSearch;
 			case "trafficSimulation_":
@@ -2138,12 +2197,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 	public static Object staticSetCrowdFlowObserved(String entityVar, SiteRequestEnUS siteRequest_, String o) {
 		switch(entityVar) {
+		case "customTrafficLightId":
+			return CrowdFlowObserved.staticSetCustomTrafficLightId(siteRequest_, o);
+		case "trafficSimulationId":
+			return CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o);
 		case "color":
 			return CrowdFlowObserved.staticSetColor(siteRequest_, o);
 		case "entityId":
 			return CrowdFlowObserved.staticSetEntityId(siteRequest_, o);
-		case "trafficSimulationId":
-			return CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSetWalkingAreaId(siteRequest_, o);
 		case "alternateName":
@@ -2202,12 +2263,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 	public static Object staticSearchCrowdFlowObserved(String entityVar, SiteRequestEnUS siteRequest_, Object o) {
 		switch(entityVar) {
+		case "customTrafficLightId":
+			return CrowdFlowObserved.staticSearchCustomTrafficLightId(siteRequest_, (String)o);
+		case "trafficSimulationId":
+			return CrowdFlowObserved.staticSearchTrafficSimulationId(siteRequest_, (String)o);
 		case "color":
 			return CrowdFlowObserved.staticSearchColor(siteRequest_, (String)o);
 		case "entityId":
 			return CrowdFlowObserved.staticSearchEntityId(siteRequest_, (String)o);
-		case "trafficSimulationId":
-			return CrowdFlowObserved.staticSearchTrafficSimulationId(siteRequest_, (String)o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSearchWalkingAreaId(siteRequest_, (String)o);
 		case "alternateName":
@@ -2266,12 +2329,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 	public static String staticSearchStrCrowdFlowObserved(String entityVar, SiteRequestEnUS siteRequest_, Object o) {
 		switch(entityVar) {
+		case "customTrafficLightId":
+			return CrowdFlowObserved.staticSearchStrCustomTrafficLightId(siteRequest_, (String)o);
+		case "trafficSimulationId":
+			return CrowdFlowObserved.staticSearchStrTrafficSimulationId(siteRequest_, (String)o);
 		case "color":
 			return CrowdFlowObserved.staticSearchStrColor(siteRequest_, (String)o);
 		case "entityId":
 			return CrowdFlowObserved.staticSearchStrEntityId(siteRequest_, (String)o);
-		case "trafficSimulationId":
-			return CrowdFlowObserved.staticSearchStrTrafficSimulationId(siteRequest_, (String)o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSearchStrWalkingAreaId(siteRequest_, (String)o);
 		case "alternateName":
@@ -2330,12 +2395,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 	public static String staticSearchFqCrowdFlowObserved(String entityVar, SiteRequestEnUS siteRequest_, String o) {
 		switch(entityVar) {
+		case "customTrafficLightId":
+			return CrowdFlowObserved.staticSearchFqCustomTrafficLightId(siteRequest_, o);
+		case "trafficSimulationId":
+			return CrowdFlowObserved.staticSearchFqTrafficSimulationId(siteRequest_, o);
 		case "color":
 			return CrowdFlowObserved.staticSearchFqColor(siteRequest_, o);
 		case "entityId":
 			return CrowdFlowObserved.staticSearchFqEntityId(siteRequest_, o);
-		case "trafficSimulationId":
-			return CrowdFlowObserved.staticSearchFqTrafficSimulationId(siteRequest_, o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSearchFqWalkingAreaId(siteRequest_, o);
 		case "alternateName":
@@ -2406,7 +2473,19 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 	public Object persistCrowdFlowObserved(String var, Object val) {
 		String varLower = var.toLowerCase();
-			if("color".equals(varLower)) {
+			if("customtrafficlightid".equals(varLower)) {
+				if(val instanceof String) {
+					setCustomTrafficLightId((String)val);
+				}
+				saves.add("customTrafficLightId");
+				return val;
+			} else if("trafficsimulationid".equals(varLower)) {
+				if(val instanceof String) {
+					setTrafficSimulationId((String)val);
+				}
+				saves.add("trafficSimulationId");
+				return val;
+			} else if("color".equals(varLower)) {
 				if(val instanceof String) {
 					setColor((String)val);
 				}
@@ -2417,12 +2496,6 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 					setEntityId((String)val);
 				}
 				saves.add("entityId");
-				return val;
-			} else if("trafficsimulationid".equals(varLower)) {
-				if(val instanceof String) {
-					setTrafficSimulationId((String)val);
-				}
-				saves.add("trafficSimulationId");
 				return val;
 			} else if("walkingareaid".equals(varLower)) {
 				if(val instanceof String) {
@@ -2593,6 +2666,18 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		saves = Optional.ofNullable((ArrayList<String>)doc.get("saves_docvalues_strings")).orElse(new ArrayList<String>());
 		if(saves != null) {
 
+			if(saves.contains("customTrafficLightId")) {
+				String customTrafficLightId = (String)doc.get("customTrafficLightId_docvalues_string");
+				if(customTrafficLightId != null)
+					oCrowdFlowObserved.setCustomTrafficLightId(customTrafficLightId);
+			}
+
+			if(saves.contains("trafficSimulationId")) {
+				String trafficSimulationId = (String)doc.get("trafficSimulationId_docvalues_string");
+				if(trafficSimulationId != null)
+					oCrowdFlowObserved.setTrafficSimulationId(trafficSimulationId);
+			}
+
 			if(saves.contains("color")) {
 				String color = (String)doc.get("color_docvalues_string");
 				if(color != null)
@@ -2603,12 +2688,6 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 				String entityId = (String)doc.get("entityId_docvalues_string");
 				if(entityId != null)
 					oCrowdFlowObserved.setEntityId(entityId);
-			}
-
-			if(saves.contains("trafficSimulationId")) {
-				String trafficSimulationId = (String)doc.get("trafficSimulationId_docvalues_string");
-				if(trafficSimulationId != null)
-					oCrowdFlowObserved.setTrafficSimulationId(trafficSimulationId);
 			}
 
 			if(saves.contains("walkingAreaId")) {
@@ -2748,14 +2827,17 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public void indexCrowdFlowObserved(JsonObject doc) {
+		if(customTrafficLightId != null) {
+			doc.put("customTrafficLightId_docvalues_string", customTrafficLightId);
+		}
+		if(trafficSimulationId != null) {
+			doc.put("trafficSimulationId_docvalues_string", trafficSimulationId);
+		}
 		if(color != null) {
 			doc.put("color_docvalues_string", color);
 		}
 		if(entityId != null) {
 			doc.put("entityId_docvalues_string", entityId);
-		}
-		if(trafficSimulationId != null) {
-			doc.put("trafficSimulationId_docvalues_string", trafficSimulationId);
 		}
 		if(walkingAreaId != null) {
 			doc.put("walkingAreaId_docvalues_string", walkingAreaId);
@@ -2831,12 +2913,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 
 	public static String varStoredCrowdFlowObserved(String entityVar) {
 		switch(entityVar) {
+			case "customTrafficLightId":
+				return "customTrafficLightId_docvalues_string";
+			case "trafficSimulationId":
+				return "trafficSimulationId_docvalues_string";
 			case "color":
 				return "color_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
-			case "trafficSimulationId":
-				return "trafficSimulationId_docvalues_string";
 			case "walkingAreaId":
 				return "walkingAreaId_docvalues_string";
 			case "alternateName":
@@ -2888,12 +2972,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 
 	public static String varIndexedCrowdFlowObserved(String entityVar) {
 		switch(entityVar) {
+			case "customTrafficLightId":
+				return "customTrafficLightId_docvalues_string";
+			case "trafficSimulationId":
+				return "trafficSimulationId_docvalues_string";
 			case "color":
 				return "color_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
-			case "trafficSimulationId":
-				return "trafficSimulationId_docvalues_string";
 			case "walkingAreaId":
 				return "walkingAreaId_docvalues_string";
 			case "alternateName":
@@ -2945,12 +3031,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 
 	public static String searchVarCrowdFlowObserved(String searchVar) {
 		switch(searchVar) {
+			case "customTrafficLightId_docvalues_string":
+				return "customTrafficLightId";
+			case "trafficSimulationId_docvalues_string":
+				return "trafficSimulationId";
 			case "color_docvalues_string":
 				return "color";
 			case "entityId_docvalues_string":
 				return "entityId";
-			case "trafficSimulationId_docvalues_string":
-				return "trafficSimulationId";
 			case "walkingAreaId_docvalues_string":
 				return "walkingAreaId";
 			case "alternateName_docvalues_string":
@@ -3025,9 +3113,10 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		CrowdFlowObserved oCrowdFlowObserved = (CrowdFlowObserved)this;
 		SiteRequestEnUS siteRequest = oCrowdFlowObserved.getSiteRequest_();
 
+		oCrowdFlowObserved.setCustomTrafficLightId(Optional.ofNullable(doc.get("customTrafficLightId_docvalues_string")).map(v -> v.toString()).orElse(null));
+		oCrowdFlowObserved.setTrafficSimulationId(Optional.ofNullable(doc.get("trafficSimulationId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setColor(Optional.ofNullable(doc.get("color_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setEntityId(Optional.ofNullable(doc.get("entityId_docvalues_string")).map(v -> v.toString()).orElse(null));
-		oCrowdFlowObserved.setTrafficSimulationId(Optional.ofNullable(doc.get("trafficSimulationId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setWalkingAreaId(Optional.ofNullable(doc.get("walkingAreaId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setAlternateName(Optional.ofNullable(doc.get("alternateName_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setAreaServed(Optional.ofNullable(doc.get("areaServed_docvalues_location")).map(v -> v.toString()).orElse(null));
@@ -3063,12 +3152,14 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		Object o = Optional.ofNullable(apiRequest).map(ApiRequest::getOriginal).orElse(null);
 		if(o != null && o instanceof CrowdFlowObserved) {
 			CrowdFlowObserved original = (CrowdFlowObserved)o;
+			if(!Objects.equals(customTrafficLightId, original.getCustomTrafficLightId()))
+				apiRequest.addVars("customTrafficLightId");
+			if(!Objects.equals(trafficSimulationId, original.getTrafficSimulationId()))
+				apiRequest.addVars("trafficSimulationId");
 			if(!Objects.equals(color, original.getColor()))
 				apiRequest.addVars("color");
 			if(!Objects.equals(entityId, original.getEntityId()))
 				apiRequest.addVars("entityId");
-			if(!Objects.equals(trafficSimulationId, original.getTrafficSimulationId()))
-				apiRequest.addVars("trafficSimulationId");
 			if(!Objects.equals(walkingAreaId, original.getWalkingAreaId()))
 				apiRequest.addVars("walkingAreaId");
 			if(!Objects.equals(alternateName, original.getAlternateName()))
@@ -3124,9 +3215,10 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
+		sb.append(Optional.ofNullable(customTrafficLightId).map(v -> "customTrafficLightId: \"" + v + "\"\n" ).orElse(""));
+		sb.append(Optional.ofNullable(trafficSimulationId).map(v -> "trafficSimulationId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(color).map(v -> "color: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(entityId).map(v -> "entityId: \"" + v + "\"\n" ).orElse(""));
-		sb.append(Optional.ofNullable(trafficSimulationId).map(v -> "trafficSimulationId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(walkingAreaId).map(v -> "walkingAreaId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(alternateName).map(v -> "alternateName: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(areaServed).map(v -> "areaServed: " + v + "\n").orElse(""));
@@ -3157,9 +3249,10 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_CrowdFlowObserved;
 	}
+	public static final String VAR_customTrafficLightId = "customTrafficLightId";
+	public static final String VAR_trafficSimulationId = "trafficSimulationId";
 	public static final String VAR_color = "color";
 	public static final String VAR_entityId = "entityId";
-	public static final String VAR_trafficSimulationId = "trafficSimulationId";
 	public static final String VAR_trafficSimulationSearch = "trafficSimulationSearch";
 	public static final String VAR_trafficSimulation_ = "trafficSimulation_";
 	public static final String VAR_walkingAreaId = "walkingAreaId";
@@ -3197,9 +3290,10 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 		return CrowdFlowObserved.varsFqCrowdFlowObserved(new ArrayList<String>());
 	}
 	public static List<String> varsFqCrowdFlowObserved(List<String> vars) {
+		vars.add(VAR_customTrafficLightId);
+		vars.add(VAR_trafficSimulationId);
 		vars.add(VAR_color);
 		vars.add(VAR_entityId);
-		vars.add(VAR_trafficSimulationId);
 		vars.add(VAR_walkingAreaId);
 		vars.add(VAR_alternateName);
 		vars.add(VAR_areaServed);
@@ -3242,9 +3336,10 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 		return vars;
 	}
 
+	public static final String DISPLAY_NAME_customTrafficLightId = "traffic light ID";
+	public static final String DISPLAY_NAME_trafficSimulationId = "traffic simulation ID";
 	public static final String DISPLAY_NAME_color = "color";
 	public static final String DISPLAY_NAME_entityId = "entity ID";
-	public static final String DISPLAY_NAME_trafficSimulationId = "traffic simulation ID";
 	public static final String DISPLAY_NAME_trafficSimulationSearch = "";
 	public static final String DISPLAY_NAME_trafficSimulation_ = "";
 	public static final String DISPLAY_NAME_walkingAreaId = "walking area ID";
@@ -3275,12 +3370,14 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 	}
 	public static String displayNameCrowdFlowObserved(String var) {
 		switch(var) {
+		case VAR_customTrafficLightId:
+			return DISPLAY_NAME_customTrafficLightId;
+		case VAR_trafficSimulationId:
+			return DISPLAY_NAME_trafficSimulationId;
 		case VAR_color:
 			return DISPLAY_NAME_color;
 		case VAR_entityId:
 			return DISPLAY_NAME_entityId;
-		case VAR_trafficSimulationId:
-			return DISPLAY_NAME_trafficSimulationId;
 		case VAR_trafficSimulationSearch:
 			return DISPLAY_NAME_trafficSimulationSearch;
 		case VAR_trafficSimulation_:
@@ -3336,10 +3433,12 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 
 	public static String descriptionCrowdFlowObserved(String var) {
 		switch(var) {
-		case VAR_entityId:
-			return "A unique ID for this Smart Data Model";
+		case VAR_customTrafficLightId:
+			return "The Smart Traffic Light ID";
 		case VAR_trafficSimulationId:
 			return "The Traffic Simulation ID";
+		case VAR_entityId:
+			return "A unique ID for this Smart Data Model";
 		case VAR_walkingAreaId:
 			return "The walking area ID of pedestrians in SUMO";
 		case VAR_alternateName:
@@ -3391,11 +3490,13 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 
 	public static String classSimpleNameCrowdFlowObserved(String var) {
 		switch(var) {
+		case VAR_customTrafficLightId:
+			return "String";
+		case VAR_trafficSimulationId:
+			return "String";
 		case VAR_color:
 			return "String";
 		case VAR_entityId:
-			return "String";
-		case VAR_trafficSimulationId:
 			return "String";
 		case VAR_trafficSimulationSearch:
 			return "SearchList";
@@ -3459,30 +3560,28 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 
 	public static Integer htmRowCrowdFlowObserved(String var) {
 		switch(var) {
-		case VAR_color:
-			return 3;
-		case VAR_entityId:
-			return 5;
+		case VAR_customTrafficLightId:
+			return 4;
 		case VAR_trafficSimulationId:
-			return 5;
+			return 4;
+		case VAR_color:
+			return 7;
+		case VAR_entityId:
+			return 3;
 		case VAR_walkingAreaId:
-			return 3;
+			return 11;
 		case VAR_alternateName:
-			return 3;
+			return 11;
 		case VAR_areaServed:
-			return 3;
+			return 5;
 		case VAR_averageCrowdSpeed:
-			return 4;
+			return 12;
 		case VAR_averageHeadwayTime:
-			return 4;
+			return 12;
 		case VAR_congested:
-			return 4;
+			return 12;
 		case VAR_dataProvider:
-			return 5;
-		case VAR_dateCreated:
-			return 5;
-		case VAR_dateModified:
-			return 5;
+			return 12;
 		case VAR_dateObserved:
 			return 6;
 		case VAR_dateObservedFrom:
@@ -3492,15 +3591,15 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 		case VAR_description:
 			return 7;
 		case VAR_direction:
-			return 7;
+			return 8;
 		case VAR_location:
-			return 7;
+			return 5;
 		case VAR_name:
 			return 8;
 		case VAR_occupancy:
 			return 8;
 		case VAR_owner:
-			return 8;
+			return 9;
 		case VAR_peopleCount:
 			return 9;
 		case VAR_refRoadSegment:
@@ -3516,18 +3615,20 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 
 	public static Integer htmCellCrowdFlowObserved(String var) {
 		switch(var) {
-		case VAR_color:
-			return 3;
-		case VAR_entityId:
+		case VAR_customTrafficLightId:
 			return 1;
 		case VAR_trafficSimulationId:
 			return 2;
+		case VAR_color:
+			return 1;
+		case VAR_entityId:
+			return 1;
 		case VAR_walkingAreaId:
 			return 1;
 		case VAR_alternateName:
 			return 2;
 		case VAR_areaServed:
-			return 3;
+			return 2;
 		case VAR_averageCrowdSpeed:
 			return 1;
 		case VAR_averageHeadwayTime:
@@ -3536,10 +3637,6 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 			return 3;
 		case VAR_dataProvider:
 			return 1;
-		case VAR_dateCreated:
-			return 2;
-		case VAR_dateModified:
-			return 3;
 		case VAR_dateObserved:
 			return 1;
 		case VAR_dateObservedFrom:
@@ -3547,17 +3644,17 @@ public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-sma
 		case VAR_dateObservedTo:
 			return 3;
 		case VAR_description:
-			return 1;
+			return 2;
 		case VAR_direction:
 			return 2;
 		case VAR_location:
-			return 3;
+			return 1;
 		case VAR_name:
 			return 1;
 		case VAR_occupancy:
-			return 2;
-		case VAR_owner:
 			return 3;
+		case VAR_owner:
+			return 4;
 		case VAR_peopleCount:
 			return 1;
 		case VAR_refRoadSegment:

@@ -672,6 +672,80 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		return promise.future();
 	}
 
+	//////////////////////
+	// areaServedColors //
+	//////////////////////
+
+
+	/**	 The entity areaServedColors
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedColors = new ArrayList<String>();
+
+	/**	<br> The entity areaServedColors
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation&fq=entiteVar_enUS_indexed_string:areaServedColors">Find the entity areaServedColors in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedColors(List<String> l);
+
+	public List<String> getAreaServedColors() {
+		return areaServedColors;
+	}
+
+	public void setAreaServedColors(List<String> areaServedColors) {
+		this.areaServedColors = areaServedColors;
+	}
+	public void setAreaServedColors(String o) {
+		String l = TrafficSimulation.staticSetAreaServedColors(siteRequest_, o);
+		if(l != null)
+			addAreaServedColors(l);
+	}
+	public static String staticSetAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public TrafficSimulation addAreaServedColors(String...objects) {
+		for(String o : objects) {
+			addAreaServedColors(o);
+		}
+		return (TrafficSimulation)this;
+	}
+	public TrafficSimulation addAreaServedColors(String o) {
+		if(o != null)
+			this.areaServedColors.add(o);
+		return (TrafficSimulation)this;
+	}
+	@JsonIgnore
+	public void setAreaServedColors(JsonArray objects) {
+		areaServedColors.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedColors(o);
+		}
+	}
+	protected TrafficSimulation areaServedColorsInit() {
+		_areaServedColors(areaServedColors);
+		return (TrafficSimulation)this;
+	}
+
+	public static String staticSearchAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficSimulation.staticSearchStrAreaServedColors(siteRequest_, TrafficSimulation.staticSearchAreaServedColors(siteRequest_, TrafficSimulation.staticSetAreaServedColors(siteRequest_, o)));
+	}
+
 	////////////////
 	// areaServed //
 	////////////////
@@ -3485,6 +3559,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		}).compose(a -> {
 			Promise<Void> promise2 = Promise.promise();
 			try {
+				areaServedColorsInit();
 				areaServedInit();
 				sumocfgPathInit();
 				fcdFilePathInit();
@@ -3590,6 +3665,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return oTrafficSimulation.location;
 			case "observedSearch":
 				return oTrafficSimulation.observedSearch;
+			case "areaServedColors":
+				return oTrafficSimulation.areaServedColors;
 			case "areaServed":
 				return oTrafficSimulation.areaServed;
 			case "sumocfgPath":
@@ -3720,6 +3797,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSetReportKeys(siteRequest_, o);
 		case "location":
 			return TrafficSimulation.staticSetLocation(siteRequest_, o);
+		case "areaServedColors":
+			return TrafficSimulation.staticSetAreaServedColors(siteRequest_, o);
 		case "areaServed":
 			return TrafficSimulation.staticSetAreaServed(siteRequest_, o);
 		case "sumocfgPath":
@@ -3820,6 +3899,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSearchReportKeys(siteRequest_, (Long)o);
 		case "location":
 			return TrafficSimulation.staticSearchLocation(siteRequest_, (Point)o);
+		case "areaServedColors":
+			return TrafficSimulation.staticSearchAreaServedColors(siteRequest_, (String)o);
 		case "areaServed":
 			return TrafficSimulation.staticSearchAreaServed(siteRequest_, (Path)o);
 		case "sumocfgPath":
@@ -3920,6 +4001,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSearchStrReportKeys(siteRequest_, (Long)o);
 		case "location":
 			return TrafficSimulation.staticSearchStrLocation(siteRequest_, (Point)o);
+		case "areaServedColors":
+			return TrafficSimulation.staticSearchStrAreaServedColors(siteRequest_, (String)o);
 		case "areaServed":
 			return TrafficSimulation.staticSearchStrAreaServed(siteRequest_, (Path)o);
 		case "sumocfgPath":
@@ -4020,6 +4103,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSearchFqReportKeys(siteRequest_, o);
 		case "location":
 			return TrafficSimulation.staticSearchFqLocation(siteRequest_, o);
+		case "areaServedColors":
+			return TrafficSimulation.staticSearchFqAreaServedColors(siteRequest_, o);
 		case "areaServed":
 			return TrafficSimulation.staticSearchFqAreaServed(siteRequest_, o);
 		case "sumocfgPath":
@@ -4499,6 +4584,12 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 					oTrafficSimulation.setLocation(location);
 			}
 
+			if(saves.contains("areaServedColors")) {
+				List<String> areaServedColors = (List<String>)doc.get("areaServedColors_indexedstored_strings");
+				if(areaServedColors != null)
+					oTrafficSimulation.areaServedColors.addAll(areaServedColors);
+			}
+
 			if(saves.contains("areaServed")) {
 				List<Path> areaServed = (List<Path>)doc.get("areaServed_docvalues_strings");
 				if(areaServed != null)
@@ -4739,6 +4830,13 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		if(location != null) {
 			doc.put("location_docvalues_location", String.format("%s,%s", location.getX(), location.getY()));
 		}
+		if(areaServedColors != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedColors_indexedstored_strings", l);
+			for(String o : areaServedColors) {
+				l.add(o);
+			}
+		}
 		if(areaServed != null) {
 			JsonArray l = new JsonArray();
 			doc.put("areaServed_docvalues_strings", l);
@@ -4900,6 +4998,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return "reportKeys_docvalues_longs";
 			case "location":
 				return "location_docvalues_location";
+			case "areaServedColors":
+				return "areaServedColors_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_strings";
 			case "sumocfgPath":
@@ -4989,6 +5089,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return "reportKeys_docvalues_longs";
 			case "location":
 				return "location_docvalues_location";
+			case "areaServedColors":
+				return "areaServedColors_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_strings";
 			case "sumocfgPath":
@@ -5078,6 +5180,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return "reportKeys";
 			case "location_docvalues_location":
 				return "location";
+			case "areaServedColors_indexedstored_strings":
+				return "areaServedColors";
 			case "areaServed_docvalues_strings":
 				return "areaServed";
 			case "sumocfgPath_docvalues_string":
@@ -5187,6 +5291,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			oTrafficSimulation.addReportKeys(TrafficSimulation.staticSetReportKeys(siteRequest, v.toString()));
 		});
 		oTrafficSimulation.setLocation(Optional.ofNullable(doc.get("location_docvalues_location")).map(v -> v.toString()).orElse(null));
+		Optional.ofNullable((List<?>)doc.get("areaServedColors_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oTrafficSimulation.addAreaServedColors(TrafficSimulation.staticSetAreaServedColors(siteRequest, v.toString()));
+		});
 		Optional.ofNullable((List<?>)doc.get("areaServed_docvalues_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
 			oTrafficSimulation.addAreaServed(TrafficSimulation.staticSetAreaServed(siteRequest, v.toString()));
 		});
@@ -5262,6 +5369,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				apiRequest.addVars("reportKeys");
 			if(!Objects.equals(location, original.getLocation()))
 				apiRequest.addVars("location");
+			if(!Objects.equals(areaServedColors, original.getAreaServedColors()))
+				apiRequest.addVars("areaServedColors");
 			if(!Objects.equals(areaServed, original.getAreaServed()))
 				apiRequest.addVars("areaServed");
 			if(!Objects.equals(sumocfgPath, original.getSumocfgPath()))
@@ -5350,6 +5459,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		sb.append(Optional.ofNullable(entityId).map(v -> "entityId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(reportKeys).map(v -> "reportKeys: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(location).map(v -> "location: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedColors).map(v -> "areaServedColors: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServed).map(v -> "areaServed: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(sumocfgPath).map(v -> "sumocfgPath: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(fcdFilePath).map(v -> "fcdFilePath: \"" + v + "\"\n" ).orElse(""));
@@ -5400,6 +5510,7 @@ public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-sma
 	public static final String VAR_reportKeys = "reportKeys";
 	public static final String VAR_location = "location";
 	public static final String VAR_observedSearch = "observedSearch";
+	public static final String VAR_areaServedColors = "areaServedColors";
 	public static final String VAR_areaServed = "areaServed";
 	public static final String VAR_sumocfgPath = "sumocfgPath";
 	public static final String VAR_fcdFilePath = "fcdFilePath";
@@ -5536,6 +5647,7 @@ public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-sma
 	public static final String DISPLAY_NAME_reportKeys = "simulation reports";
 	public static final String DISPLAY_NAME_location = "map location";
 	public static final String DISPLAY_NAME_observedSearch = "";
+	public static final String DISPLAY_NAME_areaServedColors = "area served colors";
 	public static final String DISPLAY_NAME_areaServed = "area served";
 	public static final String DISPLAY_NAME_sumocfgPath = "sumocfg path";
 	public static final String DISPLAY_NAME_fcdFilePath = "Floating Car Data file path";
@@ -5592,6 +5704,8 @@ public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-sma
 			return DISPLAY_NAME_location;
 		case VAR_observedSearch:
 			return DISPLAY_NAME_observedSearch;
+		case VAR_areaServedColors:
+			return DISPLAY_NAME_areaServedColors;
 		case VAR_areaServed:
 			return DISPLAY_NAME_areaServed;
 		case VAR_sumocfgPath:
@@ -5681,6 +5795,8 @@ public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-sma
 			return "A unique ID for this Smart Data Model";
 		case VAR_reportKeys:
 			return "The generated reports for this simulation";
+		case VAR_areaServedColors:
+			return "The colors of each areaServed Paths. ";
 		case VAR_areaServed:
 			return "The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. ";
 		case VAR_startSeconds:
@@ -5752,6 +5868,8 @@ public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-sma
 			return "Point";
 		case VAR_observedSearch:
 			return "SearchList";
+		case VAR_areaServedColors:
+			return "List";
 		case VAR_areaServed:
 			return "List";
 		case VAR_sumocfgPath:

@@ -160,6 +160,16 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served colors
+	 * Description: The colors of each areaServed Paths. 
+	 */
+	protected void _areaServedColors(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
 	 * Location: true
 	 * DocValues: true
 	 * DisplayName: area served
@@ -168,18 +178,22 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 	protected void _areaServed(List<Path> l) {
 		observedSearch.getList().forEach(baseModel -> {
 			if(baseModel instanceof TrafficFlowObserved) {
+				TrafficFlowObserved model = (TrafficFlowObserved)baseModel;
 				Path path = new Path();
-				Optional.ofNullable(((TrafficFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
+				Optional.ofNullable(model.getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
 					path.addPoint(point);
 				});
 				l.add(path);
+				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
 			} else if(baseModel instanceof CrowdFlowObserved) {
+				CrowdFlowObserved model = (CrowdFlowObserved)baseModel;
 				Path path = new Path();
-				Optional.ofNullable(((CrowdFlowObserved)baseModel).getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
+				Optional.ofNullable(model.getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
 					path.addPoint(point);
 				});
 				path.addPoint(path.getPoints().get(0));
 				l.add(path);
+				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
 			}
 		});
 	}

@@ -131,6 +131,8 @@ ENABLE_IMPORT_DATA_SiteHtm: true
 ENABLE_IMPORT_DATA_IotNodeStep: true
 ENABLE_IMPORT_DATA_MapResult: true
 
+# The Auth roles required to be a super admin in the site. 
+AUTH_ROLE_SUPER_ADMIN: {{ AUTH_ROLE_SUPER_ADMIN }}
 # The Auth roles required to be an admin in the site. 
 AUTH_ROLE_ADMIN: {{ AUTH_ROLE_ADMIN }}
 # The Auth roles required to add and modify site user records. 

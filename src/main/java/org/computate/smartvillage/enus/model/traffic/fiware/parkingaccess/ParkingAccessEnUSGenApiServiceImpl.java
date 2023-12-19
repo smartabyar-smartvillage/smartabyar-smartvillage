@@ -654,6 +654,30 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 
 			for(String entityVar : methodNames) {
 				switch(entityVar) {
+					case "setDeleted":
+							o2.setDeleted(jsonObject.getBoolean(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDeleted());
+						break;
+					case "setSessionId":
+							o2.setSessionId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlSessionId());
+						break;
+					case "setUserKey":
+							o2.setUserKey(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
+							num++;
+							bParams.add(o2.sqlUserKey());
+						break;
 					case "setInheritPk":
 							o2.setInheritPk(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -678,29 +702,13 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 							num++;
 							bParams.add(o2.sqlArchived());
 						break;
-					case "setDeleted":
-							o2.setDeleted(jsonObject.getBoolean(entityVar));
+					case "setRefOffStreetParking":
+							o2.setRefOffStreetParking(jsonObject.getJsonObject(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
+							bSql.append(ParkingAccess.VAR_refOffStreetParking + "=$" + num);
 							num++;
-							bParams.add(o2.sqlDeleted());
-						break;
-					case "setSessionId":
-							o2.setSessionId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlSessionId());
-						break;
-					case "setUserKey":
-							o2.setUserKey(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
-							num++;
-							bParams.add(o2.sqlUserKey());
+							bParams.add(o2.sqlRefOffStreetParking());
 						break;
 					case "setAddress":
 							o2.setAddress(jsonObject.getJsonObject(entityVar));
@@ -837,14 +845,6 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 							bSql.append(ParkingAccess.VAR_width + "=$" + num);
 							num++;
 							bParams.add(o2.sqlWidth());
-						break;
-					case "setRefOffStreetParking":
-							o2.setRefOffStreetParking(jsonObject.getJsonObject(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_refOffStreetParking + "=$" + num);
-							num++;
-							bParams.add(o2.sqlRefOffStreetParking());
 						break;
 				}
 			}
@@ -1153,6 +1153,33 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 				Set<String> entityVars = jsonObject.fieldNames();
 				for(String entityVar : entityVars) {
 					switch(entityVar) {
+					case ParkingAccess.VAR_deleted:
+						o2.setDeleted(jsonObject.getBoolean(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDeleted());
+						break;
+					case ParkingAccess.VAR_sessionId:
+						o2.setSessionId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlSessionId());
+						break;
+					case ParkingAccess.VAR_userKey:
+						o2.setUserKey(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
+						num++;
+						bParams.add(o2.sqlUserKey());
+						break;
 					case ParkingAccess.VAR_inheritPk:
 						o2.setInheritPk(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1180,32 +1207,14 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 						num++;
 						bParams.add(o2.sqlArchived());
 						break;
-					case ParkingAccess.VAR_deleted:
-						o2.setDeleted(jsonObject.getBoolean(entityVar));
+					case ParkingAccess.VAR_refOffStreetParking:
+						o2.setRefOffStreetParking(jsonObject.getJsonObject(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
+						bSql.append(ParkingAccess.VAR_refOffStreetParking + "=$" + num);
 						num++;
-						bParams.add(o2.sqlDeleted());
-						break;
-					case ParkingAccess.VAR_sessionId:
-						o2.setSessionId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlSessionId());
-						break;
-					case ParkingAccess.VAR_userKey:
-						o2.setUserKey(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
-						num++;
-						bParams.add(o2.sqlUserKey());
+						bParams.add(o2.sqlRefOffStreetParking());
 						break;
 					case ParkingAccess.VAR_address:
 						o2.setAddress(jsonObject.getJsonObject(entityVar));
@@ -1359,15 +1368,6 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 						bSql.append(ParkingAccess.VAR_width + "=$" + num);
 						num++;
 						bParams.add(o2.sqlWidth());
-						break;
-					case ParkingAccess.VAR_refOffStreetParking:
-						o2.setRefOffStreetParking(jsonObject.getJsonObject(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_refOffStreetParking + "=$" + num);
-						num++;
-						bParams.add(o2.sqlRefOffStreetParking());
 						break;
 					}
 				}

@@ -71,9 +71,35 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	 * {@inheritDoc}
 	 * DocValues: true
 	 * Persist: true
+	 * DisplayName: traffic light ID
+	 * Description: The Smart Traffic Light ID
+	 * HtmRow: 4
+	 * HtmCell: 1
+	 * Facet: true
+	 */
+	protected void _customTrafficLightId(Wrap<String> w) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * DocValues: true
+	 * Persist: true
+	 * DisplayName: traffic simulation ID
+	 * Description: The Traffic Simulation ID
+	 * HtmRow: 4
+	 * HtmCell: 2
+	 * Facet: true
+	 */
+	protected void _trafficSimulationId(Wrap<String> w) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * DocValues: true
+	 * Persist: true
 	 * DisplayName: color
-	 * HtmRow: 3
-	 * HtmCell: 3
+	 * HtmRow: 7
+	 * HtmCell: 1
 	 * Facet: true
 	 * Color: true
 	 */
@@ -87,24 +113,11 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	 * Persist: true
 	 * DisplayName: entity ID
 	 * Description: A unique ID for this Smart Data Model
-	 * HtmRow: 5
+	 * HtmRow: 3
 	 * HtmCell: 1
 	 * Facet: true
 	 */
 	protected void _entityId(Wrap<String> w) {}
-
-	/**
-	 * {@inheritDoc}
-	 * DocValues: true
-	 * Persist: true
-	 * DisplayName: traffic simulation ID
-	 * Description: The Traffic Simulation ID
-	 * HtmRow: 5
-	 * HtmCell: 2
-	 * Facet: true
-	 */
-	protected void _trafficSimulationId(Wrap<String> w) {
-	}
 
 	/**
 	 * Ignore: true
@@ -133,7 +146,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: walking area ID
 	* Description: The walking area ID of pedestrians in SUMO
-	* HtmRow: 3
+	* HtmRow: 11
 	* HtmCell: 1
 	* Facet: true
 	**/
@@ -145,7 +158,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: alternate name
 	* Description: An alternative name for this item
-	* HtmRow: 3
+	* HtmRow: 11
 	* HtmCell: 2
 	* Facet: true
 	**/
@@ -159,8 +172,8 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: area served
 	* Description: The geographic area where a service or offered item is provided
-	* HtmRow: 3
-	* HtmCell: 3
+	* HtmRow: 5
+	* HtmCell: 2
 	* Facet: true
 	**/
 	protected void _areaServed(Wrap<Polygon> w) {
@@ -189,7 +202,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: average crowd speed
 	* Description: Average speed of the crowd transiting during the observation period
-	* HtmRow: 4
+	* HtmRow: 12
 	* HtmCell: 1
 	* Facet: true
 	**/
@@ -201,7 +214,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: average headway time
 	* Description: Average headway time. Headway time is the time elapsed between two consecutive persons
-	* HtmRow: 4
+	* HtmRow: 12
 	* HtmCell: 2
 	* Facet: true
 	**/
@@ -213,7 +226,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: congested
 	* Description: Flags whether there was a crowd congestion during the observation period in the referred walkway. The absence of this attribute means no crowd congestion
-	* HtmRow: 4
+	* HtmRow: 12
 	* HtmCell: 3
 	* Facet: true
 	**/
@@ -225,7 +238,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: data provider
 	* Description: A sequence of characters identifying the provider of the harmonised data entity.
-	* HtmRow: 5
+	* HtmRow: 12
 	* HtmCell: 1
 	* Facet: true
 	**/
@@ -237,8 +250,6 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: date created
 	* Description: Entity creation timestamp. This will usually be allocated by the storage platform.
-	* HtmRow: 5
-	* HtmCell: 2
 	* Facet: true
 	**/
 	protected void _dateCreated(Wrap<String> w) {}
@@ -249,8 +260,6 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: date modified
 	* Description: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
-	* HtmRow: 5
-	* HtmCell: 3
 	* Facet: true
 	**/
 	protected void _dateModified(Wrap<String> w) {}
@@ -298,7 +307,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* DisplayName: description
 	* Description: A description of this item
 	* HtmRow: 7
-	* HtmCell: 1
+	* HtmCell: 2
 	* Facet: true
 	**/
 	protected void _description(Wrap<String> w) {}
@@ -309,7 +318,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: direction
 	* Description: Usual direction of travel in the walkway referred by this observation with respect to the city center. Enum:'inbound, outbound'
-	* HtmRow: 7
+	* HtmRow: 8
 	* HtmCell: 2
 	* Facet: true
 	**/
@@ -322,8 +331,8 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: location
 	* Description: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
-	* HtmRow: 7
-	* HtmCell: 3
+	* HtmRow: 5
+	* HtmCell: 1
 	* Facet: true
 	**/
 	protected void _location(Wrap<Point> w) {}
@@ -347,7 +356,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* DisplayName: occupancy
 	* Description: Fraction of the observation time where a person has been occupying the observed walkway
 	* HtmRow: 8
-	* HtmCell: 2
+	* HtmCell: 3
 	* Facet: true
 	**/
 	protected void _occupancy(Wrap<BigDecimal> w) {}
@@ -358,8 +367,8 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Persist: true
 	* DisplayName: owner
 	* Description: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
-	* HtmRow: 8
-	* HtmCell: 3
+	* HtmRow: 9
+	* HtmCell: 4
 	* Facet: true
 	**/
 	protected void _owner(Wrap<JsonObject> w) {}
