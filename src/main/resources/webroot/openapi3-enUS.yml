@@ -18510,11 +18510,13 @@ components:
               items:
                 type: object
                 properties:
+                  customTrafficLightId:
+                    type: string
+                  trafficSimulationId:
+                    type: string
                   color:
                     type: string
                   entityId:
-                    type: string
-                  trafficSimulationId:
                     type: string
                   walkingAreaId:
                     type: string
@@ -18564,6 +18566,20 @@ components:
       allOf:
         - type: object
           properties:
+            setCustomTrafficLightId:
+              type: string
+              nullable: true
+            removeCustomTrafficLightId:
+              type: string
+            removeAllCustomTrafficLightId:
+              type: string
+            setTrafficSimulationId:
+              type: string
+              nullable: true
+            removeTrafficSimulationId:
+              type: string
+            removeAllTrafficSimulationId:
+              type: string
             setColor:
               type: string
               nullable: true
@@ -18577,13 +18593,6 @@ components:
             removeEntityId:
               type: string
             removeAllEntityId:
-              type: string
-            setTrafficSimulationId:
-              type: string
-              nullable: true
-            removeTrafficSimulationId:
-              type: string
-            removeAllTrafficSimulationId:
               type: string
             setWalkingAreaId:
               type: string
@@ -18743,6 +18752,20 @@ components:
       allOf:
         - type: object
           properties:
+            setCustomTrafficLightId:
+              type: string
+              nullable: true
+            removeCustomTrafficLightId:
+              type: string
+            removeAllCustomTrafficLightId:
+              type: string
+            setTrafficSimulationId:
+              type: string
+              nullable: true
+            removeTrafficSimulationId:
+              type: string
+            removeAllTrafficSimulationId:
+              type: string
             setColor:
               type: string
               nullable: true
@@ -18756,13 +18779,6 @@ components:
             removeEntityId:
               type: string
             removeAllEntityId:
-              type: string
-            setTrafficSimulationId:
-              type: string
-              nullable: true
-            removeTrafficSimulationId:
-              type: string
-            removeAllTrafficSimulationId:
               type: string
             setWalkingAreaId:
               type: string
@@ -18922,11 +18938,13 @@ components:
       allOf:
         - type: object
           properties:
+            customTrafficLightId:
+              type: string
+            trafficSimulationId:
+              type: string
             color:
               type: string
             entityId:
-              type: string
-            trafficSimulationId:
               type: string
             walkingAreaId:
               type: string
@@ -18976,11 +18994,13 @@ components:
       allOf:
         - type: object
           properties:
+            customTrafficLightId:
+              type: string
+            trafficSimulationId:
+              type: string
             color:
               type: string
             entityId:
-              type: string
-            trafficSimulationId:
               type: string
             walkingAreaId:
               type: string
@@ -19030,11 +19050,13 @@ components:
       allOf:
         - type: object
           properties:
+            customTrafficLightId:
+              type: string
+            trafficSimulationId:
+              type: string
             color:
               type: string
             entityId:
-              type: string
-            trafficSimulationId:
               type: string
             walkingAreaId:
               type: string
@@ -19084,11 +19106,13 @@ components:
       allOf:
         - type: object
           properties:
+            customTrafficLightId:
+              type: string
+            trafficSimulationId:
+              type: string
             color:
               type: string
             entityId:
-              type: string
-            trafficSimulationId:
               type: string
             walkingAreaId:
               type: string
@@ -19138,11 +19162,13 @@ components:
       allOf:
         - type: object
           properties:
+            customTrafficLightId:
+              type: string
+            trafficSimulationId:
+              type: string
             color:
               type: string
             entityId:
-              type: string
-            trafficSimulationId:
               type: string
             walkingAreaId:
               type: string
@@ -22729,6 +22755,10 @@ components:
                       type: string
                   location:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   sumocfgPath:
@@ -22872,6 +22902,23 @@ components:
               type: string
             removeAllLocation:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -23277,6 +23324,23 @@ components:
               type: string
             removeAllLocation:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -23649,6 +23713,10 @@ components:
                 type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             sumocfgPath:
@@ -23759,6 +23827,10 @@ components:
                 type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             sumocfgPath:
@@ -23869,6 +23941,10 @@ components:
                 type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             sumocfgPath:
@@ -23979,6 +24055,10 @@ components:
                 type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             sumocfgPath:
@@ -24089,6 +24169,10 @@ components:
                 type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             sumocfgPath:

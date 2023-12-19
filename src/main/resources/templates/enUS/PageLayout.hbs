@@ -38,22 +38,20 @@
 		<title>smartvillage-platform</title>
 {{/inline}}
 {{#*inline "htmBodyMenuPageLayout"}}
-		<div class="w3-center ">
-			<div class="w3-bar w3-hide-small ">
-				<div class="site-bar-item w3-bar-item ">
-					<a class="w3-bar-item " href="{{ siteBaseUrl }}"><i class="fad fa-house "></i> home</a>
-				</div>
-{{> "htmMenuItems"}}
+		<div class="w3-bar w3-hide-small ">
+			<div class="site-bar-item w3-bar-item ">
+				<a class="w3-bar-item " href="{{ siteBaseUrl }}"><i class="fad fa-house "></i> home</a>
 			</div>
-			<div class="w3-bar w3-hide-medium w3-hide-large ">
-				<div class="site-bar-item w3-bar-item ">
-					<a class="w3-bar-item " href="{{ siteBaseUrl }}"><i class="fad fa-house "></i> home</a>
-				</div>
-				<div class="w3-dropdown-hover ">
-					<button class="w3-button w3-text-black "><i class="fad fa-bars w3-text-black "></i> Menu</button>
-					<div class="w3-dropdown-content w3-bar-block w3-card-4 ">
 {{> "htmMenuItems"}}
-					</div>
+		</div>
+		<div class="w3-bar w3-hide-medium w3-hide-large ">
+			<div class="site-bar-item w3-bar-item ">
+				<a class="w3-bar-item " href="{{ siteBaseUrl }}"><i class="fad fa-house "></i> home</a>
+			</div>
+			<div class="w3-dropdown-hover ">
+				<button class="w3-button w3-text-black "><i class="fad fa-bars w3-text-black "></i> Menu</button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4 ">
+{{> "htmMenuItems"}}
 				</div>
 			</div>
 		</div>
@@ -133,7 +131,9 @@
 
 {{/inline}}
 {{#*inline "htmBodyStartPageLayout"}}		<!-- #*inline "htmBodyStartPageLayout" -->
+		<div class="w3-center ">
 {{#block "htmBodyMenu"}}{{/block}}
+		</div>
 {{/inline}}
 {{#*inline "htmBodyMiddlePageLayout"}}		<!-- #*inline "htmBodyMiddlePageLayout" -->
 	<div class="pageContent w3-content ">
@@ -172,7 +172,9 @@
 				</div>
 			</div>
 		</footer>
+	 	<div class="w3-center ">
 {{#block "htmBodyMenu"}}{{/block}}
+		</div>
 		<footer class="w3-center w3-black w3-text-white w3-padding-24 ">
 {{#if GITHUB_ORG }}
 			<div class="w3-margin ">
