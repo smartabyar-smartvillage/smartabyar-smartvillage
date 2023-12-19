@@ -1100,7 +1100,7 @@ public abstract class TrafficLightGen<DEV> extends MapResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficLight";
-public static final String CLASS_API_ADDRESS_TrafficLight = "smartabyar-smartvillage-enUS-TrafficLight";
+	public static final String CLASS_API_ADDRESS_TrafficLight = "smartabyar-smartvillage-enUS-TrafficLight";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_TrafficLight;
 	}

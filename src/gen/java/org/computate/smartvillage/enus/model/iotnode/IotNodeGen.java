@@ -4469,7 +4469,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "IotNode";
-public static final String CLASS_API_ADDRESS_IotNode = "smartabyar-smartvillage-enUS-IotNode";
+	public static final String CLASS_API_ADDRESS_IotNode = "smartabyar-smartvillage-enUS-IotNode";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_IotNode;
 	}

@@ -1305,7 +1305,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficLightStep";
-public static final String CLASS_API_ADDRESS_TrafficLightStep = "smartabyar-smartvillage-enUS-TrafficLightStep";
+	public static final String CLASS_API_ADDRESS_TrafficLightStep = "smartabyar-smartvillage-enUS-TrafficLightStep";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_TrafficLightStep;
 	}

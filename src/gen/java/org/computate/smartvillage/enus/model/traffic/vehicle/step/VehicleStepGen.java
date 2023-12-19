@@ -1353,7 +1353,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "VehicleStep";
-public static final String CLASS_API_ADDRESS_VehicleStep = "smartabyar-smartvillage-enUS-VehicleStep";
+	public static final String CLASS_API_ADDRESS_VehicleStep = "smartabyar-smartvillage-enUS-VehicleStep";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_VehicleStep;
 	}

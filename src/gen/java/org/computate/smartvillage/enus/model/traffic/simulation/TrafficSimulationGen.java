@@ -5500,7 +5500,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficSimulation";
-public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-smartvillage-enUS-TrafficSimulation";
+	public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-smartvillage-enUS-TrafficSimulation";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_TrafficSimulation;
 	}

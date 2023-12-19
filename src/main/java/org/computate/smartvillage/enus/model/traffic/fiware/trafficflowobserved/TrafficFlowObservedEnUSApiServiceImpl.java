@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.computate.smartvillage.enus.config.ConfigKeys;
+import org.computate.search.tool.SearchTool;
 import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight;
 import org.computate.smartvillage.enus.model.traffic.simulation.report.SimulationReport;
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
@@ -37,7 +37,6 @@ import io.vertx.ext.auth.oauth2.OAuth2Auth;
 import io.vertx.ext.web.client.WebClient;
 import io.vertx.ext.web.templ.handlebars.HandlebarsTemplateEngine;
 import io.vertx.kafka.client.producer.KafkaProducer;
-import io.vertx.kafka.client.producer.KafkaProducerRecord;
 import io.vertx.pgclient.PgPool;
 
 /**
@@ -63,7 +62,7 @@ public class TrafficFlowObservedEnUSApiServiceImpl extends TrafficFlowObservedEn
 				searchReportList2.setStore(true);
 				searchReportList2.q("*:*");
 				searchReportList2.setC(SimulationReport.class);
-				searchReportList2.fq(SimulationReport.VAR_smartTrafficLightId + "_docvalues_string:" + o.getCustomTrafficLightId());
+				searchReportList2.fq(SimulationReport.VAR_smartTrafficLightId + "_docvalues_string:" + SearchTool.escapeQueryChars(o.getCustomTrafficLightId()));
 				searchReportList2.rows(50L);
 				searchReportList2.promiseDeepSearchList(siteRequest).onSuccess(b -> {
 	
@@ -76,7 +75,7 @@ public class TrafficFlowObservedEnUSApiServiceImpl extends TrafficFlowObservedEn
 							searchList2.setStore(true);
 							searchList2.q("*:*");
 							searchList2.setC(SmartTrafficLight.class);
-							searchList2.fq(SmartTrafficLight.VAR_entityId + "_docvalues_string:" + id2);
+							searchList2.fq(SmartTrafficLight.VAR_entityId + "_docvalues_string:" + SearchTool.escapeQueryChars(id2));
 							searchList2.rows(1L);
 							searchList2.promiseDeepSearchList(siteRequest).onSuccess(c -> {
 								SmartTrafficLight o2 = searchList2.getList().stream().findFirst().orElse(null);

@@ -515,21 +515,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 							</div>
@@ -620,21 +620,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 							</div>
@@ -790,21 +790,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmColor" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmColor" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmColor" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmBicycleId" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmBicycleId" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 							</div>
@@ -1555,62 +1555,6 @@
 		{{/eq}}
 {{/inline}}
 
-{{#*inline "htmBicycleId"}}
-<!-- #*inline "htmBicycleId" -->
-								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
-									<div class="w3-padding ">
-										<div id="suggest{{classApiMethodMethod}}BicycleStepBicycleId">
-											<div class="w3-card ">
-												<div class="w3-cell-row w3-2017-shaded-spruce">
-													<label for="{{classApiMethodMethod}}_bicycleId">bicycle ID</label>
-												</div>
-											<div class="w3-cell-row w3-padding ">
-													<div class="w3-cell ">
-														{{> "inputBicycleId" roleForWrite=roleForWrite roleForRead=roleForRead}}
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-{{/inline}}
-
-{{#*inline "inputBicycleId"}}
-		{{#eq roleForWriteBool "true"}}
-														<input
-															type="text"
-															placeholder="bicycle ID"
-															id="{{classApiMethodMethod}}_bicycleId"
-	{{#eq "Page" classApiMethodMethod}}
-																class="{{classApiMethodMethod}}_bicycleId setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
-																name="setBicycleId"
-	{{else}}
-		{{#eq "PATCH" classApiMethodMethod}}
-																class="{{classApiMethodMethod}}_bicycleId setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
-																name="setBicycleId"
-		{{else}}
-																{{classApiMethodMethod}}_bicycleId" class="valueBicycleId w3-input w3-border classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
-																name="bicycleId"
-		{{/eq}}
-	{{/eq}}
-	{{#eq "Page" classApiMethodMethod}}
-																onclick="removeGlow($(this)); "
-																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setBicycleId', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_bicycleId')); }, function() { addError($('#{{classApiMethodMethod}}_bicycleId')); }); "
-	{{/eq}}
-	{{#eq "Page" classApiMethodMethod}}
-															value="{{bicycleStep_.bicycleId}}"
-	{{/eq}}
-														/>
-
-													{{else}}
-														{{#ifContainsKeys userKeys}}
-															<span class="varBicycleStep{{id}}BicycleId varBicycleStepBicycleId ">{{bicycleStep_.bicycleId}}</span>
-			{{/ifContainsKeys}}
-		{{else}}
-														<span class="varBicycleStep{{id}}BicycleId varBicycleStepBicycleId ">{{bicycleStep_.bicycleId}}</span>
-		{{/eq}}
-{{/inline}}
-
 {{#*inline "htmColor"}}
 <!-- #*inline "htmColor" -->
 								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
@@ -1664,5 +1608,61 @@
 			{{/ifContainsKeys}}
 		{{else}}
 														<span class="varBicycleStep{{id}}Color varBicycleStepColor ">{{bicycleStep_.color}}</span>
+		{{/eq}}
+{{/inline}}
+
+{{#*inline "htmBicycleId"}}
+<!-- #*inline "htmBicycleId" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}BicycleStepBicycleId">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_bicycleId">bicycle ID</label>
+												</div>
+											<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputBicycleId" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputBicycleId"}}
+		{{#eq roleForWriteBool "true"}}
+														<input
+															type="text"
+															placeholder="bicycle ID"
+															id="{{classApiMethodMethod}}_bicycleId"
+	{{#eq "Page" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_bicycleId setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
+																name="setBicycleId"
+	{{else}}
+		{{#eq "PATCH" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_bicycleId setBicycleId classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
+																name="setBicycleId"
+		{{else}}
+																{{classApiMethodMethod}}_bicycleId" class="valueBicycleId w3-input w3-border classBicycleStep inputBicycleStep{{id}}BicycleId w3-input w3-border "
+																name="bicycleId"
+		{{/eq}}
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+																onclick="removeGlow($(this)); "
+																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setBicycleId', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_bicycleId')); }, function() { addError($('#{{classApiMethodMethod}}_bicycleId')); }); "
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+															value="{{bicycleStep_.bicycleId}}"
+	{{/eq}}
+														/>
+
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varBicycleStep{{id}}BicycleId varBicycleStepBicycleId ">{{bicycleStep_.bicycleId}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varBicycleStep{{id}}BicycleId varBicycleStepBicycleId ">{{bicycleStep_.bicycleId}}</span>
 		{{/eq}}
 {{/inline}}

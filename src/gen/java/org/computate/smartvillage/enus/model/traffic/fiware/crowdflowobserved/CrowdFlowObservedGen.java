@@ -3245,7 +3245,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "CrowdFlowObserved";
-public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-smartvillage-enUS-CrowdFlowObserved";
+	public static final String CLASS_API_ADDRESS_CrowdFlowObserved = "smartabyar-smartvillage-enUS-CrowdFlowObserved";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_CrowdFlowObserved;
 	}

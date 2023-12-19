@@ -616,7 +616,7 @@ public abstract class BicycleStepGen<DEV> extends MapResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "BicycleStep";
-public static final String CLASS_API_ADDRESS_BicycleStep = "smartabyar-smartvillage-enUS-BicycleStep";
+	public static final String CLASS_API_ADDRESS_BicycleStep = "smartabyar-smartvillage-enUS-BicycleStep";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_BicycleStep;
 	}

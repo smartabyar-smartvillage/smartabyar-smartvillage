@@ -1353,7 +1353,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "PersonStep";
-public static final String CLASS_API_ADDRESS_PersonStep = "smartabyar-smartvillage-enUS-PersonStep";
+	public static final String CLASS_API_ADDRESS_PersonStep = "smartabyar-smartvillage-enUS-PersonStep";
 	public static String getClassApiAddress() {
 		return CLASS_API_ADDRESS_PersonStep;
 	}
