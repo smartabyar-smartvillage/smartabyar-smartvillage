@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.person.step;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.result.map.MapResultPage;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.result.map.MapResultPage;
 import org.computate.vertx.search.list.SearchList;
 import org.computate.smartvillage.enus.model.traffic.person.step.PersonStep;
 import io.vertx.core.json.JsonArray;
@@ -662,7 +662,6 @@ public abstract class PersonStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "PersonStepGenPage";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-PersonStepGenPage";
 	public static final String VAR_searchListPersonStep_ = "searchListPersonStep_";
 	public static final String VAR_listPersonStep = "listPersonStep";
 	public static final String VAR_personStepCount = "personStepCount";

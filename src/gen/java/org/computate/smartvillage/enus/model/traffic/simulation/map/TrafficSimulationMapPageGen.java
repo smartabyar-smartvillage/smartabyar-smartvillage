@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.simulation.map;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.model.base.BaseModelPage;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.model.base.BaseModelPage;
 import org.computate.vertx.search.list.SearchList;
 import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation;
 import java.lang.String;
@@ -544,12 +544,12 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 		return (TrafficSimulationMapPage)this;
 	}
 
-	public static Date staticSearchDefaultRangeEnd(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
-		return o == null ? null : Date.from(o.toInstant());
+	public static String staticSearchDefaultRangeEnd(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
+		return o == null ? null : Date.from(o.toInstant()).toString();
 	}
 
-	public static String staticSearchStrDefaultRangeEnd(SiteRequestEnUS siteRequest_, Date o) {
-		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(o.toInstant().atOffset(ZoneOffset.UTC));
+	public static String staticSearchStrDefaultRangeEnd(SiteRequestEnUS siteRequest_, String o) {
+		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(ZonedDateTime.parse(o, ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER).toInstant().atOffset(ZoneOffset.UTC));
 	}
 
 	public static String staticSearchFqDefaultRangeEnd(SiteRequestEnUS siteRequest_, String o) {
@@ -620,12 +620,12 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 		return (TrafficSimulationMapPage)this;
 	}
 
-	public static Date staticSearchDefaultRangeStart(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
-		return o == null ? null : Date.from(o.toInstant());
+	public static String staticSearchDefaultRangeStart(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
+		return o == null ? null : Date.from(o.toInstant()).toString();
 	}
 
-	public static String staticSearchStrDefaultRangeStart(SiteRequestEnUS siteRequest_, Date o) {
-		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(o.toInstant().atOffset(ZoneOffset.UTC));
+	public static String staticSearchStrDefaultRangeStart(SiteRequestEnUS siteRequest_, String o) {
+		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(ZonedDateTime.parse(o, ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER).toInstant().atOffset(ZoneOffset.UTC));
 	}
 
 	public static String staticSearchFqDefaultRangeStart(SiteRequestEnUS siteRequest_, String o) {
@@ -1752,9 +1752,9 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 		case "defaultRangeGap":
 			return TrafficSimulationMapPage.staticSearchStrDefaultRangeGap(siteRequest_, (String)o);
 		case "defaultRangeEnd":
-			return TrafficSimulationMapPage.staticSearchStrDefaultRangeEnd(siteRequest_, (Date)o);
+			return TrafficSimulationMapPage.staticSearchStrDefaultRangeEnd(siteRequest_, (String)o);
 		case "defaultRangeStart":
-			return TrafficSimulationMapPage.staticSearchStrDefaultRangeStart(siteRequest_, (Date)o);
+			return TrafficSimulationMapPage.staticSearchStrDefaultRangeStart(siteRequest_, (String)o);
 		case "defaultRangeVar":
 			return TrafficSimulationMapPage.staticSearchStrDefaultRangeVar(siteRequest_, (String)o);
 		case "defaultFacetSort":
@@ -1845,7 +1845,6 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficSimulationMapPage";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-TrafficSimulationMapPage";
 	public static final String VAR_searchListTrafficSimulation_ = "searchListTrafficSimulation_";
 	public static final String VAR_pageResponse = "pageResponse";
 	public static final String VAR_defaultZoneId = "defaultZoneId";

@@ -5173,7 +5173,10 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficFlowObserved";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-TrafficFlowObserved";
+public static final String CLASS_API_ADDRESS_TrafficFlowObserved = "smartabyar-smartvillage-enUS-TrafficFlowObserved";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_TrafficFlowObserved;
+	}
 	public static final String VAR_color = "color";
 	public static final String VAR_entityId = "entityId";
 	public static final String VAR_trafficSimulationId = "trafficSimulationId";

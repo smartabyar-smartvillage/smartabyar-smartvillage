@@ -178,6 +178,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 				Boolean runSqlGenerator = Optional.ofNullable(config.getBoolean(ConfigKeys.RUN_SQL_GENERATOR)).orElse(false);
 				Boolean runArticleGenerator = Optional.ofNullable(config.getBoolean(ConfigKeys.RUN_ARTICLE_GENERATOR)).orElse(false);
 				Boolean runFiwareGenerator = Optional.ofNullable(config.getBoolean(ConfigKeys.RUN_FIWARE_GENERATOR)).orElse(false);
+				Boolean runProjectGenerator = Optional.ofNullable(config.getBoolean(ConfigKeys.RUN_PROJECT_GENERATOR)).orElse(false);
 
 				if(runOpenApi3Generator || runSqlGenerator || runArticleGenerator || runFiwareGenerator) {
 					SiteRequestEnUS siteRequest = new SiteRequestEnUS();
@@ -197,6 +198,8 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 						future = future.compose(a -> api.writeArticle());
 					if(runFiwareGenerator)
 						future = future.compose(a -> api.writeFiware());
+					if(runProjectGenerator)
+						future = future.compose(a -> api.writeProject());
 					future.compose(a -> vertx.close());
 				} else {
 					future = future.compose(a -> run(config).onSuccess(b -> {

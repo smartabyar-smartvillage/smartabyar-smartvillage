@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.simulation.report;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.model.base.BaseModelPage;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.model.base.BaseModelPage;
 import org.computate.vertx.search.list.SearchList;
 import org.computate.smartvillage.enus.model.traffic.simulation.report.SimulationReport;
 import io.vertx.core.json.JsonArray;
@@ -734,7 +734,6 @@ public abstract class SimulationReportGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "SimulationReportGenPage";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-SimulationReportGenPage";
 	public static final String VAR_searchListSimulationReport_ = "searchListSimulationReport_";
 	public static final String VAR_listSimulationReport = "listSimulationReport";
 	public static final String VAR_simulationReportCount = "simulationReportCount";

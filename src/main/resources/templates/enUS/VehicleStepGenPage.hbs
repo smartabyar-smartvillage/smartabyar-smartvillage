@@ -48,7 +48,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketVehicleStep(, vars, $response) {
+			function jsWebsocketVehicleStep(id, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -72,7 +72,16 @@
 {{#*inline "jsWebsocketVehicleStepPage"}}{{/inline}}
 {{#*inline "jsTooltipVehicleStepPage"}}{{/inline}}
 {{#*inline "htmTooltipVehicleStepPage"}}{{/inline}}
-{{#*inline "jsStyleVehicleStepPage"}}{{/inline}}
+{{#*inline "jsStyleVehicleStepPage"}}
+				return {
+					radius: 8
+					, fillColor: '#ff7800'
+					, color: '#000'
+					, weight: 1
+					, opacity: 1
+					, fillOpacity: 0.8
+				};
+{{/inline}}
 {{#*inline "htmUrlVehicleStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadVehicleStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchVehicleStepPage"}}								<!-- #*inline "htmBodySearchVehicleStepPage" -->
@@ -370,8 +379,6 @@
 				<span class="">vehicle steps</span>
 			</a>
 		</h1>
-{{#block "htmBodyGraphLocation"}}{{/block}}
-{{#block "htmBodyGraph"}}{{/block}}
 		<div id="site-calendar-box">
 			<div id="site-calendar"><!-- // --></div>
 		</div>
@@ -448,6 +455,50 @@
 						<h2 class="w3-padding ">Modify vehicle step</h2>
 					</header>
 					<div class="" id="patchVehicleStepFormValues">
+							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
+							<div class="w3-cell-row HtmRow">
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmCreated" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmCreated" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmCreated" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmObjectId" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmObjectId" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmObjectId" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+								<!-- entiteHtmLigneVerticaleAncien == null || !entiteHtmLigneVerticaleAncien -->
+							</div>
+							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
+							<div class="w3-cell-row HtmRow">
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmArchived" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmArchived" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmArchived" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmDeleted" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmDeleted" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmDeleted" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+								<!-- entiteHtmLigneVerticaleAncien == null || !entiteHtmLigneVerticaleAncien -->
+							</div>
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -611,6 +662,19 @@
 					<div class="" id="postVehicleStepFormValues">
 						<div id="postVehicleStepForm">
 {{#block "htmFormButton_postVehicleStep"}}{{/block}}
+							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
+							<div class="w3-cell-row HtmRow">
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmObjectId" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmObjectId" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmObjectId" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+								<!-- entiteHtmLigneVerticaleAncien == null || !entiteHtmLigneVerticaleAncien -->
+							</div>
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -799,6 +863,59 @@
 				<div class="w3-card-4 ">
 					<div class="" id="searchpageVehicleStepFormValues">
 						<div id="searchpageVehicleStepForm">
+							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
+							<div class="w3-cell-row HtmRow">
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmCreated" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmCreated" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmCreated" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmModified" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmModified" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmModified" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmObjectId" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmObjectId" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmObjectId" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+								<!-- entiteHtmLigneVerticaleAncien == null || !entiteHtmLigneVerticaleAncien -->
+							</div>
+							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
+							<div class="w3-cell-row HtmRow">
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmArchived" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmArchived" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmArchived" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmDeleted" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmDeleted" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmDeleted" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+								<!-- entiteHtmLigneVerticaleAncien == null || !entiteHtmLigneVerticaleAncien -->
+							</div>
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -1020,6 +1137,8 @@
 		<div class="w3-bar w3-content ">
 {{#block "htmBodySidebar"}}{{/block}}
 		</div>
+{{#block "htmBodyGraphLocation"}}{{/block}}
+{{#block "htmBodyGraph"}}{{/block}}
 	<div class="pageContent w3-content ">
 	{{#eq vehicleStepCount int0}}
 {{#block "htmBodyCount0"}}{{/block}}
@@ -1057,16 +1176,37 @@
 {{/inline}}
 {{#*inline "thead2VehicleStepPage"}}
 			<tr>
+						<th>ID</th>
+						<th>created</th>
+						<th></th>
 			</tr>
 {{/inline}}
 {{#*inline "tbody1VehicleStepPage"}}
+<!-- #*inline "tbody1VehicleStepPage" -->
 				<tbody>
 {{> tbody2VehicleStepPage}}
 				</tbody>
 {{/inline}}
 {{#*inline "tbody2VehicleStepPage"}}
+<!-- #*inline "tbody2VehicleStepPage" -->
 		{{#each listVehicleStep}}
 					<tr>
+						<td>
+							<a href="{{pageUrlPk}}">
+								<span class="white-space-pre-wrap ">{{objectId}}</span>
+							</a>
+						</td>
+						<td>
+							<a href="{{pageUrlPk}}">
+								<span class="white-space-pre-wrap ">{{siteZonedDateTimeFormat created "MMM d, yyyy h:mm:ss a" siteLocale}}</span>
+							</a>
+						</td>
+						<td>
+							<a href="{{pageUrlPk}}">
+								<i class="fad fa-map-location-dot "></i>
+								<span class="white-space-pre-wrap ">{{objectTitle}}</span>
+							</a>
+						</td>
 					</tr>
 		{{/each}}
 {{/inline}}
@@ -1077,6 +1217,18 @@
 {{/inline}}
 {{#*inline "tfoot2VehicleStepPage"}}
 			<tr>
+			{{#if getColumnObjectId}}
+				<td>
+				</td>
+			{{/if}}
+			{{#if getColumnCreated}}
+				<td>
+				</td>
+			{{/if}}
+			{{#if getColumnObjectTitle}}
+				<td>
+				</td>
+			{{/if}}
 			</tr>
 	{{/inline}}
 {{#*inline "htmFormsVehicleStepPage"}}
@@ -1165,6 +1317,250 @@
 			</div>
 {{/inline}}
 {{> MapResultPage mapResult_=vehicleStep_}}
+
+{{#*inline "htmCreated"}}
+<!-- #*inline "htmCreated" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}VehicleStepCreated">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_created">created</label>
+												</div>
+												<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputCreated" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputCreated"}}
+	{{#eq 'Page' classApiMethodMethod}}
+														<span id="{{classApiMethodMethod}}_created" class="varVehicleStep{{id}}Created varVehicleStepCreated " title="{{formatZonedDateTime vehicleStep_.created 'EEEE MMMM d yyyy H:mm:ss.SSS zz VV' defaultLocaleId defaultZoneId}}">{{formatZonedDateTime vehicleStep_.created 'EEE MMM d yyyy h:mm a zz' defaultLocaleId defaultZoneId}}</span>
+	{{/eq}}
+{{/inline}}
+
+{{#*inline "htmModified"}}
+<!-- #*inline "htmModified" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}VehicleStepModified">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_modified">modified</label>
+												</div>
+												<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputModified" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputModified"}}
+	{{#eq 'Page' classApiMethodMethod}}
+														<span id="{{classApiMethodMethod}}_modified" class="varVehicleStep{{id}}Modified varVehicleStepModified " title="{{formatZonedDateTime vehicleStep_.modified 'EEEE MMMM d yyyy H:mm:ss.SSS zz VV' defaultLocaleId defaultZoneId}}">{{formatZonedDateTime vehicleStep_.modified 'EEE MMM d yyyy h:mm a zz' defaultLocaleId defaultZoneId}}</span>
+	{{/eq}}
+{{/inline}}
+
+{{#*inline "htmObjectId"}}
+<!-- #*inline "htmObjectId" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}VehicleStepObjectId">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_objectId">ID</label>
+												</div>
+											<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputObjectId" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputObjectId"}}
+		{{#eq roleForWriteBool "true"}}
+														<input
+															type="text"
+															placeholder="ID"
+															title="A URL friendly unique ID for this object"															id="{{classApiMethodMethod}}_objectId"
+	{{#eq "Page" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_objectId setObjectId classVehicleStep inputVehicleStep{{id}}ObjectId w3-input w3-border "
+																name="setObjectId"
+	{{else}}
+		{{#eq "PATCH" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_objectId setObjectId classVehicleStep inputVehicleStep{{id}}ObjectId w3-input w3-border "
+																name="setObjectId"
+		{{else}}
+																{{classApiMethodMethod}}_objectId" class="valueObjectId w3-input w3-border classVehicleStep inputVehicleStep{{id}}ObjectId w3-input w3-border "
+																name="objectId"
+		{{/eq}}
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+																onclick="removeGlow($(this)); "
+																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setObjectId', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_objectId')); }, function() { addError($('#{{classApiMethodMethod}}_objectId')); }); "
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+															value="{{vehicleStep_.objectId}}"
+	{{/eq}}
+														/>
+
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varVehicleStep{{id}}ObjectId varVehicleStepObjectId ">{{vehicleStep_.objectId}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varVehicleStep{{id}}ObjectId varVehicleStepObjectId ">{{vehicleStep_.objectId}}</span>
+		{{/eq}}
+{{/inline}}
+
+{{#*inline "htmArchived"}}
+<!-- #*inline "htmArchived" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}VehicleStepArchived">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_archived">archived</label>
+												</div>
+												<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputArchived" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputArchived"}}
+		{{#eq roleForWriteBool "true"}}
+	{{#eq 'Page' classApiMethodMethod}}
+															<input
+																type="checkbox"
+																id="{{classApiMethodMethod}}_archived"
+																value="true"
+	{{else}}
+														<select
+															id="{{classApiMethodMethod}}_archived"
+	{{/eq}}
+	{{#eq 'Page' classApiMethodMethod}}
+															class="{{classApiMethodMethod}}_archived classVehicleStep inputVehicleStep{{id}}Archived w3-input w3-border "
+															name="setArchived"
+	{{else}}
+		{{#eq 'Page' classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_archived classVehicleStep inputVehicleStep{{id}}Archived w3-input w3-border "
+																name="setArchived"
+		{{else}}
+																class="{{classApiMethodMethod}}_archived setArchived valueArchived classVehicleStep inputVehicleStep{{id}}Archived w3-input w3-border "
+																name="setArchived"
+		{{/eq}}
+	{{/eq}}
+	{{#eq 'Page' classApiMethodMethod}}
+															onchange="var confirmResponse = confirm('Are you sure you want to archive that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setArchived', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_archived')); }, function() { addError($('.{{classApiMethodMethod}}_archived')); }); }"
+	{{/eq}}
+	{{#eq 'Page' classApiMethodMethod}}
+		{{#if vehicleStep_.archived}}
+																checked="checked"
+		{{/if}}
+																/>
+	{{else}}
+															>
+															<option value="" selected="selected"></option>
+															<option value="true">true</option>
+															<option value="false">false</option>
+														</select>
+	{{/eq}}
+
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varVehicleStep{{id}}Archived varVehicleStepArchived ">{{vehicleStep_.archived}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varVehicleStep{{id}}Archived varVehicleStepArchived ">{{vehicleStep_.archived}}</span>
+		{{/eq}}
+{{/inline}}
+
+{{#*inline "htmDeleted"}}
+<!-- #*inline "htmDeleted" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}VehicleStepDeleted">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_deleted">deleted</label>
+												</div>
+												<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputDeleted" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputDeleted"}}
+		{{#eq roleForWriteBool "true"}}
+	{{#eq 'Page' classApiMethodMethod}}
+															<input
+																type="checkbox"
+																id="{{classApiMethodMethod}}_deleted"
+																value="true"
+	{{else}}
+														<select
+															id="{{classApiMethodMethod}}_deleted"
+	{{/eq}}
+	{{#eq 'Page' classApiMethodMethod}}
+															class="{{classApiMethodMethod}}_deleted classVehicleStep inputVehicleStep{{id}}Deleted w3-input w3-border "
+															name="setDeleted"
+	{{else}}
+		{{#eq 'Page' classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_deleted classVehicleStep inputVehicleStep{{id}}Deleted w3-input w3-border "
+																name="setDeleted"
+		{{else}}
+																class="{{classApiMethodMethod}}_deleted setDeleted valueDeleted classVehicleStep inputVehicleStep{{id}}Deleted w3-input w3-border "
+																name="setDeleted"
+		{{/eq}}
+	{{/eq}}
+	{{#eq 'Page' classApiMethodMethod}}
+															onchange="var confirmResponse = confirm('Are you sure you want to delete that?'); if(confirmResponse) { patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDeleted', $(this).prop('checked'), function() { addGlow($('.{{classApiMethodMethod}}_deleted')); }, function() { addError($('.{{classApiMethodMethod}}_deleted')); }); }"
+	{{/eq}}
+	{{#eq 'Page' classApiMethodMethod}}
+		{{#if vehicleStep_.deleted}}
+																checked="checked"
+		{{/if}}
+																/>
+	{{else}}
+															>
+															<option value="" selected="selected"></option>
+															<option value="true">true</option>
+															<option value="false">false</option>
+														</select>
+	{{/eq}}
+
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varVehicleStep{{id}}Deleted varVehicleStepDeleted ">{{vehicleStep_.deleted}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varVehicleStep{{id}}Deleted varVehicleStepDeleted ">{{vehicleStep_.deleted}}</span>
+		{{/eq}}
+{{/inline}}
 
 {{#*inline "htmSimulationName"}}
 <!-- #*inline "htmSimulationName" -->

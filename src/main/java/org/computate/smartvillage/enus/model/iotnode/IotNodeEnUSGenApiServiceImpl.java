@@ -663,7 +663,7 @@ public class IotNodeEnUSGenApiServiceImpl extends BaseApiServiceImpl implements 
 						params.put("query", query);
 						JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 						JsonObject json = new JsonObject().put("context", context);
-						eventBus.request(IotNode.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "postIotNodeFuture")).onSuccess(a -> {
+						eventBus.request(IotNode.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "postIotNodeFuture")).onSuccess(a -> {
 							JsonObject responseMessage = (JsonObject)a.body();
 							JsonObject responseBody = new JsonObject(Buffer.buffer(JsonUtil.BASE64_DECODER.decode(responseMessage.getString("payload"))));
 							eventHandler.handle(Future.succeededFuture(ServiceResponse.completedWithJson(Buffer.buffer(responseBody.encodePrettily()))));
@@ -905,7 +905,7 @@ public class IotNodeEnUSGenApiServiceImpl extends BaseApiServiceImpl implements 
 					params.put("query", query);
 					JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 					JsonObject json = new JsonObject().put("context", context);
-					eventBus.request(IotNode.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "putimportIotNodeFuture")).onSuccess(a -> {
+					eventBus.request(IotNode.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "putimportIotNodeFuture")).onSuccess(a -> {
 						promise1.complete();
 					}).onFailure(ex -> {
 						LOG.error(String.format("listPUTImportIotNode failed. "), ex);

@@ -21,6 +21,7 @@ RUN_OPENAPI3_GENERATOR: true
 RUN_SQL_GENERATOR: true
 RUN_ARTICLE_GENERATOR: true
 RUN_FIWARE_GENERATOR: true
+RUN_PROJECT_GENERATOR: true
 I18N_PATHS: ["/home/ctate/.local/src/computate/src/main/resources/org/computate/i18n/i18n_enUS.yml"]
 DYNAMIC_PAGE_PATHS: ["/home/ctate/.local/src/smartabyar-smartvillage/page"]
 

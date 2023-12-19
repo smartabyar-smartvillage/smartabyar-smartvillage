@@ -335,12 +335,12 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		return (TrafficSimulation)this;
 	}
 
-	public static Date staticSearchStartDateTime(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
-		return o == null ? null : Date.from(o.toInstant());
+	public static String staticSearchStartDateTime(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
+		return o == null ? null : Date.from(o.toInstant()).toString();
 	}
 
-	public static String staticSearchStrStartDateTime(SiteRequestEnUS siteRequest_, Date o) {
-		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(o.toInstant().atOffset(ZoneOffset.UTC));
+	public static String staticSearchStrStartDateTime(SiteRequestEnUS siteRequest_, String o) {
+		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(ZonedDateTime.parse(o, ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER).toInstant().atOffset(ZoneOffset.UTC));
 	}
 
 	public static String staticSearchFqStartDateTime(SiteRequestEnUS siteRequest_, String o) {
@@ -3911,7 +3911,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 	public static String staticSearchStrTrafficSimulation(String entityVar, SiteRequestEnUS siteRequest_, Object o) {
 		switch(entityVar) {
 		case "startDateTime":
-			return TrafficSimulation.staticSearchStrStartDateTime(siteRequest_, (Date)o);
+			return TrafficSimulation.staticSearchStrStartDateTime(siteRequest_, (String)o);
 		case "simulationName":
 			return TrafficSimulation.staticSearchStrSimulationName(siteRequest_, (String)o);
 		case "entityId":
@@ -4472,7 +4472,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		if(saves != null) {
 
 			if(saves.contains("startDateTime")) {
-				Date startDateTime = (Date)doc.get("startDateTime_docvalues_date");
+				String startDateTime = (String)doc.get("startDateTime_docvalues_date");
 				if(startDateTime != null)
 					oTrafficSimulation.setStartDateTime(startDateTime);
 			}
@@ -5390,7 +5390,10 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficSimulation";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-TrafficSimulation";
+public static final String CLASS_API_ADDRESS_TrafficSimulation = "smartabyar-smartvillage-enUS-TrafficSimulation";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_TrafficSimulation;
+	}
 	public static final String VAR_startDateTime = "startDateTime";
 	public static final String VAR_simulationName = "simulationName";
 	public static final String VAR_entityId = "entityId";

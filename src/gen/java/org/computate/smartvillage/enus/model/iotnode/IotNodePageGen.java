@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.iotnode;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.model.iotnode.IotNodeGenPage;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.model.iotnode.IotNodeGenPage;
 import org.computate.search.wrap.Wrap;
 import io.vertx.core.Promise;
 import io.vertx.core.Future;
@@ -308,7 +308,6 @@ public abstract class IotNodePageGen<DEV> extends IotNodeGenPage {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "IotNodePage";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-IotNodePage";
 
 
 	public static String displayNameForClass(String var) {

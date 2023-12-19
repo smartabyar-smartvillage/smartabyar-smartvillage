@@ -1,6 +1,7 @@
 package org.computate.smartvillage.enus.page;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.page.PageLayout;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -32,7 +33,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.page.PageLayout;
 import org.computate.vertx.search.list.SearchList;
 import org.computate.smartvillage.enus.model.page.SitePage;
 import java.lang.String;
@@ -1185,7 +1185,6 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "HomePage";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-HomePage";
 	public static final String VAR_searchListSitePage = "searchListSitePage";
 	public static final String VAR_pageResponse = "pageResponse";
 	public static final String VAR_defaultZoneId = "defaultZoneId";

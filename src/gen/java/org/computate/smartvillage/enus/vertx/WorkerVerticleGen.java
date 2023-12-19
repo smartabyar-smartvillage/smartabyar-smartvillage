@@ -1,6 +1,7 @@
 package org.computate.smartvillage.enus.vertx;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import io.vertx.core.AbstractVerticle;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -32,7 +33,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import io.vertx.core.AbstractVerticle;
 import org.computate.search.wrap.Wrap;
 import io.vertx.core.Promise;
 import io.vertx.core.Future;
@@ -302,7 +302,6 @@ public abstract class WorkerVerticleGen<DEV> extends AbstractVerticle {
 	public static final String[] WorkerVerticleVals = new String[] { configureHandlebarsFail1, configureHandlebarsComplete1, configureDataConnectionError1, configureDataConnectionSuccess1, configureDataInitError1, configureDataInitSuccess1, configureSharedWorkerExecutorFail1, configureSharedWorkerExecutorComplete1, configureEmailComplete1, configureEmailFail1, configureKafkaSuccess1, configureCamelFail1, configureCamelComplete1, importTimerScheduling1, importTimerSkip1, importTimerFail1, importDataSkip1, importDataClassComplete1, importDataClassFail1, refreshAllDataComplete1, refreshAllDataStarted1, refreshAllDataFail1, refreshAllDataSkip1, refreshDataComplete1, refreshDataStarted1, refreshDataSkip1, refreshDataFail1, refreshDataCounterResetFail1 };
 
 	public static final String CLASS_SIMPLE_NAME = "WorkerVerticle";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-WorkerVerticle";
 
 
 	public static String displayNameForClass(String var) {

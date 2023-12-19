@@ -2439,7 +2439,10 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "ParkingAccess";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-ParkingAccess";
+public static final String CLASS_API_ADDRESS_ParkingAccess = "smartabyar-smartvillage-enUS-ParkingAccess";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_ParkingAccess;
+	}
 	public static final String VAR_address = "address";
 	public static final String VAR_alternateName = "alternateName";
 	public static final String VAR_areaServed = "areaServed";

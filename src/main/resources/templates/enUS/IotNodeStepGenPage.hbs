@@ -48,7 +48,7 @@
 {{#block "websocket"}}{{/block}}
 			});
 
-			function jsWebsocketIotNodeStep(, vars, $response) {
+			function jsWebsocketIotNodeStep(id, vars, $response) {
 {{#block "jsWebsocket"}}{{/block}}
 			}
 
@@ -72,7 +72,16 @@
 {{#*inline "jsWebsocketIotNodeStepPage"}}{{/inline}}
 {{#*inline "jsTooltipIotNodeStepPage"}}{{/inline}}
 {{#*inline "htmTooltipIotNodeStepPage"}}{{/inline}}
-{{#*inline "jsStyleIotNodeStepPage"}}{{/inline}}
+{{#*inline "jsStyleIotNodeStepPage"}}
+				return {
+					radius: 8
+					, fillColor: '#ff7800'
+					, color: '#000'
+					, weight: 1
+					, opacity: 1
+					, fillOpacity: 0.8
+				};
+{{/inline}}
 {{#*inline "htmUrlIotNodeStep"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadIotNodeStepPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchIotNodeStepPage"}}								<!-- #*inline "htmBodySearchIotNodeStepPage" -->
@@ -370,8 +379,6 @@
 				<span class="">IOT node steps</span>
 			</a>
 		</h1>
-{{#block "htmBodyGraphLocation"}}{{/block}}
-{{#block "htmBodyGraph"}}{{/block}}
 		<div id="site-calendar-box">
 			<div id="site-calendar"><!-- // --></div>
 		</div>
@@ -1222,6 +1229,8 @@
 		<div class="w3-bar w3-content ">
 {{#block "htmBodySidebar"}}{{/block}}
 		</div>
+{{#block "htmBodyGraphLocation"}}{{/block}}
+{{#block "htmBodyGraph"}}{{/block}}
 	<div class="pageContent w3-content ">
 	{{#eq iotNodeStepCount int0}}
 {{#block "htmBodyCount0"}}{{/block}}
@@ -1259,18 +1268,26 @@
 {{/inline}}
 {{#*inline "thead2IotNodeStepPage"}}
 			<tr>
+						<th>ID</th>
 						<th>created</th>
 						<th></th>
 			</tr>
 {{/inline}}
 {{#*inline "tbody1IotNodeStepPage"}}
+<!-- #*inline "tbody1IotNodeStepPage" -->
 				<tbody>
 {{> tbody2IotNodeStepPage}}
 				</tbody>
 {{/inline}}
 {{#*inline "tbody2IotNodeStepPage"}}
+<!-- #*inline "tbody2IotNodeStepPage" -->
 		{{#each listIotNodeStep}}
 					<tr>
+						<td>
+							<a href="{{pageUrlPk}}">
+								<span class="white-space-pre-wrap ">{{objectId}}</span>
+							</a>
+						</td>
 						<td>
 							<a href="{{pageUrlPk}}">
 								<span class="white-space-pre-wrap ">{{siteZonedDateTimeFormat created "MMM d, yyyy h:mm:ss a" siteLocale}}</span>
@@ -1292,6 +1309,10 @@
 {{/inline}}
 {{#*inline "tfoot2IotNodeStepPage"}}
 			<tr>
+			{{#if getColumnObjectId}}
+				<td>
+				</td>
+			{{/if}}
 			{{#if getColumnCreated}}
 				<td>
 				</td>

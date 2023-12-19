@@ -702,30 +702,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setColor":
-							o2.setColor(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
-							num++;
-							bParams.add(o2.sqlColor());
-						break;
-					case "setEntityId":
-							o2.setEntityId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlEntityId());
-						break;
-					case "setTrafficSimulationId":
-							o2.setTrafficSimulationId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlTrafficSimulationId());
-						break;
 					case "setWalkingAreaId":
 							o2.setWalkingAreaId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -902,6 +878,30 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlSource());
 						break;
+					case "setColor":
+							o2.setColor(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
+							num++;
+							bParams.add(o2.sqlColor());
+						break;
+					case "setEntityId":
+							o2.setEntityId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlEntityId());
+						break;
+					case "setTrafficSimulationId":
+							o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlTrafficSimulationId());
+						break;
 				}
 			}
 			bSql.append(" WHERE pk=$" + num);
@@ -1015,7 +1015,7 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						params.put("query", query);
 						JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 						JsonObject json = new JsonObject().put("context", context);
-						eventBus.request(CrowdFlowObserved.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "postCrowdFlowObservedFuture")).onSuccess(a -> {
+						eventBus.request(CrowdFlowObserved.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "postCrowdFlowObservedFuture")).onSuccess(a -> {
 							JsonObject responseMessage = (JsonObject)a.body();
 							JsonObject responseBody = new JsonObject(Buffer.buffer(JsonUtil.BASE64_DECODER.decode(responseMessage.getString("payload"))));
 							apiRequest.setPk(Long.parseLong(responseBody.getString("pk")));
@@ -1263,33 +1263,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case CrowdFlowObserved.VAR_color:
-						o2.setColor(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
-						num++;
-						bParams.add(o2.sqlColor());
-						break;
-					case CrowdFlowObserved.VAR_entityId:
-						o2.setEntityId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlEntityId());
-						break;
-					case CrowdFlowObserved.VAR_trafficSimulationId:
-						o2.setTrafficSimulationId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlTrafficSimulationId());
-						break;
 					case CrowdFlowObserved.VAR_walkingAreaId:
 						o2.setWalkingAreaId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1488,6 +1461,33 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlSource());
 						break;
+					case CrowdFlowObserved.VAR_color:
+						o2.setColor(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
+						num++;
+						bParams.add(o2.sqlColor());
+						break;
+					case CrowdFlowObserved.VAR_entityId:
+						o2.setEntityId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlEntityId());
+						break;
+					case CrowdFlowObserved.VAR_trafficSimulationId:
+						o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlTrafficSimulationId());
+						break;
 					}
 				}
 			}
@@ -1658,7 +1658,7 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 					params.put("query", query);
 					JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 					JsonObject json = new JsonObject().put("context", context);
-					eventBus.request(CrowdFlowObserved.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "putimportCrowdFlowObservedFuture")).onSuccess(a -> {
+					eventBus.request(CrowdFlowObserved.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "putimportCrowdFlowObservedFuture")).onSuccess(a -> {
 						promise1.complete();
 					}).onFailure(ex -> {
 						LOG.error(String.format("listPUTImportCrowdFlowObserved failed. "), ex);
@@ -2400,7 +2400,7 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 					params.put("query", query);
 					JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 					JsonObject json = new JsonObject().put("context", context);
-					eventBus.request(CrowdFlowObserved.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "patchCrowdFlowObservedFuture")).onSuccess(c -> {
+					eventBus.request(CrowdFlowObserved.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "patchCrowdFlowObservedFuture")).onSuccess(c -> {
 						JsonObject responseMessage = (JsonObject)c.body();
 						Integer statusCode = responseMessage.getInteger("statusCode");
 						if(statusCode.equals(200))

@@ -42,7 +42,7 @@ import io.vertx.ext.auth.authorization.AuthorizationProvider;
 @ProxyGen
 public interface TrafficFlowObservedEnUSGenApiService {
 	static void registerService(EventBus eventBus, JsonObject config, WorkerExecutor workerExecutor, PgPool pgPool, KafkaProducer<String, String> kafkaProducer, WebClient webClient, OAuth2Auth oauth2AuthenticationProvider, AuthorizationProvider authorizationProvider, HandlebarsTemplateEngine templateEngine, Vertx vertx) {
-		new ServiceBinder(vertx).setAddress(TrafficFlowObserved.CLASS_API_ADDRESS).register(TrafficFlowObservedEnUSGenApiService.class, new TrafficFlowObservedEnUSApiServiceImpl(eventBus, config, workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine));
+		new ServiceBinder(vertx).setAddress(TrafficFlowObserved.getClassApiAddress()).register(TrafficFlowObservedEnUSGenApiService.class, new TrafficFlowObservedEnUSApiServiceImpl(eventBus, config, workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine));
 	}
 
 	public void searchTrafficFlowObserved(ServiceRequest serviceRequest, Handler<AsyncResult<ServiceResponse>> eventHandler);

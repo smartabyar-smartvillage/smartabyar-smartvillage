@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.time.step;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.result.base.BaseResult;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.result.base.BaseResult;
 import java.lang.Long;
 import java.lang.String;
 import java.math.BigDecimal;
@@ -509,12 +509,12 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 		return (TimeStep)this;
 	}
 
-	public static Date staticSearchDateTime(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
-		return o == null ? null : Date.from(o.toInstant());
+	public static String staticSearchDateTime(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
+		return o == null ? null : Date.from(o.toInstant()).toString();
 	}
 
-	public static String staticSearchStrDateTime(SiteRequestEnUS siteRequest_, Date o) {
-		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(o.toInstant().atOffset(ZoneOffset.UTC));
+	public static String staticSearchStrDateTime(SiteRequestEnUS siteRequest_, String o) {
+		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(ZonedDateTime.parse(o, ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER).toInstant().atOffset(ZoneOffset.UTC));
 	}
 
 	public static String staticSearchFqDateTime(SiteRequestEnUS siteRequest_, String o) {
@@ -709,7 +709,7 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 		case "time":
 			return TimeStep.staticSearchStrTime(siteRequest_, (Double)o);
 		case "dateTime":
-			return TimeStep.staticSearchStrDateTime(siteRequest_, (Date)o);
+			return TimeStep.staticSearchStrDateTime(siteRequest_, (String)o);
 			default:
 				return BaseResult.staticSearchStrBaseResult(entityVar,  siteRequest_, o);
 		}
@@ -824,7 +824,7 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 			}
 
 			if(saves.contains("dateTime")) {
-				Date dateTime = (Date)doc.get("dateTime_docvalues_date");
+				String dateTime = (String)doc.get("dateTime_docvalues_date");
 				if(dateTime != null)
 					oTimeStep.setDateTime(dateTime);
 			}
@@ -964,7 +964,10 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TimeStep";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-TimeStep";
+public static final String CLASS_API_ADDRESS_TimeStep = "smartabyar-smartvillage-enUS-TimeStep";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_TimeStep;
+	}
 	public static final String VAR_simulationKey = "simulationKey";
 	public static final String VAR_path = "path";
 	public static final String VAR_time = "time";

@@ -663,7 +663,7 @@ public class PersonStepEnUSGenApiServiceImpl extends BaseApiServiceImpl implemen
 						params.put("query", query);
 						JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 						JsonObject json = new JsonObject().put("context", context);
-						eventBus.request(PersonStep.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "postPersonStepFuture")).onSuccess(a -> {
+						eventBus.request(PersonStep.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "postPersonStepFuture")).onSuccess(a -> {
 							JsonObject responseMessage = (JsonObject)a.body();
 							JsonObject responseBody = new JsonObject(Buffer.buffer(JsonUtil.BASE64_DECODER.decode(responseMessage.getString("payload"))));
 							eventHandler.handle(Future.succeededFuture(ServiceResponse.completedWithJson(Buffer.buffer(responseBody.encodePrettily()))));
@@ -905,7 +905,7 @@ public class PersonStepEnUSGenApiServiceImpl extends BaseApiServiceImpl implemen
 					params.put("query", query);
 					JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 					JsonObject json = new JsonObject().put("context", context);
-					eventBus.request(PersonStep.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "putimportPersonStepFuture")).onSuccess(a -> {
+					eventBus.request(PersonStep.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "putimportPersonStepFuture")).onSuccess(a -> {
 						promise1.complete();
 					}).onFailure(ex -> {
 						LOG.error(String.format("listPUTImportPersonStep failed. "), ex);

@@ -46,9 +46,9 @@ public class CamelIntegration extends CamelIntegrationGen<Object> {
 		Promise<Void> promise = Promise.promise();
 		try {
 
-			String importPageConsumer = String.format("%s-%s", SitePage.CLASS_API_ADDRESS, String.format("putimport%sFuture", SitePage.CLASS_SIMPLE_NAME));
+			String importPageConsumer = String.format("%s-%s", SitePage.getClassApiAddress(), String.format("putimport%sFuture", SitePage.CLASS_SIMPLE_NAME));
 			vertx.eventBus().consumer(importPageConsumer, message -> {
-				vertx.eventBus().request(SitePage.CLASS_API_ADDRESS, (JsonObject)message.body(), new DeliveryOptions().addHeader("action", String.format("putimport%sFuture", SitePage.CLASS_SIMPLE_NAME))).onSuccess(a -> {
+				vertx.eventBus().request(SitePage.getClassApiAddress(), (JsonObject)message.body(), new DeliveryOptions().addHeader("action", String.format("putimport%sFuture", SitePage.CLASS_SIMPLE_NAME))).onSuccess(a -> {
 					message.reply(a.body());
 				}).onFailure(ex -> {
 					LOG.error(String.format("Importing %s failed. ", SitePage.CLASS_SIMPLE_NAME), ex);
@@ -56,9 +56,9 @@ public class CamelIntegration extends CamelIntegrationGen<Object> {
 				});
 			});
 
-			String importHtmConsumer = String.format("%s-%s", SiteHtm.CLASS_API_ADDRESS, String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME));
+			String importHtmConsumer = String.format("%s-%s", SiteHtm.getClassApiAddress(), String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME));
 			vertx.eventBus().consumer(importHtmConsumer, message -> {
-				vertx.eventBus().request(SiteHtm.CLASS_API_ADDRESS, (JsonObject)message.body(), new DeliveryOptions().addHeader("action", String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME))).onSuccess(a -> {
+				vertx.eventBus().request(SiteHtm.getClassApiAddress(), (JsonObject)message.body(), new DeliveryOptions().addHeader("action", String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME))).onSuccess(a -> {
 					message.reply(a.body());
 				}).onFailure(ex -> {
 					LOG.error(String.format("Importing %s failed. ", SiteHtm.CLASS_SIMPLE_NAME), ex);
@@ -66,8 +66,8 @@ public class CamelIntegration extends CamelIntegrationGen<Object> {
 				});
 			});
 
-			vertx.eventBus().consumer(String.format("%s-%s", SiteHtm.CLASS_API_ADDRESS, String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME)), message -> {
-				vertx.eventBus().request(SiteHtm.CLASS_API_ADDRESS, (JsonObject)message.body(), new DeliveryOptions().addHeader("action", String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME))).onSuccess(a -> {
+			vertx.eventBus().consumer(String.format("%s-%s", SiteHtm.getClassApiAddress(), String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME)), message -> {
+				vertx.eventBus().request(SiteHtm.getClassApiAddress(), (JsonObject)message.body(), new DeliveryOptions().addHeader("action", String.format("putimport%sFuture", SiteHtm.CLASS_SIMPLE_NAME))).onSuccess(a -> {
 					message.reply(a.body());
 				}).onFailure(ex -> {
 					LOG.error(String.format("Importing %s failed. ", SiteHtm.CLASS_SIMPLE_NAME), ex);
@@ -75,8 +75,8 @@ public class CamelIntegration extends CamelIntegrationGen<Object> {
 				});
 			});
 
-			vertx.eventBus().consumer(String.format("%s-%s", SimulationReport.CLASS_API_ADDRESS, "patchSimulationReportFuture"), message -> {
-				vertx.eventBus().request(SimulationReport.CLASS_API_ADDRESS, (JsonObject)message.body(), new DeliveryOptions().addHeader("action", "patchSimulationReportFuture")).onSuccess(a -> {
+			vertx.eventBus().consumer(String.format("%s-%s", SimulationReport.getClassApiAddress(), "patchSimulationReportFuture"), message -> {
+				vertx.eventBus().request(SimulationReport.getClassApiAddress(), (JsonObject)message.body(), new DeliveryOptions().addHeader("action", "patchSimulationReportFuture")).onSuccess(a -> {
 					message.reply(a.body());
 				}).onFailure(ex -> {
 					LOG.error("Patching SimulationReport failed. ", ex);
@@ -84,8 +84,8 @@ public class CamelIntegration extends CamelIntegrationGen<Object> {
 				});
 			});
 
-			vertx.eventBus().consumer(String.format("%s-%s", TrafficSimulation.CLASS_API_ADDRESS, "patchMessage"), message -> {
-				vertx.eventBus().request(TrafficSimulation.CLASS_API_ADDRESS, (JsonObject)message.body(), new DeliveryOptions().addHeader("action", "patchTrafficSimulationFuture")).onSuccess(a -> {
+			vertx.eventBus().consumer(String.format("%s-%s", TrafficSimulation.getClassApiAddress(), "patchMessage"), message -> {
+				vertx.eventBus().request(TrafficSimulation.getClassApiAddress(), (JsonObject)message.body(), new DeliveryOptions().addHeader("action", "patchTrafficSimulationFuture")).onSuccess(a -> {
 					message.reply(a.body());
 				}).onFailure(ex -> {
 					LOG.error(String.format("Patching %s failed. ", TrafficSimulation.CLASS_SIMPLE_NAME), ex);
@@ -114,7 +114,7 @@ public class CamelIntegration extends CamelIntegrationGen<Object> {
 							.log(String.format("received %s event: ${body}", config.getString(ConfigKeys.KAFKA_TOPIC_SUMO_RUN_REPORT)))
 							.bean(CamelIntegration.class, "exchangeToJsonObject")
 							.bean(CamelIntegration.class, "wrapPkBodyInExchangeContext")
-							.to(String.format("vertx:%s-%s?exchangePattern=InOut", SimulationReport.CLASS_API_ADDRESS, "patchSimulationReportFuture"))
+							.to(String.format("vertx:%s-%s?exchangePattern=InOut", SimulationReport.getClassApiAddress(), "patchSimulationReportFuture"))
 					.end();
 
 					from(String.format("vertx-kafka:%s?bootstrapServers=%s&groupId=%s&securityProtocol=%s&sslKeystoreLocation=%s&sslKeystorePassword=%s&sslTruststoreLocation=%s&sslTruststorePassword=%s&seekToPosition=end"
@@ -131,7 +131,7 @@ public class CamelIntegration extends CamelIntegrationGen<Object> {
 							.bean(CamelIntegration.class, "exchangeToJsonObject")
 							.bean(CamelIntegration.class, "wrapPkBodyInExchangeContext")
 							.bean(CamelIntegration.class, "sendToSumoFalse")
-							.to(String.format("vertx:%s-%s?exchangePattern=InOut", TrafficSimulation.CLASS_API_ADDRESS, "patchMessage"))
+							.to(String.format("vertx:%s-%s?exchangePattern=InOut", TrafficSimulation.getClassApiAddress(), "patchMessage"))
 					.end();
 				}
 			};

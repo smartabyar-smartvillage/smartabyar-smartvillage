@@ -1000,7 +1000,7 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						params.put("query", query);
 						JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 						JsonObject json = new JsonObject().put("context", context);
-						eventBus.request(SmartTrafficLight.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "postSmartTrafficLightFuture")).onSuccess(a -> {
+						eventBus.request(SmartTrafficLight.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "postSmartTrafficLightFuture")).onSuccess(a -> {
 							JsonObject responseMessage = (JsonObject)a.body();
 							JsonObject responseBody = new JsonObject(Buffer.buffer(JsonUtil.BASE64_DECODER.decode(responseMessage.getString("payload"))));
 							apiRequest.setPk(Long.parseLong(responseBody.getString("pk")));
@@ -1545,7 +1545,7 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 					params.put("query", query);
 					JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 					JsonObject json = new JsonObject().put("context", context);
-					eventBus.request(SmartTrafficLight.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "putimportSmartTrafficLightFuture")).onSuccess(a -> {
+					eventBus.request(SmartTrafficLight.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "putimportSmartTrafficLightFuture")).onSuccess(a -> {
 						promise1.complete();
 					}).onFailure(ex -> {
 						LOG.error(String.format("listPUTImportSmartTrafficLight failed. "), ex);
@@ -2349,7 +2349,7 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 					params.put("query", query);
 					JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 					JsonObject json = new JsonObject().put("context", context);
-					eventBus.request(SmartTrafficLight.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "patchSmartTrafficLightFuture")).onSuccess(c -> {
+					eventBus.request(SmartTrafficLight.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "patchSmartTrafficLightFuture")).onSuccess(c -> {
 						JsonObject responseMessage = (JsonObject)c.body();
 						Integer statusCode = responseMessage.getInteger("statusCode");
 						if(statusCode.equals(200))

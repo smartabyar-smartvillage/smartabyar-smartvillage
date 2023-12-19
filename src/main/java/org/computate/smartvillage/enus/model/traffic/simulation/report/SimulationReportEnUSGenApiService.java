@@ -42,7 +42,7 @@ import io.vertx.ext.auth.authorization.AuthorizationProvider;
 @ProxyGen
 public interface SimulationReportEnUSGenApiService {
 	static void registerService(EventBus eventBus, JsonObject config, WorkerExecutor workerExecutor, PgPool pgPool, KafkaProducer<String, String> kafkaProducer, WebClient webClient, OAuth2Auth oauth2AuthenticationProvider, AuthorizationProvider authorizationProvider, HandlebarsTemplateEngine templateEngine, Vertx vertx) {
-		new ServiceBinder(vertx).setAddress(SimulationReport.CLASS_API_ADDRESS).register(SimulationReportEnUSGenApiService.class, new SimulationReportEnUSApiServiceImpl(eventBus, config, workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine));
+		new ServiceBinder(vertx).setAddress(SimulationReport.getClassApiAddress()).register(SimulationReportEnUSGenApiService.class, new SimulationReportEnUSApiServiceImpl(eventBus, config, workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine));
 	}
 
 	public void searchSimulationReport(ServiceRequest serviceRequest, Handler<AsyncResult<ServiceResponse>> eventHandler);

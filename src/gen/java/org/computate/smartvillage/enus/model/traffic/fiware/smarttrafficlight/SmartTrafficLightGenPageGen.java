@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.model.base.BaseModelPage;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.model.base.BaseModelPage;
 import org.computate.vertx.search.list.SearchList;
 import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight;
 import io.vertx.core.json.JsonArray;
@@ -734,7 +734,6 @@ public abstract class SmartTrafficLightGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "SmartTrafficLightGenPage";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-SmartTrafficLightGenPage";
 	public static final String VAR_searchListSmartTrafficLight_ = "searchListSmartTrafficLight_";
 	public static final String VAR_listSmartTrafficLight = "listSmartTrafficLight";
 	public static final String VAR_smartTrafficLightCount = "smartTrafficLightCount";

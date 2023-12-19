@@ -663,7 +663,7 @@ public class TrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl implem
 						params.put("query", query);
 						JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 						JsonObject json = new JsonObject().put("context", context);
-						eventBus.request(TrafficLight.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "postTrafficLightFuture")).onSuccess(a -> {
+						eventBus.request(TrafficLight.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "postTrafficLightFuture")).onSuccess(a -> {
 							JsonObject responseMessage = (JsonObject)a.body();
 							JsonObject responseBody = new JsonObject(Buffer.buffer(JsonUtil.BASE64_DECODER.decode(responseMessage.getString("payload"))));
 							eventHandler.handle(Future.succeededFuture(ServiceResponse.completedWithJson(Buffer.buffer(responseBody.encodePrettily()))));
@@ -905,7 +905,7 @@ public class TrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl implem
 					params.put("query", query);
 					JsonObject context = new JsonObject().put("params", params).put("user", siteRequest.getUserPrincipal());
 					JsonObject json = new JsonObject().put("context", context);
-					eventBus.request(TrafficLight.CLASS_API_ADDRESS, json, new DeliveryOptions().addHeader("action", "putimportTrafficLightFuture")).onSuccess(a -> {
+					eventBus.request(TrafficLight.getClassApiAddress(), json, new DeliveryOptions().addHeader("action", "putimportTrafficLightFuture")).onSuccess(a -> {
 						promise1.complete();
 					}).onFailure(ex -> {
 						LOG.error(String.format("listPUTImportTrafficLight failed. "), ex);

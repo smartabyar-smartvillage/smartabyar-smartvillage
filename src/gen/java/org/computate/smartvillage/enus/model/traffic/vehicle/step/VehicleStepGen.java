@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.vehicle.step;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.result.map.MapResult;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.result.map.MapResult;
 import java.lang.String;
 import java.math.BigDecimal;
 import org.computate.search.wrap.Wrap;
@@ -1353,7 +1353,10 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "VehicleStep";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-VehicleStep";
+public static final String CLASS_API_ADDRESS_VehicleStep = "smartabyar-smartvillage-enUS-VehicleStep";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_VehicleStep;
+	}
 	public static final String VAR_simulationName = "simulationName";
 	public static final String VAR_sumocfgPath = "sumocfgPath";
 	public static final String VAR_vehicleId = "vehicleId";

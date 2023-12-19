@@ -6517,7 +6517,10 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	public static final String[] SimulationReportVals = new String[] { reportStatusStop1_enUS, reportStatusStopped1_enUS, reportStatusCompleted1_enUS, reportStatusRun1_enUS, reportStatusRunning1_enUS, reportStatusError1_enUS };
 
 	public static final String CLASS_SIMPLE_NAME = "SimulationReport";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-SimulationReport";
+public static final String CLASS_API_ADDRESS_SimulationReport = "smartabyar-smartvillage-enUS-SimulationReport";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_SimulationReport;
+	}
 	public static final String VAR_reportName = "reportName";
 	public static final String VAR_location = "location";
 	public static final String VAR_simulationKey = "simulationKey";

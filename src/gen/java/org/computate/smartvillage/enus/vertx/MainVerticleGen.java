@@ -1,6 +1,7 @@
 package org.computate.smartvillage.enus.vertx;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import io.vertx.core.AbstractVerticle;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -32,7 +33,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import io.vertx.core.AbstractVerticle;
 import org.computate.search.wrap.Wrap;
 import io.vertx.core.Promise;
 import io.vertx.core.Future;
@@ -330,7 +330,6 @@ public abstract class MainVerticleGen<DEV> extends AbstractVerticle {
 	public static final String[] MainVerticleVals = new String[] { configureKafkaSuccess1, configureMqttSuccess1, configureMqttFail1, configureDataConnectionError1, configureDataConnectionSuccess1, configureDataInitError1, configureDataInitSuccess1, configureAuthClientError1, configureAuthClientSuccess1, configureAuthClientAuthCallbackUriEmpty1, configureAuthClientAuthClientOpenApiIdEmpty1, configureOpenApiError1, configureOpenApiSuccess1, configureConfigComplete1, configureConfigFail1, configureSharedWorkerExecutorFail1, configureSharedWorkerExecutorComplete1, configureHealthChecksComplete1, configureHealthChecksFail1, configureHealthChecksErrorDatabase1, configureHealthChecksEmptySolr1, configureHealthChecksErrorSolr1, configureHealthChecksErrorVertx1, configureWebsocketsComplete1, configureWebsocketsFail1, configureHandlebarsFail1, configureHandlebarsComplete1, configureApiFail1, configureApiComplete1, configureUiFail1, configureUiComplete1, startServerErrorServer1, startServerSuccessServer1, startServerBeforeServer1, startServerSsl1, stopPgPoolFail1, stopPgPoolComplete1, stopMqttFail1, stopMqttComplete1 };
 
 	public static final String CLASS_SIMPLE_NAME = "MainVerticle";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-MainVerticle";
 
 
 	public static String displayNameForClass(String var) {

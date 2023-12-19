@@ -4101,7 +4101,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "SmartTrafficLight";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-SmartTrafficLight";
+public static final String CLASS_API_ADDRESS_SmartTrafficLight = "smartabyar-smartvillage-enUS-SmartTrafficLight";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_SmartTrafficLight;
+	}
 	public static final String VAR_entityId = "entityId";
 	public static final String VAR_smartTrafficLightName = "smartTrafficLightName";
 	public static final String VAR_location = "location";

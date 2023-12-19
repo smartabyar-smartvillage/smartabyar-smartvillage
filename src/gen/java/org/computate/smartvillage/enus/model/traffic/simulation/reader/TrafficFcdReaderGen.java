@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.simulation.reader;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import java.lang.Object;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import java.lang.Object;
 import io.vertx.core.Vertx;
 import io.vertx.core.WorkerExecutor;
 import io.vertx.core.json.JsonObject;
@@ -676,7 +676,6 @@ public abstract class TrafficFcdReaderGen<DEV> extends Object {
 	public static final String[] TrafficFcdReaderVals = new String[] { importFcdComplete1, importFcdFail1, importFcdSkip1, importFcdStarted1, importTrafficSimulationFutureComplete1, importTrafficSimulationFutureFail1, obtainSumoAdditionalFilesComplete1, obtainSumoAdditionalFilesFail1, obtainSumoAdditionalFilePathsComplete1, obtainSumoAdditionalFilePathsFail1, obtainTlsStatesFilesComplete1, obtainTlsStatesFilesFail1, obtainTlsStatesPathsComplete1, obtainTlsStatesPathsFail1, importSumoNetFilesComplete1, importSumoNetFilesFail1, importSumoNetFilePathComplete1, importSumoNetFilePathFail1, importTrafficLightHandleBodyStarted1, importTrafficLightHandleBodyComplete1, importTrafficLightHandleBodyFail1, importTrafficLightHandleBodyWebSocket1, importTlsStatesFileComplete1, importTlsStatesFileFail1, importTrafficLightStepHandleBodyStarted1, importTrafficLightStepHandleBodyComplete1, importTrafficLightStepHandleBodyFail1, importTrafficLightStepHandleBodyWebSocket1, importFcdFileListStarted1, importFcdFileListComplete1, importFcdFileListSkip1, importFcdFileListFail1, importFcdFileStarted1, importFcdFileComplete1, importFcdFileFail1, importFcdHandleBodyStarted1, importFcdHandleBodyComplete1, importFcdHandleBodyFail1, importFcdHandleBodyWebSocket1, importVehicleStarted1, importVehicleComplete1, importVehicleFail1, importFcdVehicleStepStarted1, importFcdVehicleStepComplete1, importFcdVehicleStepFail1, importFcdVehicleStepWebSocket1 };
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficFcdReader";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-TrafficFcdReader";
 	public static final String VAR_siteRequest_ = "siteRequest_";
 	public static final String VAR_config = "config";
 	public static final String VAR_webClient = "webClient";

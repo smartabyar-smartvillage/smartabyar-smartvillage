@@ -82,7 +82,16 @@
 {{#*inline "jsWebsocketTrafficSimulationPage"}}{{/inline}}
 {{#*inline "jsTooltipTrafficSimulationPage"}}{{/inline}}
 {{#*inline "htmTooltipTrafficSimulationPage"}}{{/inline}}
-{{#*inline "jsStyleTrafficSimulationPage"}}{{/inline}}
+{{#*inline "jsStyleTrafficSimulationPage"}}
+				return {
+					radius: 8
+					, fillColor: '#ff7800'
+					, color: '#000'
+					, weight: 1
+					, opacity: 1
+					, fillOpacity: 0.8
+				};
+{{/inline}}
 {{#*inline "htmUrlTrafficSimulation"}}{{pageUri}}?q={{query.q}}&amp;rows={{#if rows}}{{rows}}{{else}}{{pagination.rows}}{{/if}}&amp;rows={{#if start}}{{start}}{{else}}{{pagination.start}}{{/if}}{{#each query.fq}}{{#eq fq this}}{{else}}&fq={{fq}}:{{val}}{{/eq}}{{/each}}{{#each query.sort}}{{#eq sort this}}{{else}}&sort={{var}} {{order}}{{/eq}}{{/each}}{{/inline}}
 {{#*inline "htmHeadTrafficSimulationPage"}}{{#block "htmTitle"}}{{/block}}{{#block "htmMeta"}}{{/block}}{{#block "htmStyle"}}{{/block}}{{#block "htmScripts"}}{{/block}}{{#block "htmScript"}}{{/block}}{{/inline}}
 {{#*inline "htmBodySearchTrafficSimulationPage"}}								<!-- #*inline "htmBodySearchTrafficSimulationPage" -->
@@ -380,8 +389,6 @@
 				<span class="">traffic simulations</span>
 			</a>
 		</h1>
-{{#block "htmBodyGraphLocation"}}{{/block}}
-{{#block "htmBodyGraph"}}{{/block}}
 		<div id="site-calendar-box">
 			<div id="site-calendar"><!-- // --></div>
 		</div>
@@ -889,6 +896,8 @@
 		<div class="w3-bar w3-content ">
 {{#block "htmBodySidebar"}}{{/block}}
 		</div>
+{{#block "htmBodyGraphLocation"}}{{/block}}
+{{#block "htmBodyGraph"}}{{/block}}
 	<div class="pageContent w3-content ">
 	{{#eq trafficSimulationCount int0}}
 {{#block "htmBodyCount0"}}{{/block}}
@@ -931,11 +940,13 @@
 			</tr>
 {{/inline}}
 {{#*inline "tbody1TrafficSimulationPage"}}
+<!-- #*inline "tbody1TrafficSimulationPage" -->
 				<tbody>
 {{> tbody2TrafficSimulationPage}}
 				</tbody>
 {{/inline}}
 {{#*inline "tbody2TrafficSimulationPage"}}
+<!-- #*inline "tbody2TrafficSimulationPage" -->
 		{{#each listTrafficSimulation}}
 					<tr>
 						<td>

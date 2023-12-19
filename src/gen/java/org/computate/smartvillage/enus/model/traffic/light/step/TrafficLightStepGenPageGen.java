@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.model.traffic.light.step;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.result.map.MapResultPage;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.result.map.MapResultPage;
 import org.computate.vertx.search.list.SearchList;
 import org.computate.smartvillage.enus.model.traffic.light.step.TrafficLightStep;
 import io.vertx.core.json.JsonArray;
@@ -662,7 +662,6 @@ public abstract class TrafficLightStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "TrafficLightStepGenPage";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-TrafficLightStepGenPage";
 	public static final String VAR_searchListTrafficLightStep_ = "searchListTrafficLightStep_";
 	public static final String VAR_listTrafficLightStep = "listTrafficLightStep";
 	public static final String VAR_trafficLightStepCount = "trafficLightStepCount";

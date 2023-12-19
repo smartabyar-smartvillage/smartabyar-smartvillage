@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.camel;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import java.lang.Object;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import java.lang.Object;
 import org.computate.search.wrap.Wrap;
 import io.vertx.core.Promise;
 import io.vertx.core.Future;
@@ -253,7 +253,6 @@ public abstract class CamelIntegrationGen<DEV> extends Object {
 	public static final String[] CamelIntegrationVals = new String[] { configureCamelFail1, configureCamelComplete1 };
 
 	public static final String CLASS_SIMPLE_NAME = "CamelIntegration";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-CamelIntegration";
 
 
 	public static String displayNameForClass(String var) {

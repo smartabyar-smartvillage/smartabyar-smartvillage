@@ -15,6 +15,7 @@
 package org.computate.smartvillage.enus.result.iotnode.step;
 
 import org.computate.smartvillage.enus.request.SiteRequestEnUS;
+import org.computate.smartvillage.enus.result.base.BaseResult;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.vertx.api.ApiRequest;
 import org.computate.smartvillage.enus.config.ConfigKeys;
@@ -46,7 +47,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.math.RoundingMode;
 import java.util.Map;
-import org.computate.smartvillage.enus.result.base.BaseResult;
 import io.vertx.core.json.JsonObject;
 import java.lang.String;
 import io.vertx.pgclient.data.Point;
@@ -4469,7 +4469,10 @@ public abstract class IotNodeStepGen<DEV> extends BaseResult {
 	}
 
 	public static final String CLASS_SIMPLE_NAME = "IotNodeStep";
-	public static final String CLASS_API_ADDRESS = "smartabyar-smartvillage-enUS-IotNodeStep";
+public static final String CLASS_API_ADDRESS_IotNodeStep = "smartabyar-smartvillage-enUS-IotNodeStep";
+	public static String getClassApiAddress() {
+		return CLASS_API_ADDRESS_IotNodeStep;
+	}
 	public static final String VAR_json = "json";
 	public static final String VAR_nodeName = "nodeName";
 	public static final String VAR_nodeType = "nodeType";
