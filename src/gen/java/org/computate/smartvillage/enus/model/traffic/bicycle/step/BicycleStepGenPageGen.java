@@ -225,7 +225,7 @@ public abstract class BicycleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqListBicycleStep(SiteRequestEnUS siteRequest_, String o) {
-		return BicycleStepGenPage.staticSearchStrListBicycleStep(siteRequest_, BicycleStepGenPage.staticSearchListBicycleStep(siteRequest_, BicycleStepGenPage.staticSetListBicycleStep(siteRequest_, o)));
+		return BicycleStepGenPage.staticSearchListBicycleStep(siteRequest_, BicycleStepGenPage.staticSetListBicycleStep(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -285,7 +285,7 @@ public abstract class BicycleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqBicycleStepCount(SiteRequestEnUS siteRequest_, String o) {
-		return BicycleStepGenPage.staticSearchStrBicycleStepCount(siteRequest_, BicycleStepGenPage.staticSearchBicycleStepCount(siteRequest_, BicycleStepGenPage.staticSetBicycleStepCount(siteRequest_, o)));
+		return BicycleStepGenPage.staticSearchBicycleStepCount(siteRequest_, BicycleStepGenPage.staticSetBicycleStepCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////
@@ -378,7 +378,7 @@ public abstract class BicycleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return BicycleStepGenPage.staticSearchStrId(siteRequest_, BicycleStepGenPage.staticSearchId(siteRequest_, BicycleStepGenPage.staticSetId(siteRequest_, o)));
+		return BicycleStepGenPage.staticSearchId(siteRequest_, BicycleStepGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -430,7 +430,7 @@ public abstract class BicycleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqPageUriBicycleStep(SiteRequestEnUS siteRequest_, String o) {
-		return BicycleStepGenPage.staticSearchStrPageUriBicycleStep(siteRequest_, BicycleStepGenPage.staticSearchPageUriBicycleStep(siteRequest_, BicycleStepGenPage.staticSetPageUriBicycleStep(siteRequest_, o)));
+		return BicycleStepGenPage.staticSearchPageUriBicycleStep(siteRequest_, BicycleStepGenPage.staticSetPageUriBicycleStep(siteRequest_, o)).toString();
 	}
 
 	//////////////

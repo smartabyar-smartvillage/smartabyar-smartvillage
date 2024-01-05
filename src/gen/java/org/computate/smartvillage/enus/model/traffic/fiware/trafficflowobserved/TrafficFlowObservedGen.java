@@ -310,7 +310,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqColor(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrColor(siteRequest_, TrafficFlowObserved.staticSearchColor(siteRequest_, TrafficFlowObserved.staticSetColor(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchColor(siteRequest_, TrafficFlowObserved.staticSetColor(siteRequest_, o)).toString();
 	}
 
 	public String sqlColor() {
@@ -366,7 +366,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqEntityId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrEntityId(siteRequest_, TrafficFlowObserved.staticSearchEntityId(siteRequest_, TrafficFlowObserved.staticSetEntityId(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchEntityId(siteRequest_, TrafficFlowObserved.staticSetEntityId(siteRequest_, o)).toString();
 	}
 
 	public String sqlEntityId() {
@@ -422,7 +422,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqEntityShortId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrEntityShortId(siteRequest_, TrafficFlowObserved.staticSearchEntityShortId(siteRequest_, TrafficFlowObserved.staticSetEntityShortId(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchEntityShortId(siteRequest_, TrafficFlowObserved.staticSetEntityShortId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////
@@ -474,7 +474,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrTrafficSimulationId(siteRequest_, TrafficFlowObserved.staticSearchTrafficSimulationId(siteRequest_, TrafficFlowObserved.staticSetTrafficSimulationId(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchTrafficSimulationId(siteRequest_, TrafficFlowObserved.staticSetTrafficSimulationId(siteRequest_, o)).toString();
 	}
 
 	public String sqlTrafficSimulationId() {
@@ -622,7 +622,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLaneAreaDetectorId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrLaneAreaDetectorId(siteRequest_, TrafficFlowObserved.staticSearchLaneAreaDetectorId(siteRequest_, TrafficFlowObserved.staticSetLaneAreaDetectorId(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchLaneAreaDetectorId(siteRequest_, TrafficFlowObserved.staticSetLaneAreaDetectorId(siteRequest_, o)).toString();
 	}
 
 	public String sqlLaneAreaDetectorId() {
@@ -694,7 +694,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLocation(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrLocation(siteRequest_, TrafficFlowObserved.staticSearchLocation(siteRequest_, TrafficFlowObserved.staticSetLocation(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchLocation(siteRequest_, TrafficFlowObserved.staticSetLocation(siteRequest_, o)).toString();
 	}
 
 	public Point sqlLocation() {
@@ -750,7 +750,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSimulationName(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrSimulationName(siteRequest_, TrafficFlowObserved.staticSearchSimulationName(siteRequest_, TrafficFlowObserved.staticSetSimulationName(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchSimulationName(siteRequest_, TrafficFlowObserved.staticSetSimulationName(siteRequest_, o)).toString();
 	}
 
 	/////////////////
@@ -802,7 +802,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSumocfgPath(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrSumocfgPath(siteRequest_, TrafficFlowObserved.staticSearchSumocfgPath(siteRequest_, TrafficFlowObserved.staticSetSumocfgPath(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchSumocfgPath(siteRequest_, TrafficFlowObserved.staticSetSumocfgPath(siteRequest_, o)).toString();
 	}
 
 	public String sqlSumocfgPath() {
@@ -858,7 +858,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomTrafficLightId(siteRequest_, TrafficFlowObserved.staticSearchCustomTrafficLightId(siteRequest_, TrafficFlowObserved.staticSetCustomTrafficLightId(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomTrafficLightId(siteRequest_, TrafficFlowObserved.staticSetCustomTrafficLightId(siteRequest_, o)).toString();
 	}
 
 	public String sqlCustomTrafficLightId() {
@@ -1014,7 +1014,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAddress(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrAddress(siteRequest_, TrafficFlowObserved.staticSearchAddress(siteRequest_, TrafficFlowObserved.staticSetAddress(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchAddress(siteRequest_, TrafficFlowObserved.staticSetAddress(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlAddress() {
@@ -1070,7 +1070,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAlternateName(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrAlternateName(siteRequest_, TrafficFlowObserved.staticSearchAlternateName(siteRequest_, TrafficFlowObserved.staticSetAlternateName(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchAlternateName(siteRequest_, TrafficFlowObserved.staticSetAlternateName(siteRequest_, o)).toString();
 	}
 
 	public String sqlAlternateName() {
@@ -1175,7 +1175,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAreaServed(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrAreaServed(siteRequest_, TrafficFlowObserved.staticSearchAreaServed(siteRequest_, TrafficFlowObserved.staticSetAreaServed(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchAreaServed(siteRequest_, TrafficFlowObserved.staticSetAreaServed(siteRequest_, o)).toString();
 	}
 
 	public Path sqlAreaServed() {
@@ -1252,7 +1252,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAverageGapDistance(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrAverageGapDistance(siteRequest_, TrafficFlowObserved.staticSearchAverageGapDistance(siteRequest_, TrafficFlowObserved.staticSetAverageGapDistance(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchAverageGapDistance(siteRequest_, TrafficFlowObserved.staticSetAverageGapDistance(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAverageGapDistance() {
@@ -1329,7 +1329,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAverageHeadwayTime(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrAverageHeadwayTime(siteRequest_, TrafficFlowObserved.staticSearchAverageHeadwayTime(siteRequest_, TrafficFlowObserved.staticSetAverageHeadwayTime(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchAverageHeadwayTime(siteRequest_, TrafficFlowObserved.staticSetAverageHeadwayTime(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAverageHeadwayTime() {
@@ -1406,7 +1406,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAverageVehicleLength(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrAverageVehicleLength(siteRequest_, TrafficFlowObserved.staticSearchAverageVehicleLength(siteRequest_, TrafficFlowObserved.staticSetAverageVehicleLength(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchAverageVehicleLength(siteRequest_, TrafficFlowObserved.staticSetAverageVehicleLength(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAverageVehicleLength() {
@@ -1483,7 +1483,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAverageVehicleSpeed(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrAverageVehicleSpeed(siteRequest_, TrafficFlowObserved.staticSearchAverageVehicleSpeed(siteRequest_, TrafficFlowObserved.staticSetAverageVehicleSpeed(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchAverageVehicleSpeed(siteRequest_, TrafficFlowObserved.staticSetAverageVehicleSpeed(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAverageVehicleSpeed() {
@@ -1544,7 +1544,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCongested(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCongested(siteRequest_, TrafficFlowObserved.staticSearchCongested(siteRequest_, TrafficFlowObserved.staticSetCongested(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCongested(siteRequest_, TrafficFlowObserved.staticSetCongested(siteRequest_, o)).toString();
 	}
 
 	public Boolean sqlCongested() {
@@ -1600,7 +1600,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDataProvider(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrDataProvider(siteRequest_, TrafficFlowObserved.staticSearchDataProvider(siteRequest_, TrafficFlowObserved.staticSetDataProvider(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchDataProvider(siteRequest_, TrafficFlowObserved.staticSetDataProvider(siteRequest_, o)).toString();
 	}
 
 	public String sqlDataProvider() {
@@ -1656,7 +1656,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateCreated(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrDateCreated(siteRequest_, TrafficFlowObserved.staticSearchDateCreated(siteRequest_, TrafficFlowObserved.staticSetDateCreated(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchDateCreated(siteRequest_, TrafficFlowObserved.staticSetDateCreated(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateCreated() {
@@ -1712,7 +1712,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateModified(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrDateModified(siteRequest_, TrafficFlowObserved.staticSearchDateModified(siteRequest_, TrafficFlowObserved.staticSetDateModified(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchDateModified(siteRequest_, TrafficFlowObserved.staticSetDateModified(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateModified() {
@@ -1768,7 +1768,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateObserved(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrDateObserved(siteRequest_, TrafficFlowObserved.staticSearchDateObserved(siteRequest_, TrafficFlowObserved.staticSetDateObserved(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchDateObserved(siteRequest_, TrafficFlowObserved.staticSetDateObserved(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateObserved() {
@@ -1824,7 +1824,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateObservedFrom(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrDateObservedFrom(siteRequest_, TrafficFlowObserved.staticSearchDateObservedFrom(siteRequest_, TrafficFlowObserved.staticSetDateObservedFrom(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchDateObservedFrom(siteRequest_, TrafficFlowObserved.staticSetDateObservedFrom(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateObservedFrom() {
@@ -1880,7 +1880,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateObservedTo(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrDateObservedTo(siteRequest_, TrafficFlowObserved.staticSearchDateObservedTo(siteRequest_, TrafficFlowObserved.staticSetDateObservedTo(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchDateObservedTo(siteRequest_, TrafficFlowObserved.staticSetDateObservedTo(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateObservedTo() {
@@ -1936,7 +1936,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDescription(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrDescription(siteRequest_, TrafficFlowObserved.staticSearchDescription(siteRequest_, TrafficFlowObserved.staticSetDescription(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchDescription(siteRequest_, TrafficFlowObserved.staticSetDescription(siteRequest_, o)).toString();
 	}
 
 	public String sqlDescription() {
@@ -2013,7 +2013,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqIntensity(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrIntensity(siteRequest_, TrafficFlowObserved.staticSearchIntensity(siteRequest_, TrafficFlowObserved.staticSetIntensity(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchIntensity(siteRequest_, TrafficFlowObserved.staticSetIntensity(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlIntensity() {
@@ -2069,7 +2069,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLaneDirection(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrLaneDirection(siteRequest_, TrafficFlowObserved.staticSearchLaneDirection(siteRequest_, TrafficFlowObserved.staticSetLaneDirection(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchLaneDirection(siteRequest_, TrafficFlowObserved.staticSetLaneDirection(siteRequest_, o)).toString();
 	}
 
 	public String sqlLaneDirection() {
@@ -2133,7 +2133,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLaneId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrLaneId(siteRequest_, TrafficFlowObserved.staticSearchLaneId(siteRequest_, TrafficFlowObserved.staticSetLaneId(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchLaneId(siteRequest_, TrafficFlowObserved.staticSetLaneId(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlLaneId() {
@@ -2189,7 +2189,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqName(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrName(siteRequest_, TrafficFlowObserved.staticSearchName(siteRequest_, TrafficFlowObserved.staticSetName(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchName(siteRequest_, TrafficFlowObserved.staticSetName(siteRequest_, o)).toString();
 	}
 
 	public String sqlName() {
@@ -2266,7 +2266,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqOccupancy(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrOccupancy(siteRequest_, TrafficFlowObserved.staticSearchOccupancy(siteRequest_, TrafficFlowObserved.staticSetOccupancy(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchOccupancy(siteRequest_, TrafficFlowObserved.staticSetOccupancy(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlOccupancy() {
@@ -2330,7 +2330,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqOwner(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrOwner(siteRequest_, TrafficFlowObserved.staticSearchOwner(siteRequest_, TrafficFlowObserved.staticSetOwner(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchOwner(siteRequest_, TrafficFlowObserved.staticSetOwner(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlOwner() {
@@ -2386,7 +2386,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqRefRoadSegment(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrRefRoadSegment(siteRequest_, TrafficFlowObserved.staticSearchRefRoadSegment(siteRequest_, TrafficFlowObserved.staticSetRefRoadSegment(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchRefRoadSegment(siteRequest_, TrafficFlowObserved.staticSetRefRoadSegment(siteRequest_, o)).toString();
 	}
 
 	public String sqlRefRoadSegment() {
@@ -2447,7 +2447,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqReversedLane(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrReversedLane(siteRequest_, TrafficFlowObserved.staticSearchReversedLane(siteRequest_, TrafficFlowObserved.staticSetReversedLane(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchReversedLane(siteRequest_, TrafficFlowObserved.staticSetReversedLane(siteRequest_, o)).toString();
 	}
 
 	public Boolean sqlReversedLane() {
@@ -2511,7 +2511,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSeeAlso(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrSeeAlso(siteRequest_, TrafficFlowObserved.staticSearchSeeAlso(siteRequest_, TrafficFlowObserved.staticSetSeeAlso(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchSeeAlso(siteRequest_, TrafficFlowObserved.staticSetSeeAlso(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlSeeAlso() {
@@ -2567,7 +2567,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSource(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrSource(siteRequest_, TrafficFlowObserved.staticSearchSource(siteRequest_, TrafficFlowObserved.staticSetSource(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchSource(siteRequest_, TrafficFlowObserved.staticSetSource(siteRequest_, o)).toString();
 	}
 
 	public String sqlSource() {
@@ -2623,7 +2623,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqVehicleSubType(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrVehicleSubType(siteRequest_, TrafficFlowObserved.staticSearchVehicleSubType(siteRequest_, TrafficFlowObserved.staticSetVehicleSubType(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchVehicleSubType(siteRequest_, TrafficFlowObserved.staticSetVehicleSubType(siteRequest_, o)).toString();
 	}
 
 	public String sqlVehicleSubType() {
@@ -2679,7 +2679,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqVehicleType(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrVehicleType(siteRequest_, TrafficFlowObserved.staticSearchVehicleType(siteRequest_, TrafficFlowObserved.staticSetVehicleType(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchVehicleType(siteRequest_, TrafficFlowObserved.staticSetVehicleType(siteRequest_, o)).toString();
 	}
 
 	public String sqlVehicleType() {
@@ -2756,7 +2756,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomSigma(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomSigma(siteRequest_, TrafficFlowObserved.staticSearchCustomSigma(siteRequest_, TrafficFlowObserved.staticSetCustomSigma(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomSigma(siteRequest_, TrafficFlowObserved.staticSetCustomSigma(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomSigma() {
@@ -2833,7 +2833,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomAcceleration(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomAcceleration(siteRequest_, TrafficFlowObserved.staticSearchCustomAcceleration(siteRequest_, TrafficFlowObserved.staticSetCustomAcceleration(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomAcceleration(siteRequest_, TrafficFlowObserved.staticSetCustomAcceleration(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomAcceleration() {
@@ -2910,7 +2910,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomDeceleration(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomDeceleration(siteRequest_, TrafficFlowObserved.staticSearchCustomDeceleration(siteRequest_, TrafficFlowObserved.staticSetCustomDeceleration(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomDeceleration(siteRequest_, TrafficFlowObserved.staticSetCustomDeceleration(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomDeceleration() {
@@ -2987,7 +2987,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomMinGreenTime(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomMinGreenTime(siteRequest_, TrafficFlowObserved.staticSearchCustomMinGreenTime(siteRequest_, TrafficFlowObserved.staticSetCustomMinGreenTime(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomMinGreenTime(siteRequest_, TrafficFlowObserved.staticSetCustomMinGreenTime(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomMinGreenTime() {
@@ -3064,7 +3064,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomMaxGreenTime(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomMaxGreenTime(siteRequest_, TrafficFlowObserved.staticSearchCustomMaxGreenTime(siteRequest_, TrafficFlowObserved.staticSetCustomMaxGreenTime(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomMaxGreenTime(siteRequest_, TrafficFlowObserved.staticSetCustomMaxGreenTime(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomMaxGreenTime() {
@@ -3141,7 +3141,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomAverageVehiclesPerMinute(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomAverageVehiclesPerMinute(siteRequest_, TrafficFlowObserved.staticSearchCustomAverageVehiclesPerMinute(siteRequest_, TrafficFlowObserved.staticSetCustomAverageVehiclesPerMinute(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomAverageVehiclesPerMinute(siteRequest_, TrafficFlowObserved.staticSetCustomAverageVehiclesPerMinute(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomAverageVehiclesPerMinute() {
@@ -3218,7 +3218,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomDemandScalingFactor(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomDemandScalingFactor(siteRequest_, TrafficFlowObserved.staticSearchCustomDemandScalingFactor(siteRequest_, TrafficFlowObserved.staticSetCustomDemandScalingFactor(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomDemandScalingFactor(siteRequest_, TrafficFlowObserved.staticSetCustomDemandScalingFactor(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomDemandScalingFactor() {
@@ -3295,7 +3295,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomQueueLengthThreshold(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObserved.staticSearchStrCustomQueueLengthThreshold(siteRequest_, TrafficFlowObserved.staticSearchCustomQueueLengthThreshold(siteRequest_, TrafficFlowObserved.staticSetCustomQueueLengthThreshold(siteRequest_, o)));
+		return TrafficFlowObserved.staticSearchCustomQueueLengthThreshold(siteRequest_, TrafficFlowObserved.staticSetCustomQueueLengthThreshold(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlCustomQueueLengthThreshold() {

@@ -225,7 +225,7 @@ public abstract class VehicleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqListVehicleStep(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStepGenPage.staticSearchStrListVehicleStep(siteRequest_, VehicleStepGenPage.staticSearchListVehicleStep(siteRequest_, VehicleStepGenPage.staticSetListVehicleStep(siteRequest_, o)));
+		return VehicleStepGenPage.staticSearchListVehicleStep(siteRequest_, VehicleStepGenPage.staticSetListVehicleStep(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -285,7 +285,7 @@ public abstract class VehicleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqVehicleStepCount(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStepGenPage.staticSearchStrVehicleStepCount(siteRequest_, VehicleStepGenPage.staticSearchVehicleStepCount(siteRequest_, VehicleStepGenPage.staticSetVehicleStepCount(siteRequest_, o)));
+		return VehicleStepGenPage.staticSearchVehicleStepCount(siteRequest_, VehicleStepGenPage.staticSetVehicleStepCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////
@@ -378,7 +378,7 @@ public abstract class VehicleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStepGenPage.staticSearchStrId(siteRequest_, VehicleStepGenPage.staticSearchId(siteRequest_, VehicleStepGenPage.staticSetId(siteRequest_, o)));
+		return VehicleStepGenPage.staticSearchId(siteRequest_, VehicleStepGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -430,7 +430,7 @@ public abstract class VehicleStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqPageUriVehicleStep(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStepGenPage.staticSearchStrPageUriVehicleStep(siteRequest_, VehicleStepGenPage.staticSearchPageUriVehicleStep(siteRequest_, VehicleStepGenPage.staticSetPageUriVehicleStep(siteRequest_, o)));
+		return VehicleStepGenPage.staticSearchPageUriVehicleStep(siteRequest_, VehicleStepGenPage.staticSetPageUriVehicleStep(siteRequest_, o)).toString();
 	}
 
 	//////////////

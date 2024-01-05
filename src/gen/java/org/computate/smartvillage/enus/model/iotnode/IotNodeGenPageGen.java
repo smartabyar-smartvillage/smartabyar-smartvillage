@@ -225,7 +225,7 @@ public abstract class IotNodeGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqListIotNode(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeGenPage.staticSearchStrListIotNode(siteRequest_, IotNodeGenPage.staticSearchListIotNode(siteRequest_, IotNodeGenPage.staticSetListIotNode(siteRequest_, o)));
+		return IotNodeGenPage.staticSearchListIotNode(siteRequest_, IotNodeGenPage.staticSetListIotNode(siteRequest_, o)).toString();
 	}
 
 	//////////////////
@@ -285,7 +285,7 @@ public abstract class IotNodeGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqIotNodeCount(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeGenPage.staticSearchStrIotNodeCount(siteRequest_, IotNodeGenPage.staticSearchIotNodeCount(siteRequest_, IotNodeGenPage.staticSetIotNodeCount(siteRequest_, o)));
+		return IotNodeGenPage.staticSearchIotNodeCount(siteRequest_, IotNodeGenPage.staticSetIotNodeCount(siteRequest_, o)).toString();
 	}
 
 	//////////////
@@ -378,7 +378,7 @@ public abstract class IotNodeGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeGenPage.staticSearchStrId(siteRequest_, IotNodeGenPage.staticSearchId(siteRequest_, IotNodeGenPage.staticSetId(siteRequest_, o)));
+		return IotNodeGenPage.staticSearchId(siteRequest_, IotNodeGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -430,7 +430,7 @@ public abstract class IotNodeGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqPageUriIotNode(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeGenPage.staticSearchStrPageUriIotNode(siteRequest_, IotNodeGenPage.staticSearchPageUriIotNode(siteRequest_, IotNodeGenPage.staticSetPageUriIotNode(siteRequest_, o)));
+		return IotNodeGenPage.staticSearchPageUriIotNode(siteRequest_, IotNodeGenPage.staticSetPageUriIotNode(siteRequest_, o)).toString();
 	}
 
 	//////////////

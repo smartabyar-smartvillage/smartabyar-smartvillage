@@ -226,7 +226,7 @@ public abstract class SimulationReportGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqListSimulationReport(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportGenPage.staticSearchStrListSimulationReport(siteRequest_, SimulationReportGenPage.staticSearchListSimulationReport(siteRequest_, SimulationReportGenPage.staticSetListSimulationReport(siteRequest_, o)));
+		return SimulationReportGenPage.staticSearchListSimulationReport(siteRequest_, SimulationReportGenPage.staticSetListSimulationReport(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////
@@ -286,7 +286,7 @@ public abstract class SimulationReportGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqSimulationReportCount(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportGenPage.staticSearchStrSimulationReportCount(siteRequest_, SimulationReportGenPage.staticSearchSimulationReportCount(siteRequest_, SimulationReportGenPage.staticSetSimulationReportCount(siteRequest_, o)));
+		return SimulationReportGenPage.staticSearchSimulationReportCount(siteRequest_, SimulationReportGenPage.staticSetSimulationReportCount(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -387,7 +387,7 @@ public abstract class SimulationReportGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPk(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportGenPage.staticSearchStrPk(siteRequest_, SimulationReportGenPage.staticSearchPk(siteRequest_, SimulationReportGenPage.staticSetPk(siteRequest_, o)));
+		return SimulationReportGenPage.staticSearchPk(siteRequest_, SimulationReportGenPage.staticSetPk(siteRequest_, o)).toString();
 	}
 
 	////////
@@ -439,7 +439,7 @@ public abstract class SimulationReportGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportGenPage.staticSearchStrId(siteRequest_, SimulationReportGenPage.staticSearchId(siteRequest_, SimulationReportGenPage.staticSetId(siteRequest_, o)));
+		return SimulationReportGenPage.staticSearchId(siteRequest_, SimulationReportGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////
@@ -491,7 +491,7 @@ public abstract class SimulationReportGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageUriSimulationReport(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportGenPage.staticSearchStrPageUriSimulationReport(siteRequest_, SimulationReportGenPage.staticSearchPageUriSimulationReport(siteRequest_, SimulationReportGenPage.staticSetPageUriSimulationReport(siteRequest_, o)));
+		return SimulationReportGenPage.staticSearchPageUriSimulationReport(siteRequest_, SimulationReportGenPage.staticSetPageUriSimulationReport(siteRequest_, o)).toString();
 	}
 
 	//////////////

@@ -654,6 +654,22 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 
 			for(String entityVar : methodNames) {
 				switch(entityVar) {
+					case "setInheritPk":
+							o2.setInheritPk(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_inheritPk + "=$" + num);
+							num++;
+							bParams.add(o2.sqlInheritPk());
+						break;
+					case "setCreated":
+							o2.setCreated(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_created + "=$" + num);
+							num++;
+							bParams.add(o2.sqlCreated());
+						break;
 					case "setArchived":
 							o2.setArchived(jsonObject.getBoolean(entityVar));
 							if(bParams.size() > 0)
@@ -686,21 +702,13 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setInheritPk":
-							o2.setInheritPk(jsonObject.getString(entityVar));
+					case "setWalkingAreaId":
+							o2.setWalkingAreaId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_inheritPk + "=$" + num);
+							bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
 							num++;
-							bParams.add(o2.sqlInheritPk());
-						break;
-					case "setCreated":
-							o2.setCreated(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_created + "=$" + num);
-							num++;
-							bParams.add(o2.sqlCreated());
+							bParams.add(o2.sqlWalkingAreaId());
 						break;
 					case "setCustomTrafficLightId":
 							o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
@@ -733,14 +741,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
 							num++;
 							bParams.add(o2.sqlEntityId());
-						break;
-					case "setWalkingAreaId":
-							o2.setWalkingAreaId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlWalkingAreaId());
 						break;
 					case "setAlternateName":
 							o2.setAlternateName(jsonObject.getString(entityVar));
@@ -1217,6 +1217,24 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 				Set<String> entityVars = jsonObject.fieldNames();
 				for(String entityVar : entityVars) {
 					switch(entityVar) {
+					case CrowdFlowObserved.VAR_inheritPk:
+						o2.setInheritPk(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_inheritPk + "=$" + num);
+						num++;
+						bParams.add(o2.sqlInheritPk());
+						break;
+					case CrowdFlowObserved.VAR_created:
+						o2.setCreated(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_created + "=$" + num);
+						num++;
+						bParams.add(o2.sqlCreated());
+						break;
 					case CrowdFlowObserved.VAR_archived:
 						o2.setArchived(jsonObject.getBoolean(entityVar));
 						if(bParams.size() > 0) {
@@ -1253,23 +1271,14 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case CrowdFlowObserved.VAR_inheritPk:
-						o2.setInheritPk(jsonObject.getString(entityVar));
+					case CrowdFlowObserved.VAR_walkingAreaId:
+						o2.setWalkingAreaId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(CrowdFlowObserved.VAR_inheritPk + "=$" + num);
+						bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
 						num++;
-						bParams.add(o2.sqlInheritPk());
-						break;
-					case CrowdFlowObserved.VAR_created:
-						o2.setCreated(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_created + "=$" + num);
-						num++;
-						bParams.add(o2.sqlCreated());
+						bParams.add(o2.sqlWalkingAreaId());
 						break;
 					case CrowdFlowObserved.VAR_customTrafficLightId:
 						o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
@@ -1306,15 +1315,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
 						num++;
 						bParams.add(o2.sqlEntityId());
-						break;
-					case CrowdFlowObserved.VAR_walkingAreaId:
-						o2.setWalkingAreaId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlWalkingAreaId());
 						break;
 					case CrowdFlowObserved.VAR_alternateName:
 						o2.setAlternateName(jsonObject.getString(entityVar));
@@ -1731,7 +1731,7 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 								Object bodyVal = body.getValue(f);
 								if(bodyVal instanceof JsonArray) {
 									JsonArray bodyVals = (JsonArray)bodyVal;
-									Collection<?> vals = (Collection<?>)o.obtainForClass(f);
+									Collection<?> vals = bodyVals.getList();
 									if(bodyVals.size() == vals.size()) {
 										Boolean match = true;
 										for(Object val : vals) {

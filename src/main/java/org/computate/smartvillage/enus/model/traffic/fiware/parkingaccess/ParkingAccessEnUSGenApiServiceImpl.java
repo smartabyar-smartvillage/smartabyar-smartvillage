@@ -654,126 +654,6 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 
 			for(String entityVar : methodNames) {
 				switch(entityVar) {
-					case "setArchived":
-							o2.setArchived(jsonObject.getBoolean(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_archived + "=$" + num);
-							num++;
-							bParams.add(o2.sqlArchived());
-						break;
-					case "setDeleted":
-							o2.setDeleted(jsonObject.getBoolean(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDeleted());
-						break;
-					case "setSessionId":
-							o2.setSessionId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlSessionId());
-						break;
-					case "setUserKey":
-							o2.setUserKey(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
-							num++;
-							bParams.add(o2.sqlUserKey());
-						break;
-					case "setInheritPk":
-							o2.setInheritPk(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_inheritPk + "=$" + num);
-							num++;
-							bParams.add(o2.sqlInheritPk());
-						break;
-					case "setCreated":
-							o2.setCreated(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_created + "=$" + num);
-							num++;
-							bParams.add(o2.sqlCreated());
-						break;
-					case "setAddress":
-							o2.setAddress(jsonObject.getJsonObject(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_address + "=$" + num);
-							num++;
-							bParams.add(o2.sqlAddress());
-						break;
-					case "setAlternateName":
-							o2.setAlternateName(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_alternateName + "=$" + num);
-							num++;
-							bParams.add(o2.sqlAlternateName());
-						break;
-					case "setAreaServed":
-							o2.setAreaServed(jsonObject.getJsonObject(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_areaServed + "=$" + num);
-							num++;
-							bParams.add(o2.sqlAreaServed());
-						break;
-					case "setCategory":
-							o2.setCategory(jsonObject.getJsonObject(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_category + "=$" + num);
-							num++;
-							bParams.add(o2.sqlCategory());
-						break;
-					case "setDataProvider":
-							o2.setDataProvider(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_dataProvider + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDataProvider());
-						break;
-					case "setDateCreated":
-							o2.setDateCreated(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_dateCreated + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDateCreated());
-						break;
-					case "setDateModified":
-							o2.setDateModified(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_dateModified + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDateModified());
-						break;
-					case "setDescription":
-							o2.setDescription(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_description + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDescription());
-						break;
-					case "setFeatures":
-							o2.setFeatures(jsonObject.getJsonObject(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(ParkingAccess.VAR_features + "=$" + num);
-							num++;
-							bParams.add(o2.sqlFeatures());
-						break;
 					case "setHeight":
 							o2.setHeight(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -838,6 +718,14 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 							num++;
 							bParams.add(o2.sqlSource());
 						break;
+					case "setFeatures":
+							o2.setFeatures(jsonObject.getJsonObject(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_features + "=$" + num);
+							num++;
+							bParams.add(o2.sqlFeatures());
+						break;
 					case "setWidth":
 							o2.setWidth(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -845,6 +733,118 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 							bSql.append(ParkingAccess.VAR_width + "=$" + num);
 							num++;
 							bParams.add(o2.sqlWidth());
+						break;
+					case "setAddress":
+							o2.setAddress(jsonObject.getJsonObject(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_address + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAddress());
+						break;
+					case "setAlternateName":
+							o2.setAlternateName(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_alternateName + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAlternateName());
+						break;
+					case "setDataProvider":
+							o2.setDataProvider(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_dataProvider + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDataProvider());
+						break;
+					case "setDateCreated":
+							o2.setDateCreated(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_dateCreated + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDateCreated());
+						break;
+					case "setAreaServed":
+							o2.setAreaServed(jsonObject.getJsonObject(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_areaServed + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAreaServed());
+						break;
+					case "setCategory":
+							o2.setCategory(jsonObject.getJsonObject(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_category + "=$" + num);
+							num++;
+							bParams.add(o2.sqlCategory());
+						break;
+					case "setDateModified":
+							o2.setDateModified(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_dateModified + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDateModified());
+						break;
+					case "setDescription":
+							o2.setDescription(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_description + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDescription());
+						break;
+					case "setInheritPk":
+							o2.setInheritPk(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_inheritPk + "=$" + num);
+							num++;
+							bParams.add(o2.sqlInheritPk());
+						break;
+					case "setCreated":
+							o2.setCreated(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_created + "=$" + num);
+							num++;
+							bParams.add(o2.sqlCreated());
+						break;
+					case "setArchived":
+							o2.setArchived(jsonObject.getBoolean(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_archived + "=$" + num);
+							num++;
+							bParams.add(o2.sqlArchived());
+						break;
+					case "setDeleted":
+							o2.setDeleted(jsonObject.getBoolean(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDeleted());
+						break;
+					case "setSessionId":
+							o2.setSessionId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlSessionId());
+						break;
+					case "setUserKey":
+							o2.setUserKey(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
+							num++;
+							bParams.add(o2.sqlUserKey());
 						break;
 				}
 			}
@@ -1153,141 +1153,6 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 				Set<String> entityVars = jsonObject.fieldNames();
 				for(String entityVar : entityVars) {
 					switch(entityVar) {
-					case ParkingAccess.VAR_archived:
-						o2.setArchived(jsonObject.getBoolean(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_archived + "=$" + num);
-						num++;
-						bParams.add(o2.sqlArchived());
-						break;
-					case ParkingAccess.VAR_deleted:
-						o2.setDeleted(jsonObject.getBoolean(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDeleted());
-						break;
-					case ParkingAccess.VAR_sessionId:
-						o2.setSessionId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlSessionId());
-						break;
-					case ParkingAccess.VAR_userKey:
-						o2.setUserKey(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
-						num++;
-						bParams.add(o2.sqlUserKey());
-						break;
-					case ParkingAccess.VAR_inheritPk:
-						o2.setInheritPk(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_inheritPk + "=$" + num);
-						num++;
-						bParams.add(o2.sqlInheritPk());
-						break;
-					case ParkingAccess.VAR_created:
-						o2.setCreated(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_created + "=$" + num);
-						num++;
-						bParams.add(o2.sqlCreated());
-						break;
-					case ParkingAccess.VAR_address:
-						o2.setAddress(jsonObject.getJsonObject(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_address + "=$" + num);
-						num++;
-						bParams.add(o2.sqlAddress());
-						break;
-					case ParkingAccess.VAR_alternateName:
-						o2.setAlternateName(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_alternateName + "=$" + num);
-						num++;
-						bParams.add(o2.sqlAlternateName());
-						break;
-					case ParkingAccess.VAR_areaServed:
-						o2.setAreaServed(jsonObject.getJsonObject(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_areaServed + "=$" + num);
-						num++;
-						bParams.add(o2.sqlAreaServed());
-						break;
-					case ParkingAccess.VAR_category:
-						o2.setCategory(jsonObject.getJsonObject(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_category + "=$" + num);
-						num++;
-						bParams.add(o2.sqlCategory());
-						break;
-					case ParkingAccess.VAR_dataProvider:
-						o2.setDataProvider(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_dataProvider + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDataProvider());
-						break;
-					case ParkingAccess.VAR_dateCreated:
-						o2.setDateCreated(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_dateCreated + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDateCreated());
-						break;
-					case ParkingAccess.VAR_dateModified:
-						o2.setDateModified(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_dateModified + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDateModified());
-						break;
-					case ParkingAccess.VAR_description:
-						o2.setDescription(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_description + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDescription());
-						break;
-					case ParkingAccess.VAR_features:
-						o2.setFeatures(jsonObject.getJsonObject(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(ParkingAccess.VAR_features + "=$" + num);
-						num++;
-						bParams.add(o2.sqlFeatures());
-						break;
 					case ParkingAccess.VAR_height:
 						o2.setHeight(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1360,6 +1225,15 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 						num++;
 						bParams.add(o2.sqlSource());
 						break;
+					case ParkingAccess.VAR_features:
+						o2.setFeatures(jsonObject.getJsonObject(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_features + "=$" + num);
+						num++;
+						bParams.add(o2.sqlFeatures());
+						break;
 					case ParkingAccess.VAR_width:
 						o2.setWidth(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1368,6 +1242,132 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 						bSql.append(ParkingAccess.VAR_width + "=$" + num);
 						num++;
 						bParams.add(o2.sqlWidth());
+						break;
+					case ParkingAccess.VAR_address:
+						o2.setAddress(jsonObject.getJsonObject(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_address + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAddress());
+						break;
+					case ParkingAccess.VAR_alternateName:
+						o2.setAlternateName(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_alternateName + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAlternateName());
+						break;
+					case ParkingAccess.VAR_dataProvider:
+						o2.setDataProvider(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_dataProvider + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDataProvider());
+						break;
+					case ParkingAccess.VAR_dateCreated:
+						o2.setDateCreated(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_dateCreated + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDateCreated());
+						break;
+					case ParkingAccess.VAR_areaServed:
+						o2.setAreaServed(jsonObject.getJsonObject(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_areaServed + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAreaServed());
+						break;
+					case ParkingAccess.VAR_category:
+						o2.setCategory(jsonObject.getJsonObject(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_category + "=$" + num);
+						num++;
+						bParams.add(o2.sqlCategory());
+						break;
+					case ParkingAccess.VAR_dateModified:
+						o2.setDateModified(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_dateModified + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDateModified());
+						break;
+					case ParkingAccess.VAR_description:
+						o2.setDescription(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_description + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDescription());
+						break;
+					case ParkingAccess.VAR_inheritPk:
+						o2.setInheritPk(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_inheritPk + "=$" + num);
+						num++;
+						bParams.add(o2.sqlInheritPk());
+						break;
+					case ParkingAccess.VAR_created:
+						o2.setCreated(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_created + "=$" + num);
+						num++;
+						bParams.add(o2.sqlCreated());
+						break;
+					case ParkingAccess.VAR_archived:
+						o2.setArchived(jsonObject.getBoolean(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_archived + "=$" + num);
+						num++;
+						bParams.add(o2.sqlArchived());
+						break;
+					case ParkingAccess.VAR_deleted:
+						o2.setDeleted(jsonObject.getBoolean(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_deleted + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDeleted());
+						break;
+					case ParkingAccess.VAR_sessionId:
+						o2.setSessionId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_sessionId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlSessionId());
+						break;
+					case ParkingAccess.VAR_userKey:
+						o2.setUserKey(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(ParkingAccess.VAR_userKey + "=$" + num);
+						num++;
+						bParams.add(o2.sqlUserKey());
 						break;
 					}
 				}
@@ -1595,7 +1595,7 @@ public class ParkingAccessEnUSGenApiServiceImpl extends BaseApiServiceImpl imple
 								Object bodyVal = body.getValue(f);
 								if(bodyVal instanceof JsonArray) {
 									JsonArray bodyVals = (JsonArray)bodyVal;
-									Collection<?> vals = (Collection<?>)o.obtainForClass(f);
+									Collection<?> vals = bodyVals.getList();
 									if(bodyVals.size() == vals.size()) {
 										Boolean match = true;
 										for(Object val : vals) {

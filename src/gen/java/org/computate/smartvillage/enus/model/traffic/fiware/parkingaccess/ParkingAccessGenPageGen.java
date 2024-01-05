@@ -226,7 +226,7 @@ public abstract class ParkingAccessGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqListParkingAccess(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccessGenPage.staticSearchStrListParkingAccess(siteRequest_, ParkingAccessGenPage.staticSearchListParkingAccess(siteRequest_, ParkingAccessGenPage.staticSetListParkingAccess(siteRequest_, o)));
+		return ParkingAccessGenPage.staticSearchListParkingAccess(siteRequest_, ParkingAccessGenPage.staticSetListParkingAccess(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -286,7 +286,7 @@ public abstract class ParkingAccessGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqParkingAccessCount(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccessGenPage.staticSearchStrParkingAccessCount(siteRequest_, ParkingAccessGenPage.staticSearchParkingAccessCount(siteRequest_, ParkingAccessGenPage.staticSetParkingAccessCount(siteRequest_, o)));
+		return ParkingAccessGenPage.staticSearchParkingAccessCount(siteRequest_, ParkingAccessGenPage.staticSetParkingAccessCount(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -387,7 +387,7 @@ public abstract class ParkingAccessGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPk(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccessGenPage.staticSearchStrPk(siteRequest_, ParkingAccessGenPage.staticSearchPk(siteRequest_, ParkingAccessGenPage.staticSetPk(siteRequest_, o)));
+		return ParkingAccessGenPage.staticSearchPk(siteRequest_, ParkingAccessGenPage.staticSetPk(siteRequest_, o)).toString();
 	}
 
 	////////
@@ -439,7 +439,7 @@ public abstract class ParkingAccessGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccessGenPage.staticSearchStrId(siteRequest_, ParkingAccessGenPage.staticSearchId(siteRequest_, ParkingAccessGenPage.staticSetId(siteRequest_, o)));
+		return ParkingAccessGenPage.staticSearchId(siteRequest_, ParkingAccessGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -491,7 +491,7 @@ public abstract class ParkingAccessGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageUriParkingAccess(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccessGenPage.staticSearchStrPageUriParkingAccess(siteRequest_, ParkingAccessGenPage.staticSearchPageUriParkingAccess(siteRequest_, ParkingAccessGenPage.staticSetPageUriParkingAccess(siteRequest_, o)));
+		return ParkingAccessGenPage.staticSearchPageUriParkingAccess(siteRequest_, ParkingAccessGenPage.staticSetPageUriParkingAccess(siteRequest_, o)).toString();
 	}
 
 	//////////////

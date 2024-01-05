@@ -223,7 +223,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqPageResponse(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrPageResponse(siteRequest_, HomePage.staticSearchPageResponse(siteRequest_, HomePage.staticSetPageResponse(siteRequest_, o)));
+		return HomePage.staticSearchPageResponse(siteRequest_, HomePage.staticSetPageResponse(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -275,7 +275,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqDefaultZoneId(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrDefaultZoneId(siteRequest_, HomePage.staticSearchDefaultZoneId(siteRequest_, HomePage.staticSetDefaultZoneId(siteRequest_, o)));
+		return HomePage.staticSearchDefaultZoneId(siteRequest_, HomePage.staticSetDefaultZoneId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -368,7 +368,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqDefaultLocaleId(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrDefaultLocaleId(siteRequest_, HomePage.staticSearchDefaultLocaleId(siteRequest_, HomePage.staticSetDefaultLocaleId(siteRequest_, o)));
+		return HomePage.staticSearchDefaultLocaleId(siteRequest_, HomePage.staticSetDefaultLocaleId(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -483,7 +483,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqDefaultFieldListVars(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrDefaultFieldListVars(siteRequest_, HomePage.staticSearchDefaultFieldListVars(siteRequest_, HomePage.staticSetDefaultFieldListVars(siteRequest_, o)));
+		return HomePage.staticSearchDefaultFieldListVars(siteRequest_, HomePage.staticSetDefaultFieldListVars(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -557,7 +557,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqDefaultStatsVars(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrDefaultStatsVars(siteRequest_, HomePage.staticSearchDefaultStatsVars(siteRequest_, HomePage.staticSetDefaultStatsVars(siteRequest_, o)));
+		return HomePage.staticSearchDefaultStatsVars(siteRequest_, HomePage.staticSetDefaultStatsVars(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -631,7 +631,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqDefaultPivotVars(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrDefaultPivotVars(siteRequest_, HomePage.staticSearchDefaultPivotVars(siteRequest_, HomePage.staticSetDefaultPivotVars(siteRequest_, o)));
+		return HomePage.staticSearchDefaultPivotVars(siteRequest_, HomePage.staticSetDefaultPivotVars(siteRequest_, o)).toString();
 	}
 
 	//////////////////
@@ -685,7 +685,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqListSitePage(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrListSitePage(siteRequest_, HomePage.staticSearchListSitePage(siteRequest_, HomePage.staticSetListSitePage(siteRequest_, o)));
+		return HomePage.staticSearchListSitePage(siteRequest_, HomePage.staticSetListSitePage(siteRequest_, o)).toString();
 	}
 
 	///////////
@@ -827,7 +827,7 @@ public abstract class HomePageGen<DEV> extends PageLayout {
 	}
 
 	public static String staticSearchFqSitePageCount(SiteRequestEnUS siteRequest_, String o) {
-		return HomePage.staticSearchStrSitePageCount(siteRequest_, HomePage.staticSearchSitePageCount(siteRequest_, HomePage.staticSetSitePageCount(siteRequest_, o)));
+		return HomePage.staticSearchSitePageCount(siteRequest_, HomePage.staticSetSitePageCount(siteRequest_, o)).toString();
 	}
 
 	///////////////

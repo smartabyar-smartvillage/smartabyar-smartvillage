@@ -226,7 +226,7 @@ public abstract class TrafficSimulationGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqListTrafficSimulation(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationGenPage.staticSearchStrListTrafficSimulation(siteRequest_, TrafficSimulationGenPage.staticSearchListTrafficSimulation(siteRequest_, TrafficSimulationGenPage.staticSetListTrafficSimulation(siteRequest_, o)));
+		return TrafficSimulationGenPage.staticSearchListTrafficSimulation(siteRequest_, TrafficSimulationGenPage.staticSetListTrafficSimulation(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////
@@ -286,7 +286,7 @@ public abstract class TrafficSimulationGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqTrafficSimulationCount(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationGenPage.staticSearchStrTrafficSimulationCount(siteRequest_, TrafficSimulationGenPage.staticSearchTrafficSimulationCount(siteRequest_, TrafficSimulationGenPage.staticSetTrafficSimulationCount(siteRequest_, o)));
+		return TrafficSimulationGenPage.staticSearchTrafficSimulationCount(siteRequest_, TrafficSimulationGenPage.staticSetTrafficSimulationCount(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -387,7 +387,7 @@ public abstract class TrafficSimulationGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPk(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationGenPage.staticSearchStrPk(siteRequest_, TrafficSimulationGenPage.staticSearchPk(siteRequest_, TrafficSimulationGenPage.staticSetPk(siteRequest_, o)));
+		return TrafficSimulationGenPage.staticSearchPk(siteRequest_, TrafficSimulationGenPage.staticSetPk(siteRequest_, o)).toString();
 	}
 
 	////////
@@ -439,7 +439,7 @@ public abstract class TrafficSimulationGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationGenPage.staticSearchStrId(siteRequest_, TrafficSimulationGenPage.staticSearchId(siteRequest_, TrafficSimulationGenPage.staticSetId(siteRequest_, o)));
+		return TrafficSimulationGenPage.staticSearchId(siteRequest_, TrafficSimulationGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////
@@ -491,7 +491,7 @@ public abstract class TrafficSimulationGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageUriTrafficSimulation(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationGenPage.staticSearchStrPageUriTrafficSimulation(siteRequest_, TrafficSimulationGenPage.staticSearchPageUriTrafficSimulation(siteRequest_, TrafficSimulationGenPage.staticSetPageUriTrafficSimulation(siteRequest_, o)));
+		return TrafficSimulationGenPage.staticSearchPageUriTrafficSimulation(siteRequest_, TrafficSimulationGenPage.staticSetPageUriTrafficSimulation(siteRequest_, o)).toString();
 	}
 
 	//////////////

@@ -221,7 +221,7 @@ public abstract class TrafficFcdReaderGen<DEV> extends Object {
 	}
 
 	public static String staticSearchFqConfig(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFcdReader.staticSearchStrConfig(siteRequest_, TrafficFcdReader.staticSearchConfig(siteRequest_, TrafficFcdReader.staticSetConfig(siteRequest_, o)));
+		return TrafficFcdReader.staticSearchConfig(siteRequest_, TrafficFcdReader.staticSetConfig(siteRequest_, o)).toString();
 	}
 
 	///////////////

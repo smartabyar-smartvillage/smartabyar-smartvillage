@@ -285,7 +285,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSimulationName(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrSimulationName(siteRequest_, PersonStep.staticSearchSimulationName(siteRequest_, PersonStep.staticSetSimulationName(siteRequest_, o)));
+		return PersonStep.staticSearchSimulationName(siteRequest_, PersonStep.staticSetSimulationName(siteRequest_, o)).toString();
 	}
 
 	public String sqlSimulationName() {
@@ -341,7 +341,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSumocfgPath(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrSumocfgPath(siteRequest_, PersonStep.staticSearchSumocfgPath(siteRequest_, PersonStep.staticSetSumocfgPath(siteRequest_, o)));
+		return PersonStep.staticSearchSumocfgPath(siteRequest_, PersonStep.staticSetSumocfgPath(siteRequest_, o)).toString();
 	}
 
 	public String sqlSumocfgPath() {
@@ -397,7 +397,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqPersonId(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrPersonId(siteRequest_, PersonStep.staticSearchPersonId(siteRequest_, PersonStep.staticSetPersonId(siteRequest_, o)));
+		return PersonStep.staticSearchPersonId(siteRequest_, PersonStep.staticSetPersonId(siteRequest_, o)).toString();
 	}
 
 	public String sqlPersonId() {
@@ -453,7 +453,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqPersonType(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrPersonType(siteRequest_, PersonStep.staticSearchPersonType(siteRequest_, PersonStep.staticSetPersonType(siteRequest_, o)));
+		return PersonStep.staticSearchPersonType(siteRequest_, PersonStep.staticSetPersonType(siteRequest_, o)).toString();
 	}
 
 	public String sqlPersonType() {
@@ -530,7 +530,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqAngle(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrAngle(siteRequest_, PersonStep.staticSearchAngle(siteRequest_, PersonStep.staticSetAngle(siteRequest_, o)));
+		return PersonStep.staticSearchAngle(siteRequest_, PersonStep.staticSetAngle(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAngle() {
@@ -607,7 +607,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSpeed(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrSpeed(siteRequest_, PersonStep.staticSearchSpeed(siteRequest_, PersonStep.staticSetSpeed(siteRequest_, o)));
+		return PersonStep.staticSearchSpeed(siteRequest_, PersonStep.staticSetSpeed(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlSpeed() {
@@ -684,7 +684,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqPos(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrPos(siteRequest_, PersonStep.staticSearchPos(siteRequest_, PersonStep.staticSetPos(siteRequest_, o)));
+		return PersonStep.staticSearchPos(siteRequest_, PersonStep.staticSetPos(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlPos() {
@@ -761,7 +761,7 @@ public abstract class PersonStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSlope(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStep.staticSearchStrSlope(siteRequest_, PersonStep.staticSearchSlope(siteRequest_, PersonStep.staticSetSlope(siteRequest_, o)));
+		return PersonStep.staticSearchSlope(siteRequest_, PersonStep.staticSetSlope(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlSlope() {

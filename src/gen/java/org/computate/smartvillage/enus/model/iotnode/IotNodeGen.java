@@ -297,7 +297,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson(siteRequest_, IotNode.staticSearchJson(siteRequest_, IotNode.staticSetJson(siteRequest_, o)));
+		return IotNode.staticSearchJson(siteRequest_, IotNode.staticSetJson(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlJson() {
@@ -353,7 +353,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqNodeName(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrNodeName(siteRequest_, IotNode.staticSearchNodeName(siteRequest_, IotNode.staticSetNodeName(siteRequest_, o)));
+		return IotNode.staticSearchNodeName(siteRequest_, IotNode.staticSetNodeName(siteRequest_, o)).toString();
 	}
 
 	public String sqlNodeName() {
@@ -409,7 +409,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqNodeType(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrNodeType(siteRequest_, IotNode.staticSearchNodeType(siteRequest_, IotNode.staticSetNodeType(siteRequest_, o)));
+		return IotNode.staticSearchNodeType(siteRequest_, IotNode.staticSetNodeType(siteRequest_, o)).toString();
 	}
 
 	public String sqlNodeType() {
@@ -465,7 +465,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqNodeId(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrNodeId(siteRequest_, IotNode.staticSearchNodeId(siteRequest_, IotNode.staticSetNodeId(siteRequest_, o)));
+		return IotNode.staticSearchNodeId(siteRequest_, IotNode.staticSetNodeId(siteRequest_, o)).toString();
 	}
 
 	public String sqlNodeId() {
@@ -537,7 +537,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqLocation(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrLocation(siteRequest_, IotNode.staticSearchLocation(siteRequest_, IotNode.staticSetLocation(siteRequest_, o)));
+		return IotNode.staticSearchLocation(siteRequest_, IotNode.staticSetLocation(siteRequest_, o)).toString();
 	}
 
 	public Point sqlLocation() {
@@ -614,7 +614,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_moisture(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_moisture(siteRequest_, IotNode.staticSearchJson_moisture(siteRequest_, IotNode.staticSetJson_moisture(siteRequest_, o)));
+		return IotNode.staticSearchJson_moisture(siteRequest_, IotNode.staticSetJson_moisture(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -687,7 +687,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_moisture0(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_moisture0(siteRequest_, IotNode.staticSearchJson_moisture0(siteRequest_, IotNode.staticSetJson_moisture0(siteRequest_, o)));
+		return IotNode.staticSearchJson_moisture0(siteRequest_, IotNode.staticSetJson_moisture0(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -760,7 +760,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_moisture1(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_moisture1(siteRequest_, IotNode.staticSearchJson_moisture1(siteRequest_, IotNode.staticSetJson_moisture1(siteRequest_, o)));
+		return IotNode.staticSearchJson_moisture1(siteRequest_, IotNode.staticSetJson_moisture1(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -833,7 +833,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_temperature(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_temperature(siteRequest_, IotNode.staticSearchJson_temperature(siteRequest_, IotNode.staticSetJson_temperature(siteRequest_, o)));
+		return IotNode.staticSearchJson_temperature(siteRequest_, IotNode.staticSetJson_temperature(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -906,7 +906,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_temperature0(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_temperature0(siteRequest_, IotNode.staticSearchJson_temperature0(siteRequest_, IotNode.staticSetJson_temperature0(siteRequest_, o)));
+		return IotNode.staticSearchJson_temperature0(siteRequest_, IotNode.staticSetJson_temperature0(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////
@@ -979,7 +979,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_temperatureAverage(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_temperatureAverage(siteRequest_, IotNode.staticSearchJson_temperatureAverage(siteRequest_, IotNode.staticSetJson_temperatureAverage(siteRequest_, o)));
+		return IotNode.staticSearchJson_temperatureAverage(siteRequest_, IotNode.staticSetJson_temperatureAverage(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////////
@@ -1052,7 +1052,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_badConditionsCounter(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_badConditionsCounter(siteRequest_, IotNode.staticSearchJson_badConditionsCounter(siteRequest_, IotNode.staticSetJson_badConditionsCounter(siteRequest_, o)));
+		return IotNode.staticSearchJson_badConditionsCounter(siteRequest_, IotNode.staticSetJson_badConditionsCounter(siteRequest_, o)).toString();
 	}
 
 	///////////////
@@ -1104,7 +1104,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_door(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_door(siteRequest_, IotNode.staticSearchJson_door(siteRequest_, IotNode.staticSetJson_door(siteRequest_, o)));
+		return IotNode.staticSearchJson_door(siteRequest_, IotNode.staticSetJson_door(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -1161,7 +1161,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_alarmDoor(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_alarmDoor(siteRequest_, IotNode.staticSearchJson_alarmDoor(siteRequest_, IotNode.staticSetJson_alarmDoor(siteRequest_, o)));
+		return IotNode.staticSearchJson_alarmDoor(siteRequest_, IotNode.staticSetJson_alarmDoor(siteRequest_, o)).toString();
 	}
 
 	////////////////
@@ -1234,7 +1234,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_flood(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_flood(siteRequest_, IotNode.staticSearchJson_flood(siteRequest_, IotNode.staticSetJson_flood(siteRequest_, o)));
+		return IotNode.staticSearchJson_flood(siteRequest_, IotNode.staticSetJson_flood(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -1291,7 +1291,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_alarmFlood(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_alarmFlood(siteRequest_, IotNode.staticSearchJson_alarmFlood(siteRequest_, IotNode.staticSetJson_alarmFlood(siteRequest_, o)));
+		return IotNode.staticSearchJson_alarmFlood(siteRequest_, IotNode.staticSetJson_alarmFlood(siteRequest_, o)).toString();
 	}
 
 	///////////////
@@ -1364,7 +1364,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_lux2(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_lux2(siteRequest_, IotNode.staticSearchJson_lux2(siteRequest_, IotNode.staticSetJson_lux2(siteRequest_, o)));
+		return IotNode.staticSearchJson_lux2(siteRequest_, IotNode.staticSetJson_lux2(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -1437,7 +1437,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_illuminance(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_illuminance(siteRequest_, IotNode.staticSearchJson_illuminance(siteRequest_, IotNode.staticSetJson_illuminance(siteRequest_, o)));
+		return IotNode.staticSearchJson_illuminance(siteRequest_, IotNode.staticSetJson_illuminance(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -1510,7 +1510,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_resistance0(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_resistance0(siteRequest_, IotNode.staticSearchJson_resistance0(siteRequest_, IotNode.staticSetJson_resistance0(siteRequest_, o)));
+		return IotNode.staticSearchJson_resistance0(siteRequest_, IotNode.staticSetJson_resistance0(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -1583,7 +1583,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_resistance1(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_resistance1(siteRequest_, IotNode.staticSearchJson_resistance1(siteRequest_, IotNode.staticSetJson_resistance1(siteRequest_, o)));
+		return IotNode.staticSearchJson_resistance1(siteRequest_, IotNode.staticSetJson_resistance1(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -1656,7 +1656,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_frequency(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_frequency(siteRequest_, IotNode.staticSearchJson_frequency(siteRequest_, IotNode.staticSetJson_frequency(siteRequest_, o)));
+		return IotNode.staticSearchJson_frequency(siteRequest_, IotNode.staticSetJson_frequency(siteRequest_, o)).toString();
 	}
 
 	/////////////////
@@ -1708,7 +1708,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_devEui(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_devEui(siteRequest_, IotNode.staticSearchJson_devEui(siteRequest_, IotNode.staticSetJson_devEui(siteRequest_, o)));
+		return IotNode.staticSearchJson_devEui(siteRequest_, IotNode.staticSetJson_devEui(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -1760,7 +1760,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_bandwidth(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_bandwidth(siteRequest_, IotNode.staticSearchJson_bandwidth(siteRequest_, IotNode.staticSetJson_bandwidth(siteRequest_, o)));
+		return IotNode.staticSearchJson_bandwidth(siteRequest_, IotNode.staticSetJson_bandwidth(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -1833,7 +1833,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_dataRate(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_dataRate(siteRequest_, IotNode.staticSearchJson_dataRate(siteRequest_, IotNode.staticSetJson_dataRate(siteRequest_, o)));
+		return IotNode.staticSearchJson_dataRate(siteRequest_, IotNode.staticSetJson_dataRate(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -1906,7 +1906,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_frameCount(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_frameCount(siteRequest_, IotNode.staticSearchJson_frameCount(siteRequest_, IotNode.staticSetJson_frameCount(siteRequest_, o)));
+		return IotNode.staticSearchJson_frameCount(siteRequest_, IotNode.staticSetJson_frameCount(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -1979,7 +1979,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_maxPayload(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_maxPayload(siteRequest_, IotNode.staticSearchJson_maxPayload(siteRequest_, IotNode.staticSetJson_maxPayload(siteRequest_, o)));
+		return IotNode.staticSearchJson_maxPayload(siteRequest_, IotNode.staticSetJson_maxPayload(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -2052,7 +2052,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_bitsPerSecond(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_bitsPerSecond(siteRequest_, IotNode.staticSearchJson_bitsPerSecond(siteRequest_, IotNode.staticSetJson_bitsPerSecond(siteRequest_, o)));
+		return IotNode.staticSearchJson_bitsPerSecond(siteRequest_, IotNode.staticSetJson_bitsPerSecond(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////
@@ -2125,7 +2125,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_batteryVoltage(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_batteryVoltage(siteRequest_, IotNode.staticSearchJson_batteryVoltage(siteRequest_, IotNode.staticSetJson_batteryVoltage(siteRequest_, o)));
+		return IotNode.staticSearchJson_batteryVoltage(siteRequest_, IotNode.staticSetJson_batteryVoltage(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -2198,7 +2198,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_spreadingFactor(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_spreadingFactor(siteRequest_, IotNode.staticSearchJson_spreadingFactor(siteRequest_, IotNode.staticSetJson_spreadingFactor(siteRequest_, o)));
+		return IotNode.staticSearchJson_spreadingFactor(siteRequest_, IotNode.staticSetJson_spreadingFactor(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////
@@ -2255,7 +2255,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_dataRateAdaptive(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_dataRateAdaptive(siteRequest_, IotNode.staticSearchJson_dataRateAdaptive(siteRequest_, IotNode.staticSetJson_dataRateAdaptive(siteRequest_, o)));
+		return IotNode.staticSearchJson_dataRateAdaptive(siteRequest_, IotNode.staticSetJson_dataRateAdaptive(siteRequest_, o)).toString();
 	}
 
 	////////////////////
@@ -2307,7 +2307,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_swversion(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_swversion(siteRequest_, IotNode.staticSearchJson_swversion(siteRequest_, IotNode.staticSetJson_swversion(siteRequest_, o)));
+		return IotNode.staticSearchJson_swversion(siteRequest_, IotNode.staticSetJson_swversion(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -2380,7 +2380,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_batteryLevel(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_batteryLevel(siteRequest_, IotNode.staticSearchJson_batteryLevel(siteRequest_, IotNode.staticSetJson_batteryLevel(siteRequest_, o)));
+		return IotNode.staticSearchJson_batteryLevel(siteRequest_, IotNode.staticSetJson_batteryLevel(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -2453,7 +2453,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_startUpCount(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_startUpCount(siteRequest_, IotNode.staticSearchJson_startUpCount(siteRequest_, IotNode.staticSetJson_startUpCount(siteRequest_, o)));
+		return IotNode.staticSearchJson_startUpCount(siteRequest_, IotNode.staticSetJson_startUpCount(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -2526,7 +2526,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_watchdogCount(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_watchdogCount(siteRequest_, IotNode.staticSearchJson_watchdogCount(siteRequest_, IotNode.staticSetJson_watchdogCount(siteRequest_, o)));
+		return IotNode.staticSearchJson_watchdogCount(siteRequest_, IotNode.staticSetJson_watchdogCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -2599,7 +2599,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_historySequence(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_historySequence(siteRequest_, IotNode.staticSearchJson_historySequence(siteRequest_, IotNode.staticSetJson_historySequence(siteRequest_, o)));
+		return IotNode.staticSearchJson_historySequence(siteRequest_, IotNode.staticSetJson_historySequence(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -2651,7 +2651,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_versionFirmware(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_versionFirmware(siteRequest_, IotNode.staticSearchJson_versionFirmware(siteRequest_, IotNode.staticSetJson_versionFirmware(siteRequest_, o)));
+		return IotNode.staticSearchJson_versionFirmware(siteRequest_, IotNode.staticSetJson_versionFirmware(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////////
@@ -2724,7 +2724,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_stackTxFailRebootCount(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_stackTxFailRebootCount(siteRequest_, IotNode.staticSearchJson_stackTxFailRebootCount(siteRequest_, IotNode.staticSetJson_stackTxFailRebootCount(siteRequest_, o)));
+		return IotNode.staticSearchJson_stackTxFailRebootCount(siteRequest_, IotNode.staticSetJson_stackTxFailRebootCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////////
@@ -2797,7 +2797,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_historySequencePrevious(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_historySequencePrevious(siteRequest_, IotNode.staticSearchJson_historySequencePrevious(siteRequest_, IotNode.staticSetJson_historySequencePrevious(siteRequest_, o)));
+		return IotNode.staticSearchJson_historySequencePrevious(siteRequest_, IotNode.staticSetJson_historySequencePrevious(siteRequest_, o)).toString();
 	}
 
 	//////////////
@@ -2870,7 +2870,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_snr(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_snr(siteRequest_, IotNode.staticSearchJson_snr(siteRequest_, IotNode.staticSetJson_snr(siteRequest_, o)));
+		return IotNode.staticSearchJson_snr(siteRequest_, IotNode.staticSetJson_snr(siteRequest_, o)).toString();
 	}
 
 	///////////////
@@ -2943,7 +2943,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqJson_rssi(SiteRequestEnUS siteRequest_, String o) {
-		return IotNode.staticSearchStrJson_rssi(siteRequest_, IotNode.staticSearchJson_rssi(siteRequest_, IotNode.staticSetJson_rssi(siteRequest_, o)));
+		return IotNode.staticSearchJson_rssi(siteRequest_, IotNode.staticSetJson_rssi(siteRequest_, o)).toString();
 	}
 
 	//////////////

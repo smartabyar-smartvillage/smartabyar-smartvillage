@@ -225,7 +225,7 @@ public abstract class IotNodeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqListIotNodeStep(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeStepGenPage.staticSearchStrListIotNodeStep(siteRequest_, IotNodeStepGenPage.staticSearchListIotNodeStep(siteRequest_, IotNodeStepGenPage.staticSetListIotNodeStep(siteRequest_, o)));
+		return IotNodeStepGenPage.staticSearchListIotNodeStep(siteRequest_, IotNodeStepGenPage.staticSetListIotNodeStep(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -285,7 +285,7 @@ public abstract class IotNodeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqIotNodeStepCount(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeStepGenPage.staticSearchStrIotNodeStepCount(siteRequest_, IotNodeStepGenPage.staticSearchIotNodeStepCount(siteRequest_, IotNodeStepGenPage.staticSetIotNodeStepCount(siteRequest_, o)));
+		return IotNodeStepGenPage.staticSearchIotNodeStepCount(siteRequest_, IotNodeStepGenPage.staticSetIotNodeStepCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////
@@ -378,7 +378,7 @@ public abstract class IotNodeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeStepGenPage.staticSearchStrId(siteRequest_, IotNodeStepGenPage.staticSearchId(siteRequest_, IotNodeStepGenPage.staticSetId(siteRequest_, o)));
+		return IotNodeStepGenPage.staticSearchId(siteRequest_, IotNodeStepGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -430,7 +430,7 @@ public abstract class IotNodeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqPageUriIotNodeStep(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeStepGenPage.staticSearchStrPageUriIotNodeStep(siteRequest_, IotNodeStepGenPage.staticSearchPageUriIotNodeStep(siteRequest_, IotNodeStepGenPage.staticSetPageUriIotNodeStep(siteRequest_, o)));
+		return IotNodeStepGenPage.staticSearchPageUriIotNodeStep(siteRequest_, IotNodeStepGenPage.staticSetPageUriIotNodeStep(siteRequest_, o)).toString();
 	}
 
 	//////////////

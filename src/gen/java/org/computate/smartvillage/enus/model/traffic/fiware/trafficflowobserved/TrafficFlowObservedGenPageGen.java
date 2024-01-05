@@ -226,7 +226,7 @@ public abstract class TrafficFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqListTrafficFlowObserved(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObservedGenPage.staticSearchStrListTrafficFlowObserved(siteRequest_, TrafficFlowObservedGenPage.staticSearchListTrafficFlowObserved(siteRequest_, TrafficFlowObservedGenPage.staticSetListTrafficFlowObserved(siteRequest_, o)));
+		return TrafficFlowObservedGenPage.staticSearchListTrafficFlowObserved(siteRequest_, TrafficFlowObservedGenPage.staticSetListTrafficFlowObserved(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////
@@ -286,7 +286,7 @@ public abstract class TrafficFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqTrafficFlowObservedCount(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObservedGenPage.staticSearchStrTrafficFlowObservedCount(siteRequest_, TrafficFlowObservedGenPage.staticSearchTrafficFlowObservedCount(siteRequest_, TrafficFlowObservedGenPage.staticSetTrafficFlowObservedCount(siteRequest_, o)));
+		return TrafficFlowObservedGenPage.staticSearchTrafficFlowObservedCount(siteRequest_, TrafficFlowObservedGenPage.staticSetTrafficFlowObservedCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -387,7 +387,7 @@ public abstract class TrafficFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPk(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObservedGenPage.staticSearchStrPk(siteRequest_, TrafficFlowObservedGenPage.staticSearchPk(siteRequest_, TrafficFlowObservedGenPage.staticSetPk(siteRequest_, o)));
+		return TrafficFlowObservedGenPage.staticSearchPk(siteRequest_, TrafficFlowObservedGenPage.staticSetPk(siteRequest_, o)).toString();
 	}
 
 	////////
@@ -439,7 +439,7 @@ public abstract class TrafficFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObservedGenPage.staticSearchStrId(siteRequest_, TrafficFlowObservedGenPage.staticSearchId(siteRequest_, TrafficFlowObservedGenPage.staticSetId(siteRequest_, o)));
+		return TrafficFlowObservedGenPage.staticSearchId(siteRequest_, TrafficFlowObservedGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////
@@ -491,7 +491,7 @@ public abstract class TrafficFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageUriTrafficFlowObserved(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficFlowObservedGenPage.staticSearchStrPageUriTrafficFlowObserved(siteRequest_, TrafficFlowObservedGenPage.staticSearchPageUriTrafficFlowObserved(siteRequest_, TrafficFlowObservedGenPage.staticSetPageUriTrafficFlowObserved(siteRequest_, o)));
+		return TrafficFlowObservedGenPage.staticSearchPageUriTrafficFlowObserved(siteRequest_, TrafficFlowObservedGenPage.staticSetPageUriTrafficFlowObserved(siteRequest_, o)).toString();
 	}
 
 	//////////////

@@ -284,7 +284,7 @@ public abstract class BicycleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqBicycleId(SiteRequestEnUS siteRequest_, String o) {
-		return BicycleStep.staticSearchStrBicycleId(siteRequest_, BicycleStep.staticSearchBicycleId(siteRequest_, BicycleStep.staticSetBicycleId(siteRequest_, o)));
+		return BicycleStep.staticSearchBicycleId(siteRequest_, BicycleStep.staticSetBicycleId(siteRequest_, o)).toString();
 	}
 
 	public String sqlBicycleId() {

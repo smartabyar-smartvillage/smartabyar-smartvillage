@@ -64,7 +64,7 @@
 {{#block "jsLegend"}}{{/block}}
 			}
 
-			function htmLegendCrowdFlowObserved(map, shape, index, count) {
+			function htmLegendCrowdFlowObserved(map, shape, areaServed, index, count) {
 				var color = crowdFlowObserved.[index];
 				var title = crowdFlowObserved.[index];
 				var url = crowdFlowObserved.[index];
@@ -108,7 +108,7 @@
 						else
 							shapes.push(crowdFlowObserved.areaServed);
 						shapes.forEach(function(shape, index) {
-							htm += htmLegendCrowdFlowObserved(map, shape, index, shapes.length);
+							htm += htmLegendCrowdFlowObserved(map, shape, areaServed, index, shapes.length);
 						});
 					}
 				});
@@ -118,7 +118,7 @@
 {{#*inline "htmLegendCrowdFlowObservedPage"}}
 		<div>
 			<i class="fa-light fa-circle" style="color: ${color}; "></i>
-			<a href="${url}">${title}</i>
+			<span data-id="${areaServed.id}" onclick="window.geoJSONLayerGroupCrowdFlowObserved.getLayer(window.mapLayers[this.getAttribute('data-id')]).openPopup(); return false;" href="">${title}</span>
 		</div>
 {{/inline}}
 {{#*inline "jsStyleCrowdFlowObservedPage"}}

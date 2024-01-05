@@ -84,7 +84,7 @@
 {{#block "jsLegend"}}{{/block}}
 			}
 
-			function htmLegendSimulationReport(map, shape, index, count) {
+			function htmLegendSimulationReport(map, shape, areaServed, index, count) {
 				var color = simulationReport.[index];
 				var title = simulationReport.[index];
 				var url = simulationReport.[index];
@@ -92,16 +92,17 @@
 				if(index == 0) {
 					htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off ">
 	<div class="w3-larger font-weight-bold ">simulation reports</div>
-	<ul>
+	<div>
 `;
 				}
 				htm += `{{#block "htmLegend"}}{{/block}}`;
 				if(index == (count - 1)) {
 					htm += `
-	</ul>
+	</div>
 </div>
 `;
 				}
+				return htm;
 			}
 
 			function jsStyleSimulationReport(feature) {
@@ -127,7 +128,7 @@
 						else
 							shapes.push(simulationReport.areaServed);
 						shapes.forEach(function(shape, index) {
-							htm += htmLegendSimulationReport(map, shape, index, shapes.length);
+							htm += htmLegendSimulationReport(map, shape, areaServed, index, shapes.length);
 						});
 					}
 				});
@@ -135,10 +136,10 @@
 				return div;
 {{/inline}}
 {{#*inline "htmLegendSimulationReportPage"}}
-		<li>
+		<div>
 			<i class="fa-light fa-circle" style="color: ${color}; "></i>
-			<a href="${url}">${title}</i>
-		</li>
+			<span data-id="${areaServed.id}" onclick="window.geoJSONLayerGroupSimulationReport.getLayer(window.mapLayers[this.getAttribute('data-id')]).openPopup(); return false;" href="">${title}</span>
+		</div>
 {{/inline}}
 {{#*inline "jsStyleSimulationReportPage"}}
 				if(feature.geometry.type == 'Point') {

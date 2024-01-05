@@ -225,7 +225,7 @@ public abstract class TimeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqListTimeStep(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStepGenPage.staticSearchStrListTimeStep(siteRequest_, TimeStepGenPage.staticSearchListTimeStep(siteRequest_, TimeStepGenPage.staticSetListTimeStep(siteRequest_, o)));
+		return TimeStepGenPage.staticSearchListTimeStep(siteRequest_, TimeStepGenPage.staticSetListTimeStep(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -285,7 +285,7 @@ public abstract class TimeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqTimeStepCount(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStepGenPage.staticSearchStrTimeStepCount(siteRequest_, TimeStepGenPage.staticSearchTimeStepCount(siteRequest_, TimeStepGenPage.staticSetTimeStepCount(siteRequest_, o)));
+		return TimeStepGenPage.staticSearchTimeStepCount(siteRequest_, TimeStepGenPage.staticSetTimeStepCount(siteRequest_, o)).toString();
 	}
 
 	///////////////
@@ -378,7 +378,7 @@ public abstract class TimeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStepGenPage.staticSearchStrId(siteRequest_, TimeStepGenPage.staticSearchId(siteRequest_, TimeStepGenPage.staticSetId(siteRequest_, o)));
+		return TimeStepGenPage.staticSearchId(siteRequest_, TimeStepGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -430,7 +430,7 @@ public abstract class TimeStepGenPageGen<DEV> extends BaseResultPage {
 	}
 
 	public static String staticSearchFqPageUriTimeStep(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStepGenPage.staticSearchStrPageUriTimeStep(siteRequest_, TimeStepGenPage.staticSearchPageUriTimeStep(siteRequest_, TimeStepGenPage.staticSetPageUriTimeStep(siteRequest_, o)));
+		return TimeStepGenPage.staticSearchPageUriTimeStep(siteRequest_, TimeStepGenPage.staticSetPageUriTimeStep(siteRequest_, o)).toString();
 	}
 
 	//////////////

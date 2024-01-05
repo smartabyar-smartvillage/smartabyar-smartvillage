@@ -309,7 +309,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCustomTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrCustomTrafficLightId(siteRequest_, CrowdFlowObserved.staticSearchCustomTrafficLightId(siteRequest_, CrowdFlowObserved.staticSetCustomTrafficLightId(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchCustomTrafficLightId(siteRequest_, CrowdFlowObserved.staticSetCustomTrafficLightId(siteRequest_, o)).toString();
 	}
 
 	public String sqlCustomTrafficLightId() {
@@ -365,7 +365,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqTrafficSimulationId(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrTrafficSimulationId(siteRequest_, CrowdFlowObserved.staticSearchTrafficSimulationId(siteRequest_, CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchTrafficSimulationId(siteRequest_, CrowdFlowObserved.staticSetTrafficSimulationId(siteRequest_, o)).toString();
 	}
 
 	public String sqlTrafficSimulationId() {
@@ -421,7 +421,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqColor(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrColor(siteRequest_, CrowdFlowObserved.staticSearchColor(siteRequest_, CrowdFlowObserved.staticSetColor(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchColor(siteRequest_, CrowdFlowObserved.staticSetColor(siteRequest_, o)).toString();
 	}
 
 	public String sqlColor() {
@@ -477,7 +477,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqEntityId(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrEntityId(siteRequest_, CrowdFlowObserved.staticSearchEntityId(siteRequest_, CrowdFlowObserved.staticSetEntityId(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchEntityId(siteRequest_, CrowdFlowObserved.staticSetEntityId(siteRequest_, o)).toString();
 	}
 
 	public String sqlEntityId() {
@@ -533,7 +533,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqEntityShortId(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrEntityShortId(siteRequest_, CrowdFlowObserved.staticSearchEntityShortId(siteRequest_, CrowdFlowObserved.staticSetEntityShortId(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchEntityShortId(siteRequest_, CrowdFlowObserved.staticSetEntityShortId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////
@@ -677,7 +677,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqWalkingAreaId(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrWalkingAreaId(siteRequest_, CrowdFlowObserved.staticSearchWalkingAreaId(siteRequest_, CrowdFlowObserved.staticSetWalkingAreaId(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchWalkingAreaId(siteRequest_, CrowdFlowObserved.staticSetWalkingAreaId(siteRequest_, o)).toString();
 	}
 
 	public String sqlWalkingAreaId() {
@@ -733,7 +733,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAlternateName(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrAlternateName(siteRequest_, CrowdFlowObserved.staticSearchAlternateName(siteRequest_, CrowdFlowObserved.staticSetAlternateName(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchAlternateName(siteRequest_, CrowdFlowObserved.staticSetAlternateName(siteRequest_, o)).toString();
 	}
 
 	public String sqlAlternateName() {
@@ -840,7 +840,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAreaServed(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrAreaServed(siteRequest_, CrowdFlowObserved.staticSearchAreaServed(siteRequest_, CrowdFlowObserved.staticSetAreaServed(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchAreaServed(siteRequest_, CrowdFlowObserved.staticSetAreaServed(siteRequest_, o)).toString();
 	}
 
 	public Polygon sqlAreaServed() {
@@ -917,7 +917,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAverageCrowdSpeed(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrAverageCrowdSpeed(siteRequest_, CrowdFlowObserved.staticSearchAverageCrowdSpeed(siteRequest_, CrowdFlowObserved.staticSetAverageCrowdSpeed(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchAverageCrowdSpeed(siteRequest_, CrowdFlowObserved.staticSetAverageCrowdSpeed(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAverageCrowdSpeed() {
@@ -994,7 +994,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAverageHeadwayTime(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrAverageHeadwayTime(siteRequest_, CrowdFlowObserved.staticSearchAverageHeadwayTime(siteRequest_, CrowdFlowObserved.staticSetAverageHeadwayTime(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchAverageHeadwayTime(siteRequest_, CrowdFlowObserved.staticSetAverageHeadwayTime(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAverageHeadwayTime() {
@@ -1055,7 +1055,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCongested(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrCongested(siteRequest_, CrowdFlowObserved.staticSearchCongested(siteRequest_, CrowdFlowObserved.staticSetCongested(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchCongested(siteRequest_, CrowdFlowObserved.staticSetCongested(siteRequest_, o)).toString();
 	}
 
 	public Boolean sqlCongested() {
@@ -1111,7 +1111,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDataProvider(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDataProvider(siteRequest_, CrowdFlowObserved.staticSearchDataProvider(siteRequest_, CrowdFlowObserved.staticSetDataProvider(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDataProvider(siteRequest_, CrowdFlowObserved.staticSetDataProvider(siteRequest_, o)).toString();
 	}
 
 	public String sqlDataProvider() {
@@ -1167,7 +1167,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateCreated(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDateCreated(siteRequest_, CrowdFlowObserved.staticSearchDateCreated(siteRequest_, CrowdFlowObserved.staticSetDateCreated(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDateCreated(siteRequest_, CrowdFlowObserved.staticSetDateCreated(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateCreated() {
@@ -1223,7 +1223,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateModified(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDateModified(siteRequest_, CrowdFlowObserved.staticSearchDateModified(siteRequest_, CrowdFlowObserved.staticSetDateModified(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDateModified(siteRequest_, CrowdFlowObserved.staticSetDateModified(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateModified() {
@@ -1279,7 +1279,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateObserved(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDateObserved(siteRequest_, CrowdFlowObserved.staticSearchDateObserved(siteRequest_, CrowdFlowObserved.staticSetDateObserved(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDateObserved(siteRequest_, CrowdFlowObserved.staticSetDateObserved(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateObserved() {
@@ -1335,7 +1335,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateObservedFrom(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDateObservedFrom(siteRequest_, CrowdFlowObserved.staticSearchDateObservedFrom(siteRequest_, CrowdFlowObserved.staticSetDateObservedFrom(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDateObservedFrom(siteRequest_, CrowdFlowObserved.staticSetDateObservedFrom(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateObservedFrom() {
@@ -1391,7 +1391,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateObservedTo(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDateObservedTo(siteRequest_, CrowdFlowObserved.staticSearchDateObservedTo(siteRequest_, CrowdFlowObserved.staticSetDateObservedTo(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDateObservedTo(siteRequest_, CrowdFlowObserved.staticSetDateObservedTo(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateObservedTo() {
@@ -1447,7 +1447,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDescription(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDescription(siteRequest_, CrowdFlowObserved.staticSearchDescription(siteRequest_, CrowdFlowObserved.staticSetDescription(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDescription(siteRequest_, CrowdFlowObserved.staticSetDescription(siteRequest_, o)).toString();
 	}
 
 	public String sqlDescription() {
@@ -1503,7 +1503,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDirection(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrDirection(siteRequest_, CrowdFlowObserved.staticSearchDirection(siteRequest_, CrowdFlowObserved.staticSetDirection(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchDirection(siteRequest_, CrowdFlowObserved.staticSetDirection(siteRequest_, o)).toString();
 	}
 
 	public String sqlDirection() {
@@ -1575,7 +1575,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLocation(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrLocation(siteRequest_, CrowdFlowObserved.staticSearchLocation(siteRequest_, CrowdFlowObserved.staticSetLocation(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchLocation(siteRequest_, CrowdFlowObserved.staticSetLocation(siteRequest_, o)).toString();
 	}
 
 	public Point sqlLocation() {
@@ -1631,7 +1631,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqName(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrName(siteRequest_, CrowdFlowObserved.staticSearchName(siteRequest_, CrowdFlowObserved.staticSetName(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchName(siteRequest_, CrowdFlowObserved.staticSetName(siteRequest_, o)).toString();
 	}
 
 	public String sqlName() {
@@ -1708,7 +1708,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqOccupancy(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrOccupancy(siteRequest_, CrowdFlowObserved.staticSearchOccupancy(siteRequest_, CrowdFlowObserved.staticSetOccupancy(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchOccupancy(siteRequest_, CrowdFlowObserved.staticSetOccupancy(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlOccupancy() {
@@ -1772,7 +1772,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqOwner(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrOwner(siteRequest_, CrowdFlowObserved.staticSearchOwner(siteRequest_, CrowdFlowObserved.staticSetOwner(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchOwner(siteRequest_, CrowdFlowObserved.staticSetOwner(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlOwner() {
@@ -1836,7 +1836,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqPeopleCount(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrPeopleCount(siteRequest_, CrowdFlowObserved.staticSearchPeopleCount(siteRequest_, CrowdFlowObserved.staticSetPeopleCount(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchPeopleCount(siteRequest_, CrowdFlowObserved.staticSetPeopleCount(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlPeopleCount() {
@@ -1900,7 +1900,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqRefRoadSegment(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrRefRoadSegment(siteRequest_, CrowdFlowObserved.staticSearchRefRoadSegment(siteRequest_, CrowdFlowObserved.staticSetRefRoadSegment(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchRefRoadSegment(siteRequest_, CrowdFlowObserved.staticSetRefRoadSegment(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlRefRoadSegment() {
@@ -1964,7 +1964,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSeeAlso(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrSeeAlso(siteRequest_, CrowdFlowObserved.staticSearchSeeAlso(siteRequest_, CrowdFlowObserved.staticSetSeeAlso(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchSeeAlso(siteRequest_, CrowdFlowObserved.staticSetSeeAlso(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlSeeAlso() {
@@ -2020,7 +2020,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSource(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObserved.staticSearchStrSource(siteRequest_, CrowdFlowObserved.staticSearchSource(siteRequest_, CrowdFlowObserved.staticSetSource(siteRequest_, o)));
+		return CrowdFlowObserved.staticSearchSource(siteRequest_, CrowdFlowObserved.staticSetSource(siteRequest_, o)).toString();
 	}
 
 	public String sqlSource() {

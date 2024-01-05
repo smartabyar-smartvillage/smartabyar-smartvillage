@@ -60,6 +60,31 @@
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
 
+			function jsLegendTimeStep(map) {
+{{#block "jsLegend"}}{{/block}}
+			}
+
+			function htmLegendTimeStep(map, shape, , index, count) {
+				var color = timeStep.[index];
+				var title = timeStep.[index];
+				var url = timeStep.[index];
+				var htm = '';
+				if(index == 0) {
+					htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off ">
+	<div class="w3-larger font-weight-bold ">time steps</div>
+	<div>
+`;
+				}
+				htm += `{{#block "htmLegend"}}{{/block}}`;
+				if(index == (count - 1)) {
+					htm += `
+	</div>
+</div>
+`;
+				}
+				return htm;
+			}
+
 			function jsStyleTimeStep(feature) {
 {{#block "jsStyle"}}{{/block}}
 			}
@@ -72,6 +97,30 @@
 {{#*inline "jsWebsocketTimeStepPage"}}{{/inline}}
 {{#*inline "jsTooltipTimeStepPage"}}{{/inline}}
 {{#*inline "htmTooltipTimeStepPage"}}{{/inline}}
+{{#*inline "jsLegendTimeStepPage"}}
+				var div = L.DomUtil.create('div', 'info legend');
+				var htm = '';
+				$.each( window.listTimeStep, function(index, timeStep) {
+					if(timeStep.) {
+						var shapes = [];
+						if(Array.isArray(timeStep.))
+							shapes = shapes.concat(timeStep.);
+						else
+							shapes.push(timeStep.);
+						shapes.forEach(function(shape, index) {
+							htm += htmLegendTimeStep(map, shape, , index, shapes.length);
+						});
+					}
+				});
+				div.innerHTML = htm;
+				return div;
+{{/inline}}
+{{#*inline "htmLegendTimeStepPage"}}
+		<div>
+			<i class="fa-light fa-circle" style="color: ${color}; "></i>
+			<span data-id="${.id}" onclick="window.geoJSONLayerGroupTimeStep.getLayer(window.mapLayers[this.getAttribute('data-id')]).openPopup(); return false;" href="">${title}</span>
+		</div>
+{{/inline}}
 {{#*inline "jsStyleTimeStepPage"}}
 				if(feature.geometry.type == 'Point') {
 					return {
@@ -85,7 +134,7 @@
 				} else {
 					return {
 						 fillColor: '#ff7800'
-						, color: (feature.properties.areaServedColors ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, weight: 5
 						, opacity: 1
 						, fillOpacity: 0.8
@@ -313,7 +362,7 @@
 {{#*inline "htmBodyGraphTimeStepPage"}}		<!-- #*inline "htmBodyGraphTimeStepPage" -->
 <div id="htmBodyGraphBaseResultPage" class="w3-content htmBodyGraph "></div>{{/inline}}
 {{#*inline "htmBodyGraphLocationTimeStepPage"}}		<!-- #*inline "htmBodyGraphLocationTimeStepPage" -->
-<div id="htmBodyGraphLocationBaseResultPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
+<div id="htmBodyGraphLocationTimeStepPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
 {{#*inline "htmBodyCount0TimeStepPage"}}		<!-- #*inline "htmBodyCount0TimeStepPage" -->
 		<h1>
 			<a href="{{pageUri}}" class="w3-bar-item w3-btn w3-center w3-block w3-2017-shaded-spruce w3-hover-2017-shaded-spruce">

@@ -315,7 +315,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqReportName(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrReportName(siteRequest_, SimulationReport.staticSearchReportName(siteRequest_, SimulationReport.staticSetReportName(siteRequest_, o)));
+		return SimulationReport.staticSearchReportName(siteRequest_, SimulationReport.staticSetReportName(siteRequest_, o)).toString();
 	}
 
 	public String sqlReportName() {
@@ -387,7 +387,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLocation(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrLocation(siteRequest_, SimulationReport.staticSearchLocation(siteRequest_, SimulationReport.staticSetLocation(siteRequest_, o)));
+		return SimulationReport.staticSearchLocation(siteRequest_, SimulationReport.staticSetLocation(siteRequest_, o)).toString();
 	}
 
 	public Point sqlLocation() {
@@ -451,7 +451,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSimulationKey(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrSimulationKey(siteRequest_, SimulationReport.staticSearchSimulationKey(siteRequest_, SimulationReport.staticSetSimulationKey(siteRequest_, o)));
+		return SimulationReport.staticSearchSimulationKey(siteRequest_, SimulationReport.staticSetSimulationKey(siteRequest_, o)).toString();
 	}
 
 	public Long sqlSimulationKey() {
@@ -672,7 +672,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrAreaServedColors(siteRequest_, SimulationReport.staticSearchAreaServedColors(siteRequest_, SimulationReport.staticSetAreaServedColors(siteRequest_, o)));
+		return SimulationReport.staticSearchAreaServedColors(siteRequest_, SimulationReport.staticSetAreaServedColors(siteRequest_, o)).toString();
 	}
 
 	////////////////
@@ -771,7 +771,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAreaServed(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrAreaServed(siteRequest_, SimulationReport.staticSearchAreaServed(siteRequest_, SimulationReport.staticSetAreaServed(siteRequest_, o)));
+		return SimulationReport.staticSearchAreaServed(siteRequest_, SimulationReport.staticSetAreaServed(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -831,7 +831,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSmartTrafficLightKey(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrSmartTrafficLightKey(siteRequest_, SimulationReport.staticSearchSmartTrafficLightKey(siteRequest_, SimulationReport.staticSetSmartTrafficLightKey(siteRequest_, o)));
+		return SimulationReport.staticSearchSmartTrafficLightKey(siteRequest_, SimulationReport.staticSetSmartTrafficLightKey(siteRequest_, o)).toString();
 	}
 
 	public Long sqlSmartTrafficLightKey() {
@@ -979,7 +979,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSimulationName(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrSimulationName(siteRequest_, SimulationReport.staticSearchSimulationName(siteRequest_, SimulationReport.staticSetSimulationName(siteRequest_, o)));
+		return SimulationReport.staticSearchSimulationName(siteRequest_, SimulationReport.staticSetSimulationName(siteRequest_, o)).toString();
 	}
 
 	public String sqlSimulationName() {
@@ -1035,7 +1035,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSmartTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrSmartTrafficLightId(siteRequest_, SimulationReport.staticSearchSmartTrafficLightId(siteRequest_, SimulationReport.staticSetSmartTrafficLightId(siteRequest_, o)));
+		return SimulationReport.staticSearchSmartTrafficLightId(siteRequest_, SimulationReport.staticSetSmartTrafficLightId(siteRequest_, o)).toString();
 	}
 
 	public String sqlSmartTrafficLightId() {
@@ -1091,7 +1091,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSmartTrafficLightName(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrSmartTrafficLightName(siteRequest_, SimulationReport.staticSearchSmartTrafficLightName(siteRequest_, SimulationReport.staticSetSmartTrafficLightName(siteRequest_, o)));
+		return SimulationReport.staticSearchSmartTrafficLightName(siteRequest_, SimulationReport.staticSetSmartTrafficLightName(siteRequest_, o)).toString();
 	}
 
 	public String sqlSmartTrafficLightName() {
@@ -1168,7 +1168,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgVehiclePerMinFromWestToEast(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamAvgVehiclePerMinFromWestToEast(siteRequest_, SimulationReport.staticSearchParamAvgVehiclePerMinFromWestToEast(siteRequest_, SimulationReport.staticSetParamAvgVehiclePerMinFromWestToEast(siteRequest_, o)));
+		return SimulationReport.staticSearchParamAvgVehiclePerMinFromWestToEast(siteRequest_, SimulationReport.staticSetParamAvgVehiclePerMinFromWestToEast(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamAvgVehiclePerMinFromWestToEast() {
@@ -1245,7 +1245,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgVehiclePerMinFromSouthToNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, SimulationReport.staticSearchParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, SimulationReport.staticSetParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, o)));
+		return SimulationReport.staticSearchParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, SimulationReport.staticSetParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamAvgVehiclePerMinFromSouthToNorth() {
@@ -1322,7 +1322,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamVehicleDemandScalingFactor(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamVehicleDemandScalingFactor(siteRequest_, SimulationReport.staticSearchParamVehicleDemandScalingFactor(siteRequest_, SimulationReport.staticSetParamVehicleDemandScalingFactor(siteRequest_, o)));
+		return SimulationReport.staticSearchParamVehicleDemandScalingFactor(siteRequest_, SimulationReport.staticSetParamVehicleDemandScalingFactor(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamVehicleDemandScalingFactor() {
@@ -1399,7 +1399,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgPedestrianPerMinFromWestToEast(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamAvgPedestrianPerMinFromWestToEast(siteRequest_, SimulationReport.staticSearchParamAvgPedestrianPerMinFromWestToEast(siteRequest_, SimulationReport.staticSetParamAvgPedestrianPerMinFromWestToEast(siteRequest_, o)));
+		return SimulationReport.staticSearchParamAvgPedestrianPerMinFromWestToEast(siteRequest_, SimulationReport.staticSetParamAvgPedestrianPerMinFromWestToEast(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamAvgPedestrianPerMinFromWestToEast() {
@@ -1476,7 +1476,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgPedestrianPerMinFromSouthToNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, SimulationReport.staticSearchParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, SimulationReport.staticSetParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, o)));
+		return SimulationReport.staticSearchParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, SimulationReport.staticSetParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamAvgPedestrianPerMinFromSouthToNorth() {
@@ -1553,7 +1553,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianDemandScalingFactor(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamPedestrianDemandScalingFactor(siteRequest_, SimulationReport.staticSearchParamPedestrianDemandScalingFactor(siteRequest_, SimulationReport.staticSetParamPedestrianDemandScalingFactor(siteRequest_, o)));
+		return SimulationReport.staticSearchParamPedestrianDemandScalingFactor(siteRequest_, SimulationReport.staticSetParamPedestrianDemandScalingFactor(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamPedestrianDemandScalingFactor() {
@@ -1654,7 +1654,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamLam(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamLam(siteRequest_, SimulationReport.staticSearchParamLam(siteRequest_, SimulationReport.staticSetParamLam(siteRequest_, o)));
+		return SimulationReport.staticSearchParamLam(siteRequest_, SimulationReport.staticSetParamLam(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////////
@@ -1727,7 +1727,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMinGreenTimeSecWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamMinGreenTimeSecWestEast(siteRequest_, SimulationReport.staticSearchParamMinGreenTimeSecWestEast(siteRequest_, SimulationReport.staticSetParamMinGreenTimeSecWestEast(siteRequest_, o)));
+		return SimulationReport.staticSearchParamMinGreenTimeSecWestEast(siteRequest_, SimulationReport.staticSetParamMinGreenTimeSecWestEast(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamMinGreenTimeSecWestEast() {
@@ -1804,7 +1804,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMaxGreenTimeSecWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamMaxGreenTimeSecWestEast(siteRequest_, SimulationReport.staticSearchParamMaxGreenTimeSecWestEast(siteRequest_, SimulationReport.staticSetParamMaxGreenTimeSecWestEast(siteRequest_, o)));
+		return SimulationReport.staticSearchParamMaxGreenTimeSecWestEast(siteRequest_, SimulationReport.staticSetParamMaxGreenTimeSecWestEast(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamMaxGreenTimeSecWestEast() {
@@ -1881,7 +1881,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMinGreenTimeSecSouthNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamMinGreenTimeSecSouthNorth(siteRequest_, SimulationReport.staticSearchParamMinGreenTimeSecSouthNorth(siteRequest_, SimulationReport.staticSetParamMinGreenTimeSecSouthNorth(siteRequest_, o)));
+		return SimulationReport.staticSearchParamMinGreenTimeSecSouthNorth(siteRequest_, SimulationReport.staticSetParamMinGreenTimeSecSouthNorth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamMinGreenTimeSecSouthNorth() {
@@ -1958,7 +1958,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMaxGreenTimeSecSouthNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamMaxGreenTimeSecSouthNorth(siteRequest_, SimulationReport.staticSearchParamMaxGreenTimeSecSouthNorth(siteRequest_, SimulationReport.staticSetParamMaxGreenTimeSecSouthNorth(siteRequest_, o)));
+		return SimulationReport.staticSearchParamMaxGreenTimeSecSouthNorth(siteRequest_, SimulationReport.staticSetParamMaxGreenTimeSecSouthNorth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamMaxGreenTimeSecSouthNorth() {
@@ -2035,7 +2035,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianWaitThresholdSecNorthSouth(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, SimulationReport.staticSearchParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, SimulationReport.staticSetParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, o)));
+		return SimulationReport.staticSearchParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, SimulationReport.staticSetParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamPedestrianWaitThresholdSecNorthSouth() {
@@ -2112,7 +2112,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianWaitThresholdSecWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamPedestrianWaitThresholdSecWestEast(siteRequest_, SimulationReport.staticSearchParamPedestrianWaitThresholdSecWestEast(siteRequest_, SimulationReport.staticSetParamPedestrianWaitThresholdSecWestEast(siteRequest_, o)));
+		return SimulationReport.staticSearchParamPedestrianWaitThresholdSecWestEast(siteRequest_, SimulationReport.staticSetParamPedestrianWaitThresholdSecWestEast(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamPedestrianWaitThresholdSecWestEast() {
@@ -2189,7 +2189,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamVehicleQueueThresholdWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamVehicleQueueThresholdWestEast(siteRequest_, SimulationReport.staticSearchParamVehicleQueueThresholdWestEast(siteRequest_, SimulationReport.staticSetParamVehicleQueueThresholdWestEast(siteRequest_, o)));
+		return SimulationReport.staticSearchParamVehicleQueueThresholdWestEast(siteRequest_, SimulationReport.staticSetParamVehicleQueueThresholdWestEast(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamVehicleQueueThresholdWestEast() {
@@ -2266,7 +2266,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamVehicleQueueThresholdSouthNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamVehicleQueueThresholdSouthNorth(siteRequest_, SimulationReport.staticSearchParamVehicleQueueThresholdSouthNorth(siteRequest_, SimulationReport.staticSetParamVehicleQueueThresholdSouthNorth(siteRequest_, o)));
+		return SimulationReport.staticSearchParamVehicleQueueThresholdSouthNorth(siteRequest_, SimulationReport.staticSetParamVehicleQueueThresholdSouthNorth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamVehicleQueueThresholdSouthNorth() {
@@ -2343,7 +2343,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianQueueThresholdNorthSouth(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamPedestrianQueueThresholdNorthSouth(siteRequest_, SimulationReport.staticSearchParamPedestrianQueueThresholdNorthSouth(siteRequest_, SimulationReport.staticSetParamPedestrianQueueThresholdNorthSouth(siteRequest_, o)));
+		return SimulationReport.staticSearchParamPedestrianQueueThresholdNorthSouth(siteRequest_, SimulationReport.staticSetParamPedestrianQueueThresholdNorthSouth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamPedestrianQueueThresholdNorthSouth() {
@@ -2420,7 +2420,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianQueueThresholdWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamPedestrianQueueThresholdWestEast(siteRequest_, SimulationReport.staticSearchParamPedestrianQueueThresholdWestEast(siteRequest_, SimulationReport.staticSetParamPedestrianQueueThresholdWestEast(siteRequest_, o)));
+		return SimulationReport.staticSearchParamPedestrianQueueThresholdWestEast(siteRequest_, SimulationReport.staticSetParamPedestrianQueueThresholdWestEast(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamPedestrianQueueThresholdWestEast() {
@@ -2521,7 +2521,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamDemandScale(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamDemandScale(siteRequest_, SimulationReport.staticSearchParamDemandScale(siteRequest_, SimulationReport.staticSetParamDemandScale(siteRequest_, o)));
+		return SimulationReport.staticSearchParamDemandScale(siteRequest_, SimulationReport.staticSetParamDemandScale(siteRequest_, o)).toString();
 	}
 
 	public Number[] sqlParamDemandScale() {
@@ -2622,7 +2622,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamInitialPar(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamInitialPar(siteRequest_, SimulationReport.staticSearchParamInitialPar(siteRequest_, SimulationReport.staticSetParamInitialPar(siteRequest_, o)));
+		return SimulationReport.staticSearchParamInitialPar(siteRequest_, SimulationReport.staticSetParamInitialPar(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -2695,7 +2695,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamStepSize(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamStepSize(siteRequest_, SimulationReport.staticSearchParamStepSize(siteRequest_, SimulationReport.staticSetParamStepSize(siteRequest_, o)));
+		return SimulationReport.staticSearchParamStepSize(siteRequest_, SimulationReport.staticSetParamStepSize(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamStepSize() {
@@ -2759,7 +2759,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamRunTime(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamRunTime(siteRequest_, SimulationReport.staticSearchParamRunTime(siteRequest_, SimulationReport.staticSetParamRunTime(siteRequest_, o)));
+		return SimulationReport.staticSearchParamRunTime(siteRequest_, SimulationReport.staticSetParamRunTime(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlParamRunTime() {
@@ -2823,7 +2823,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamItersPerPar(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamItersPerPar(siteRequest_, SimulationReport.staticSearchParamItersPerPar(siteRequest_, SimulationReport.staticSetParamItersPerPar(siteRequest_, o)));
+		return SimulationReport.staticSearchParamItersPerPar(siteRequest_, SimulationReport.staticSetParamItersPerPar(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlParamItersPerPar() {
@@ -2887,7 +2887,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamTotalIterNum(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrParamTotalIterNum(siteRequest_, SimulationReport.staticSearchParamTotalIterNum(siteRequest_, SimulationReport.staticSetParamTotalIterNum(siteRequest_, o)));
+		return SimulationReport.staticSearchParamTotalIterNum(siteRequest_, SimulationReport.staticSetParamTotalIterNum(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlParamTotalIterNum() {
@@ -2951,7 +2951,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters(siteRequest_, SimulationReport.staticSearchUpdatedParameters(siteRequest_, SimulationReport.staticSetUpdatedParameters(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters(siteRequest_, SimulationReport.staticSetUpdatedParameters(siteRequest_, o)).toString();
 	}
 
 	public JsonArray sqlUpdatedParameters() {
@@ -3015,7 +3015,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters1(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters1(siteRequest_, SimulationReport.staticSearchUpdatedParameters1(siteRequest_, SimulationReport.staticSetUpdatedParameters1(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters1(siteRequest_, SimulationReport.staticSetUpdatedParameters1(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3075,7 +3075,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters2(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters2(siteRequest_, SimulationReport.staticSearchUpdatedParameters2(siteRequest_, SimulationReport.staticSetUpdatedParameters2(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters2(siteRequest_, SimulationReport.staticSetUpdatedParameters2(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3135,7 +3135,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters3(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters3(siteRequest_, SimulationReport.staticSearchUpdatedParameters3(siteRequest_, SimulationReport.staticSetUpdatedParameters3(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters3(siteRequest_, SimulationReport.staticSetUpdatedParameters3(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3195,7 +3195,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters4(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters4(siteRequest_, SimulationReport.staticSearchUpdatedParameters4(siteRequest_, SimulationReport.staticSetUpdatedParameters4(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters4(siteRequest_, SimulationReport.staticSetUpdatedParameters4(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3255,7 +3255,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters5(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters5(siteRequest_, SimulationReport.staticSearchUpdatedParameters5(siteRequest_, SimulationReport.staticSetUpdatedParameters5(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters5(siteRequest_, SimulationReport.staticSetUpdatedParameters5(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3315,7 +3315,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters6(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters6(siteRequest_, SimulationReport.staticSearchUpdatedParameters6(siteRequest_, SimulationReport.staticSetUpdatedParameters6(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters6(siteRequest_, SimulationReport.staticSetUpdatedParameters6(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3375,7 +3375,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters7(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters7(siteRequest_, SimulationReport.staticSearchUpdatedParameters7(siteRequest_, SimulationReport.staticSetUpdatedParameters7(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters7(siteRequest_, SimulationReport.staticSetUpdatedParameters7(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3435,7 +3435,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters8(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters8(siteRequest_, SimulationReport.staticSearchUpdatedParameters8(siteRequest_, SimulationReport.staticSetUpdatedParameters8(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters8(siteRequest_, SimulationReport.staticSetUpdatedParameters8(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3495,7 +3495,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters9(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters9(siteRequest_, SimulationReport.staticSearchUpdatedParameters9(siteRequest_, SimulationReport.staticSetUpdatedParameters9(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters9(siteRequest_, SimulationReport.staticSetUpdatedParameters9(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////
@@ -3555,7 +3555,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedParameters10(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedParameters10(siteRequest_, SimulationReport.staticSearchUpdatedParameters10(siteRequest_, SimulationReport.staticSetUpdatedParameters10(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedParameters10(siteRequest_, SimulationReport.staticSetUpdatedParameters10(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -3615,7 +3615,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedPerformance(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedPerformance(siteRequest_, SimulationReport.staticSearchUpdatedPerformance(siteRequest_, SimulationReport.staticSetUpdatedPerformance(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedPerformance(siteRequest_, SimulationReport.staticSetUpdatedPerformance(siteRequest_, o)).toString();
 	}
 
 	public JsonArray sqlUpdatedPerformance() {
@@ -3679,7 +3679,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAverageQueueLength(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrAverageQueueLength(siteRequest_, SimulationReport.staticSearchAverageQueueLength(siteRequest_, SimulationReport.staticSetAverageQueueLength(siteRequest_, o)));
+		return SimulationReport.staticSearchAverageQueueLength(siteRequest_, SimulationReport.staticSetAverageQueueLength(siteRequest_, o)).toString();
 	}
 
 	public JsonArray sqlAverageQueueLength() {
@@ -3743,7 +3743,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedPerformanceWaitWestEastVehicleSec(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedPerformanceWaitWestEastVehicleSec(siteRequest_, SimulationReport.staticSearchUpdatedPerformanceWaitWestEastVehicleSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitWestEastVehicleSec(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedPerformanceWaitWestEastVehicleSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitWestEastVehicleSec(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////////////////
@@ -3803,7 +3803,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedPerformanceWaitSouthNorthVehicleSec(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedPerformanceWaitSouthNorthVehicleSec(siteRequest_, SimulationReport.staticSearchUpdatedPerformanceWaitSouthNorthVehicleSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitSouthNorthVehicleSec(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedPerformanceWaitSouthNorthVehicleSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitSouthNorthVehicleSec(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////////////////
@@ -3863,7 +3863,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedPerformanceWaitAllVehicleSec(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedPerformanceWaitAllVehicleSec(siteRequest_, SimulationReport.staticSearchUpdatedPerformanceWaitAllVehicleSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitAllVehicleSec(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedPerformanceWaitAllVehicleSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitAllVehicleSec(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////////////
@@ -3923,7 +3923,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedPerformanceWaitAllPedestrianSec(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedPerformanceWaitAllPedestrianSec(siteRequest_, SimulationReport.staticSearchUpdatedPerformanceWaitAllPedestrianSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitAllPedestrianSec(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedPerformanceWaitAllPedestrianSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitAllPedestrianSec(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////////////////////////////
@@ -3983,7 +3983,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqUpdatedPerformanceWaitAllVehiclePedestrianSec(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrUpdatedPerformanceWaitAllVehiclePedestrianSec(siteRequest_, SimulationReport.staticSearchUpdatedPerformanceWaitAllVehiclePedestrianSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitAllVehiclePedestrianSec(siteRequest_, o)));
+		return SimulationReport.staticSearchUpdatedPerformanceWaitAllVehiclePedestrianSec(siteRequest_, SimulationReport.staticSetUpdatedPerformanceWaitAllVehiclePedestrianSec(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////////////
@@ -4043,7 +4043,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAvgQueueLengthWestEastVehicle(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrAvgQueueLengthWestEastVehicle(siteRequest_, SimulationReport.staticSearchAvgQueueLengthWestEastVehicle(siteRequest_, SimulationReport.staticSetAvgQueueLengthWestEastVehicle(siteRequest_, o)));
+		return SimulationReport.staticSearchAvgQueueLengthWestEastVehicle(siteRequest_, SimulationReport.staticSetAvgQueueLengthWestEastVehicle(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////////////
@@ -4103,7 +4103,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAvgQueueLengthSouthNorthVehicle(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrAvgQueueLengthSouthNorthVehicle(siteRequest_, SimulationReport.staticSearchAvgQueueLengthSouthNorthVehicle(siteRequest_, SimulationReport.staticSetAvgQueueLengthSouthNorthVehicle(siteRequest_, o)));
+		return SimulationReport.staticSearchAvgQueueLengthSouthNorthVehicle(siteRequest_, SimulationReport.staticSetAvgQueueLengthSouthNorthVehicle(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////////
@@ -4163,7 +4163,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAvgQueueLengthNorthSouthPedestrian(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrAvgQueueLengthNorthSouthPedestrian(siteRequest_, SimulationReport.staticSearchAvgQueueLengthNorthSouthPedestrian(siteRequest_, SimulationReport.staticSetAvgQueueLengthNorthSouthPedestrian(siteRequest_, o)));
+		return SimulationReport.staticSearchAvgQueueLengthNorthSouthPedestrian(siteRequest_, SimulationReport.staticSetAvgQueueLengthNorthSouthPedestrian(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////////////
@@ -4223,7 +4223,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAvgQueueLengthWestEastPedestrian(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrAvgQueueLengthWestEastPedestrian(siteRequest_, SimulationReport.staticSearchAvgQueueLengthWestEastPedestrian(siteRequest_, SimulationReport.staticSetAvgQueueLengthWestEastPedestrian(siteRequest_, o)));
+		return SimulationReport.staticSearchAvgQueueLengthWestEastPedestrian(siteRequest_, SimulationReport.staticSetAvgQueueLengthWestEastPedestrian(siteRequest_, o)).toString();
 	}
 
 	//////////////////
@@ -4287,7 +4287,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqReportStatus(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrReportStatus(siteRequest_, SimulationReport.staticSearchReportStatus(siteRequest_, SimulationReport.staticSetReportStatus(siteRequest_, o)));
+		return SimulationReport.staticSearchReportStatus(siteRequest_, SimulationReport.staticSetReportStatus(siteRequest_, o)).toString();
 	}
 
 	public String sqlReportStatus() {
@@ -4351,7 +4351,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqReportProgress(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReport.staticSearchStrReportProgress(siteRequest_, SimulationReport.staticSearchReportProgress(siteRequest_, SimulationReport.staticSetReportProgress(siteRequest_, o)));
+		return SimulationReport.staticSearchReportProgress(siteRequest_, SimulationReport.staticSetReportProgress(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlReportProgress() {

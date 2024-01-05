@@ -226,7 +226,7 @@ public abstract class SmartTrafficLightGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqListSmartTrafficLight(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLightGenPage.staticSearchStrListSmartTrafficLight(siteRequest_, SmartTrafficLightGenPage.staticSearchListSmartTrafficLight(siteRequest_, SmartTrafficLightGenPage.staticSetListSmartTrafficLight(siteRequest_, o)));
+		return SmartTrafficLightGenPage.staticSearchListSmartTrafficLight(siteRequest_, SmartTrafficLightGenPage.staticSetListSmartTrafficLight(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////
@@ -286,7 +286,7 @@ public abstract class SmartTrafficLightGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqSmartTrafficLightCount(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLightGenPage.staticSearchStrSmartTrafficLightCount(siteRequest_, SmartTrafficLightGenPage.staticSearchSmartTrafficLightCount(siteRequest_, SmartTrafficLightGenPage.staticSetSmartTrafficLightCount(siteRequest_, o)));
+		return SmartTrafficLightGenPage.staticSearchSmartTrafficLightCount(siteRequest_, SmartTrafficLightGenPage.staticSetSmartTrafficLightCount(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -387,7 +387,7 @@ public abstract class SmartTrafficLightGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPk(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLightGenPage.staticSearchStrPk(siteRequest_, SmartTrafficLightGenPage.staticSearchPk(siteRequest_, SmartTrafficLightGenPage.staticSetPk(siteRequest_, o)));
+		return SmartTrafficLightGenPage.staticSearchPk(siteRequest_, SmartTrafficLightGenPage.staticSetPk(siteRequest_, o)).toString();
 	}
 
 	////////
@@ -439,7 +439,7 @@ public abstract class SmartTrafficLightGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLightGenPage.staticSearchStrId(siteRequest_, SmartTrafficLightGenPage.staticSearchId(siteRequest_, SmartTrafficLightGenPage.staticSetId(siteRequest_, o)));
+		return SmartTrafficLightGenPage.staticSearchId(siteRequest_, SmartTrafficLightGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////
@@ -491,7 +491,7 @@ public abstract class SmartTrafficLightGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageUriSmartTrafficLight(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLightGenPage.staticSearchStrPageUriSmartTrafficLight(siteRequest_, SmartTrafficLightGenPage.staticSearchPageUriSmartTrafficLight(siteRequest_, SmartTrafficLightGenPage.staticSetPageUriSmartTrafficLight(siteRequest_, o)));
+		return SmartTrafficLightGenPage.staticSearchPageUriSmartTrafficLight(siteRequest_, SmartTrafficLightGenPage.staticSetPageUriSmartTrafficLight(siteRequest_, o)).toString();
 	}
 
 	//////////////

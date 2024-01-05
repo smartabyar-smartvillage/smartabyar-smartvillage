@@ -285,7 +285,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSimulationName(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrSimulationName(siteRequest_, VehicleStep.staticSearchSimulationName(siteRequest_, VehicleStep.staticSetSimulationName(siteRequest_, o)));
+		return VehicleStep.staticSearchSimulationName(siteRequest_, VehicleStep.staticSetSimulationName(siteRequest_, o)).toString();
 	}
 
 	public String sqlSimulationName() {
@@ -341,7 +341,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSumocfgPath(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrSumocfgPath(siteRequest_, VehicleStep.staticSearchSumocfgPath(siteRequest_, VehicleStep.staticSetSumocfgPath(siteRequest_, o)));
+		return VehicleStep.staticSearchSumocfgPath(siteRequest_, VehicleStep.staticSetSumocfgPath(siteRequest_, o)).toString();
 	}
 
 	public String sqlSumocfgPath() {
@@ -397,7 +397,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqVehicleId(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrVehicleId(siteRequest_, VehicleStep.staticSearchVehicleId(siteRequest_, VehicleStep.staticSetVehicleId(siteRequest_, o)));
+		return VehicleStep.staticSearchVehicleId(siteRequest_, VehicleStep.staticSetVehicleId(siteRequest_, o)).toString();
 	}
 
 	public String sqlVehicleId() {
@@ -453,7 +453,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqVehicleType(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrVehicleType(siteRequest_, VehicleStep.staticSearchVehicleType(siteRequest_, VehicleStep.staticSetVehicleType(siteRequest_, o)));
+		return VehicleStep.staticSearchVehicleType(siteRequest_, VehicleStep.staticSetVehicleType(siteRequest_, o)).toString();
 	}
 
 	public String sqlVehicleType() {
@@ -530,7 +530,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqAngle(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrAngle(siteRequest_, VehicleStep.staticSearchAngle(siteRequest_, VehicleStep.staticSetAngle(siteRequest_, o)));
+		return VehicleStep.staticSearchAngle(siteRequest_, VehicleStep.staticSetAngle(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAngle() {
@@ -607,7 +607,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSpeed(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrSpeed(siteRequest_, VehicleStep.staticSearchSpeed(siteRequest_, VehicleStep.staticSetSpeed(siteRequest_, o)));
+		return VehicleStep.staticSearchSpeed(siteRequest_, VehicleStep.staticSetSpeed(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlSpeed() {
@@ -684,7 +684,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqPos(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrPos(siteRequest_, VehicleStep.staticSearchPos(siteRequest_, VehicleStep.staticSetPos(siteRequest_, o)));
+		return VehicleStep.staticSearchPos(siteRequest_, VehicleStep.staticSetPos(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlPos() {
@@ -761,7 +761,7 @@ public abstract class VehicleStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSlope(SiteRequestEnUS siteRequest_, String o) {
-		return VehicleStep.staticSearchStrSlope(siteRequest_, VehicleStep.staticSearchSlope(siteRequest_, VehicleStep.staticSetSlope(siteRequest_, o)));
+		return VehicleStep.staticSearchSlope(siteRequest_, VehicleStep.staticSetSlope(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlSlope() {

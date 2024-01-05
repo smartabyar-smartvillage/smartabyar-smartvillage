@@ -221,7 +221,7 @@ public abstract class IotNodeReaderGen<DEV> extends Object {
 	}
 
 	public static String staticSearchFqConfig(SiteRequestEnUS siteRequest_, String o) {
-		return IotNodeReader.staticSearchStrConfig(siteRequest_, IotNodeReader.staticSearchConfig(siteRequest_, IotNodeReader.staticSetConfig(siteRequest_, o)));
+		return IotNodeReader.staticSearchConfig(siteRequest_, IotNodeReader.staticSetConfig(siteRequest_, o)).toString();
 	}
 
 	///////////////

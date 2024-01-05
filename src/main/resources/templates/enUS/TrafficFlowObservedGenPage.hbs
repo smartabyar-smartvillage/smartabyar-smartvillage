@@ -64,7 +64,7 @@
 {{#block "jsLegend"}}{{/block}}
 			}
 
-			function htmLegendTrafficFlowObserved(map, shape, index, count) {
+			function htmLegendTrafficFlowObserved(map, shape, areaServed, index, count) {
 				var color = trafficFlowObserved.[index];
 				var title = trafficFlowObserved.[index];
 				var url = trafficFlowObserved.[index];
@@ -108,7 +108,7 @@
 						else
 							shapes.push(trafficFlowObserved.areaServed);
 						shapes.forEach(function(shape, index) {
-							htm += htmLegendTrafficFlowObserved(map, shape, index, shapes.length);
+							htm += htmLegendTrafficFlowObserved(map, shape, areaServed, index, shapes.length);
 						});
 					}
 				});
@@ -118,7 +118,7 @@
 {{#*inline "htmLegendTrafficFlowObservedPage"}}
 		<div>
 			<i class="fa-light fa-circle" style="color: ${color}; "></i>
-			<a href="${url}">${title}</i>
+			<span data-id="${areaServed.id}" onclick="window.geoJSONLayerGroupTrafficFlowObserved.getLayer(window.mapLayers[this.getAttribute('data-id')]).openPopup(); return false;" href="">${title}</span>
 		</div>
 {{/inline}}
 {{#*inline "jsStyleTrafficFlowObservedPage"}}

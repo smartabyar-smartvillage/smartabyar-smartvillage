@@ -60,6 +60,31 @@
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
 
+			function jsLegendTrafficLightStep(map) {
+{{#block "jsLegend"}}{{/block}}
+			}
+
+			function htmLegendTrafficLightStep(map, shape, location, index, count) {
+				var color = trafficLightStep.[index];
+				var title = trafficLightStep.[index];
+				var url = trafficLightStep.[index];
+				var htm = '';
+				if(index == 0) {
+					htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off ">
+	<div class="w3-larger font-weight-bold ">traffic light steps</div>
+	<div>
+`;
+				}
+				htm += `{{#block "htmLegend"}}{{/block}}`;
+				if(index == (count - 1)) {
+					htm += `
+	</div>
+</div>
+`;
+				}
+				return htm;
+			}
+
 			function jsStyleTrafficLightStep(feature) {
 {{#block "jsStyle"}}{{/block}}
 			}
@@ -72,6 +97,30 @@
 {{#*inline "jsWebsocketTrafficLightStepPage"}}{{/inline}}
 {{#*inline "jsTooltipTrafficLightStepPage"}}{{/inline}}
 {{#*inline "htmTooltipTrafficLightStepPage"}}{{/inline}}
+{{#*inline "jsLegendTrafficLightStepPage"}}
+				var div = L.DomUtil.create('div', 'info legend');
+				var htm = '';
+				$.each( window.listTrafficLightStep, function(index, trafficLightStep) {
+					if(trafficLightStep.location) {
+						var shapes = [];
+						if(Array.isArray(trafficLightStep.location))
+							shapes = shapes.concat(trafficLightStep.location);
+						else
+							shapes.push(trafficLightStep.location);
+						shapes.forEach(function(shape, index) {
+							htm += htmLegendTrafficLightStep(map, shape, location, index, shapes.length);
+						});
+					}
+				});
+				div.innerHTML = htm;
+				return div;
+{{/inline}}
+{{#*inline "htmLegendTrafficLightStepPage"}}
+		<div>
+			<i class="fa-light fa-circle" style="color: ${color}; "></i>
+			<span data-id="${location.id}" onclick="window.geoJSONLayerGroupTrafficLightStep.getLayer(window.mapLayers[this.getAttribute('data-id')]).openPopup(); return false;" href="">${title}</span>
+		</div>
+{{/inline}}
 {{#*inline "jsStyleTrafficLightStepPage"}}
 				if(feature.geometry.type == 'Point') {
 					return {
@@ -85,7 +134,7 @@
 				} else {
 					return {
 						 fillColor: '#ff7800'
-						, color: (feature.properties.areaServedColors ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, weight: 5
 						, opacity: 1
 						, fillOpacity: 0.8
@@ -313,7 +362,7 @@
 {{#*inline "htmBodyGraphTrafficLightStepPage"}}		<!-- #*inline "htmBodyGraphTrafficLightStepPage" -->
 <div id="htmBodyGraphMapResultPage" class="w3-content htmBodyGraph "></div>{{/inline}}
 {{#*inline "htmBodyGraphLocationTrafficLightStepPage"}}		<!-- #*inline "htmBodyGraphLocationTrafficLightStepPage" -->
-<div id="htmBodyGraphLocationMapResultPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
+<div id="htmBodyGraphLocationTrafficLightStepPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
 {{#*inline "htmBodyCount0TrafficLightStepPage"}}		<!-- #*inline "htmBodyCount0TrafficLightStepPage" -->
 		<h1>
 			<a href="{{pageUri}}" class="w3-bar-item w3-btn w3-center w3-block w3-2017-shaded-spruce w3-hover-2017-shaded-spruce">

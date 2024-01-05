@@ -225,7 +225,7 @@ public abstract class TrafficLightStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqListTrafficLightStep(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStepGenPage.staticSearchStrListTrafficLightStep(siteRequest_, TrafficLightStepGenPage.staticSearchListTrafficLightStep(siteRequest_, TrafficLightStepGenPage.staticSetListTrafficLightStep(siteRequest_, o)));
+		return TrafficLightStepGenPage.staticSearchListTrafficLightStep(siteRequest_, TrafficLightStepGenPage.staticSetListTrafficLightStep(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////
@@ -285,7 +285,7 @@ public abstract class TrafficLightStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqTrafficLightStepCount(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStepGenPage.staticSearchStrTrafficLightStepCount(siteRequest_, TrafficLightStepGenPage.staticSearchTrafficLightStepCount(siteRequest_, TrafficLightStepGenPage.staticSetTrafficLightStepCount(siteRequest_, o)));
+		return TrafficLightStepGenPage.staticSearchTrafficLightStepCount(siteRequest_, TrafficLightStepGenPage.staticSetTrafficLightStepCount(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -378,7 +378,7 @@ public abstract class TrafficLightStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStepGenPage.staticSearchStrId(siteRequest_, TrafficLightStepGenPage.staticSearchId(siteRequest_, TrafficLightStepGenPage.staticSetId(siteRequest_, o)));
+		return TrafficLightStepGenPage.staticSearchId(siteRequest_, TrafficLightStepGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////
@@ -430,7 +430,7 @@ public abstract class TrafficLightStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqPageUriTrafficLightStep(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStepGenPage.staticSearchStrPageUriTrafficLightStep(siteRequest_, TrafficLightStepGenPage.staticSearchPageUriTrafficLightStep(siteRequest_, TrafficLightStepGenPage.staticSetPageUriTrafficLightStep(siteRequest_, o)));
+		return TrafficLightStepGenPage.staticSearchPageUriTrafficLightStep(siteRequest_, TrafficLightStepGenPage.staticSetPageUriTrafficLightStep(siteRequest_, o)).toString();
 	}
 
 	//////////////

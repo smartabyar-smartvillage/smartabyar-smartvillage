@@ -305,7 +305,7 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqSimulationKey(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStep.staticSearchStrSimulationKey(siteRequest_, TimeStep.staticSearchSimulationKey(siteRequest_, TimeStep.staticSetSimulationKey(siteRequest_, o)));
+		return TimeStep.staticSearchSimulationKey(siteRequest_, TimeStep.staticSetSimulationKey(siteRequest_, o)).toString();
 	}
 
 	public Long sqlSimulationKey() {
@@ -361,7 +361,7 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqPath(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStep.staticSearchStrPath(siteRequest_, TimeStep.staticSearchPath(siteRequest_, TimeStep.staticSetPath(siteRequest_, o)));
+		return TimeStep.staticSearchPath(siteRequest_, TimeStep.staticSetPath(siteRequest_, o)).toString();
 	}
 
 	public String sqlPath() {
@@ -438,7 +438,7 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchFqTime(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStep.staticSearchStrTime(siteRequest_, TimeStep.staticSearchTime(siteRequest_, TimeStep.staticSetTime(siteRequest_, o)));
+		return TimeStep.staticSearchTime(siteRequest_, TimeStep.staticSetTime(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlTime() {
@@ -510,15 +510,15 @@ public abstract class TimeStepGen<DEV> extends BaseResult {
 	}
 
 	public static String staticSearchDateTime(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
-		return o == null ? null : Date.from(o.toInstant()).toString();
+		return o == null ? null : ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(o.toInstant().atOffset(ZoneOffset.UTC));
 	}
 
 	public static String staticSearchStrDateTime(SiteRequestEnUS siteRequest_, String o) {
-		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(ZonedDateTime.parse(o, ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER).toInstant().atOffset(ZoneOffset.UTC));
+		return TimeStep.staticSearchDateTime(siteRequest_, TimeStep.staticSetDateTime(siteRequest_, o));
 	}
 
 	public static String staticSearchFqDateTime(SiteRequestEnUS siteRequest_, String o) {
-		return TimeStep.staticSearchStrDateTime(siteRequest_, TimeStep.staticSearchDateTime(siteRequest_, TimeStep.staticSetDateTime(siteRequest_, o)));
+		return TimeStep.staticSearchDateTime(siteRequest_, TimeStep.staticSetDateTime(siteRequest_, o)).toString();
 	}
 
 	public OffsetDateTime sqlDateTime() {

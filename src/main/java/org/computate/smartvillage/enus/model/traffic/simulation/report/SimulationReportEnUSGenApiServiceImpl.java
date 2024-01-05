@@ -658,6 +658,22 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 
 			for(String entityVar : methodNames) {
 				switch(entityVar) {
+					case "setInheritPk":
+							o2.setInheritPk(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
+							num++;
+							bParams.add(o2.sqlInheritPk());
+						break;
+					case "setCreated":
+							o2.setCreated(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_created + "=$" + num);
+							num++;
+							bParams.add(o2.sqlCreated());
+						break;
 					case "setArchived":
 							o2.setArchived(jsonObject.getBoolean(entityVar));
 							if(bParams.size() > 0)
@@ -690,22 +706,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setInheritPk":
-							o2.setInheritPk(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
-							num++;
-							bParams.add(o2.sqlInheritPk());
-						break;
-					case "setCreated":
-							o2.setCreated(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_created + "=$" + num);
-							num++;
-							bParams.add(o2.sqlCreated());
-						break;
 					case "setReportName":
 							o2.setReportName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -713,14 +713,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							bSql.append(SimulationReport.VAR_reportName + "=$" + num);
 							num++;
 							bParams.add(o2.sqlReportName());
-						break;
-					case "setLocation":
-							o2.setLocation(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_location + "=$" + num);
-							num++;
-							bParams.add(o2.sqlLocation());
 						break;
 					case "setSimulationKey":
 						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
@@ -790,37 +782,45 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							}));
 						});
 						break;
-					case "setSimulationName":
-							o2.setSimulationName(jsonObject.getString(entityVar));
+					case "setLocation":
+							o2.setLocation(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+							bSql.append(SimulationReport.VAR_location + "=$" + num);
 							num++;
-							bParams.add(o2.sqlSimulationName());
+							bParams.add(o2.sqlLocation());
 						break;
-					case "setSmartTrafficLightId":
-							o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
+					case "setUpdatedPerformance":
+							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
+							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
 							num++;
-							bParams.add(o2.sqlSmartTrafficLightId());
+							bParams.add(o2.sqlUpdatedPerformance());
 						break;
-					case "setSmartTrafficLightName":
-							o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
+					case "setAverageQueueLength":
+							o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
+							bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
 							num++;
-							bParams.add(o2.sqlSmartTrafficLightName());
+							bParams.add(o2.sqlAverageQueueLength());
 						break;
-					case "setParamAvgVehiclePerMinFromWestToEast":
-							o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
+					case "setReportStatus":
+							o2.setReportStatus(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
+							bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
 							num++;
-							bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
+							bParams.add(o2.sqlReportStatus());
+						break;
+					case "setReportProgress":
+							o2.setReportProgress(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+							num++;
+							bParams.add(o2.sqlReportProgress());
 						break;
 					case "setParamAvgVehiclePerMinFromSouthToNorth":
 							o2.setParamAvgVehiclePerMinFromSouthToNorth(jsonObject.getString(entityVar));
@@ -990,37 +990,37 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUpdatedParameters());
 						break;
-					case "setUpdatedPerformance":
-							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+					case "setSimulationName":
+							o2.setSimulationName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
 							num++;
-							bParams.add(o2.sqlUpdatedPerformance());
+							bParams.add(o2.sqlSimulationName());
 						break;
-					case "setAverageQueueLength":
-							o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
+					case "setSmartTrafficLightId":
+							o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
+							bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
 							num++;
-							bParams.add(o2.sqlAverageQueueLength());
+							bParams.add(o2.sqlSmartTrafficLightId());
 						break;
-					case "setReportStatus":
-							o2.setReportStatus(jsonObject.getString(entityVar));
+					case "setSmartTrafficLightName":
+							o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
+							bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
 							num++;
-							bParams.add(o2.sqlReportStatus());
+							bParams.add(o2.sqlSmartTrafficLightName());
 						break;
-					case "setReportProgress":
-							o2.setReportProgress(jsonObject.getString(entityVar));
+					case "setParamAvgVehiclePerMinFromWestToEast":
+							o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+							bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
 							num++;
-							bParams.add(o2.sqlReportProgress());
+							bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
 						break;
 				}
 			}
@@ -1329,6 +1329,24 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 				Set<String> entityVars = jsonObject.fieldNames();
 				for(String entityVar : entityVars) {
 					switch(entityVar) {
+					case SimulationReport.VAR_inheritPk:
+						o2.setInheritPk(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
+						num++;
+						bParams.add(o2.sqlInheritPk());
+						break;
+					case SimulationReport.VAR_created:
+						o2.setCreated(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_created + "=$" + num);
+						num++;
+						bParams.add(o2.sqlCreated());
+						break;
 					case SimulationReport.VAR_archived:
 						o2.setArchived(jsonObject.getBoolean(entityVar));
 						if(bParams.size() > 0) {
@@ -1365,24 +1383,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case SimulationReport.VAR_inheritPk:
-						o2.setInheritPk(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
-						num++;
-						bParams.add(o2.sqlInheritPk());
-						break;
-					case SimulationReport.VAR_created:
-						o2.setCreated(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_created + "=$" + num);
-						num++;
-						bParams.add(o2.sqlCreated());
-						break;
 					case SimulationReport.VAR_reportName:
 						o2.setReportName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1391,15 +1391,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						bSql.append(SimulationReport.VAR_reportName + "=$" + num);
 						num++;
 						bParams.add(o2.sqlReportName());
-						break;
-					case SimulationReport.VAR_location:
-						o2.setLocation(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_location + "=$" + num);
-						num++;
-						bParams.add(o2.sqlLocation());
 						break;
 					case SimulationReport.VAR_simulationKey:
 						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
@@ -1439,41 +1430,50 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							}));
 						});
 						break;
-					case SimulationReport.VAR_simulationName:
-						o2.setSimulationName(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_location:
+						o2.setLocation(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+						bSql.append(SimulationReport.VAR_location + "=$" + num);
 						num++;
-						bParams.add(o2.sqlSimulationName());
+						bParams.add(o2.sqlLocation());
 						break;
-					case SimulationReport.VAR_smartTrafficLightId:
-						o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_updatedPerformance:
+						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
+						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
 						num++;
-						bParams.add(o2.sqlSmartTrafficLightId());
+						bParams.add(o2.sqlUpdatedPerformance());
 						break;
-					case SimulationReport.VAR_smartTrafficLightName:
-						o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_averageQueueLength:
+						o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
+						bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
 						num++;
-						bParams.add(o2.sqlSmartTrafficLightName());
+						bParams.add(o2.sqlAverageQueueLength());
 						break;
-					case SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast:
-						o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_reportStatus:
+						o2.setReportStatus(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
+						bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
 						num++;
-						bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
+						bParams.add(o2.sqlReportStatus());
+						break;
+					case SimulationReport.VAR_reportProgress:
+						o2.setReportProgress(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+						num++;
+						bParams.add(o2.sqlReportProgress());
 						break;
 					case SimulationReport.VAR_paramAvgVehiclePerMinFromSouthToNorth:
 						o2.setParamAvgVehiclePerMinFromSouthToNorth(jsonObject.getString(entityVar));
@@ -1664,41 +1664,41 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUpdatedParameters());
 						break;
-					case SimulationReport.VAR_updatedPerformance:
-						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+					case SimulationReport.VAR_simulationName:
+						o2.setSimulationName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
 						num++;
-						bParams.add(o2.sqlUpdatedPerformance());
+						bParams.add(o2.sqlSimulationName());
 						break;
-					case SimulationReport.VAR_averageQueueLength:
-						o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
+					case SimulationReport.VAR_smartTrafficLightId:
+						o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
+						bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
 						num++;
-						bParams.add(o2.sqlAverageQueueLength());
+						bParams.add(o2.sqlSmartTrafficLightId());
 						break;
-					case SimulationReport.VAR_reportStatus:
-						o2.setReportStatus(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_smartTrafficLightName:
+						o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
+						bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
 						num++;
-						bParams.add(o2.sqlReportStatus());
+						bParams.add(o2.sqlSmartTrafficLightName());
 						break;
-					case SimulationReport.VAR_reportProgress:
-						o2.setReportProgress(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast:
+						o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+						bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
 						num++;
-						bParams.add(o2.sqlReportProgress());
+						bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
 						break;
 					}
 				}
@@ -1926,7 +1926,7 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 								Object bodyVal = body.getValue(f);
 								if(bodyVal instanceof JsonArray) {
 									JsonArray bodyVals = (JsonArray)bodyVal;
-									Collection<?> vals = (Collection<?>)o.obtainForClass(f);
+									Collection<?> vals = bodyVals.getList();
 									if(bodyVals.size() == vals.size()) {
 										Boolean match = true;
 										for(Object val : vals) {
@@ -2277,6 +2277,24 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 				for(Integer i = 0; i < entityVars.size(); i++) {
 					String entityVar = entityVars.getString(i);
 					switch(entityVar) {
+					case SimulationReport.VAR_inheritPk:
+						o2.setInheritPk(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
+						num++;
+						bParams.add(o2.sqlInheritPk());
+						break;
+					case SimulationReport.VAR_created:
+						o2.setCreated(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_created + "=$" + num);
+						num++;
+						bParams.add(o2.sqlCreated());
+						break;
 					case SimulationReport.VAR_archived:
 						o2.setArchived(jsonObject.getBoolean(entityVar));
 						if(bParams.size() > 0) {
@@ -2313,24 +2331,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case SimulationReport.VAR_inheritPk:
-						o2.setInheritPk(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
-						num++;
-						bParams.add(o2.sqlInheritPk());
-						break;
-					case SimulationReport.VAR_created:
-						o2.setCreated(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_created + "=$" + num);
-						num++;
-						bParams.add(o2.sqlCreated());
-						break;
 					case SimulationReport.VAR_reportName:
 						o2.setReportName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -2339,15 +2339,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						bSql.append(SimulationReport.VAR_reportName + "=$" + num);
 						num++;
 						bParams.add(o2.sqlReportName());
-						break;
-					case SimulationReport.VAR_location:
-						o2.setLocation(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_location + "=$" + num);
-						num++;
-						bParams.add(o2.sqlLocation());
 						break;
 					case SimulationReport.VAR_simulationKey:
 						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
@@ -2387,41 +2378,50 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							}));
 						});
 						break;
-					case SimulationReport.VAR_simulationName:
-						o2.setSimulationName(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_location:
+						o2.setLocation(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+						bSql.append(SimulationReport.VAR_location + "=$" + num);
 						num++;
-						bParams.add(o2.sqlSimulationName());
+						bParams.add(o2.sqlLocation());
 						break;
-					case SimulationReport.VAR_smartTrafficLightId:
-						o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_updatedPerformance:
+						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
+						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
 						num++;
-						bParams.add(o2.sqlSmartTrafficLightId());
+						bParams.add(o2.sqlUpdatedPerformance());
 						break;
-					case SimulationReport.VAR_smartTrafficLightName:
-						o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_averageQueueLength:
+						o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
+						bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
 						num++;
-						bParams.add(o2.sqlSmartTrafficLightName());
+						bParams.add(o2.sqlAverageQueueLength());
 						break;
-					case SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast:
-						o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_reportStatus:
+						o2.setReportStatus(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
+						bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
 						num++;
-						bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
+						bParams.add(o2.sqlReportStatus());
+						break;
+					case SimulationReport.VAR_reportProgress:
+						o2.setReportProgress(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+						num++;
+						bParams.add(o2.sqlReportProgress());
 						break;
 					case SimulationReport.VAR_paramAvgVehiclePerMinFromSouthToNorth:
 						o2.setParamAvgVehiclePerMinFromSouthToNorth(jsonObject.getString(entityVar));
@@ -2612,41 +2612,41 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUpdatedParameters());
 						break;
-					case SimulationReport.VAR_updatedPerformance:
-						o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+					case SimulationReport.VAR_simulationName:
+						o2.setSimulationName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
 						num++;
-						bParams.add(o2.sqlUpdatedPerformance());
+						bParams.add(o2.sqlSimulationName());
 						break;
-					case SimulationReport.VAR_averageQueueLength:
-						o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
+					case SimulationReport.VAR_smartTrafficLightId:
+						o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
+						bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
 						num++;
-						bParams.add(o2.sqlAverageQueueLength());
+						bParams.add(o2.sqlSmartTrafficLightId());
 						break;
-					case SimulationReport.VAR_reportStatus:
-						o2.setReportStatus(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_smartTrafficLightName:
+						o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
+						bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
 						num++;
-						bParams.add(o2.sqlReportStatus());
+						bParams.add(o2.sqlSmartTrafficLightName());
 						break;
-					case SimulationReport.VAR_reportProgress:
-						o2.setReportProgress(jsonObject.getString(entityVar));
+					case SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast:
+						o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+						bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
 						num++;
-						bParams.add(o2.sqlReportProgress());
+						bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
 						break;
 					}
 				}
@@ -2982,6 +2982,22 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 
 			for(String entityVar : methodNames) {
 				switch(entityVar) {
+					case "setInheritPk":
+							o2.setInheritPk(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
+							num++;
+							bParams.add(o2.sqlInheritPk());
+						break;
+					case "setCreated":
+							o2.setCreated(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_created + "=$" + num);
+							num++;
+							bParams.add(o2.sqlCreated());
+						break;
 					case "setArchived":
 							o2.setArchived(jsonObject.getBoolean(entityVar));
 							if(bParams.size() > 0)
@@ -3014,22 +3030,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setInheritPk":
-							o2.setInheritPk(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_inheritPk + "=$" + num);
-							num++;
-							bParams.add(o2.sqlInheritPk());
-						break;
-					case "setCreated":
-							o2.setCreated(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_created + "=$" + num);
-							num++;
-							bParams.add(o2.sqlCreated());
-						break;
 					case "setReportName":
 							o2.setReportName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -3037,14 +3037,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							bSql.append(SimulationReport.VAR_reportName + "=$" + num);
 							num++;
 							bParams.add(o2.sqlReportName());
-						break;
-					case "setLocation":
-							o2.setLocation(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_location + "=$" + num);
-							num++;
-							bParams.add(o2.sqlLocation());
 						break;
 					case "setSimulationKey":
 						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
@@ -3114,37 +3106,45 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							}));
 						});
 						break;
-					case "setSimulationName":
-							o2.setSimulationName(jsonObject.getString(entityVar));
+					case "setLocation":
+							o2.setLocation(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+							bSql.append(SimulationReport.VAR_location + "=$" + num);
 							num++;
-							bParams.add(o2.sqlSimulationName());
+							bParams.add(o2.sqlLocation());
 						break;
-					case "setSmartTrafficLightId":
-							o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
+					case "setUpdatedPerformance":
+							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
+							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
 							num++;
-							bParams.add(o2.sqlSmartTrafficLightId());
+							bParams.add(o2.sqlUpdatedPerformance());
 						break;
-					case "setSmartTrafficLightName":
-							o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
+					case "setAverageQueueLength":
+							o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
+							bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
 							num++;
-							bParams.add(o2.sqlSmartTrafficLightName());
+							bParams.add(o2.sqlAverageQueueLength());
 						break;
-					case "setParamAvgVehiclePerMinFromWestToEast":
-							o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
+					case "setReportStatus":
+							o2.setReportStatus(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
+							bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
 							num++;
-							bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
+							bParams.add(o2.sqlReportStatus());
+						break;
+					case "setReportProgress":
+							o2.setReportProgress(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+							num++;
+							bParams.add(o2.sqlReportProgress());
 						break;
 					case "setParamAvgVehiclePerMinFromSouthToNorth":
 							o2.setParamAvgVehiclePerMinFromSouthToNorth(jsonObject.getString(entityVar));
@@ -3314,37 +3314,37 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUpdatedParameters());
 						break;
-					case "setUpdatedPerformance":
-							o2.setUpdatedPerformance(jsonObject.getJsonArray(entityVar));
+					case "setSimulationName":
+							o2.setSimulationName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_updatedPerformance + "=$" + num);
+							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
 							num++;
-							bParams.add(o2.sqlUpdatedPerformance());
+							bParams.add(o2.sqlSimulationName());
 						break;
-					case "setAverageQueueLength":
-							o2.setAverageQueueLength(jsonObject.getJsonArray(entityVar));
+					case "setSmartTrafficLightId":
+							o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_averageQueueLength + "=$" + num);
+							bSql.append(SimulationReport.VAR_smartTrafficLightId + "=$" + num);
 							num++;
-							bParams.add(o2.sqlAverageQueueLength());
+							bParams.add(o2.sqlSmartTrafficLightId());
 						break;
-					case "setReportStatus":
-							o2.setReportStatus(jsonObject.getString(entityVar));
+					case "setSmartTrafficLightName":
+							o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_reportStatus + "=$" + num);
+							bSql.append(SimulationReport.VAR_smartTrafficLightName + "=$" + num);
 							num++;
-							bParams.add(o2.sqlReportStatus());
+							bParams.add(o2.sqlSmartTrafficLightName());
 						break;
-					case "setReportProgress":
-							o2.setReportProgress(jsonObject.getString(entityVar));
+					case "setParamAvgVehiclePerMinFromWestToEast":
+							o2.setParamAvgVehiclePerMinFromWestToEast(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
+							bSql.append(SimulationReport.VAR_paramAvgVehiclePerMinFromWestToEast + "=$" + num);
 							num++;
-							bParams.add(o2.sqlReportProgress());
+							bParams.add(o2.sqlParamAvgVehiclePerMinFromWestToEast());
 						break;
 				}
 			}

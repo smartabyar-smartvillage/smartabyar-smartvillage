@@ -285,7 +285,7 @@ public abstract class TrafficLightGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSimulationName(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLight.staticSearchStrSimulationName(siteRequest_, TrafficLight.staticSearchSimulationName(siteRequest_, TrafficLight.staticSetSimulationName(siteRequest_, o)));
+		return TrafficLight.staticSearchSimulationName(siteRequest_, TrafficLight.staticSetSimulationName(siteRequest_, o)).toString();
 	}
 
 	public String sqlSimulationName() {
@@ -341,7 +341,7 @@ public abstract class TrafficLightGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSumocfgPath(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLight.staticSearchStrSumocfgPath(siteRequest_, TrafficLight.staticSearchSumocfgPath(siteRequest_, TrafficLight.staticSetSumocfgPath(siteRequest_, o)));
+		return TrafficLight.staticSearchSumocfgPath(siteRequest_, TrafficLight.staticSetSumocfgPath(siteRequest_, o)).toString();
 	}
 
 	public String sqlSumocfgPath() {
@@ -397,7 +397,7 @@ public abstract class TrafficLightGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLight.staticSearchStrTrafficLightId(siteRequest_, TrafficLight.staticSearchTrafficLightId(siteRequest_, TrafficLight.staticSetTrafficLightId(siteRequest_, o)));
+		return TrafficLight.staticSearchTrafficLightId(siteRequest_, TrafficLight.staticSetTrafficLightId(siteRequest_, o)).toString();
 	}
 
 	public String sqlTrafficLightId() {
@@ -453,7 +453,7 @@ public abstract class TrafficLightGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqTrafficLightType(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLight.staticSearchStrTrafficLightType(siteRequest_, TrafficLight.staticSearchTrafficLightType(siteRequest_, TrafficLight.staticSetTrafficLightType(siteRequest_, o)));
+		return TrafficLight.staticSearchTrafficLightType(siteRequest_, TrafficLight.staticSetTrafficLightType(siteRequest_, o)).toString();
 	}
 
 	public String sqlTrafficLightType() {
@@ -530,7 +530,7 @@ public abstract class TrafficLightGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqAngle(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLight.staticSearchStrAngle(siteRequest_, TrafficLight.staticSearchAngle(siteRequest_, TrafficLight.staticSetAngle(siteRequest_, o)));
+		return TrafficLight.staticSearchAngle(siteRequest_, TrafficLight.staticSetAngle(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAngle() {
@@ -586,7 +586,7 @@ public abstract class TrafficLightGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqColor(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLight.staticSearchStrColor(siteRequest_, TrafficLight.staticSearchColor(siteRequest_, TrafficLight.staticSetColor(siteRequest_, o)));
+		return TrafficLight.staticSearchColor(siteRequest_, TrafficLight.staticSetColor(siteRequest_, o)).toString();
 	}
 
 	public String sqlColor() {

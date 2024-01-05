@@ -225,7 +225,7 @@ public abstract class TrafficLightGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqListTrafficLight(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightGenPage.staticSearchStrListTrafficLight(siteRequest_, TrafficLightGenPage.staticSearchListTrafficLight(siteRequest_, TrafficLightGenPage.staticSetListTrafficLight(siteRequest_, o)));
+		return TrafficLightGenPage.staticSearchListTrafficLight(siteRequest_, TrafficLightGenPage.staticSetListTrafficLight(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -285,7 +285,7 @@ public abstract class TrafficLightGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqTrafficLightCount(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightGenPage.staticSearchStrTrafficLightCount(siteRequest_, TrafficLightGenPage.staticSearchTrafficLightCount(siteRequest_, TrafficLightGenPage.staticSetTrafficLightCount(siteRequest_, o)));
+		return TrafficLightGenPage.staticSearchTrafficLightCount(siteRequest_, TrafficLightGenPage.staticSetTrafficLightCount(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -378,7 +378,7 @@ public abstract class TrafficLightGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightGenPage.staticSearchStrId(siteRequest_, TrafficLightGenPage.staticSearchId(siteRequest_, TrafficLightGenPage.staticSetId(siteRequest_, o)));
+		return TrafficLightGenPage.staticSearchId(siteRequest_, TrafficLightGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////
@@ -430,7 +430,7 @@ public abstract class TrafficLightGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqPageUriTrafficLight(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightGenPage.staticSearchStrPageUriTrafficLight(siteRequest_, TrafficLightGenPage.staticSearchPageUriTrafficLight(siteRequest_, TrafficLightGenPage.staticSetPageUriTrafficLight(siteRequest_, o)));
+		return TrafficLightGenPage.staticSearchPageUriTrafficLight(siteRequest_, TrafficLightGenPage.staticSetPageUriTrafficLight(siteRequest_, o)).toString();
 	}
 
 	//////////////

@@ -225,7 +225,7 @@ public abstract class PersonStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqListPersonStep(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStepGenPage.staticSearchStrListPersonStep(siteRequest_, PersonStepGenPage.staticSearchListPersonStep(siteRequest_, PersonStepGenPage.staticSetListPersonStep(siteRequest_, o)));
+		return PersonStepGenPage.staticSearchListPersonStep(siteRequest_, PersonStepGenPage.staticSetListPersonStep(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -285,7 +285,7 @@ public abstract class PersonStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqPersonStepCount(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStepGenPage.staticSearchStrPersonStepCount(siteRequest_, PersonStepGenPage.staticSearchPersonStepCount(siteRequest_, PersonStepGenPage.staticSetPersonStepCount(siteRequest_, o)));
+		return PersonStepGenPage.staticSearchPersonStepCount(siteRequest_, PersonStepGenPage.staticSetPersonStepCount(siteRequest_, o)).toString();
 	}
 
 	/////////////////
@@ -378,7 +378,7 @@ public abstract class PersonStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStepGenPage.staticSearchStrId(siteRequest_, PersonStepGenPage.staticSearchId(siteRequest_, PersonStepGenPage.staticSetId(siteRequest_, o)));
+		return PersonStepGenPage.staticSearchId(siteRequest_, PersonStepGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -430,7 +430,7 @@ public abstract class PersonStepGenPageGen<DEV> extends MapResultPage {
 	}
 
 	public static String staticSearchFqPageUriPersonStep(SiteRequestEnUS siteRequest_, String o) {
-		return PersonStepGenPage.staticSearchStrPageUriPersonStep(siteRequest_, PersonStepGenPage.staticSearchPageUriPersonStep(siteRequest_, PersonStepGenPage.staticSetPageUriPersonStep(siteRequest_, o)));
+		return PersonStepGenPage.staticSearchPageUriPersonStep(siteRequest_, PersonStepGenPage.staticSetPageUriPersonStep(siteRequest_, o)).toString();
 	}
 
 	//////////////

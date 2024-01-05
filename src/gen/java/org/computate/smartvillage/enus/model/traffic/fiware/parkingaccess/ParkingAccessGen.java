@@ -314,7 +314,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAddress(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrAddress(siteRequest_, ParkingAccess.staticSearchAddress(siteRequest_, ParkingAccess.staticSetAddress(siteRequest_, o)));
+		return ParkingAccess.staticSearchAddress(siteRequest_, ParkingAccess.staticSetAddress(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlAddress() {
@@ -370,7 +370,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAlternateName(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrAlternateName(siteRequest_, ParkingAccess.staticSearchAlternateName(siteRequest_, ParkingAccess.staticSetAlternateName(siteRequest_, o)));
+		return ParkingAccess.staticSearchAlternateName(siteRequest_, ParkingAccess.staticSetAlternateName(siteRequest_, o)).toString();
 	}
 
 	public String sqlAlternateName() {
@@ -477,7 +477,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAreaServed(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrAreaServed(siteRequest_, ParkingAccess.staticSearchAreaServed(siteRequest_, ParkingAccess.staticSetAreaServed(siteRequest_, o)));
+		return ParkingAccess.staticSearchAreaServed(siteRequest_, ParkingAccess.staticSetAreaServed(siteRequest_, o)).toString();
 	}
 
 	public Polygon sqlAreaServed() {
@@ -541,7 +541,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqCategory(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrCategory(siteRequest_, ParkingAccess.staticSearchCategory(siteRequest_, ParkingAccess.staticSetCategory(siteRequest_, o)));
+		return ParkingAccess.staticSearchCategory(siteRequest_, ParkingAccess.staticSetCategory(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlCategory() {
@@ -597,7 +597,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDataProvider(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrDataProvider(siteRequest_, ParkingAccess.staticSearchDataProvider(siteRequest_, ParkingAccess.staticSetDataProvider(siteRequest_, o)));
+		return ParkingAccess.staticSearchDataProvider(siteRequest_, ParkingAccess.staticSetDataProvider(siteRequest_, o)).toString();
 	}
 
 	public String sqlDataProvider() {
@@ -653,7 +653,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateCreated(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrDateCreated(siteRequest_, ParkingAccess.staticSearchDateCreated(siteRequest_, ParkingAccess.staticSetDateCreated(siteRequest_, o)));
+		return ParkingAccess.staticSearchDateCreated(siteRequest_, ParkingAccess.staticSetDateCreated(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateCreated() {
@@ -709,7 +709,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDateModified(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrDateModified(siteRequest_, ParkingAccess.staticSearchDateModified(siteRequest_, ParkingAccess.staticSetDateModified(siteRequest_, o)));
+		return ParkingAccess.staticSearchDateModified(siteRequest_, ParkingAccess.staticSetDateModified(siteRequest_, o)).toString();
 	}
 
 	public String sqlDateModified() {
@@ -765,7 +765,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqDescription(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrDescription(siteRequest_, ParkingAccess.staticSearchDescription(siteRequest_, ParkingAccess.staticSetDescription(siteRequest_, o)));
+		return ParkingAccess.staticSearchDescription(siteRequest_, ParkingAccess.staticSetDescription(siteRequest_, o)).toString();
 	}
 
 	public String sqlDescription() {
@@ -829,7 +829,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqFeatures(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrFeatures(siteRequest_, ParkingAccess.staticSearchFeatures(siteRequest_, ParkingAccess.staticSetFeatures(siteRequest_, o)));
+		return ParkingAccess.staticSearchFeatures(siteRequest_, ParkingAccess.staticSetFeatures(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlFeatures() {
@@ -906,7 +906,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqHeight(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrHeight(siteRequest_, ParkingAccess.staticSearchHeight(siteRequest_, ParkingAccess.staticSetHeight(siteRequest_, o)));
+		return ParkingAccess.staticSearchHeight(siteRequest_, ParkingAccess.staticSetHeight(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlHeight() {
@@ -1011,7 +1011,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLocation(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrLocation(siteRequest_, ParkingAccess.staticSearchLocation(siteRequest_, ParkingAccess.staticSetLocation(siteRequest_, o)));
+		return ParkingAccess.staticSearchLocation(siteRequest_, ParkingAccess.staticSetLocation(siteRequest_, o)).toString();
 	}
 
 	public Path sqlLocation() {
@@ -1067,7 +1067,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqName(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrName(siteRequest_, ParkingAccess.staticSearchName(siteRequest_, ParkingAccess.staticSetName(siteRequest_, o)));
+		return ParkingAccess.staticSearchName(siteRequest_, ParkingAccess.staticSetName(siteRequest_, o)).toString();
 	}
 
 	public String sqlName() {
@@ -1131,7 +1131,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqOwner(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrOwner(siteRequest_, ParkingAccess.staticSearchOwner(siteRequest_, ParkingAccess.staticSetOwner(siteRequest_, o)));
+		return ParkingAccess.staticSearchOwner(siteRequest_, ParkingAccess.staticSetOwner(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlOwner() {
@@ -1195,7 +1195,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqRefOffStreetParking(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrRefOffStreetParking(siteRequest_, ParkingAccess.staticSearchRefOffStreetParking(siteRequest_, ParkingAccess.staticSetRefOffStreetParking(siteRequest_, o)));
+		return ParkingAccess.staticSearchRefOffStreetParking(siteRequest_, ParkingAccess.staticSetRefOffStreetParking(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlRefOffStreetParking() {
@@ -1259,7 +1259,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSeeAlso(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrSeeAlso(siteRequest_, ParkingAccess.staticSearchSeeAlso(siteRequest_, ParkingAccess.staticSetSeeAlso(siteRequest_, o)));
+		return ParkingAccess.staticSearchSeeAlso(siteRequest_, ParkingAccess.staticSetSeeAlso(siteRequest_, o)).toString();
 	}
 
 	public JsonObject sqlSeeAlso() {
@@ -1336,7 +1336,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSlope(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrSlope(siteRequest_, ParkingAccess.staticSearchSlope(siteRequest_, ParkingAccess.staticSetSlope(siteRequest_, o)));
+		return ParkingAccess.staticSearchSlope(siteRequest_, ParkingAccess.staticSetSlope(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlSlope() {
@@ -1392,7 +1392,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSource(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrSource(siteRequest_, ParkingAccess.staticSearchSource(siteRequest_, ParkingAccess.staticSetSource(siteRequest_, o)));
+		return ParkingAccess.staticSearchSource(siteRequest_, ParkingAccess.staticSetSource(siteRequest_, o)).toString();
 	}
 
 	public String sqlSource() {
@@ -1469,7 +1469,7 @@ public abstract class ParkingAccessGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqWidth(SiteRequestEnUS siteRequest_, String o) {
-		return ParkingAccess.staticSearchStrWidth(siteRequest_, ParkingAccess.staticSearchWidth(siteRequest_, ParkingAccess.staticSetWidth(siteRequest_, o)));
+		return ParkingAccess.staticSearchWidth(siteRequest_, ParkingAccess.staticSetWidth(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlWidth() {

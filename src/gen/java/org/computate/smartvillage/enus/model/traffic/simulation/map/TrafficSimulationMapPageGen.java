@@ -239,7 +239,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageResponse(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrPageResponse(siteRequest_, TrafficSimulationMapPage.staticSearchPageResponse(siteRequest_, TrafficSimulationMapPage.staticSetPageResponse(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchPageResponse(siteRequest_, TrafficSimulationMapPage.staticSetPageResponse(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -291,7 +291,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultZoneId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultZoneId(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultZoneId(siteRequest_, TrafficSimulationMapPage.staticSetDefaultZoneId(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultZoneId(siteRequest_, TrafficSimulationMapPage.staticSetDefaultZoneId(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -384,7 +384,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultLocaleId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultLocaleId(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultLocaleId(siteRequest_, TrafficSimulationMapPage.staticSetDefaultLocaleId(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultLocaleId(siteRequest_, TrafficSimulationMapPage.staticSetDefaultLocaleId(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -477,7 +477,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultRangeGap(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultRangeGap(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultRangeGap(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeGap(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultRangeGap(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeGap(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -545,15 +545,15 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchDefaultRangeEnd(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
-		return o == null ? null : Date.from(o.toInstant()).toString();
+		return o == null ? null : ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(o.toInstant().atOffset(ZoneOffset.UTC));
 	}
 
 	public static String staticSearchStrDefaultRangeEnd(SiteRequestEnUS siteRequest_, String o) {
-		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(ZonedDateTime.parse(o, ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER).toInstant().atOffset(ZoneOffset.UTC));
+		return TrafficSimulationMapPage.staticSearchDefaultRangeEnd(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeEnd(siteRequest_, o));
 	}
 
 	public static String staticSearchFqDefaultRangeEnd(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultRangeEnd(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultRangeEnd(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeEnd(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultRangeEnd(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeEnd(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -621,15 +621,15 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchDefaultRangeStart(SiteRequestEnUS siteRequest_, ZonedDateTime o) {
-		return o == null ? null : Date.from(o.toInstant()).toString();
+		return o == null ? null : ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(o.toInstant().atOffset(ZoneOffset.UTC));
 	}
 
 	public static String staticSearchStrDefaultRangeStart(SiteRequestEnUS siteRequest_, String o) {
-		return ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER.format(ZonedDateTime.parse(o, ComputateZonedDateTimeSerializer.UTC_DATE_TIME_FORMATTER).toInstant().atOffset(ZoneOffset.UTC));
+		return TrafficSimulationMapPage.staticSearchDefaultRangeStart(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeStart(siteRequest_, o));
 	}
 
 	public static String staticSearchFqDefaultRangeStart(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultRangeStart(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultRangeStart(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeStart(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultRangeStart(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeStart(siteRequest_, o)).toString();
 	}
 
 	/////////////////////
@@ -681,7 +681,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultRangeVar(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultRangeVar(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultRangeVar(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeVar(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultRangeVar(siteRequest_, TrafficSimulationMapPage.staticSetDefaultRangeVar(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -733,7 +733,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultFacetSort(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultFacetSort(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultFacetSort(siteRequest_, TrafficSimulationMapPage.staticSetDefaultFacetSort(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultFacetSort(siteRequest_, TrafficSimulationMapPage.staticSetDefaultFacetSort(siteRequest_, o)).toString();
 	}
 
 	///////////////////////
@@ -793,7 +793,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultFacetLimit(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultFacetLimit(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultFacetLimit(siteRequest_, TrafficSimulationMapPage.staticSetDefaultFacetLimit(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultFacetLimit(siteRequest_, TrafficSimulationMapPage.staticSetDefaultFacetLimit(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -853,7 +853,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultFacetMinCount(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultFacetMinCount(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultFacetMinCount(siteRequest_, TrafficSimulationMapPage.staticSetDefaultFacetMinCount(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultFacetMinCount(siteRequest_, TrafficSimulationMapPage.staticSetDefaultFacetMinCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -913,7 +913,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDefaultPivotMinCount(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDefaultPivotMinCount(siteRequest_, TrafficSimulationMapPage.staticSearchDefaultPivotMinCount(siteRequest_, TrafficSimulationMapPage.staticSetDefaultPivotMinCount(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDefaultPivotMinCount(siteRequest_, TrafficSimulationMapPage.staticSetDefaultPivotMinCount(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////
@@ -973,7 +973,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDEFAULT_MAP_LOCATION(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDEFAULT_MAP_LOCATION(siteRequest_, TrafficSimulationMapPage.staticSearchDEFAULT_MAP_LOCATION(siteRequest_, TrafficSimulationMapPage.staticSetDEFAULT_MAP_LOCATION(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDEFAULT_MAP_LOCATION(siteRequest_, TrafficSimulationMapPage.staticSetDEFAULT_MAP_LOCATION(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -1046,7 +1046,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqDEFAULT_MAP_ZOOM(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrDEFAULT_MAP_ZOOM(siteRequest_, TrafficSimulationMapPage.staticSearchDEFAULT_MAP_ZOOM(siteRequest_, TrafficSimulationMapPage.staticSetDEFAULT_MAP_ZOOM(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchDEFAULT_MAP_ZOOM(siteRequest_, TrafficSimulationMapPage.staticSetDEFAULT_MAP_ZOOM(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////
@@ -1100,7 +1100,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqListTrafficSimulation(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrListTrafficSimulation(siteRequest_, TrafficSimulationMapPage.staticSearchListTrafficSimulation(siteRequest_, TrafficSimulationMapPage.staticSetListTrafficSimulation(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchListTrafficSimulation(siteRequest_, TrafficSimulationMapPage.staticSetListTrafficSimulation(siteRequest_, o)).toString();
 	}
 
 	///////////
@@ -1242,7 +1242,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqTrafficSimulationCount(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrTrafficSimulationCount(siteRequest_, TrafficSimulationMapPage.staticSearchTrafficSimulationCount(siteRequest_, TrafficSimulationMapPage.staticSetTrafficSimulationCount(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchTrafficSimulationCount(siteRequest_, TrafficSimulationMapPage.staticSetTrafficSimulationCount(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -1343,7 +1343,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPk(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrPk(siteRequest_, TrafficSimulationMapPage.staticSearchPk(siteRequest_, TrafficSimulationMapPage.staticSetPk(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchPk(siteRequest_, TrafficSimulationMapPage.staticSetPk(siteRequest_, o)).toString();
 	}
 
 	////////
@@ -1395,7 +1395,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrId(siteRequest_, TrafficSimulationMapPage.staticSearchId(siteRequest_, TrafficSimulationMapPage.staticSetId(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchId(siteRequest_, TrafficSimulationMapPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////
@@ -1447,7 +1447,7 @@ public abstract class TrafficSimulationMapPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageUriTrafficSimulation(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficSimulationMapPage.staticSearchStrPageUriTrafficSimulation(siteRequest_, TrafficSimulationMapPage.staticSearchPageUriTrafficSimulation(siteRequest_, TrafficSimulationMapPage.staticSetPageUriTrafficSimulation(siteRequest_, o)));
+		return TrafficSimulationMapPage.staticSearchPageUriTrafficSimulation(siteRequest_, TrafficSimulationMapPage.staticSetPageUriTrafficSimulation(siteRequest_, o)).toString();
 	}
 
 	//////////////

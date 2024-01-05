@@ -226,7 +226,7 @@ public abstract class CrowdFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqListCrowdFlowObserved(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObservedGenPage.staticSearchStrListCrowdFlowObserved(siteRequest_, CrowdFlowObservedGenPage.staticSearchListCrowdFlowObserved(siteRequest_, CrowdFlowObservedGenPage.staticSetListCrowdFlowObserved(siteRequest_, o)));
+		return CrowdFlowObservedGenPage.staticSearchListCrowdFlowObserved(siteRequest_, CrowdFlowObservedGenPage.staticSetListCrowdFlowObserved(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////
@@ -286,7 +286,7 @@ public abstract class CrowdFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqCrowdFlowObservedCount(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObservedGenPage.staticSearchStrCrowdFlowObservedCount(siteRequest_, CrowdFlowObservedGenPage.staticSearchCrowdFlowObservedCount(siteRequest_, CrowdFlowObservedGenPage.staticSetCrowdFlowObservedCount(siteRequest_, o)));
+		return CrowdFlowObservedGenPage.staticSearchCrowdFlowObservedCount(siteRequest_, CrowdFlowObservedGenPage.staticSetCrowdFlowObservedCount(siteRequest_, o)).toString();
 	}
 
 	////////////////////////
@@ -387,7 +387,7 @@ public abstract class CrowdFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPk(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObservedGenPage.staticSearchStrPk(siteRequest_, CrowdFlowObservedGenPage.staticSearchPk(siteRequest_, CrowdFlowObservedGenPage.staticSetPk(siteRequest_, o)));
+		return CrowdFlowObservedGenPage.staticSearchPk(siteRequest_, CrowdFlowObservedGenPage.staticSetPk(siteRequest_, o)).toString();
 	}
 
 	////////
@@ -439,7 +439,7 @@ public abstract class CrowdFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqId(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObservedGenPage.staticSearchStrId(siteRequest_, CrowdFlowObservedGenPage.staticSearchId(siteRequest_, CrowdFlowObservedGenPage.staticSetId(siteRequest_, o)));
+		return CrowdFlowObservedGenPage.staticSearchId(siteRequest_, CrowdFlowObservedGenPage.staticSetId(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////
@@ -491,7 +491,7 @@ public abstract class CrowdFlowObservedGenPageGen<DEV> extends BaseModelPage {
 	}
 
 	public static String staticSearchFqPageUriCrowdFlowObserved(SiteRequestEnUS siteRequest_, String o) {
-		return CrowdFlowObservedGenPage.staticSearchStrPageUriCrowdFlowObserved(siteRequest_, CrowdFlowObservedGenPage.staticSearchPageUriCrowdFlowObserved(siteRequest_, CrowdFlowObservedGenPage.staticSetPageUriCrowdFlowObserved(siteRequest_, o)));
+		return CrowdFlowObservedGenPage.staticSearchPageUriCrowdFlowObserved(siteRequest_, CrowdFlowObservedGenPage.staticSetPageUriCrowdFlowObserved(siteRequest_, o)).toString();
 	}
 
 	//////////////

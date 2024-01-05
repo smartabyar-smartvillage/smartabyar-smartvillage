@@ -286,7 +286,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSimulationName(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrSimulationName(siteRequest_, TrafficLightStep.staticSearchSimulationName(siteRequest_, TrafficLightStep.staticSetSimulationName(siteRequest_, o)));
+		return TrafficLightStep.staticSearchSimulationName(siteRequest_, TrafficLightStep.staticSetSimulationName(siteRequest_, o)).toString();
 	}
 
 	public String sqlSimulationName() {
@@ -342,7 +342,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqSumocfgPath(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrSumocfgPath(siteRequest_, TrafficLightStep.staticSearchSumocfgPath(siteRequest_, TrafficLightStep.staticSetSumocfgPath(siteRequest_, o)));
+		return TrafficLightStep.staticSearchSumocfgPath(siteRequest_, TrafficLightStep.staticSetSumocfgPath(siteRequest_, o)).toString();
 	}
 
 	public String sqlSumocfgPath() {
@@ -398,7 +398,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqTrafficLightId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrTrafficLightId(siteRequest_, TrafficLightStep.staticSearchTrafficLightId(siteRequest_, TrafficLightStep.staticSetTrafficLightId(siteRequest_, o)));
+		return TrafficLightStep.staticSearchTrafficLightId(siteRequest_, TrafficLightStep.staticSetTrafficLightId(siteRequest_, o)).toString();
 	}
 
 	public String sqlTrafficLightId() {
@@ -454,7 +454,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqTrafficLightType(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrTrafficLightType(siteRequest_, TrafficLightStep.staticSearchTrafficLightType(siteRequest_, TrafficLightStep.staticSetTrafficLightType(siteRequest_, o)));
+		return TrafficLightStep.staticSearchTrafficLightType(siteRequest_, TrafficLightStep.staticSetTrafficLightType(siteRequest_, o)).toString();
 	}
 
 	public String sqlTrafficLightType() {
@@ -531,7 +531,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqAngle(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrAngle(siteRequest_, TrafficLightStep.staticSearchAngle(siteRequest_, TrafficLightStep.staticSetAngle(siteRequest_, o)));
+		return TrafficLightStep.staticSearchAngle(siteRequest_, TrafficLightStep.staticSetAngle(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlAngle() {
@@ -587,7 +587,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqState(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrState(siteRequest_, TrafficLightStep.staticSearchState(siteRequest_, TrafficLightStep.staticSetState(siteRequest_, o)));
+		return TrafficLightStep.staticSearchState(siteRequest_, TrafficLightStep.staticSetState(siteRequest_, o)).toString();
 	}
 
 	public String sqlState() {
@@ -651,7 +651,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqProgramId(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrProgramId(siteRequest_, TrafficLightStep.staticSearchProgramId(siteRequest_, TrafficLightStep.staticSetProgramId(siteRequest_, o)));
+		return TrafficLightStep.staticSearchProgramId(siteRequest_, TrafficLightStep.staticSetProgramId(siteRequest_, o)).toString();
 	}
 
 	public Long sqlProgramId() {
@@ -715,7 +715,7 @@ public abstract class TrafficLightStepGen<DEV> extends MapResult {
 	}
 
 	public static String staticSearchFqPhase(SiteRequestEnUS siteRequest_, String o) {
-		return TrafficLightStep.staticSearchStrPhase(siteRequest_, TrafficLightStep.staticSearchPhase(siteRequest_, TrafficLightStep.staticSetPhase(siteRequest_, o)));
+		return TrafficLightStep.staticSearchPhase(siteRequest_, TrafficLightStep.staticSetPhase(siteRequest_, o)).toString();
 	}
 
 	public Long sqlPhase() {

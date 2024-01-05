@@ -296,7 +296,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqEntityId(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrEntityId(siteRequest_, SmartTrafficLight.staticSearchEntityId(siteRequest_, SmartTrafficLight.staticSetEntityId(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchEntityId(siteRequest_, SmartTrafficLight.staticSetEntityId(siteRequest_, o)).toString();
 	}
 
 	public String sqlEntityId() {
@@ -352,7 +352,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqEntityShortId(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrEntityShortId(siteRequest_, SmartTrafficLight.staticSearchEntityShortId(siteRequest_, SmartTrafficLight.staticSetEntityShortId(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchEntityShortId(siteRequest_, SmartTrafficLight.staticSetEntityShortId(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////
@@ -404,7 +404,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqSmartTrafficLightName(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrSmartTrafficLightName(siteRequest_, SmartTrafficLight.staticSearchSmartTrafficLightName(siteRequest_, SmartTrafficLight.staticSetSmartTrafficLightName(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchSmartTrafficLightName(siteRequest_, SmartTrafficLight.staticSetSmartTrafficLightName(siteRequest_, o)).toString();
 	}
 
 	public String sqlSmartTrafficLightName() {
@@ -476,7 +476,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqLocation(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrLocation(siteRequest_, SmartTrafficLight.staticSearchLocation(siteRequest_, SmartTrafficLight.staticSetLocation(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchLocation(siteRequest_, SmartTrafficLight.staticSetLocation(siteRequest_, o)).toString();
 	}
 
 	public Point sqlLocation() {
@@ -605,7 +605,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrAreaServedColors(siteRequest_, SmartTrafficLight.staticSearchAreaServedColors(siteRequest_, SmartTrafficLight.staticSetAreaServedColors(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchAreaServedColors(siteRequest_, SmartTrafficLight.staticSetAreaServedColors(siteRequest_, o)).toString();
 	}
 
 	////////////////
@@ -659,7 +659,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAreaServed(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrAreaServed(siteRequest_, SmartTrafficLight.staticSearchAreaServed(siteRequest_, SmartTrafficLight.staticSetAreaServed(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchAreaServed(siteRequest_, SmartTrafficLight.staticSetAreaServed(siteRequest_, o)).toString();
 	}
 
 	public JsonArray sqlAreaServed() {
@@ -737,7 +737,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqRouteIds(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrRouteIds(siteRequest_, SmartTrafficLight.staticSearchRouteIds(siteRequest_, SmartTrafficLight.staticSetRouteIds(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchRouteIds(siteRequest_, SmartTrafficLight.staticSetRouteIds(siteRequest_, o)).toString();
 	}
 
 	public String[] sqlRouteIds() {
@@ -793,7 +793,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqRouteIdNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrRouteIdNorth(siteRequest_, SmartTrafficLight.staticSearchRouteIdNorth(siteRequest_, SmartTrafficLight.staticSetRouteIdNorth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchRouteIdNorth(siteRequest_, SmartTrafficLight.staticSetRouteIdNorth(siteRequest_, o)).toString();
 	}
 
 	public String sqlRouteIdNorth() {
@@ -849,7 +849,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqRouteIdEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrRouteIdEast(siteRequest_, SmartTrafficLight.staticSearchRouteIdEast(siteRequest_, SmartTrafficLight.staticSetRouteIdEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchRouteIdEast(siteRequest_, SmartTrafficLight.staticSetRouteIdEast(siteRequest_, o)).toString();
 	}
 
 	public String sqlRouteIdEast() {
@@ -927,7 +927,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqTrafficFlowObservedIds(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrTrafficFlowObservedIds(siteRequest_, SmartTrafficLight.staticSearchTrafficFlowObservedIds(siteRequest_, SmartTrafficLight.staticSetTrafficFlowObservedIds(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchTrafficFlowObservedIds(siteRequest_, SmartTrafficLight.staticSetTrafficFlowObservedIds(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////////
@@ -1179,7 +1179,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgVehiclePerMinFromWestToEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamAvgVehiclePerMinFromWestToEast(siteRequest_, SmartTrafficLight.staticSearchParamAvgVehiclePerMinFromWestToEast(siteRequest_, SmartTrafficLight.staticSetParamAvgVehiclePerMinFromWestToEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamAvgVehiclePerMinFromWestToEast(siteRequest_, SmartTrafficLight.staticSetParamAvgVehiclePerMinFromWestToEast(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////////////////////
@@ -1252,7 +1252,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgVehiclePerMinFromSouthToNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, SmartTrafficLight.staticSearchParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, SmartTrafficLight.staticSetParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, SmartTrafficLight.staticSetParamAvgVehiclePerMinFromSouthToNorth(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////////////
@@ -1322,7 +1322,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamVehicleDemandScalingFactor(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamVehicleDemandScalingFactor(siteRequest_, SmartTrafficLight.staticSearchParamVehicleDemandScalingFactor(siteRequest_, SmartTrafficLight.staticSetParamVehicleDemandScalingFactor(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamVehicleDemandScalingFactor(siteRequest_, SmartTrafficLight.staticSetParamVehicleDemandScalingFactor(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamVehicleDemandScalingFactor() {
@@ -1396,7 +1396,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgPedestrianPerMinFromWestToEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamAvgPedestrianPerMinFromWestToEast(siteRequest_, SmartTrafficLight.staticSearchParamAvgPedestrianPerMinFromWestToEast(siteRequest_, SmartTrafficLight.staticSetParamAvgPedestrianPerMinFromWestToEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamAvgPedestrianPerMinFromWestToEast(siteRequest_, SmartTrafficLight.staticSetParamAvgPedestrianPerMinFromWestToEast(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////////////////////
@@ -1466,7 +1466,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamAvgPedestrianPerMinFromSouthToNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, SmartTrafficLight.staticSearchParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, SmartTrafficLight.staticSetParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, SmartTrafficLight.staticSetParamAvgPedestrianPerMinFromSouthToNorth(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////////
@@ -1536,7 +1536,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianDemandScalingFactor(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamPedestrianDemandScalingFactor(siteRequest_, SmartTrafficLight.staticSearchParamPedestrianDemandScalingFactor(siteRequest_, SmartTrafficLight.staticSetParamPedestrianDemandScalingFactor(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamPedestrianDemandScalingFactor(siteRequest_, SmartTrafficLight.staticSetParamPedestrianDemandScalingFactor(siteRequest_, o)).toString();
 	}
 
 	//////////////////////
@@ -1633,7 +1633,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamDemandScale(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamDemandScale(siteRequest_, SmartTrafficLight.staticSearchParamDemandScale(siteRequest_, SmartTrafficLight.staticSetParamDemandScale(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamDemandScale(siteRequest_, SmartTrafficLight.staticSetParamDemandScale(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////////
@@ -1706,7 +1706,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMinGreenTimeSecWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamMinGreenTimeSecWestEast(siteRequest_, SmartTrafficLight.staticSearchParamMinGreenTimeSecWestEast(siteRequest_, SmartTrafficLight.staticSetParamMinGreenTimeSecWestEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamMinGreenTimeSecWestEast(siteRequest_, SmartTrafficLight.staticSetParamMinGreenTimeSecWestEast(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////////
@@ -1779,7 +1779,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMaxGreenTimeSecWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamMaxGreenTimeSecWestEast(siteRequest_, SmartTrafficLight.staticSearchParamMaxGreenTimeSecWestEast(siteRequest_, SmartTrafficLight.staticSetParamMaxGreenTimeSecWestEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamMaxGreenTimeSecWestEast(siteRequest_, SmartTrafficLight.staticSetParamMaxGreenTimeSecWestEast(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////
@@ -1852,7 +1852,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMinGreenTimeSecSouthNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamMinGreenTimeSecSouthNorth(siteRequest_, SmartTrafficLight.staticSearchParamMinGreenTimeSecSouthNorth(siteRequest_, SmartTrafficLight.staticSetParamMinGreenTimeSecSouthNorth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamMinGreenTimeSecSouthNorth(siteRequest_, SmartTrafficLight.staticSetParamMinGreenTimeSecSouthNorth(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////
@@ -1925,7 +1925,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamMaxGreenTimeSecSouthNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamMaxGreenTimeSecSouthNorth(siteRequest_, SmartTrafficLight.staticSearchParamMaxGreenTimeSecSouthNorth(siteRequest_, SmartTrafficLight.staticSetParamMaxGreenTimeSecSouthNorth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamMaxGreenTimeSecSouthNorth(siteRequest_, SmartTrafficLight.staticSetParamMaxGreenTimeSecSouthNorth(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////////////////////////
@@ -1995,7 +1995,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianWaitThresholdSecNorthSouth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, SmartTrafficLight.staticSearchParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, SmartTrafficLight.staticSetParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, SmartTrafficLight.staticSetParamPedestrianWaitThresholdSecNorthSouth(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////////////////////
@@ -2065,7 +2065,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianWaitThresholdSecWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamPedestrianWaitThresholdSecWestEast(siteRequest_, SmartTrafficLight.staticSearchParamPedestrianWaitThresholdSecWestEast(siteRequest_, SmartTrafficLight.staticSetParamPedestrianWaitThresholdSecWestEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamPedestrianWaitThresholdSecWestEast(siteRequest_, SmartTrafficLight.staticSetParamPedestrianWaitThresholdSecWestEast(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////////
@@ -2138,7 +2138,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamVehicleQueueThresholdWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamVehicleQueueThresholdWestEast(siteRequest_, SmartTrafficLight.staticSearchParamVehicleQueueThresholdWestEast(siteRequest_, SmartTrafficLight.staticSetParamVehicleQueueThresholdWestEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamVehicleQueueThresholdWestEast(siteRequest_, SmartTrafficLight.staticSetParamVehicleQueueThresholdWestEast(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////////////////
@@ -2211,7 +2211,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamVehicleQueueThresholdSouthNorth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamVehicleQueueThresholdSouthNorth(siteRequest_, SmartTrafficLight.staticSearchParamVehicleQueueThresholdSouthNorth(siteRequest_, SmartTrafficLight.staticSetParamVehicleQueueThresholdSouthNorth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamVehicleQueueThresholdSouthNorth(siteRequest_, SmartTrafficLight.staticSetParamVehicleQueueThresholdSouthNorth(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////////////////////
@@ -2281,7 +2281,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianQueueThresholdNorthSouth(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamPedestrianQueueThresholdNorthSouth(siteRequest_, SmartTrafficLight.staticSearchParamPedestrianQueueThresholdNorthSouth(siteRequest_, SmartTrafficLight.staticSetParamPedestrianQueueThresholdNorthSouth(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamPedestrianQueueThresholdNorthSouth(siteRequest_, SmartTrafficLight.staticSetParamPedestrianQueueThresholdNorthSouth(siteRequest_, o)).toString();
 	}
 
 	///////////////////////////////////////////
@@ -2351,7 +2351,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamPedestrianQueueThresholdWestEast(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamPedestrianQueueThresholdWestEast(siteRequest_, SmartTrafficLight.staticSearchParamPedestrianQueueThresholdWestEast(siteRequest_, SmartTrafficLight.staticSetParamPedestrianQueueThresholdWestEast(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamPedestrianQueueThresholdWestEast(siteRequest_, SmartTrafficLight.staticSetParamPedestrianQueueThresholdWestEast(siteRequest_, o)).toString();
 	}
 
 	///////////////////
@@ -2421,7 +2421,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamStepSize(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamStepSize(siteRequest_, SmartTrafficLight.staticSearchParamStepSize(siteRequest_, SmartTrafficLight.staticSetParamStepSize(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamStepSize(siteRequest_, SmartTrafficLight.staticSetParamStepSize(siteRequest_, o)).toString();
 	}
 
 	public BigDecimal sqlParamStepSize() {
@@ -2482,7 +2482,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamRunTime(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamRunTime(siteRequest_, SmartTrafficLight.staticSearchParamRunTime(siteRequest_, SmartTrafficLight.staticSetParamRunTime(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamRunTime(siteRequest_, SmartTrafficLight.staticSetParamRunTime(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlParamRunTime() {
@@ -2543,7 +2543,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamItersPerPar(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamItersPerPar(siteRequest_, SmartTrafficLight.staticSearchParamItersPerPar(siteRequest_, SmartTrafficLight.staticSetParamItersPerPar(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamItersPerPar(siteRequest_, SmartTrafficLight.staticSetParamItersPerPar(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlParamItersPerPar() {
@@ -2604,7 +2604,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqParamTotalIterNum(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrParamTotalIterNum(siteRequest_, SmartTrafficLight.staticSearchParamTotalIterNum(siteRequest_, SmartTrafficLight.staticSetParamTotalIterNum(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchParamTotalIterNum(siteRequest_, SmartTrafficLight.staticSetParamTotalIterNum(siteRequest_, o)).toString();
 	}
 
 	public Integer sqlParamTotalIterNum() {
@@ -2693,7 +2693,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqReportKeys(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrReportKeys(siteRequest_, SmartTrafficLight.staticSearchReportKeys(siteRequest_, SmartTrafficLight.staticSetReportKeys(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchReportKeys(siteRequest_, SmartTrafficLight.staticSetReportKeys(siteRequest_, o)).toString();
 	}
 
 	public Number[] sqlReportKeys() {
@@ -2771,7 +2771,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqTlsStatesPaths(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrTlsStatesPaths(siteRequest_, SmartTrafficLight.staticSearchTlsStatesPaths(siteRequest_, SmartTrafficLight.staticSetTlsStatesPaths(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchTlsStatesPaths(siteRequest_, SmartTrafficLight.staticSetTlsStatesPaths(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////
@@ -2845,7 +2845,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static String staticSearchFqAdditionalFilePaths(SiteRequestEnUS siteRequest_, String o) {
-		return SmartTrafficLight.staticSearchStrAdditionalFilePaths(siteRequest_, SmartTrafficLight.staticSearchAdditionalFilePaths(siteRequest_, SmartTrafficLight.staticSetAdditionalFilePaths(siteRequest_, o)));
+		return SmartTrafficLight.staticSearchAdditionalFilePaths(siteRequest_, SmartTrafficLight.staticSetAdditionalFilePaths(siteRequest_, o)).toString();
 	}
 
 	//////////////

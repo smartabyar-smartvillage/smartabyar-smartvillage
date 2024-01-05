@@ -179,7 +179,7 @@ public abstract class SimulationReportPageGen<DEV> extends SimulationReportGenPa
 	}
 
 	public static String staticSearchFqPlotPerformance(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportPage.staticSearchStrPlotPerformance(siteRequest_, SimulationReportPage.staticSearchPlotPerformance(siteRequest_, SimulationReportPage.staticSetPlotPerformance(siteRequest_, o)));
+		return SimulationReportPage.staticSearchPlotPerformance(siteRequest_, SimulationReportPage.staticSetPlotPerformance(siteRequest_, o)).toString();
 	}
 
 	//////////////////////////////
@@ -231,7 +231,7 @@ public abstract class SimulationReportPageGen<DEV> extends SimulationReportGenPa
 	}
 
 	public static String staticSearchFqPlotQueueLengthThreshold(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportPage.staticSearchStrPlotQueueLengthThreshold(siteRequest_, SimulationReportPage.staticSearchPlotQueueLengthThreshold(siteRequest_, SimulationReportPage.staticSetPlotQueueLengthThreshold(siteRequest_, o)));
+		return SimulationReportPage.staticSearchPlotQueueLengthThreshold(siteRequest_, SimulationReportPage.staticSetPlotQueueLengthThreshold(siteRequest_, o)).toString();
 	}
 
 	/////////////////////////////////////
@@ -283,7 +283,7 @@ public abstract class SimulationReportPageGen<DEV> extends SimulationReportGenPa
 	}
 
 	public static String staticSearchFqPlotGreenLengthThresholdVehicle(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportPage.staticSearchStrPlotGreenLengthThresholdVehicle(siteRequest_, SimulationReportPage.staticSearchPlotGreenLengthThresholdVehicle(siteRequest_, SimulationReportPage.staticSetPlotGreenLengthThresholdVehicle(siteRequest_, o)));
+		return SimulationReportPage.staticSearchPlotGreenLengthThresholdVehicle(siteRequest_, SimulationReportPage.staticSetPlotGreenLengthThresholdVehicle(siteRequest_, o)).toString();
 	}
 
 	////////////////////////////////////////
@@ -335,7 +335,7 @@ public abstract class SimulationReportPageGen<DEV> extends SimulationReportGenPa
 	}
 
 	public static String staticSearchFqPlotGreenLengthThresholdPedestrian(SiteRequestEnUS siteRequest_, String o) {
-		return SimulationReportPage.staticSearchStrPlotGreenLengthThresholdPedestrian(siteRequest_, SimulationReportPage.staticSearchPlotGreenLengthThresholdPedestrian(siteRequest_, SimulationReportPage.staticSetPlotGreenLengthThresholdPedestrian(siteRequest_, o)));
+		return SimulationReportPage.staticSearchPlotGreenLengthThresholdPedestrian(siteRequest_, SimulationReportPage.staticSetPlotGreenLengthThresholdPedestrian(siteRequest_, o)).toString();
 	}
 
 	//////////////
