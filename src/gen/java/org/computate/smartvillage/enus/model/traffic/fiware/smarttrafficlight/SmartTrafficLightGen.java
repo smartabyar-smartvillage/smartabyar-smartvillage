@@ -608,6 +608,154 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		return SmartTrafficLight.staticSearchAreaServedColors(siteRequest_, SmartTrafficLight.staticSetAreaServedColors(siteRequest_, o)).toString();
 	}
 
+	//////////////////////
+	// areaServedTitles //
+	//////////////////////
+
+
+	/**	 The entity areaServedTitles
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedTitles = new ArrayList<String>();
+
+	/**	<br> The entity areaServedTitles
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight&fq=entiteVar_enUS_indexed_string:areaServedTitles">Find the entity areaServedTitles in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedTitles(List<String> l);
+
+	public List<String> getAreaServedTitles() {
+		return areaServedTitles;
+	}
+
+	public void setAreaServedTitles(List<String> areaServedTitles) {
+		this.areaServedTitles = areaServedTitles;
+	}
+	public void setAreaServedTitles(String o) {
+		String l = SmartTrafficLight.staticSetAreaServedTitles(siteRequest_, o);
+		if(l != null)
+			addAreaServedTitles(l);
+	}
+	public static String staticSetAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public SmartTrafficLight addAreaServedTitles(String...objects) {
+		for(String o : objects) {
+			addAreaServedTitles(o);
+		}
+		return (SmartTrafficLight)this;
+	}
+	public SmartTrafficLight addAreaServedTitles(String o) {
+		if(o != null)
+			this.areaServedTitles.add(o);
+		return (SmartTrafficLight)this;
+	}
+	@JsonIgnore
+	public void setAreaServedTitles(JsonArray objects) {
+		areaServedTitles.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedTitles(o);
+		}
+	}
+	protected SmartTrafficLight areaServedTitlesInit() {
+		_areaServedTitles(areaServedTitles);
+		return (SmartTrafficLight)this;
+	}
+
+	public static String staticSearchAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return SmartTrafficLight.staticSearchAreaServedTitles(siteRequest_, SmartTrafficLight.staticSetAreaServedTitles(siteRequest_, o)).toString();
+	}
+
+	/////////////////////
+	// areaServedLinks //
+	/////////////////////
+
+
+	/**	 The entity areaServedLinks
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedLinks = new ArrayList<String>();
+
+	/**	<br> The entity areaServedLinks
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight&fq=entiteVar_enUS_indexed_string:areaServedLinks">Find the entity areaServedLinks in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedLinks(List<String> l);
+
+	public List<String> getAreaServedLinks() {
+		return areaServedLinks;
+	}
+
+	public void setAreaServedLinks(List<String> areaServedLinks) {
+		this.areaServedLinks = areaServedLinks;
+	}
+	public void setAreaServedLinks(String o) {
+		String l = SmartTrafficLight.staticSetAreaServedLinks(siteRequest_, o);
+		if(l != null)
+			addAreaServedLinks(l);
+	}
+	public static String staticSetAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public SmartTrafficLight addAreaServedLinks(String...objects) {
+		for(String o : objects) {
+			addAreaServedLinks(o);
+		}
+		return (SmartTrafficLight)this;
+	}
+	public SmartTrafficLight addAreaServedLinks(String o) {
+		if(o != null)
+			this.areaServedLinks.add(o);
+		return (SmartTrafficLight)this;
+	}
+	@JsonIgnore
+	public void setAreaServedLinks(JsonArray objects) {
+		areaServedLinks.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedLinks(o);
+		}
+	}
+	protected SmartTrafficLight areaServedLinksInit() {
+		_areaServedLinks(areaServedLinks);
+		return (SmartTrafficLight)this;
+	}
+
+	public static String staticSearchAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return SmartTrafficLight.staticSearchAreaServedLinks(siteRequest_, SmartTrafficLight.staticSetAreaServedLinks(siteRequest_, o)).toString();
+	}
+
 	////////////////
 	// areaServed //
 	////////////////
@@ -2898,6 +3046,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			Promise<Void> promise2 = Promise.promise();
 			try {
 				areaServedColorsInit();
+				areaServedTitlesInit();
+				areaServedLinksInit();
 				areaServedInit();
 				routeIdsInit();
 				routeIdNorthInit();
@@ -3015,6 +3165,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 				return oSmartTrafficLight.observedSearch;
 			case "areaServedColors":
 				return oSmartTrafficLight.areaServedColors;
+			case "areaServedTitles":
+				return oSmartTrafficLight.areaServedTitles;
+			case "areaServedLinks":
+				return oSmartTrafficLight.areaServedLinks;
 			case "areaServed":
 				return oSmartTrafficLight.areaServed;
 			case "routeIds":
@@ -3135,6 +3289,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			return SmartTrafficLight.staticSetLocation(siteRequest_, o);
 		case "areaServedColors":
 			return SmartTrafficLight.staticSetAreaServedColors(siteRequest_, o);
+		case "areaServedTitles":
+			return SmartTrafficLight.staticSetAreaServedTitles(siteRequest_, o);
+		case "areaServedLinks":
+			return SmartTrafficLight.staticSetAreaServedLinks(siteRequest_, o);
 		case "areaServed":
 			return SmartTrafficLight.staticSetAreaServed(siteRequest_, o);
 		case "routeIds":
@@ -3217,6 +3375,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			return SmartTrafficLight.staticSearchLocation(siteRequest_, (Point)o);
 		case "areaServedColors":
 			return SmartTrafficLight.staticSearchAreaServedColors(siteRequest_, (String)o);
+		case "areaServedTitles":
+			return SmartTrafficLight.staticSearchAreaServedTitles(siteRequest_, (String)o);
+		case "areaServedLinks":
+			return SmartTrafficLight.staticSearchAreaServedLinks(siteRequest_, (String)o);
 		case "areaServed":
 			return SmartTrafficLight.staticSearchAreaServed(siteRequest_, (JsonArray)o);
 		case "routeIds":
@@ -3299,6 +3461,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			return SmartTrafficLight.staticSearchStrLocation(siteRequest_, (Point)o);
 		case "areaServedColors":
 			return SmartTrafficLight.staticSearchStrAreaServedColors(siteRequest_, (String)o);
+		case "areaServedTitles":
+			return SmartTrafficLight.staticSearchStrAreaServedTitles(siteRequest_, (String)o);
+		case "areaServedLinks":
+			return SmartTrafficLight.staticSearchStrAreaServedLinks(siteRequest_, (String)o);
 		case "areaServed":
 			return SmartTrafficLight.staticSearchStrAreaServed(siteRequest_, (String)o);
 		case "routeIds":
@@ -3381,6 +3547,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			return SmartTrafficLight.staticSearchFqLocation(siteRequest_, o);
 		case "areaServedColors":
 			return SmartTrafficLight.staticSearchFqAreaServedColors(siteRequest_, o);
+		case "areaServedTitles":
+			return SmartTrafficLight.staticSearchFqAreaServedTitles(siteRequest_, o);
+		case "areaServedLinks":
+			return SmartTrafficLight.staticSearchFqAreaServedLinks(siteRequest_, o);
 		case "areaServed":
 			return SmartTrafficLight.staticSearchFqAreaServed(siteRequest_, o);
 		case "routeIds":
@@ -3604,6 +3774,18 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 					oSmartTrafficLight.areaServedColors.addAll(areaServedColors);
 			}
 
+			if(saves.contains("areaServedTitles")) {
+				List<String> areaServedTitles = (List<String>)doc.get("areaServedTitles_indexedstored_strings");
+				if(areaServedTitles != null)
+					oSmartTrafficLight.areaServedTitles.addAll(areaServedTitles);
+			}
+
+			if(saves.contains("areaServedLinks")) {
+				List<String> areaServedLinks = (List<String>)doc.get("areaServedLinks_indexedstored_strings");
+				if(areaServedLinks != null)
+					oSmartTrafficLight.areaServedLinks.addAll(areaServedLinks);
+			}
+
 			if(saves.contains("areaServed")) {
 				String areaServed = (String)doc.get("areaServed_docvalues_string");
 				if(areaServed != null)
@@ -3788,6 +3970,20 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 				l.add(o);
 			}
 		}
+		if(areaServedTitles != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedTitles_indexedstored_strings", l);
+			for(String o : areaServedTitles) {
+				l.add(o);
+			}
+		}
+		if(areaServedLinks != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedLinks_indexedstored_strings", l);
+			for(String o : areaServedLinks) {
+				l.add(o);
+			}
+		}
 		if(areaServed != null) {
 			doc.put("areaServed_docvalues_string", areaServed.toString());
 		}
@@ -3901,6 +4097,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 				return "location_docvalues_location";
 			case "areaServedColors":
 				return "areaServedColors_indexedstored_strings";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
+			case "areaServedLinks":
+				return "areaServedLinks_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_string";
 			case "routeIds":
@@ -3972,6 +4172,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 				return "location_docvalues_location";
 			case "areaServedColors":
 				return "areaServedColors_indexedstored_strings";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
+			case "areaServedLinks":
+				return "areaServedLinks_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_string";
 			case "routeIds":
@@ -4043,6 +4247,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 				return "location";
 			case "areaServedColors_indexedstored_strings":
 				return "areaServedColors";
+			case "areaServedTitles_indexedstored_strings":
+				return "areaServedTitles";
+			case "areaServedLinks_indexedstored_strings":
+				return "areaServedLinks";
 			case "areaServed_docvalues_string":
 				return "areaServed";
 			case "routeIds_docvalues_strings":
@@ -4134,6 +4342,12 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		Optional.ofNullable((List<?>)doc.get("areaServedColors_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
 			oSmartTrafficLight.addAreaServedColors(SmartTrafficLight.staticSetAreaServedColors(siteRequest, v.toString()));
 		});
+		Optional.ofNullable((List<?>)doc.get("areaServedTitles_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oSmartTrafficLight.addAreaServedTitles(SmartTrafficLight.staticSetAreaServedTitles(siteRequest, v.toString()));
+		});
+		Optional.ofNullable((List<?>)doc.get("areaServedLinks_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oSmartTrafficLight.addAreaServedLinks(SmartTrafficLight.staticSetAreaServedLinks(siteRequest, v.toString()));
+		});
 		oSmartTrafficLight.setAreaServed(Optional.ofNullable(doc.get("areaServed_docvalues_string")).map(v -> v.toString()).orElse(null));
 		Optional.ofNullable((List<?>)doc.get("routeIds_docvalues_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
 			oSmartTrafficLight.addRouteIds(SmartTrafficLight.staticSetRouteIds(siteRequest, v.toString()));
@@ -4192,6 +4406,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 				apiRequest.addVars("location");
 			if(!Objects.equals(areaServedColors, original.getAreaServedColors()))
 				apiRequest.addVars("areaServedColors");
+			if(!Objects.equals(areaServedTitles, original.getAreaServedTitles()))
+				apiRequest.addVars("areaServedTitles");
+			if(!Objects.equals(areaServedLinks, original.getAreaServedLinks()))
+				apiRequest.addVars("areaServedLinks");
 			if(!Objects.equals(areaServed, original.getAreaServed()))
 				apiRequest.addVars("areaServed");
 			if(!Objects.equals(routeIds, original.getRouteIds()))
@@ -4262,6 +4480,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		sb.append(Optional.ofNullable(smartTrafficLightName).map(v -> "smartTrafficLightName: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(location).map(v -> "location: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServedColors).map(v -> "areaServedColors: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedTitles).map(v -> "areaServedTitles: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedLinks).map(v -> "areaServedLinks: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServed).map(v -> "areaServed: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(routeIds).map(v -> "routeIds: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(routeIdNorth).map(v -> "routeIdNorth: \"" + v + "\"\n" ).orElse(""));
@@ -4303,6 +4523,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	public static final String VAR_location = "location";
 	public static final String VAR_observedSearch = "observedSearch";
 	public static final String VAR_areaServedColors = "areaServedColors";
+	public static final String VAR_areaServedTitles = "areaServedTitles";
+	public static final String VAR_areaServedLinks = "areaServedLinks";
 	public static final String VAR_areaServed = "areaServed";
 	public static final String VAR_routeIds = "routeIds";
 	public static final String VAR_routeIdNorth = "routeIdNorth";
@@ -4420,6 +4642,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	public static final String DISPLAY_NAME_location = "map location";
 	public static final String DISPLAY_NAME_observedSearch = "";
 	public static final String DISPLAY_NAME_areaServedColors = "area served colors";
+	public static final String DISPLAY_NAME_areaServedTitles = "area served titles";
+	public static final String DISPLAY_NAME_areaServedLinks = "area served links";
 	public static final String DISPLAY_NAME_areaServed = "area served";
 	public static final String DISPLAY_NAME_routeIds = "route IDs";
 	public static final String DISPLAY_NAME_routeIdNorth = "route ID North";
@@ -4471,6 +4695,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			return DISPLAY_NAME_observedSearch;
 		case VAR_areaServedColors:
 			return DISPLAY_NAME_areaServedColors;
+		case VAR_areaServedTitles:
+			return DISPLAY_NAME_areaServedTitles;
+		case VAR_areaServedLinks:
+			return DISPLAY_NAME_areaServedLinks;
 		case VAR_areaServed:
 			return DISPLAY_NAME_areaServed;
 		case VAR_routeIds:
@@ -4550,6 +4778,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			return "A short ID for this Smart Data Model";
 		case VAR_areaServedColors:
 			return "The colors of each areaServed Paths. ";
+		case VAR_areaServedTitles:
+			return "The titles of each areaServed Paths. ";
+		case VAR_areaServedLinks:
+			return "The links of each areaServed Paths. ";
 		case VAR_areaServed:
 			return "The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. ";
 		case VAR_trafficFlowObservedIds:
@@ -4618,6 +4850,10 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		case VAR_observedSearch:
 			return "SearchList";
 		case VAR_areaServedColors:
+			return "List";
+		case VAR_areaServedTitles:
+			return "List";
+		case VAR_areaServedLinks:
 			return "List";
 		case VAR_areaServed:
 			return "JsonArray";

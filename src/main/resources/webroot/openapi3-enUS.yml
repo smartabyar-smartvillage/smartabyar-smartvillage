@@ -19825,6 +19825,14 @@ components:
                     type: array
                     items:
                       type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   routeIds:
@@ -19943,6 +19951,40 @@ components:
             addAreaServedColors:
               type: string
             addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
               type: array
               items:
                 type: string
@@ -20265,6 +20307,40 @@ components:
               type: array
               items:
                 type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -20551,6 +20627,14 @@ components:
               type: array
               items:
                 type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             routeIds:
@@ -20636,6 +20720,14 @@ components:
             location:
               type: string
             areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
               type: array
               items:
                 type: string
@@ -20732,8 +20824,18 @@ components:
                     type: array
                     items:
                       type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
+                    items:
+                      type: object
                   routeIds:
                     type: array
                     items:
@@ -20817,6 +20919,14 @@ components:
                   location:
                     type: string
                   areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
                     type: array
                     items:
                       type: string
@@ -20905,6 +21015,14 @@ components:
             location:
               type: string
             areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
               type: array
               items:
                 type: string

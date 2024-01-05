@@ -678,14 +678,6 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							num++;
 							bParams.add(o2.sqlArchived());
 						break;
-					case "setDeleted":
-							o2.setDeleted(jsonObject.getBoolean(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_deleted + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDeleted());
-						break;
 					case "setSessionId":
 							o2.setSessionId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -702,61 +694,45 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setTrafficSimulationId":
-							o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+					case "setDeleted":
+							o2.setDeleted(jsonObject.getBoolean(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_trafficSimulationId + "=$" + num);
+							bSql.append(TrafficFlowObserved.VAR_deleted + "=$" + num);
 							num++;
-							bParams.add(o2.sqlTrafficSimulationId());
+							bParams.add(o2.sqlDeleted());
 						break;
-					case "setAreaServed":
-							o2.setAreaServed(jsonObject.getJsonObject(entityVar));
+					case "setDateCreated":
+							o2.setDateCreated(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_areaServed + "=$" + num);
+							bSql.append(TrafficFlowObserved.VAR_dateCreated + "=$" + num);
 							num++;
-							bParams.add(o2.sqlAreaServed());
+							bParams.add(o2.sqlDateCreated());
 						break;
-					case "setAverageGapDistance":
-							o2.setAverageGapDistance(jsonObject.getString(entityVar));
+					case "setDateModified":
+							o2.setDateModified(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_averageGapDistance + "=$" + num);
+							bSql.append(TrafficFlowObserved.VAR_dateModified + "=$" + num);
 							num++;
-							bParams.add(o2.sqlAverageGapDistance());
+							bParams.add(o2.sqlDateModified());
 						break;
-					case "setAverageHeadwayTime":
-							o2.setAverageHeadwayTime(jsonObject.getString(entityVar));
+					case "setDateObserved":
+							o2.setDateObserved(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_averageHeadwayTime + "=$" + num);
+							bSql.append(TrafficFlowObserved.VAR_dateObserved + "=$" + num);
 							num++;
-							bParams.add(o2.sqlAverageHeadwayTime());
+							bParams.add(o2.sqlDateObserved());
 						break;
-					case "setAverageVehicleLength":
-							o2.setAverageVehicleLength(jsonObject.getString(entityVar));
+					case "setDateObservedFrom":
+							o2.setDateObservedFrom(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_averageVehicleLength + "=$" + num);
+							bSql.append(TrafficFlowObserved.VAR_dateObservedFrom + "=$" + num);
 							num++;
-							bParams.add(o2.sqlAverageVehicleLength());
-						break;
-					case "setAverageVehicleSpeed":
-							o2.setAverageVehicleSpeed(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_averageVehicleSpeed + "=$" + num);
-							num++;
-							bParams.add(o2.sqlAverageVehicleSpeed());
-						break;
-					case "setCongested":
-							o2.setCongested(jsonObject.getBoolean(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_congested + "=$" + num);
-							num++;
-							bParams.add(o2.sqlCongested());
+							bParams.add(o2.sqlDateObservedFrom());
 						break;
 					case "setDateObservedTo":
 							o2.setDateObservedTo(jsonObject.getString(entityVar));
@@ -765,6 +741,30 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							bSql.append(TrafficFlowObserved.VAR_dateObservedTo + "=$" + num);
 							num++;
 							bParams.add(o2.sqlDateObservedTo());
+						break;
+					case "setDescription":
+							o2.setDescription(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_description + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDescription());
+						break;
+					case "setIntensity":
+							o2.setIntensity(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_intensity + "=$" + num);
+							num++;
+							bParams.add(o2.sqlIntensity());
+						break;
+					case "setLaneDirection":
+							o2.setLaneDirection(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_laneDirection + "=$" + num);
+							num++;
+							bParams.add(o2.sqlLaneDirection());
 						break;
 					case "setLaneId":
 							o2.setLaneId(jsonObject.getString(entityVar));
@@ -806,94 +806,6 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							num++;
 							bParams.add(o2.sqlRefRoadSegment());
 						break;
-					case "setVehicleSubType":
-							o2.setVehicleSubType(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_vehicleSubType + "=$" + num);
-							num++;
-							bParams.add(o2.sqlVehicleSubType());
-						break;
-					case "setDataProvider":
-							o2.setDataProvider(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_dataProvider + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDataProvider());
-						break;
-					case "setAddress":
-							o2.setAddress(jsonObject.getJsonObject(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_address + "=$" + num);
-							num++;
-							bParams.add(o2.sqlAddress());
-						break;
-					case "setDateCreated":
-							o2.setDateCreated(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_dateCreated + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDateCreated());
-						break;
-					case "setAlternateName":
-							o2.setAlternateName(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_alternateName + "=$" + num);
-							num++;
-							bParams.add(o2.sqlAlternateName());
-						break;
-					case "setDateModified":
-							o2.setDateModified(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_dateModified + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDateModified());
-						break;
-					case "setDateObserved":
-							o2.setDateObserved(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_dateObserved + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDateObserved());
-						break;
-					case "setDateObservedFrom":
-							o2.setDateObservedFrom(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_dateObservedFrom + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDateObservedFrom());
-						break;
-					case "setDescription":
-							o2.setDescription(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_description + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDescription());
-						break;
-					case "setIntensity":
-							o2.setIntensity(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_intensity + "=$" + num);
-							num++;
-							bParams.add(o2.sqlIntensity());
-						break;
-					case "setLaneDirection":
-							o2.setLaneDirection(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficFlowObserved.VAR_laneDirection + "=$" + num);
-							num++;
-							bParams.add(o2.sqlLaneDirection());
-						break;
 					case "setReversedLane":
 							o2.setReversedLane(jsonObject.getBoolean(entityVar));
 							if(bParams.size() > 0)
@@ -917,6 +829,14 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							bSql.append(TrafficFlowObserved.VAR_source + "=$" + num);
 							num++;
 							bParams.add(o2.sqlSource());
+						break;
+					case "setVehicleSubType":
+							o2.setVehicleSubType(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_vehicleSubType + "=$" + num);
+							num++;
+							bParams.add(o2.sqlVehicleSubType());
 						break;
 					case "setVehicleType":
 							o2.setVehicleType(jsonObject.getString(entityVar));
@@ -1006,6 +926,14 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							num++;
 							bParams.add(o2.sqlEntityId());
 						break;
+					case "setTrafficSimulationId":
+							o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_trafficSimulationId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlTrafficSimulationId());
+						break;
 					case "setLaneAreaDetectorId":
 							o2.setLaneAreaDetectorId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -1037,6 +965,78 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 							bSql.append(TrafficFlowObserved.VAR_customTrafficLightId + "=$" + num);
 							num++;
 							bParams.add(o2.sqlCustomTrafficLightId());
+						break;
+					case "setAddress":
+							o2.setAddress(jsonObject.getJsonObject(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_address + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAddress());
+						break;
+					case "setAlternateName":
+							o2.setAlternateName(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_alternateName + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAlternateName());
+						break;
+					case "setAreaServed":
+							o2.setAreaServed(jsonObject.getJsonObject(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_areaServed + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAreaServed());
+						break;
+					case "setAverageGapDistance":
+							o2.setAverageGapDistance(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_averageGapDistance + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAverageGapDistance());
+						break;
+					case "setAverageHeadwayTime":
+							o2.setAverageHeadwayTime(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_averageHeadwayTime + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAverageHeadwayTime());
+						break;
+					case "setAverageVehicleLength":
+							o2.setAverageVehicleLength(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_averageVehicleLength + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAverageVehicleLength());
+						break;
+					case "setAverageVehicleSpeed":
+							o2.setAverageVehicleSpeed(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_averageVehicleSpeed + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAverageVehicleSpeed());
+						break;
+					case "setCongested":
+							o2.setCongested(jsonObject.getBoolean(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_congested + "=$" + num);
+							num++;
+							bParams.add(o2.sqlCongested());
+						break;
+					case "setDataProvider":
+							o2.setDataProvider(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficFlowObserved.VAR_dataProvider + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDataProvider());
 						break;
 				}
 			}
@@ -1372,15 +1372,6 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						num++;
 						bParams.add(o2.sqlArchived());
 						break;
-					case TrafficFlowObserved.VAR_deleted:
-						o2.setDeleted(jsonObject.getBoolean(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_deleted + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDeleted());
-						break;
 					case TrafficFlowObserved.VAR_sessionId:
 						o2.setSessionId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1399,68 +1390,50 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case TrafficFlowObserved.VAR_trafficSimulationId:
-						o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+					case TrafficFlowObserved.VAR_deleted:
+						o2.setDeleted(jsonObject.getBoolean(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(TrafficFlowObserved.VAR_trafficSimulationId + "=$" + num);
+						bSql.append(TrafficFlowObserved.VAR_deleted + "=$" + num);
 						num++;
-						bParams.add(o2.sqlTrafficSimulationId());
+						bParams.add(o2.sqlDeleted());
 						break;
-					case TrafficFlowObserved.VAR_areaServed:
-						o2.setAreaServed(jsonObject.getJsonObject(entityVar));
+					case TrafficFlowObserved.VAR_dateCreated:
+						o2.setDateCreated(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(TrafficFlowObserved.VAR_areaServed + "=$" + num);
+						bSql.append(TrafficFlowObserved.VAR_dateCreated + "=$" + num);
 						num++;
-						bParams.add(o2.sqlAreaServed());
+						bParams.add(o2.sqlDateCreated());
 						break;
-					case TrafficFlowObserved.VAR_averageGapDistance:
-						o2.setAverageGapDistance(jsonObject.getString(entityVar));
+					case TrafficFlowObserved.VAR_dateModified:
+						o2.setDateModified(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(TrafficFlowObserved.VAR_averageGapDistance + "=$" + num);
+						bSql.append(TrafficFlowObserved.VAR_dateModified + "=$" + num);
 						num++;
-						bParams.add(o2.sqlAverageGapDistance());
+						bParams.add(o2.sqlDateModified());
 						break;
-					case TrafficFlowObserved.VAR_averageHeadwayTime:
-						o2.setAverageHeadwayTime(jsonObject.getString(entityVar));
+					case TrafficFlowObserved.VAR_dateObserved:
+						o2.setDateObserved(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(TrafficFlowObserved.VAR_averageHeadwayTime + "=$" + num);
+						bSql.append(TrafficFlowObserved.VAR_dateObserved + "=$" + num);
 						num++;
-						bParams.add(o2.sqlAverageHeadwayTime());
+						bParams.add(o2.sqlDateObserved());
 						break;
-					case TrafficFlowObserved.VAR_averageVehicleLength:
-						o2.setAverageVehicleLength(jsonObject.getString(entityVar));
+					case TrafficFlowObserved.VAR_dateObservedFrom:
+						o2.setDateObservedFrom(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(TrafficFlowObserved.VAR_averageVehicleLength + "=$" + num);
+						bSql.append(TrafficFlowObserved.VAR_dateObservedFrom + "=$" + num);
 						num++;
-						bParams.add(o2.sqlAverageVehicleLength());
-						break;
-					case TrafficFlowObserved.VAR_averageVehicleSpeed:
-						o2.setAverageVehicleSpeed(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_averageVehicleSpeed + "=$" + num);
-						num++;
-						bParams.add(o2.sqlAverageVehicleSpeed());
-						break;
-					case TrafficFlowObserved.VAR_congested:
-						o2.setCongested(jsonObject.getBoolean(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_congested + "=$" + num);
-						num++;
-						bParams.add(o2.sqlCongested());
+						bParams.add(o2.sqlDateObservedFrom());
 						break;
 					case TrafficFlowObserved.VAR_dateObservedTo:
 						o2.setDateObservedTo(jsonObject.getString(entityVar));
@@ -1470,6 +1443,33 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						bSql.append(TrafficFlowObserved.VAR_dateObservedTo + "=$" + num);
 						num++;
 						bParams.add(o2.sqlDateObservedTo());
+						break;
+					case TrafficFlowObserved.VAR_description:
+						o2.setDescription(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_description + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDescription());
+						break;
+					case TrafficFlowObserved.VAR_intensity:
+						o2.setIntensity(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_intensity + "=$" + num);
+						num++;
+						bParams.add(o2.sqlIntensity());
+						break;
+					case TrafficFlowObserved.VAR_laneDirection:
+						o2.setLaneDirection(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_laneDirection + "=$" + num);
+						num++;
+						bParams.add(o2.sqlLaneDirection());
 						break;
 					case TrafficFlowObserved.VAR_laneId:
 						o2.setLaneId(jsonObject.getString(entityVar));
@@ -1516,105 +1516,6 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						num++;
 						bParams.add(o2.sqlRefRoadSegment());
 						break;
-					case TrafficFlowObserved.VAR_vehicleSubType:
-						o2.setVehicleSubType(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_vehicleSubType + "=$" + num);
-						num++;
-						bParams.add(o2.sqlVehicleSubType());
-						break;
-					case TrafficFlowObserved.VAR_dataProvider:
-						o2.setDataProvider(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_dataProvider + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDataProvider());
-						break;
-					case TrafficFlowObserved.VAR_address:
-						o2.setAddress(jsonObject.getJsonObject(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_address + "=$" + num);
-						num++;
-						bParams.add(o2.sqlAddress());
-						break;
-					case TrafficFlowObserved.VAR_dateCreated:
-						o2.setDateCreated(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_dateCreated + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDateCreated());
-						break;
-					case TrafficFlowObserved.VAR_alternateName:
-						o2.setAlternateName(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_alternateName + "=$" + num);
-						num++;
-						bParams.add(o2.sqlAlternateName());
-						break;
-					case TrafficFlowObserved.VAR_dateModified:
-						o2.setDateModified(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_dateModified + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDateModified());
-						break;
-					case TrafficFlowObserved.VAR_dateObserved:
-						o2.setDateObserved(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_dateObserved + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDateObserved());
-						break;
-					case TrafficFlowObserved.VAR_dateObservedFrom:
-						o2.setDateObservedFrom(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_dateObservedFrom + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDateObservedFrom());
-						break;
-					case TrafficFlowObserved.VAR_description:
-						o2.setDescription(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_description + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDescription());
-						break;
-					case TrafficFlowObserved.VAR_intensity:
-						o2.setIntensity(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_intensity + "=$" + num);
-						num++;
-						bParams.add(o2.sqlIntensity());
-						break;
-					case TrafficFlowObserved.VAR_laneDirection:
-						o2.setLaneDirection(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficFlowObserved.VAR_laneDirection + "=$" + num);
-						num++;
-						bParams.add(o2.sqlLaneDirection());
-						break;
 					case TrafficFlowObserved.VAR_reversedLane:
 						o2.setReversedLane(jsonObject.getBoolean(entityVar));
 						if(bParams.size() > 0) {
@@ -1641,6 +1542,15 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						bSql.append(TrafficFlowObserved.VAR_source + "=$" + num);
 						num++;
 						bParams.add(o2.sqlSource());
+						break;
+					case TrafficFlowObserved.VAR_vehicleSubType:
+						o2.setVehicleSubType(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_vehicleSubType + "=$" + num);
+						num++;
+						bParams.add(o2.sqlVehicleSubType());
 						break;
 					case TrafficFlowObserved.VAR_vehicleType:
 						o2.setVehicleType(jsonObject.getString(entityVar));
@@ -1741,6 +1651,15 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						num++;
 						bParams.add(o2.sqlEntityId());
 						break;
+					case TrafficFlowObserved.VAR_trafficSimulationId:
+						o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_trafficSimulationId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlTrafficSimulationId());
+						break;
 					case TrafficFlowObserved.VAR_laneAreaDetectorId:
 						o2.setLaneAreaDetectorId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1776,6 +1695,87 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 						bSql.append(TrafficFlowObserved.VAR_customTrafficLightId + "=$" + num);
 						num++;
 						bParams.add(o2.sqlCustomTrafficLightId());
+						break;
+					case TrafficFlowObserved.VAR_address:
+						o2.setAddress(jsonObject.getJsonObject(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_address + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAddress());
+						break;
+					case TrafficFlowObserved.VAR_alternateName:
+						o2.setAlternateName(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_alternateName + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAlternateName());
+						break;
+					case TrafficFlowObserved.VAR_areaServed:
+						o2.setAreaServed(jsonObject.getJsonObject(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_areaServed + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAreaServed());
+						break;
+					case TrafficFlowObserved.VAR_averageGapDistance:
+						o2.setAverageGapDistance(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_averageGapDistance + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAverageGapDistance());
+						break;
+					case TrafficFlowObserved.VAR_averageHeadwayTime:
+						o2.setAverageHeadwayTime(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_averageHeadwayTime + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAverageHeadwayTime());
+						break;
+					case TrafficFlowObserved.VAR_averageVehicleLength:
+						o2.setAverageVehicleLength(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_averageVehicleLength + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAverageVehicleLength());
+						break;
+					case TrafficFlowObserved.VAR_averageVehicleSpeed:
+						o2.setAverageVehicleSpeed(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_averageVehicleSpeed + "=$" + num);
+						num++;
+						bParams.add(o2.sqlAverageVehicleSpeed());
+						break;
+					case TrafficFlowObserved.VAR_congested:
+						o2.setCongested(jsonObject.getBoolean(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_congested + "=$" + num);
+						num++;
+						bParams.add(o2.sqlCongested());
+						break;
+					case TrafficFlowObserved.VAR_dataProvider:
+						o2.setDataProvider(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficFlowObserved.VAR_dataProvider + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDataProvider());
 						break;
 					}
 				}
@@ -2003,7 +2003,8 @@ public class TrafficFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl
 								Object bodyVal = body.getValue(f);
 								if(bodyVal instanceof JsonArray) {
 									JsonArray bodyVals = (JsonArray)bodyVal;
-									Collection<?> vals = bodyVals.getList();
+									Object valsObj = o.obtainForClass(f);
+									Collection<?> vals = valsObj instanceof JsonArray ? ((JsonArray)valsObj).getList() : (Collection<?>)valsObj;
 									if(bodyVals.size() == vals.size()) {
 										Boolean match = true;
 										for(Object val : vals) {

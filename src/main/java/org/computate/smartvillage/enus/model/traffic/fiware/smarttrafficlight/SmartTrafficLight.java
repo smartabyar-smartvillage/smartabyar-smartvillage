@@ -138,12 +138,35 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * LocationColor: true
 	 * Indexed: true
 	 * Stored: true
 	 * DisplayName: area served colors
 	 * Description: The colors of each areaServed Paths. 
 	 */
 	protected void _areaServedColors(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * LocationTitle: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served titles
+	 * Description: The titles of each areaServed Paths. 
+	 */
+	protected void _areaServedTitles(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * LocationUrl: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served links
+	 * Description: The links of each areaServed Paths. 
+	 */
+	protected void _areaServedLinks(List<String> l) {
 	}
 
 	/**

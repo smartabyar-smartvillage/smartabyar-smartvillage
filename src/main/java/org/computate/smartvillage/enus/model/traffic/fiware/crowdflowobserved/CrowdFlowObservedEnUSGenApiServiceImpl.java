@@ -678,14 +678,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlArchived());
 						break;
-					case "setDeleted":
-							o2.setDeleted(jsonObject.getBoolean(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_deleted + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDeleted());
-						break;
 					case "setSessionId":
 							o2.setSessionId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -702,13 +694,13 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setWalkingAreaId":
-							o2.setWalkingAreaId(jsonObject.getString(entityVar));
+					case "setDeleted":
+							o2.setDeleted(jsonObject.getBoolean(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
+							bSql.append(CrowdFlowObserved.VAR_deleted + "=$" + num);
 							num++;
-							bParams.add(o2.sqlWalkingAreaId());
+							bParams.add(o2.sqlDeleted());
 						break;
 					case "setCustomTrafficLightId":
 							o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
@@ -741,6 +733,14 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
 							num++;
 							bParams.add(o2.sqlEntityId());
+						break;
+					case "setWalkingAreaId":
+							o2.setWalkingAreaId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlWalkingAreaId());
 						break;
 					case "setAlternateName":
 							o2.setAlternateName(jsonObject.getString(entityVar));
@@ -1244,15 +1244,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlArchived());
 						break;
-					case CrowdFlowObserved.VAR_deleted:
-						o2.setDeleted(jsonObject.getBoolean(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_deleted + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDeleted());
-						break;
 					case CrowdFlowObserved.VAR_sessionId:
 						o2.setSessionId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1271,14 +1262,14 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case CrowdFlowObserved.VAR_walkingAreaId:
-						o2.setWalkingAreaId(jsonObject.getString(entityVar));
+					case CrowdFlowObserved.VAR_deleted:
+						o2.setDeleted(jsonObject.getBoolean(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
+						bSql.append(CrowdFlowObserved.VAR_deleted + "=$" + num);
 						num++;
-						bParams.add(o2.sqlWalkingAreaId());
+						bParams.add(o2.sqlDeleted());
 						break;
 					case CrowdFlowObserved.VAR_customTrafficLightId:
 						o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
@@ -1315,6 +1306,15 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
 						num++;
 						bParams.add(o2.sqlEntityId());
+						break;
+					case CrowdFlowObserved.VAR_walkingAreaId:
+						o2.setWalkingAreaId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_walkingAreaId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlWalkingAreaId());
 						break;
 					case CrowdFlowObserved.VAR_alternateName:
 						o2.setAlternateName(jsonObject.getString(entityVar));
@@ -1731,7 +1731,8 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 								Object bodyVal = body.getValue(f);
 								if(bodyVal instanceof JsonArray) {
 									JsonArray bodyVals = (JsonArray)bodyVal;
-									Collection<?> vals = bodyVals.getList();
+									Object valsObj = o.obtainForClass(f);
+									Collection<?> vals = valsObj instanceof JsonArray ? ((JsonArray)valsObj).getList() : (Collection<?>)valsObj;
 									if(bodyVals.size() == vals.size()) {
 										Boolean match = true;
 										for(Object val : vals) {
