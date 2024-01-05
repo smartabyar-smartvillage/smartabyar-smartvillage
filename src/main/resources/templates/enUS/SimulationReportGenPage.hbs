@@ -80,6 +80,30 @@
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
 
+			function jsLegendSimulationReport(map) {
+{{#block "jsLegend"}}{{/block}}
+			}
+
+			function htmLegendSimulationReport(map, shape, index, count) {
+				var color = simulationReport.[index];
+				var title = simulationReport.[index];
+				var url = simulationReport.[index];
+				var htm = '';
+				if(index == 0) {
+					htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off ">
+	<div class="w3-larger font-weight-bold ">simulation reports</div>
+	<ul>
+`;
+				}
+				htm += `{{#block "htmLegend"}}{{/block}}`;
+				if(index == (count - 1)) {
+					htm += `
+	</ul>
+</div>
+`;
+				}
+			}
+
 			function jsStyleSimulationReport(feature) {
 {{#block "jsStyle"}}{{/block}}
 			}
@@ -92,6 +116,30 @@
 {{#*inline "jsWebsocketSimulationReportPage"}}{{/inline}}
 {{#*inline "jsTooltipSimulationReportPage"}}{{/inline}}
 {{#*inline "htmTooltipSimulationReportPage"}}{{/inline}}
+{{#*inline "jsLegendSimulationReportPage"}}
+				var div = L.DomUtil.create('div', 'info legend');
+				var htm = '';
+				$.each( window.listSimulationReport, function(index, simulationReport) {
+					if(simulationReport.areaServed) {
+						var shapes = [];
+						if(Array.isArray(simulationReport.areaServed))
+							shapes = shapes.concat(simulationReport.areaServed);
+						else
+							shapes.push(simulationReport.areaServed);
+						shapes.forEach(function(shape, index) {
+							htm += htmLegendSimulationReport(map, shape, index, shapes.length);
+						});
+					}
+				});
+				div.innerHTML = htm;
+				return div;
+{{/inline}}
+{{#*inline "htmLegendSimulationReportPage"}}
+		<li>
+			<i class="fa-light fa-circle" style="color: ${color}; "></i>
+			<a href="${url}">${title}</i>
+		</li>
+{{/inline}}
 {{#*inline "jsStyleSimulationReportPage"}}
 				if(feature.geometry.type == 'Point') {
 					return {
@@ -105,7 +153,7 @@
 				} else {
 					return {
 						 fillColor: '#ff7800'
-						, color: (feature.properties.areaServedColors ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, weight: 5
 						, opacity: 1
 						, fillOpacity: 0.8
@@ -333,7 +381,7 @@
 {{#*inline "htmBodyGraphSimulationReportPage"}}		<!-- #*inline "htmBodyGraphSimulationReportPage" -->
 <div id="htmBodyGraphBaseModelPage" class="w3-content htmBodyGraph "></div>{{/inline}}
 {{#*inline "htmBodyGraphLocationSimulationReportPage"}}		<!-- #*inline "htmBodyGraphLocationSimulationReportPage" -->
-<div id="htmBodyGraphLocationBaseModelPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
+<div id="htmBodyGraphLocationSimulationReportPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
 {{#*inline "htmBodyCount0SimulationReportPage"}}		<!-- #*inline "htmBodyCount0SimulationReportPage" -->
 		<h1>
 			<a href="{{pageUri}}" class="w3-bar-item w3-btn w3-center w3-block w3-2017-shaded-spruce w3-hover-2017-shaded-spruce">

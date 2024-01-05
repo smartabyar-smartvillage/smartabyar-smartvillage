@@ -373,6 +373,58 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		return entityId;
 	}
 
+	///////////////////
+	// entityShortId //
+	///////////////////
+
+
+	/**	 The entity entityShortId
+	 *	 is defined as null before being initialized. 
+	 */
+	@JsonProperty
+	@JsonInclude(Include.NON_NULL)
+	protected String entityShortId;
+
+	/**	<br> The entity entityShortId
+	 *  is defined as null before being initialized. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved&fq=entiteVar_enUS_indexed_string:entityShortId">Find the entity entityShortId in Solr</a>
+	 * <br>
+	 * @param w is for wrapping a value to assign to this entity during initialization. 
+	 **/
+	protected abstract void _entityShortId(Wrap<String> w);
+
+	public String getEntityShortId() {
+		return entityShortId;
+	}
+	public void setEntityShortId(String o) {
+		this.entityShortId = TrafficFlowObserved.staticSetEntityShortId(siteRequest_, o);
+	}
+	public static String staticSetEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	protected TrafficFlowObserved entityShortIdInit() {
+		Wrap<String> entityShortIdWrap = new Wrap<String>().var("entityShortId");
+		if(entityShortId == null) {
+			_entityShortId(entityShortIdWrap);
+			Optional.ofNullable(entityShortIdWrap.getO()).ifPresent(o -> {
+				setEntityShortId(o);
+			});
+		}
+		return (TrafficFlowObserved)this;
+	}
+
+	public static String staticSearchEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficFlowObserved.staticSearchStrEntityShortId(siteRequest_, TrafficFlowObserved.staticSearchEntityShortId(siteRequest_, TrafficFlowObserved.staticSetEntityShortId(siteRequest_, o)));
+	}
+
 	/////////////////////////
 	// trafficSimulationId //
 	/////////////////////////
@@ -3281,6 +3333,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			try {
 				colorInit();
 				entityIdInit();
+				entityShortIdInit();
 				trafficSimulationIdInit();
 				promise2.complete();
 			} catch(Exception ex) {
@@ -3417,6 +3470,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return oTrafficFlowObserved.color;
 			case "entityId":
 				return oTrafficFlowObserved.entityId;
+			case "entityShortId":
+				return oTrafficFlowObserved.entityShortId;
 			case "trafficSimulationId":
 				return oTrafficFlowObserved.trafficSimulationId;
 			case "trafficSimulationSearch":
@@ -3550,6 +3605,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSetColor(siteRequest_, o);
 		case "entityId":
 			return TrafficFlowObserved.staticSetEntityId(siteRequest_, o);
+		case "entityShortId":
+			return TrafficFlowObserved.staticSetEntityShortId(siteRequest_, o);
 		case "trafficSimulationId":
 			return TrafficFlowObserved.staticSetTrafficSimulationId(siteRequest_, o);
 		case "laneAreaDetectorId":
@@ -3650,6 +3707,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSearchColor(siteRequest_, (String)o);
 		case "entityId":
 			return TrafficFlowObserved.staticSearchEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return TrafficFlowObserved.staticSearchEntityShortId(siteRequest_, (String)o);
 		case "trafficSimulationId":
 			return TrafficFlowObserved.staticSearchTrafficSimulationId(siteRequest_, (String)o);
 		case "laneAreaDetectorId":
@@ -3750,6 +3809,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSearchStrColor(siteRequest_, (String)o);
 		case "entityId":
 			return TrafficFlowObserved.staticSearchStrEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return TrafficFlowObserved.staticSearchStrEntityShortId(siteRequest_, (String)o);
 		case "trafficSimulationId":
 			return TrafficFlowObserved.staticSearchStrTrafficSimulationId(siteRequest_, (String)o);
 		case "laneAreaDetectorId":
@@ -3850,6 +3911,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSearchFqColor(siteRequest_, o);
 		case "entityId":
 			return TrafficFlowObserved.staticSearchFqEntityId(siteRequest_, o);
+		case "entityShortId":
+			return TrafficFlowObserved.staticSearchFqEntityShortId(siteRequest_, o);
 		case "trafficSimulationId":
 			return TrafficFlowObserved.staticSearchFqTrafficSimulationId(siteRequest_, o);
 		case "laneAreaDetectorId":
@@ -4283,6 +4346,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 					oTrafficFlowObserved.setEntityId(entityId);
 			}
 
+			if(saves.contains("entityShortId")) {
+				String entityShortId = (String)doc.get("entityShortId_docvalues_string");
+				if(entityShortId != null)
+					oTrafficFlowObserved.setEntityShortId(entityShortId);
+			}
+
 			if(saves.contains("trafficSimulationId")) {
 				String trafficSimulationId = (String)doc.get("trafficSimulationId_docvalues_string");
 				if(trafficSimulationId != null)
@@ -4540,6 +4609,9 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		if(entityId != null) {
 			doc.put("entityId_docvalues_string", entityId);
 		}
+		if(entityShortId != null) {
+			doc.put("entityShortId_docvalues_string", entityShortId);
+		}
 		if(trafficSimulationId != null) {
 			doc.put("trafficSimulationId_docvalues_string", trafficSimulationId);
 		}
@@ -4675,6 +4747,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return "color_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "trafficSimulationId":
 				return "trafficSimulationId_docvalues_string";
 			case "laneAreaDetectorId":
@@ -4768,6 +4842,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return "color_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "trafficSimulationId":
 				return "trafficSimulationId_docvalues_string";
 			case "laneAreaDetectorId":
@@ -4861,6 +4937,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return "color";
 			case "entityId_docvalues_string":
 				return "entityId";
+			case "entityShortId_docvalues_string":
+				return "entityShortId";
 			case "trafficSimulationId_docvalues_string":
 				return "trafficSimulationId";
 			case "laneAreaDetectorId_docvalues_string":
@@ -4975,6 +5053,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 
 		oTrafficFlowObserved.setColor(Optional.ofNullable(doc.get("color_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setEntityId(Optional.ofNullable(doc.get("entityId_docvalues_string")).map(v -> v.toString()).orElse(null));
+		oTrafficFlowObserved.setEntityShortId(Optional.ofNullable(doc.get("entityShortId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setTrafficSimulationId(Optional.ofNullable(doc.get("trafficSimulationId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setLaneAreaDetectorId(Optional.ofNullable(doc.get("laneAreaDetectorId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setLocation(Optional.ofNullable(doc.get("location_docvalues_location")).map(v -> v.toString()).orElse(null));
@@ -5033,6 +5112,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				apiRequest.addVars("color");
 			if(!Objects.equals(entityId, original.getEntityId()))
 				apiRequest.addVars("entityId");
+			if(!Objects.equals(entityShortId, original.getEntityShortId()))
+				apiRequest.addVars("entityShortId");
 			if(!Objects.equals(trafficSimulationId, original.getTrafficSimulationId()))
 				apiRequest.addVars("trafficSimulationId");
 			if(!Objects.equals(laneAreaDetectorId, original.getLaneAreaDetectorId()))
@@ -5128,6 +5209,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		sb.append(super.toString());
 		sb.append(Optional.ofNullable(color).map(v -> "color: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(entityId).map(v -> "entityId: \"" + v + "\"\n" ).orElse(""));
+		sb.append(Optional.ofNullable(entityShortId).map(v -> "entityShortId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(trafficSimulationId).map(v -> "trafficSimulationId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(laneAreaDetectorId).map(v -> "laneAreaDetectorId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(location).map(v -> "location: " + v + "\n").orElse(""));
@@ -5179,6 +5261,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	}
 	public static final String VAR_color = "color";
 	public static final String VAR_entityId = "entityId";
+	public static final String VAR_entityShortId = "entityShortId";
 	public static final String VAR_trafficSimulationId = "trafficSimulationId";
 	public static final String VAR_trafficSimulationSearch = "trafficSimulationSearch";
 	public static final String VAR_trafficSimulation_ = "trafficSimulation_";
@@ -5239,6 +5322,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	public static List<String> varsFqTrafficFlowObserved(List<String> vars) {
 		vars.add(VAR_color);
 		vars.add(VAR_entityId);
+		vars.add(VAR_entityShortId);
 		vars.add(VAR_trafficSimulationId);
 		vars.add(VAR_laneAreaDetectorId);
 		vars.add(VAR_location);
@@ -5313,6 +5397,7 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 
 	public static final String DISPLAY_NAME_color = "color";
 	public static final String DISPLAY_NAME_entityId = "entity ID";
+	public static final String DISPLAY_NAME_entityShortId = "entity ID";
 	public static final String DISPLAY_NAME_trafficSimulationId = "traffic simulation ID";
 	public static final String DISPLAY_NAME_trafficSimulationSearch = "";
 	public static final String DISPLAY_NAME_trafficSimulation_ = "";
@@ -5368,6 +5453,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return DISPLAY_NAME_color;
 		case VAR_entityId:
 			return DISPLAY_NAME_entityId;
+		case VAR_entityShortId:
+			return DISPLAY_NAME_entityShortId;
 		case VAR_trafficSimulationId:
 			return DISPLAY_NAME_trafficSimulationId;
 		case VAR_trafficSimulationSearch:
@@ -5467,6 +5554,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		switch(var) {
 		case VAR_entityId:
 			return "A unique ID for this Smart Data Model";
+		case VAR_entityShortId:
+			return "A short ID for this Smart Data Model";
 		case VAR_trafficSimulationId:
 			return "The Traffic Simulation ID";
 		case VAR_laneAreaDetectorId:
@@ -5553,6 +5642,8 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		case VAR_color:
 			return "String";
 		case VAR_entityId:
+			return "String";
+		case VAR_entityShortId:
 			return "String";
 		case VAR_trafficSimulationId:
 			return "String";

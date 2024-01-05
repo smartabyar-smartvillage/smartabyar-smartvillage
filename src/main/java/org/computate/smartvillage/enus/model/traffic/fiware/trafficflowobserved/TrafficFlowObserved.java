@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.commons.lang3.StringUtils;
 import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
@@ -94,6 +95,19 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 	 * Facet: true
 	 */
 	protected void _entityId(Wrap<String> w) {}
+
+	/**
+	 * {@inheritDoc}
+	 * DocValues: true
+	 * DisplayName: entity ID
+	 * Description: A short ID for this Smart Data Model
+	 * Facet: true
+	 */
+	protected void _entityShortId(Wrap<String> w) {
+		if(entityId != null) {
+			w.o(StringUtils.substringAfter(entityId, String.format("urn:ngsi-ld:%s:", CLASS_SIMPLE_NAME)));
+		}
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -713,7 +727,7 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 	@Override
 	protected void _objectTitle(Wrap<String> w) {
 		StringBuilder b = new StringBuilder();
-		b.append(Optional.ofNullable(entityId).orElse(pk.toString()));
+		b.append(Optional.ofNullable(entityShortId).map(s -> String.format("%s - %s", TrafficFlowObserved_NameAdjectiveSingular_enUS, s)).orElse(pk.toString()));
 		w.o(b.toString().trim());
 	}
 

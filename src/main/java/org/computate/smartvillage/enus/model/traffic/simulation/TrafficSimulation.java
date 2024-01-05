@@ -19,14 +19,13 @@ import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
 import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved;
 import org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved;
-import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulationGen;
 import org.computate.vertx.search.list.SearchList;
 
 import io.vertx.core.Promise;
@@ -120,6 +119,19 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * DisplayName: entity ID
+	 * Description: A short ID for this Smart Data Model
+	 * Facet: true
+	 */
+	protected void _entityShortId(Wrap<String> w) {
+		if(entityId != null) {
+			w.o(StringUtils.substringAfter(entityId, String.format("urn:ngsi-ld:%s:", CLASS_SIMPLE_NAME)));
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * DocValues: true
 	 * Relate: SimulationReport.simulationKey
 	 * Facet: true
 	 * DisplayName: simulation reports
@@ -160,12 +172,35 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * LocationColor: true
 	 * Indexed: true
 	 * Stored: true
 	 * DisplayName: area served colors
 	 * Description: The colors of each areaServed Paths. 
 	 */
 	protected void _areaServedColors(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * LocationTitle: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served titles
+	 * Description: The titles of each areaServed Paths. 
+	 */
+	protected void _areaServedTitles(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * LocationUrl: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served links
+	 * Description: The links of each areaServed Paths. 
+	 */
+	protected void _areaServedLinks(List<String> l) {
 	}
 
 	/**
@@ -185,6 +220,8 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 				});
 				l.add(path);
 				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
+				areaServedTitles.add(baseModel.getObjectTitle());
+				areaServedLinks.add(baseModel.getPageUrlPk());
 			} else if(baseModel instanceof CrowdFlowObserved) {
 				CrowdFlowObserved model = (CrowdFlowObserved)baseModel;
 				Path path = new Path();
@@ -650,7 +687,7 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 	@Override
 	protected void _objectTitle(Wrap<String> w) {
 		StringBuilder b = new StringBuilder();
-		Optional.ofNullable(simulationName).ifPresent(s -> b.append(" Simulation \"").append(s).append("\""));
+		b.append(Optional.ofNullable(entityShortId).map(s -> String.format("%s - %s", TrafficSimulation_NameAdjectiveSingular_enUS, s)).orElse(pk.toString()));
 		w.o(b.toString().trim());
 	}
 

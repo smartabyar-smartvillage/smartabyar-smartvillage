@@ -18,12 +18,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.commons.lang3.StringUtils;
 import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
-import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObservedGen;
 import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation;
-import org.computate.smartvillage.enus.result.map.MapResult;
 import org.computate.vertx.search.list.SearchList;
 
 import io.vertx.core.Promise;
@@ -118,6 +117,19 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	 * Facet: true
 	 */
 	protected void _entityId(Wrap<String> w) {}
+
+	/**
+	 * {@inheritDoc}
+	 * DocValues: true
+	 * DisplayName: entity ID
+	 * Description: A short ID for this Smart Data Model
+	 * Facet: true
+	 */
+	protected void _entityShortId(Wrap<String> w) {
+		if(entityId != null) {
+			w.o(StringUtils.substringAfter(entityId, String.format("urn:ngsi-ld:%s:", CLASS_SIMPLE_NAME)));
+		}
+	}
 
 	/**
 	 * Ignore: true
@@ -424,7 +436,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	@Override
 	protected void _objectTitle(Wrap<String> w) {
 		StringBuilder b = new StringBuilder();
-		b.append(Optional.ofNullable(entityId).orElse(Optional.ofNullable(pk).map(v -> v.toString()).orElse(null)));
+		b.append(Optional.ofNullable(entityShortId).map(s -> String.format("%s - %s", CrowdFlowObserved_NameAdjectiveSingular_enUS, s)).orElse(pk.toString()));
 		w.o(b.toString().trim());
 	}
 

@@ -15727,90 +15727,95 @@ components:
       allOf:
         - type: object
           properties:
-            url:
-              type: string
-            uri:
-              type: string
-            pageId:
-              type: string
-            sequenceNum:
-              type: string
-            htmGroup:
-              type: string
-            labels:
+            list:
               type: array
               items:
-                type: string
-            eBefore:
-              type: string
-            eAfter:
-              type: string
-            a:
-              type: object
-            text:
-              type: array
-              items:
-                type: string
-            comment:
-              type: array
-              items:
-                type: string
-            tabs:
-              type: string
-            newLine:
-              type: boolean
-            htmBefore:
-              type: string
-            htmMiddle:
-              type: array
-              items:
-                type: string
-            htmAfter:
-              type: string
+                type: object
+                properties:
+                  url:
+                    type: string
+                  uri:
+                    type: string
+                  pageId:
+                    type: string
+                  sequenceNum:
+                    type: string
+                  htmGroup:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      type: string
+                  eBefore:
+                    type: string
+                  eAfter:
+                    type: string
+                  a:
+                    type: object
+                  text:
+                    type: array
+                    items:
+                      type: string
+                  comment:
+                    type: array
+                    items:
+                      type: string
+                  tabs:
+                    type: string
+                  newLine:
+                    type: boolean
+                  htmBefore:
+                    type: string
+                  htmMiddle:
+                    type: array
+                    items:
+                      type: string
+                  htmAfter:
+                    type: string
     PUTImportSiteHtmResponse:
       allOf:
         - type: object
           properties:
-            url:
-              type: string
-            uri:
-              type: string
-            pageId:
-              type: string
-            sequenceNum:
-              type: string
-            htmGroup:
-              type: string
-            labels:
-              type: array
-              items:
-                type: string
-            eBefore:
-              type: string
-            eAfter:
-              type: string
-            a:
-              type: object
-            text:
-              type: array
-              items:
-                type: string
-            comment:
-              type: array
-              items:
-                type: string
-            tabs:
-              type: string
-            newLine:
-              type: boolean
-            htmBefore:
-              type: string
-            htmMiddle:
-              type: array
-              items:
-                type: string
-            htmAfter:
-              type: string
+                  url:
+                    type: string
+                  uri:
+                    type: string
+                  pageId:
+                    type: string
+                  sequenceNum:
+                    type: string
+                  htmGroup:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      type: string
+                  eBefore:
+                    type: string
+                  eAfter:
+                    type: string
+                  a:
+                    type: object
+                  text:
+                    type: array
+                    items:
+                      type: string
+                  comment:
+                    type: array
+                    items:
+                      type: string
+                  tabs:
+                    type: string
+                  newLine:
+                    type: boolean
+                  htmBefore:
+                    type: string
+                  htmMiddle:
+                    type: array
+                    items:
+                      type: string
+                  htmAfter:
+                    type: string
     GETSiteHtmResponse:
       allOf:
         - type: object
@@ -16696,170 +16701,175 @@ components:
       allOf:
         - type: object
           properties:
-            json:
-              type: object
-            nodeName:
-              type: string
-            nodeType:
-              type: string
-            nodeId:
-              type: string
-            location:
-              type: string
-            json_moisture:
-              type: string
-            json_moisture0:
-              type: string
-            json_moisture1:
-              type: string
-            json_temperature:
-              type: string
-            json_temperature0:
-              type: string
-            json_temperatureAverage:
-              type: string
-            json_badConditionsCounter:
-              type: string
-            json_door:
-              type: string
-            json_alarmDoor:
-              type: boolean
-            json_flood:
-              type: string
-            json_alarmFlood:
-              type: boolean
-            json_lux2:
-              type: string
-            json_illuminance:
-              type: string
-            json_resistance0:
-              type: string
-            json_resistance1:
-              type: string
-            json_frequency:
-              type: string
-            json_devEui:
-              type: string
-            json_bandwidth:
-              type: string
-            json_dataRate:
-              type: string
-            json_frameCount:
-              type: string
-            json_maxPayload:
-              type: string
-            json_bitsPerSecond:
-              type: string
-            json_batteryVoltage:
-              type: string
-            json_spreadingFactor:
-              type: string
-            json_dataRateAdaptive:
-              type: boolean
-            json_swversion:
-              type: string
-            json_batteryLevel:
-              type: string
-            json_startUpCount:
-              type: string
-            json_watchdogCount:
-              type: string
-            json_historySequence:
-              type: string
-            json_versionFirmware:
-              type: string
-            json_stackTxFailRebootCount:
-              type: string
-            json_historySequencePrevious:
-              type: string
-            json_snr:
-              type: string
-            json_rssi:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  json:
+                    type: object
+                  nodeName:
+                    type: string
+                  nodeType:
+                    type: string
+                  nodeId:
+                    type: string
+                  location:
+                    type: string
+                  json_moisture:
+                    type: string
+                  json_moisture0:
+                    type: string
+                  json_moisture1:
+                    type: string
+                  json_temperature:
+                    type: string
+                  json_temperature0:
+                    type: string
+                  json_temperatureAverage:
+                    type: string
+                  json_badConditionsCounter:
+                    type: string
+                  json_door:
+                    type: string
+                  json_alarmDoor:
+                    type: boolean
+                  json_flood:
+                    type: string
+                  json_alarmFlood:
+                    type: boolean
+                  json_lux2:
+                    type: string
+                  json_illuminance:
+                    type: string
+                  json_resistance0:
+                    type: string
+                  json_resistance1:
+                    type: string
+                  json_frequency:
+                    type: string
+                  json_devEui:
+                    type: string
+                  json_bandwidth:
+                    type: string
+                  json_dataRate:
+                    type: string
+                  json_frameCount:
+                    type: string
+                  json_maxPayload:
+                    type: string
+                  json_bitsPerSecond:
+                    type: string
+                  json_batteryVoltage:
+                    type: string
+                  json_spreadingFactor:
+                    type: string
+                  json_dataRateAdaptive:
+                    type: boolean
+                  json_swversion:
+                    type: string
+                  json_batteryLevel:
+                    type: string
+                  json_startUpCount:
+                    type: string
+                  json_watchdogCount:
+                    type: string
+                  json_historySequence:
+                    type: string
+                  json_versionFirmware:
+                    type: string
+                  json_stackTxFailRebootCount:
+                    type: string
+                  json_historySequencePrevious:
+                    type: string
+                  json_snr:
+                    type: string
+                  json_rssi:
+                    type: string
     PUTImportIotNodeResponse:
       allOf:
         - type: object
           properties:
-            json:
-              type: object
-            nodeName:
-              type: string
-            nodeType:
-              type: string
-            nodeId:
-              type: string
-            location:
-              type: string
-            json_moisture:
-              type: string
-            json_moisture0:
-              type: string
-            json_moisture1:
-              type: string
-            json_temperature:
-              type: string
-            json_temperature0:
-              type: string
-            json_temperatureAverage:
-              type: string
-            json_badConditionsCounter:
-              type: string
-            json_door:
-              type: string
-            json_alarmDoor:
-              type: boolean
-            json_flood:
-              type: string
-            json_alarmFlood:
-              type: boolean
-            json_lux2:
-              type: string
-            json_illuminance:
-              type: string
-            json_resistance0:
-              type: string
-            json_resistance1:
-              type: string
-            json_frequency:
-              type: string
-            json_devEui:
-              type: string
-            json_bandwidth:
-              type: string
-            json_dataRate:
-              type: string
-            json_frameCount:
-              type: string
-            json_maxPayload:
-              type: string
-            json_bitsPerSecond:
-              type: string
-            json_batteryVoltage:
-              type: string
-            json_spreadingFactor:
-              type: string
-            json_dataRateAdaptive:
-              type: boolean
-            json_swversion:
-              type: string
-            json_batteryLevel:
-              type: string
-            json_startUpCount:
-              type: string
-            json_watchdogCount:
-              type: string
-            json_historySequence:
-              type: string
-            json_versionFirmware:
-              type: string
-            json_stackTxFailRebootCount:
-              type: string
-            json_historySequencePrevious:
-              type: string
-            json_snr:
-              type: string
-            json_rssi:
-              type: string
+                  json:
+                    type: object
+                  nodeName:
+                    type: string
+                  nodeType:
+                    type: string
+                  nodeId:
+                    type: string
+                  location:
+                    type: string
+                  json_moisture:
+                    type: string
+                  json_moisture0:
+                    type: string
+                  json_moisture1:
+                    type: string
+                  json_temperature:
+                    type: string
+                  json_temperature0:
+                    type: string
+                  json_temperatureAverage:
+                    type: string
+                  json_badConditionsCounter:
+                    type: string
+                  json_door:
+                    type: string
+                  json_alarmDoor:
+                    type: boolean
+                  json_flood:
+                    type: string
+                  json_alarmFlood:
+                    type: boolean
+                  json_lux2:
+                    type: string
+                  json_illuminance:
+                    type: string
+                  json_resistance0:
+                    type: string
+                  json_resistance1:
+                    type: string
+                  json_frequency:
+                    type: string
+                  json_devEui:
+                    type: string
+                  json_bandwidth:
+                    type: string
+                  json_dataRate:
+                    type: string
+                  json_frameCount:
+                    type: string
+                  json_maxPayload:
+                    type: string
+                  json_bitsPerSecond:
+                    type: string
+                  json_batteryVoltage:
+                    type: string
+                  json_spreadingFactor:
+                    type: string
+                  json_dataRateAdaptive:
+                    type: boolean
+                  json_swversion:
+                    type: string
+                  json_batteryLevel:
+                    type: string
+                  json_startUpCount:
+                    type: string
+                  json_watchdogCount:
+                    type: string
+                  json_historySequence:
+                    type: string
+                  json_versionFirmware:
+                    type: string
+                  json_stackTxFailRebootCount:
+                    type: string
+                  json_historySequencePrevious:
+                    type: string
+                  json_snr:
+                    type: string
+                  json_rssi:
+                    type: string
     GETIotNodeResponse:
       allOf:
         - type: object
@@ -17425,98 +17435,103 @@ components:
       allOf:
         - type: object
           properties:
-            githubOrg:
-              type: string
-            siteName:
-              type: string
-            siteDisplayName:
-              type: string
-            sitePublicUrl:
-              type: string
-            mailingListUrl:
-              type: string
-            quayioOrg:
-              type: string
-            sitePomGroupId:
-              type: string
-            staticBaseUrl:
-              type: string
-            staticPath:
-              type: string
-            siteBaseUrl:
-              type: string
-            courseNum:
-              type: string
-            lessonNum:
-              type: string
-            url:
-              type: string
-            uri:
-              type: string
-            pageId:
-              type: string
-            h1:
-              type: string
-            h2:
-              type: string
-            author:
-              type: string
-            pageImageUri:
-              type: string
-            pageImageWidth:
-              type: string
-            pageImageHeight:
-              type: string
-            pageImageType:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  githubOrg:
+                    type: string
+                  siteName:
+                    type: string
+                  siteDisplayName:
+                    type: string
+                  sitePublicUrl:
+                    type: string
+                  mailingListUrl:
+                    type: string
+                  quayioOrg:
+                    type: string
+                  sitePomGroupId:
+                    type: string
+                  staticBaseUrl:
+                    type: string
+                  staticPath:
+                    type: string
+                  siteBaseUrl:
+                    type: string
+                  courseNum:
+                    type: string
+                  lessonNum:
+                    type: string
+                  url:
+                    type: string
+                  uri:
+                    type: string
+                  pageId:
+                    type: string
+                  h1:
+                    type: string
+                  h2:
+                    type: string
+                  author:
+                    type: string
+                  pageImageUri:
+                    type: string
+                  pageImageWidth:
+                    type: string
+                  pageImageHeight:
+                    type: string
+                  pageImageType:
+                    type: string
     PUTImportSitePageResponse:
       allOf:
         - type: object
           properties:
-            githubOrg:
-              type: string
-            siteName:
-              type: string
-            siteDisplayName:
-              type: string
-            sitePublicUrl:
-              type: string
-            mailingListUrl:
-              type: string
-            quayioOrg:
-              type: string
-            sitePomGroupId:
-              type: string
-            staticBaseUrl:
-              type: string
-            staticPath:
-              type: string
-            siteBaseUrl:
-              type: string
-            courseNum:
-              type: string
-            lessonNum:
-              type: string
-            url:
-              type: string
-            uri:
-              type: string
-            pageId:
-              type: string
-            h1:
-              type: string
-            h2:
-              type: string
-            author:
-              type: string
-            pageImageUri:
-              type: string
-            pageImageWidth:
-              type: string
-            pageImageHeight:
-              type: string
-            pageImageType:
-              type: string
+                  githubOrg:
+                    type: string
+                  siteName:
+                    type: string
+                  siteDisplayName:
+                    type: string
+                  sitePublicUrl:
+                    type: string
+                  mailingListUrl:
+                    type: string
+                  quayioOrg:
+                    type: string
+                  sitePomGroupId:
+                    type: string
+                  staticBaseUrl:
+                    type: string
+                  staticPath:
+                    type: string
+                  siteBaseUrl:
+                    type: string
+                  courseNum:
+                    type: string
+                  lessonNum:
+                    type: string
+                  url:
+                    type: string
+                  uri:
+                    type: string
+                  pageId:
+                    type: string
+                  h1:
+                    type: string
+                  h2:
+                    type: string
+                  author:
+                    type: string
+                  pageImageUri:
+                    type: string
+                  pageImageWidth:
+                    type: string
+                  pageImageHeight:
+                    type: string
+                  pageImageType:
+                    type: string
     GETSitePageResponse:
       allOf:
         - type: object
@@ -18224,130 +18239,135 @@ components:
       allOf:
         - type: object
           properties:
-            type:
-              type: string
-            message:
-              type: string
-            status:
-              type: string
-            completed:
-              type: string
-            inheritPk:
-              type: string
-            created:
-              type: string
-            modified:
-              type: string
-            pageImageUri:
-              type: string
-            pageImageWidth:
-              type: string
-            pageImageHeight:
-              type: string
-            pageImageType:
-              type: string
-            archived:
-              type: boolean
-            deleted:
-              type: boolean
-            classCanonicalName:
-              type: string
-            classSimpleName:
-              type: string
-            classCanonicalNames:
+            list:
               type: array
               items:
-                type: string
-            sessionId:
-              type: string
-            userKey:
-              type: string
-            saves:
-              type: array
-              items:
-                type: string
-            objectTitle:
-              type: string
-            objectId:
-              type: string
-            objectSuggest:
-              type: string
-            objectText:
-              type: array
-              items:
-                type: string
-            pageUrlId:
-              type: string
-            pageUrlPk:
-              type: string
-            pageUrlApi:
-              type: string
-            id:
-              type: string
+                type: object
+                properties:
+                  type:
+                    type: string
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  completed:
+                    type: string
+                  inheritPk:
+                    type: string
+                  created:
+                    type: string
+                  modified:
+                    type: string
+                  pageImageUri:
+                    type: string
+                  pageImageWidth:
+                    type: string
+                  pageImageHeight:
+                    type: string
+                  pageImageType:
+                    type: string
+                  archived:
+                    type: boolean
+                  deleted:
+                    type: boolean
+                  classCanonicalName:
+                    type: string
+                  classSimpleName:
+                    type: string
+                  classCanonicalNames:
+                    type: array
+                    items:
+                      type: string
+                  sessionId:
+                    type: string
+                  userKey:
+                    type: string
+                  saves:
+                    type: array
+                    items:
+                      type: string
+                  objectTitle:
+                    type: string
+                  objectId:
+                    type: string
+                  objectSuggest:
+                    type: string
+                  objectText:
+                    type: array
+                    items:
+                      type: string
+                  pageUrlId:
+                    type: string
+                  pageUrlPk:
+                    type: string
+                  pageUrlApi:
+                    type: string
+                  id:
+                    type: string
     PUTImportSystemEventResponse:
       allOf:
         - type: object
           properties:
-            type:
-              type: string
-            message:
-              type: string
-            status:
-              type: string
-            completed:
-              type: string
-            inheritPk:
-              type: string
-            created:
-              type: string
-            modified:
-              type: string
-            pageImageUri:
-              type: string
-            pageImageWidth:
-              type: string
-            pageImageHeight:
-              type: string
-            pageImageType:
-              type: string
-            archived:
-              type: boolean
-            deleted:
-              type: boolean
-            classCanonicalName:
-              type: string
-            classSimpleName:
-              type: string
-            classCanonicalNames:
-              type: array
-              items:
-                type: string
-            sessionId:
-              type: string
-            userKey:
-              type: string
-            saves:
-              type: array
-              items:
-                type: string
-            objectTitle:
-              type: string
-            objectId:
-              type: string
-            objectSuggest:
-              type: string
-            objectText:
-              type: array
-              items:
-                type: string
-            pageUrlId:
-              type: string
-            pageUrlPk:
-              type: string
-            pageUrlApi:
-              type: string
-            id:
-              type: string
+                  type:
+                    type: string
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  completed:
+                    type: string
+                  inheritPk:
+                    type: string
+                  created:
+                    type: string
+                  modified:
+                    type: string
+                  pageImageUri:
+                    type: string
+                  pageImageWidth:
+                    type: string
+                  pageImageHeight:
+                    type: string
+                  pageImageType:
+                    type: string
+                  archived:
+                    type: boolean
+                  deleted:
+                    type: boolean
+                  classCanonicalName:
+                    type: string
+                  classSimpleName:
+                    type: string
+                  classCanonicalNames:
+                    type: array
+                    items:
+                      type: string
+                  sessionId:
+                    type: string
+                  userKey:
+                    type: string
+                  saves:
+                    type: array
+                    items:
+                      type: string
+                  objectTitle:
+                    type: string
+                  objectId:
+                    type: string
+                  objectSuggest:
+                    type: string
+                  objectText:
+                    type: array
+                    items:
+                      type: string
+                  pageUrlId:
+                    type: string
+                  pageUrlPk:
+                    type: string
+                  pageUrlApi:
+                    type: string
+                  id:
+                    type: string
     GETSystemEventResponse:
       allOf:
         - type: object
@@ -18474,14 +18494,19 @@ components:
       allOf:
         - type: object
           properties:
-            bicycleId:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  bicycleId:
+                    type: string
     PUTImportBicycleStepResponse:
       allOf:
         - type: object
           properties:
-            bicycleId:
-              type: string
+                  bicycleId:
+                    type: string
     GETBicycleStepResponse:
       allOf:
         - $ref: "#/components/schemas/GETMapResultResponse"
@@ -18517,6 +18542,8 @@ components:
                   color:
                     type: string
                   entityId:
+                    type: string
+                  entityShortId:
                     type: string
                   walkingAreaId:
                     type: string
@@ -18593,6 +18620,13 @@ components:
             removeEntityId:
               type: string
             removeAllEntityId:
+              type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
               type: string
             setWalkingAreaId:
               type: string
@@ -18780,6 +18814,13 @@ components:
               type: string
             removeAllEntityId:
               type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
+              type: string
             setWalkingAreaId:
               type: string
               nullable: true
@@ -18946,6 +18987,8 @@ components:
               type: string
             entityId:
               type: string
+            entityShortId:
+              type: string
             walkingAreaId:
               type: string
             alternateName:
@@ -19002,6 +19045,8 @@ components:
               type: string
             entityId:
               type: string
+            entityShortId:
+              type: string
             walkingAreaId:
               type: string
             alternateName:
@@ -19050,114 +19095,123 @@ components:
       allOf:
         - type: object
           properties:
-            customTrafficLightId:
-              type: string
-            trafficSimulationId:
-              type: string
-            color:
-              type: string
-            entityId:
-              type: string
-            walkingAreaId:
-              type: string
-            alternateName:
-              type: string
-            areaServed:
-              type: object
-            averageCrowdSpeed:
-              type: string
-            averageHeadwayTime:
-              type: string
-            congested:
-              type: boolean
-            dataProvider:
-              type: string
-            dateCreated:
-              type: string
-            dateModified:
-              type: string
-            dateObserved:
-              type: string
-            dateObservedFrom:
-              type: string
-            dateObservedTo:
-              type: string
-            description:
-              type: string
-            direction:
-              type: string
-            location:
-              type: string
-            name:
-              type: string
-            occupancy:
-              type: string
-            owner:
-              type: object
-            peopleCount:
-              type: string
-            refRoadSegment:
-              type: object
-            seeAlso:
-              type: object
-            source:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  customTrafficLightId:
+                    type: string
+                  trafficSimulationId:
+                    type: string
+                  color:
+                    type: string
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  walkingAreaId:
+                    type: string
+                  alternateName:
+                    type: string
+                  areaServed:
+                    type: object
+                  averageCrowdSpeed:
+                    type: string
+                  averageHeadwayTime:
+                    type: string
+                  congested:
+                    type: boolean
+                  dataProvider:
+                    type: string
+                  dateCreated:
+                    type: string
+                  dateModified:
+                    type: string
+                  dateObserved:
+                    type: string
+                  dateObservedFrom:
+                    type: string
+                  dateObservedTo:
+                    type: string
+                  description:
+                    type: string
+                  direction:
+                    type: string
+                  location:
+                    type: string
+                  name:
+                    type: string
+                  occupancy:
+                    type: string
+                  owner:
+                    type: object
+                  peopleCount:
+                    type: string
+                  refRoadSegment:
+                    type: object
+                  seeAlso:
+                    type: object
+                  source:
+                    type: string
     PUTImportCrowdFlowObservedResponse:
       allOf:
         - type: object
           properties:
-            customTrafficLightId:
-              type: string
-            trafficSimulationId:
-              type: string
-            color:
-              type: string
-            entityId:
-              type: string
-            walkingAreaId:
-              type: string
-            alternateName:
-              type: string
-            areaServed:
-              type: object
-            averageCrowdSpeed:
-              type: string
-            averageHeadwayTime:
-              type: string
-            congested:
-              type: boolean
-            dataProvider:
-              type: string
-            dateCreated:
-              type: string
-            dateModified:
-              type: string
-            dateObserved:
-              type: string
-            dateObservedFrom:
-              type: string
-            dateObservedTo:
-              type: string
-            description:
-              type: string
-            direction:
-              type: string
-            location:
-              type: string
-            name:
-              type: string
-            occupancy:
-              type: string
-            owner:
-              type: object
-            peopleCount:
-              type: string
-            refRoadSegment:
-              type: object
-            seeAlso:
-              type: object
-            source:
-              type: string
+                  customTrafficLightId:
+                    type: string
+                  trafficSimulationId:
+                    type: string
+                  color:
+                    type: string
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  walkingAreaId:
+                    type: string
+                  alternateName:
+                    type: string
+                  areaServed:
+                    type: object
+                  averageCrowdSpeed:
+                    type: string
+                  averageHeadwayTime:
+                    type: string
+                  congested:
+                    type: boolean
+                  dataProvider:
+                    type: string
+                  dateCreated:
+                    type: string
+                  dateModified:
+                    type: string
+                  dateObserved:
+                    type: string
+                  dateObservedFrom:
+                    type: string
+                  dateObservedTo:
+                    type: string
+                  description:
+                    type: string
+                  direction:
+                    type: string
+                  location:
+                    type: string
+                  name:
+                    type: string
+                  occupancy:
+                    type: string
+                  owner:
+                    type: object
+                  peopleCount:
+                    type: string
+                  refRoadSegment:
+                    type: object
+                  seeAlso:
+                    type: object
+                  source:
+                    type: string
     GETCrowdFlowObservedResponse:
       allOf:
         - type: object
@@ -19169,6 +19223,8 @@ components:
             color:
               type: string
             entityId:
+              type: string
+            entityShortId:
               type: string
             walkingAreaId:
               type: string
@@ -19615,82 +19671,87 @@ components:
       allOf:
         - type: object
           properties:
-            address:
-              type: object
-            alternateName:
-              type: string
-            areaServed:
-              type: object
-            category:
-              type: object
-            dataProvider:
-              type: string
-            dateCreated:
-              type: string
-            dateModified:
-              type: string
-            description:
-              type: string
-            features:
-              type: object
-            height:
-              type: string
-            location:
-              type: object
-            name:
-              type: string
-            owner:
-              type: object
-            refOffStreetParking:
-              type: object
-            seeAlso:
-              type: object
-            slope:
-              type: string
-            source:
-              type: string
-            width:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  address:
+                    type: object
+                  alternateName:
+                    type: string
+                  areaServed:
+                    type: object
+                  category:
+                    type: object
+                  dataProvider:
+                    type: string
+                  dateCreated:
+                    type: string
+                  dateModified:
+                    type: string
+                  description:
+                    type: string
+                  features:
+                    type: object
+                  height:
+                    type: string
+                  location:
+                    type: object
+                  name:
+                    type: string
+                  owner:
+                    type: object
+                  refOffStreetParking:
+                    type: object
+                  seeAlso:
+                    type: object
+                  slope:
+                    type: string
+                  source:
+                    type: string
+                  width:
+                    type: string
     PUTImportParkingAccessResponse:
       allOf:
         - type: object
           properties:
-            address:
-              type: object
-            alternateName:
-              type: string
-            areaServed:
-              type: object
-            category:
-              type: object
-            dataProvider:
-              type: string
-            dateCreated:
-              type: string
-            dateModified:
-              type: string
-            description:
-              type: string
-            features:
-              type: object
-            height:
-              type: string
-            location:
-              type: object
-            name:
-              type: string
-            owner:
-              type: object
-            refOffStreetParking:
-              type: object
-            seeAlso:
-              type: object
-            slope:
-              type: string
-            source:
-              type: string
-            width:
-              type: string
+                  address:
+                    type: object
+                  alternateName:
+                    type: string
+                  areaServed:
+                    type: object
+                  category:
+                    type: object
+                  dataProvider:
+                    type: string
+                  dateCreated:
+                    type: string
+                  dateModified:
+                    type: string
+                  description:
+                    type: string
+                  features:
+                    type: object
+                  height:
+                    type: string
+                  location:
+                    type: object
+                  name:
+                    type: string
+                  owner:
+                    type: object
+                  refOffStreetParking:
+                    type: object
+                  seeAlso:
+                    type: object
+                  slope:
+                    type: string
+                  source:
+                    type: string
+                  width:
+                    type: string
     GETParkingAccessResponse:
       allOf:
         - type: object
@@ -19754,10 +19815,16 @@ components:
                 properties:
                   entityId:
                     type: string
+                  entityShortId:
+                    type: string
                   smartTrafficLightName:
                     type: string
                   location:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   routeIds:
@@ -19841,6 +19908,13 @@ components:
               type: string
             removeAllEntityId:
               type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
+              type: string
             setSmartTrafficLightName:
               type: string
               nullable: true
@@ -19855,6 +19929,23 @@ components:
               type: string
             removeAllLocation:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -20136,6 +20227,13 @@ components:
               type: string
             removeAllEntityId:
               type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
+              type: string
             setSmartTrafficLightName:
               type: string
               nullable: true
@@ -20150,6 +20248,23 @@ components:
               type: string
             removeAllLocation:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -20426,10 +20541,16 @@ components:
           properties:
             entityId:
               type: string
+            entityShortId:
+              type: string
             smartTrafficLightName:
               type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             routeIds:
@@ -20508,10 +20629,16 @@ components:
           properties:
             entityId:
               type: string
+            entityShortId:
+              type: string
             smartTrafficLightName:
               type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             routeIds:
@@ -20588,176 +20715,199 @@ components:
       allOf:
         - type: object
           properties:
-            entityId:
-              type: string
-            smartTrafficLightName:
-              type: string
-            location:
-              type: string
-            areaServed:
-              type: array
-            routeIds:
+            list:
               type: array
               items:
-                type: string
-            routeIdNorth:
-              type: string
-            routeIdEast:
-              type: string
-            trafficFlowObservedIds:
-              type: array
-              items:
-                type: string
-            trafficFlowObserveds:
-              type: array
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            reportKeys:
-              type: array
-              items:
-                type: string
-            tlsStatesPaths:
-              type: array
-              items:
-                type: string
-            additionalFilePaths:
-              type: array
-              items:
-                type: string
+                type: object
+                properties:
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  smartTrafficLightName:
+                    type: string
+                  location:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  routeIds:
+                    type: array
+                    items:
+                      type: string
+                  routeIdNorth:
+                    type: string
+                  routeIdEast:
+                    type: string
+                  trafficFlowObservedIds:
+                    type: array
+                    items:
+                      type: string
+                  trafficFlowObserveds:
+                    type: array
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  reportKeys:
+                    type: array
+                    items:
+                      type: string
+                  tlsStatesPaths:
+                    type: array
+                    items:
+                      type: string
+                  additionalFilePaths:
+                    type: array
+                    items:
+                      type: string
     PUTImportSmartTrafficLightResponse:
       allOf:
         - type: object
           properties:
-            entityId:
-              type: string
-            smartTrafficLightName:
-              type: string
-            location:
-              type: string
-            areaServed:
-              type: array
-            routeIds:
-              type: array
-              items:
-                type: string
-            routeIdNorth:
-              type: string
-            routeIdEast:
-              type: string
-            trafficFlowObservedIds:
-              type: array
-              items:
-                type: string
-            trafficFlowObserveds:
-              type: array
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            reportKeys:
-              type: array
-              items:
-                type: string
-            tlsStatesPaths:
-              type: array
-              items:
-                type: string
-            additionalFilePaths:
-              type: array
-              items:
-                type: string
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  smartTrafficLightName:
+                    type: string
+                  location:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  routeIds:
+                    type: array
+                    items:
+                      type: string
+                  routeIdNorth:
+                    type: string
+                  routeIdEast:
+                    type: string
+                  trafficFlowObservedIds:
+                    type: array
+                    items:
+                      type: string
+                  trafficFlowObserveds:
+                    type: array
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  reportKeys:
+                    type: array
+                    items:
+                      type: string
+                  tlsStatesPaths:
+                    type: array
+                    items:
+                      type: string
+                  additionalFilePaths:
+                    type: array
+                    items:
+                      type: string
     GETSmartTrafficLightResponse:
       allOf:
         - type: object
           properties:
             entityId:
               type: string
+            entityShortId:
+              type: string
             smartTrafficLightName:
               type: string
             location:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             routeIds:
@@ -20854,6 +21004,8 @@ components:
                   color:
                     type: string
                   entityId:
+                    type: string
+                  entityShortId:
                     type: string
                   trafficSimulationId:
                     type: string
@@ -20954,6 +21106,13 @@ components:
             removeEntityId:
               type: string
             removeAllEntityId:
+              type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
               type: string
             setTrafficSimulationId:
               type: string
@@ -21260,6 +21419,13 @@ components:
               type: string
             removeAllEntityId:
               type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
+              type: string
             setTrafficSimulationId:
               type: string
               nullable: true
@@ -21555,6 +21721,8 @@ components:
               type: string
             entityId:
               type: string
+            entityShortId:
+              type: string
             trafficSimulationId:
               type: string
             laneAreaDetectorId:
@@ -21645,6 +21813,8 @@ components:
               type: string
             entityId:
               type: string
+            entityShortId:
+              type: string
             trafficSimulationId:
               type: string
             laneAreaDetectorId:
@@ -21731,182 +21901,191 @@ components:
       allOf:
         - type: object
           properties:
-            color:
-              type: string
-            entityId:
-              type: string
-            trafficSimulationId:
-              type: string
-            laneAreaDetectorId:
-              type: string
-            location:
-              type: string
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            customTrafficLightId:
-              type: string
-            address:
-              type: object
-            alternateName:
-              type: string
-            areaServed:
-              type: object
-            averageGapDistance:
-              type: string
-            averageHeadwayTime:
-              type: string
-            averageVehicleLength:
-              type: string
-            averageVehicleSpeed:
-              type: string
-            congested:
-              type: boolean
-            dataProvider:
-              type: string
-            dateCreated:
-              type: string
-            dateModified:
-              type: string
-            dateObserved:
-              type: string
-            dateObservedFrom:
-              type: string
-            dateObservedTo:
-              type: string
-            description:
-              type: string
-            intensity:
-              type: string
-            laneDirection:
-              type: string
-            laneId:
-              type: string
-            name:
-              type: string
-            occupancy:
-              type: string
-            owner:
-              type: object
-            refRoadSegment:
-              type: string
-            reversedLane:
-              type: boolean
-            seeAlso:
-              type: object
-            source:
-              type: string
-            vehicleSubType:
-              type: string
-            vehicleType:
-              type: string
-            customSigma:
-              type: string
-            customAcceleration:
-              type: string
-            customDeceleration:
-              type: string
-            customMinGreenTime:
-              type: string
-            customMaxGreenTime:
-              type: string
-            customAverageVehiclesPerMinute:
-              type: string
-            customDemandScalingFactor:
-              type: string
-            customQueueLengthThreshold:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  color:
+                    type: string
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  trafficSimulationId:
+                    type: string
+                  laneAreaDetectorId:
+                    type: string
+                  location:
+                    type: string
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  customTrafficLightId:
+                    type: string
+                  address:
+                    type: object
+                  alternateName:
+                    type: string
+                  areaServed:
+                    type: object
+                  averageGapDistance:
+                    type: string
+                  averageHeadwayTime:
+                    type: string
+                  averageVehicleLength:
+                    type: string
+                  averageVehicleSpeed:
+                    type: string
+                  congested:
+                    type: boolean
+                  dataProvider:
+                    type: string
+                  dateCreated:
+                    type: string
+                  dateModified:
+                    type: string
+                  dateObserved:
+                    type: string
+                  dateObservedFrom:
+                    type: string
+                  dateObservedTo:
+                    type: string
+                  description:
+                    type: string
+                  intensity:
+                    type: string
+                  laneDirection:
+                    type: string
+                  laneId:
+                    type: string
+                  name:
+                    type: string
+                  occupancy:
+                    type: string
+                  owner:
+                    type: object
+                  refRoadSegment:
+                    type: string
+                  reversedLane:
+                    type: boolean
+                  seeAlso:
+                    type: object
+                  source:
+                    type: string
+                  vehicleSubType:
+                    type: string
+                  vehicleType:
+                    type: string
+                  customSigma:
+                    type: string
+                  customAcceleration:
+                    type: string
+                  customDeceleration:
+                    type: string
+                  customMinGreenTime:
+                    type: string
+                  customMaxGreenTime:
+                    type: string
+                  customAverageVehiclesPerMinute:
+                    type: string
+                  customDemandScalingFactor:
+                    type: string
+                  customQueueLengthThreshold:
+                    type: string
     PUTImportTrafficFlowObservedResponse:
       allOf:
         - type: object
           properties:
-            color:
-              type: string
-            entityId:
-              type: string
-            trafficSimulationId:
-              type: string
-            laneAreaDetectorId:
-              type: string
-            location:
-              type: string
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            customTrafficLightId:
-              type: string
-            address:
-              type: object
-            alternateName:
-              type: string
-            areaServed:
-              type: object
-            averageGapDistance:
-              type: string
-            averageHeadwayTime:
-              type: string
-            averageVehicleLength:
-              type: string
-            averageVehicleSpeed:
-              type: string
-            congested:
-              type: boolean
-            dataProvider:
-              type: string
-            dateCreated:
-              type: string
-            dateModified:
-              type: string
-            dateObserved:
-              type: string
-            dateObservedFrom:
-              type: string
-            dateObservedTo:
-              type: string
-            description:
-              type: string
-            intensity:
-              type: string
-            laneDirection:
-              type: string
-            laneId:
-              type: string
-            name:
-              type: string
-            occupancy:
-              type: string
-            owner:
-              type: object
-            refRoadSegment:
-              type: string
-            reversedLane:
-              type: boolean
-            seeAlso:
-              type: object
-            source:
-              type: string
-            vehicleSubType:
-              type: string
-            vehicleType:
-              type: string
-            customSigma:
-              type: string
-            customAcceleration:
-              type: string
-            customDeceleration:
-              type: string
-            customMinGreenTime:
-              type: string
-            customMaxGreenTime:
-              type: string
-            customAverageVehiclesPerMinute:
-              type: string
-            customDemandScalingFactor:
-              type: string
-            customQueueLengthThreshold:
-              type: string
+                  color:
+                    type: string
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  trafficSimulationId:
+                    type: string
+                  laneAreaDetectorId:
+                    type: string
+                  location:
+                    type: string
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  customTrafficLightId:
+                    type: string
+                  address:
+                    type: object
+                  alternateName:
+                    type: string
+                  areaServed:
+                    type: object
+                  averageGapDistance:
+                    type: string
+                  averageHeadwayTime:
+                    type: string
+                  averageVehicleLength:
+                    type: string
+                  averageVehicleSpeed:
+                    type: string
+                  congested:
+                    type: boolean
+                  dataProvider:
+                    type: string
+                  dateCreated:
+                    type: string
+                  dateModified:
+                    type: string
+                  dateObserved:
+                    type: string
+                  dateObservedFrom:
+                    type: string
+                  dateObservedTo:
+                    type: string
+                  description:
+                    type: string
+                  intensity:
+                    type: string
+                  laneDirection:
+                    type: string
+                  laneId:
+                    type: string
+                  name:
+                    type: string
+                  occupancy:
+                    type: string
+                  owner:
+                    type: object
+                  refRoadSegment:
+                    type: string
+                  reversedLane:
+                    type: boolean
+                  seeAlso:
+                    type: object
+                  source:
+                    type: string
+                  vehicleSubType:
+                    type: string
+                  vehicleType:
+                    type: string
+                  customSigma:
+                    type: string
+                  customAcceleration:
+                    type: string
+                  customDeceleration:
+                    type: string
+                  customMinGreenTime:
+                    type: string
+                  customMaxGreenTime:
+                    type: string
+                  customAverageVehiclesPerMinute:
+                    type: string
+                  customDemandScalingFactor:
+                    type: string
+                  customQueueLengthThreshold:
+                    type: string
     GETTrafficFlowObservedResponse:
       allOf:
         - type: object
@@ -21914,6 +22093,8 @@ components:
             color:
               type: string
             entityId:
+              type: string
+            entityShortId:
               type: string
             trafficSimulationId:
               type: string
@@ -22159,34 +22340,39 @@ components:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            trafficLightId:
-              type: string
-            trafficLightType:
-              type: string
-            angle:
-              type: string
-            color:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  trafficLightId:
+                    type: string
+                  trafficLightType:
+                    type: string
+                  angle:
+                    type: string
+                  color:
+                    type: string
     PUTImportTrafficLightResponse:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            trafficLightId:
-              type: string
-            trafficLightType:
-              type: string
-            angle:
-              type: string
-            color:
-              type: string
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  trafficLightId:
+                    type: string
+                  trafficLightType:
+                    type: string
+                  angle:
+                    type: string
+                  color:
+                    type: string
     GETTrafficLightResponse:
       allOf:
         - $ref: "#/components/schemas/GETMapResultResponse"
@@ -22406,42 +22592,47 @@ components:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            trafficLightId:
-              type: string
-            trafficLightType:
-              type: string
-            angle:
-              type: string
-            state:
-              type: string
-            programId:
-              type: string
-            phase:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  trafficLightId:
+                    type: string
+                  trafficLightType:
+                    type: string
+                  angle:
+                    type: string
+                  state:
+                    type: string
+                  programId:
+                    type: string
+                  phase:
+                    type: string
     PUTImportTrafficLightStepResponse:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            trafficLightId:
-              type: string
-            trafficLightType:
-              type: string
-            angle:
-              type: string
-            state:
-              type: string
-            programId:
-              type: string
-            phase:
-              type: string
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  trafficLightId:
+                    type: string
+                  trafficLightType:
+                    type: string
+                  angle:
+                    type: string
+                  state:
+                    type: string
+                  programId:
+                    type: string
+                  phase:
+                    type: string
     GETTrafficLightStepResponse:
       allOf:
         - $ref: "#/components/schemas/GETMapResultResponse"
@@ -22665,42 +22856,47 @@ components:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            personId:
-              type: string
-            personType:
-              type: string
-            angle:
-              type: string
-            speed:
-              type: string
-            pos:
-              type: string
-            slope:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  personId:
+                    type: string
+                  personType:
+                    type: string
+                  angle:
+                    type: string
+                  speed:
+                    type: string
+                  pos:
+                    type: string
+                  slope:
+                    type: string
     PUTImportPersonStepResponse:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            personId:
-              type: string
-            personType:
-              type: string
-            angle:
-              type: string
-            speed:
-              type: string
-            pos:
-              type: string
-            slope:
-              type: string
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  personId:
+                    type: string
+                  personType:
+                    type: string
+                  angle:
+                    type: string
+                  speed:
+                    type: string
+                  pos:
+                    type: string
+                  slope:
+                    type: string
     GETPersonStepResponse:
       allOf:
         - $ref: "#/components/schemas/GETMapResultResponse"
@@ -22749,6 +22945,8 @@ components:
                     type: string
                   entityId:
                     type: string
+                  entityShortId:
+                    type: string
                   reportKeys:
                     type: array
                     items:
@@ -22756,6 +22954,14 @@ components:
                   location:
                     type: string
                   areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
                     type: array
                     items:
                       type: string
@@ -22878,6 +23084,13 @@ components:
               type: string
             removeAllEntityId:
               type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
+              type: string
             setReportKeys:
               type: array
               nullable: true
@@ -22916,6 +23129,40 @@ components:
             addAreaServedColors:
               type: string
             addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
               type: array
               items:
                 type: string
@@ -23300,6 +23547,13 @@ components:
               type: string
             removeAllEntityId:
               type: string
+            setEntityShortId:
+              type: string
+              nullable: true
+            removeEntityShortId:
+              type: string
+            removeAllEntityShortId:
+              type: string
             setReportKeys:
               type: array
               nullable: true
@@ -23338,6 +23592,40 @@ components:
             addAreaServedColors:
               type: string
             addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
               type: array
               items:
                 type: string
@@ -23707,6 +23995,8 @@ components:
               type: string
             entityId:
               type: string
+            entityShortId:
+              type: string
             reportKeys:
               type: array
               items:
@@ -23714,6 +24004,14 @@ components:
             location:
               type: string
             areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
               type: array
               items:
                 type: string
@@ -23821,6 +24119,8 @@ components:
               type: string
             entityId:
               type: string
+            entityShortId:
+              type: string
             reportKeys:
               type: array
               items:
@@ -23828,6 +24128,14 @@ components:
             location:
               type: string
             areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
               type: array
               items:
                 type: string
@@ -23929,230 +24237,255 @@ components:
       allOf:
         - type: object
           properties:
-            startDateTime:
-              type: string
-            simulationName:
-              type: string
-            entityId:
-              type: string
-            reportKeys:
+            list:
               type: array
               items:
-                type: string
-            location:
-              type: string
-            areaServedColors:
-              type: array
-              items:
-                type: string
-            areaServed:
-              type: array
-            sumocfgPath:
-              type: string
-            fcdFilePath:
-              type: string
-            netFilePath:
-              type: string
-            startSeconds:
-              type: string
-            endSeconds:
-              type: string
-            stepSeconds:
-              type: string
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            tlsStatesPaths:
-              type: array
-              items:
-                type: string
-            additionalFilePaths:
-              type: array
-              items:
-                type: string
-            laneAreaDetectorIds:
-              type: array
-              items:
-                type: string
-            laneAreaDetectorLanes:
-              type: array
-            laneAreaDetectorPaths:
-              type: array
-              items:
-                type: string
-            e1DetectorIds:
-              type: array
-              items:
-                type: string
-            e1DetectorLanes:
-              type: array
-              items:
-                type: string
-            e1DetectorPaths:
-              type: array
-              items:
-                type: string
-            walkingAreaIds:
-              type: array
-              items:
-                type: string
-            walkingAreaLanes:
-              type: array
+                type: object
+                properties:
+                  startDateTime:
+                    type: string
+                  simulationName:
+                    type: string
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  reportKeys:
+                    type: array
+                    items:
+                      type: string
+                  location:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  sumocfgPath:
+                    type: string
+                  fcdFilePath:
+                    type: string
+                  netFilePath:
+                    type: string
+                  startSeconds:
+                    type: string
+                  endSeconds:
+                    type: string
+                  stepSeconds:
+                    type: string
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  tlsStatesPaths:
+                    type: array
+                    items:
+                      type: string
+                  additionalFilePaths:
+                    type: array
+                    items:
+                      type: string
+                  laneAreaDetectorIds:
+                    type: array
+                    items:
+                      type: string
+                  laneAreaDetectorLanes:
+                    type: array
+                  laneAreaDetectorPaths:
+                    type: array
+                    items:
+                      type: string
+                  e1DetectorIds:
+                    type: array
+                    items:
+                      type: string
+                  e1DetectorLanes:
+                    type: array
+                    items:
+                      type: string
+                  e1DetectorPaths:
+                    type: array
+                    items:
+                      type: string
+                  walkingAreaIds:
+                    type: array
+                    items:
+                      type: string
+                  walkingAreaLanes:
+                    type: array
     PUTImportTrafficSimulationResponse:
       allOf:
         - type: object
           properties:
-            startDateTime:
-              type: string
-            simulationName:
-              type: string
-            entityId:
-              type: string
-            reportKeys:
-              type: array
-              items:
-                type: string
-            location:
-              type: string
-            areaServedColors:
-              type: array
-              items:
-                type: string
-            areaServed:
-              type: array
-            sumocfgPath:
-              type: string
-            fcdFilePath:
-              type: string
-            netFilePath:
-              type: string
-            startSeconds:
-              type: string
-            endSeconds:
-              type: string
-            stepSeconds:
-              type: string
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            tlsStatesPaths:
-              type: array
-              items:
-                type: string
-            additionalFilePaths:
-              type: array
-              items:
-                type: string
-            laneAreaDetectorIds:
-              type: array
-              items:
-                type: string
-            laneAreaDetectorLanes:
-              type: array
-            laneAreaDetectorPaths:
-              type: array
-              items:
-                type: string
-            e1DetectorIds:
-              type: array
-              items:
-                type: string
-            e1DetectorLanes:
-              type: array
-              items:
-                type: string
-            e1DetectorPaths:
-              type: array
-              items:
-                type: string
-            walkingAreaIds:
-              type: array
-              items:
-                type: string
-            walkingAreaLanes:
-              type: array
+                  startDateTime:
+                    type: string
+                  simulationName:
+                    type: string
+                  entityId:
+                    type: string
+                  entityShortId:
+                    type: string
+                  reportKeys:
+                    type: array
+                    items:
+                      type: string
+                  location:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  sumocfgPath:
+                    type: string
+                  fcdFilePath:
+                    type: string
+                  netFilePath:
+                    type: string
+                  startSeconds:
+                    type: string
+                  endSeconds:
+                    type: string
+                  stepSeconds:
+                    type: string
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  tlsStatesPaths:
+                    type: array
+                    items:
+                      type: string
+                  additionalFilePaths:
+                    type: array
+                    items:
+                      type: string
+                  laneAreaDetectorIds:
+                    type: array
+                    items:
+                      type: string
+                  laneAreaDetectorLanes:
+                    type: array
+                  laneAreaDetectorPaths:
+                    type: array
+                    items:
+                      type: string
+                  e1DetectorIds:
+                    type: array
+                    items:
+                      type: string
+                  e1DetectorLanes:
+                    type: array
+                    items:
+                      type: string
+                  e1DetectorPaths:
+                    type: array
+                    items:
+                      type: string
+                  walkingAreaIds:
+                    type: array
+                    items:
+                      type: string
+                  walkingAreaLanes:
+                    type: array
     GETTrafficSimulationResponse:
       allOf:
         - type: object
@@ -24163,6 +24496,8 @@ components:
               type: string
             entityId:
               type: string
+            entityShortId:
+              type: string
             reportKeys:
               type: array
               items:
@@ -24170,6 +24505,14 @@ components:
             location:
               type: string
             areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
               type: array
               items:
                 type: string
@@ -24298,6 +24641,23 @@ components:
               type: string
             removeAllSimulationKey:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -24717,6 +25077,23 @@ components:
               type: string
             removeAllSimulationKey:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -25135,6 +25512,10 @@ components:
                     type: string
                   simulationKey:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   smartTrafficLightKey:
@@ -25270,6 +25651,23 @@ components:
               type: string
             removeAllSimulationKey:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -25689,6 +26087,23 @@ components:
               type: string
             removeAllSimulationKey:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -26093,6 +26508,10 @@ components:
               type: string
             simulationKey:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             smartTrafficLightKey:
@@ -26213,6 +26632,10 @@ components:
               type: string
             simulationKey:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             smartTrafficLightKey:
@@ -26327,482 +26750,508 @@ components:
       allOf:
         - type: object
           properties:
-            reportName:
-              type: string
-            location:
-              type: string
-            simulationKey:
-              type: string
-            areaServed:
-              type: array
-            smartTrafficLightKey:
-              type: string
-            simulationName:
-              type: string
-            smartTrafficLightId:
-              type: string
-            smartTrafficLightName:
-              type: string
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramLam:
+            list:
               type: array
               items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramInitialPar:
-              type: array
-              items:
-                type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            updatedParameters:
-              type: array
-            updatedParameters1:
-              type: array
-            updatedParameters2:
-              type: array
-            updatedParameters3:
-              type: array
-            updatedParameters4:
-              type: array
-            updatedParameters5:
-              type: array
-            updatedParameters6:
-              type: array
-            updatedParameters7:
-              type: array
-            updatedParameters8:
-              type: array
-            updatedParameters9:
-              type: array
-            updatedParameters10:
-              type: array
-            updatedPerformance:
-              type: array
-            averageQueueLength:
-              type: array
-            updatedPerformanceWaitWestEastVehicleSec:
-              type: array
-            updatedPerformanceWaitSouthNorthVehicleSec:
-              type: array
-            updatedPerformanceWaitAllVehicleSec:
-              type: array
-            updatedPerformanceWaitAllPedestrianSec:
-              type: array
-            updatedPerformanceWaitAllVehiclePedestrianSec:
-              type: array
-            avgQueueLengthWestEastVehicle:
-              type: array
-            avgQueueLengthSouthNorthVehicle:
-              type: array
-            avgQueueLengthNorthSouthPedestrian:
-              type: array
-            avgQueueLengthWestEastPedestrian:
-              type: array
-            reportStatus:
-              type: string
-            reportProgress:
-              type: string
+                type: object
+                properties:
+                  reportName:
+                    type: string
+                  location:
+                    type: string
+                  simulationKey:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  smartTrafficLightKey:
+                    type: string
+                  simulationName:
+                    type: string
+                  smartTrafficLightId:
+                    type: string
+                  smartTrafficLightName:
+                    type: string
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramLam:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramInitialPar:
+                    type: array
+                    items:
+                      type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  updatedParameters:
+                    type: array
+                  updatedParameters1:
+                    type: array
+                  updatedParameters2:
+                    type: array
+                  updatedParameters3:
+                    type: array
+                  updatedParameters4:
+                    type: array
+                  updatedParameters5:
+                    type: array
+                  updatedParameters6:
+                    type: array
+                  updatedParameters7:
+                    type: array
+                  updatedParameters8:
+                    type: array
+                  updatedParameters9:
+                    type: array
+                  updatedParameters10:
+                    type: array
+                  updatedPerformance:
+                    type: array
+                  averageQueueLength:
+                    type: array
+                  updatedPerformanceWaitWestEastVehicleSec:
+                    type: array
+                  updatedPerformanceWaitSouthNorthVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllPedestrianSec:
+                    type: array
+                  updatedPerformanceWaitAllVehiclePedestrianSec:
+                    type: array
+                  avgQueueLengthWestEastVehicle:
+                    type: array
+                  avgQueueLengthSouthNorthVehicle:
+                    type: array
+                  avgQueueLengthNorthSouthPedestrian:
+                    type: array
+                  avgQueueLengthWestEastPedestrian:
+                    type: array
+                  reportStatus:
+                    type: string
+                  reportProgress:
+                    type: string
     PUTImportSimulationReportResponse:
       allOf:
         - type: object
           properties:
-            reportName:
-              type: string
-            location:
-              type: string
-            simulationKey:
-              type: string
-            areaServed:
-              type: array
-            smartTrafficLightKey:
-              type: string
-            simulationName:
-              type: string
-            smartTrafficLightId:
-              type: string
-            smartTrafficLightName:
-              type: string
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramLam:
-              type: array
-              items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramInitialPar:
-              type: array
-              items:
-                type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            updatedParameters:
-              type: array
-            updatedParameters1:
-              type: array
-            updatedParameters2:
-              type: array
-            updatedParameters3:
-              type: array
-            updatedParameters4:
-              type: array
-            updatedParameters5:
-              type: array
-            updatedParameters6:
-              type: array
-            updatedParameters7:
-              type: array
-            updatedParameters8:
-              type: array
-            updatedParameters9:
-              type: array
-            updatedParameters10:
-              type: array
-            updatedPerformance:
-              type: array
-            averageQueueLength:
-              type: array
-            updatedPerformanceWaitWestEastVehicleSec:
-              type: array
-            updatedPerformanceWaitSouthNorthVehicleSec:
-              type: array
-            updatedPerformanceWaitAllVehicleSec:
-              type: array
-            updatedPerformanceWaitAllPedestrianSec:
-              type: array
-            updatedPerformanceWaitAllVehiclePedestrianSec:
-              type: array
-            avgQueueLengthWestEastVehicle:
-              type: array
-            avgQueueLengthSouthNorthVehicle:
-              type: array
-            avgQueueLengthNorthSouthPedestrian:
-              type: array
-            avgQueueLengthWestEastPedestrian:
-              type: array
-            reportStatus:
-              type: string
-            reportProgress:
-              type: string
+                  reportName:
+                    type: string
+                  location:
+                    type: string
+                  simulationKey:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  smartTrafficLightKey:
+                    type: string
+                  simulationName:
+                    type: string
+                  smartTrafficLightId:
+                    type: string
+                  smartTrafficLightName:
+                    type: string
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramLam:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramInitialPar:
+                    type: array
+                    items:
+                      type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  updatedParameters:
+                    type: array
+                  updatedParameters1:
+                    type: array
+                  updatedParameters2:
+                    type: array
+                  updatedParameters3:
+                    type: array
+                  updatedParameters4:
+                    type: array
+                  updatedParameters5:
+                    type: array
+                  updatedParameters6:
+                    type: array
+                  updatedParameters7:
+                    type: array
+                  updatedParameters8:
+                    type: array
+                  updatedParameters9:
+                    type: array
+                  updatedParameters10:
+                    type: array
+                  updatedPerformance:
+                    type: array
+                  averageQueueLength:
+                    type: array
+                  updatedPerformanceWaitWestEastVehicleSec:
+                    type: array
+                  updatedPerformanceWaitSouthNorthVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllPedestrianSec:
+                    type: array
+                  updatedPerformanceWaitAllVehiclePedestrianSec:
+                    type: array
+                  avgQueueLengthWestEastVehicle:
+                    type: array
+                  avgQueueLengthSouthNorthVehicle:
+                    type: array
+                  avgQueueLengthNorthSouthPedestrian:
+                    type: array
+                  avgQueueLengthWestEastPedestrian:
+                    type: array
+                  reportStatus:
+                    type: string
+                  reportProgress:
+                    type: string
     PUTCopySimulationReportRequest:
       allOf:
         - type: object
           properties:
-            reportName:
-              type: string
-            location:
-              type: string
-            simulationKey:
-              type: string
-            areaServed:
-              type: array
-            smartTrafficLightKey:
-              type: string
-            simulationName:
-              type: string
-            smartTrafficLightId:
-              type: string
-            smartTrafficLightName:
-              type: string
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramLam:
+            list:
               type: array
               items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramInitialPar:
-              type: array
-              items:
-                type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            updatedParameters:
-              type: array
-            updatedParameters1:
-              type: array
-            updatedParameters2:
-              type: array
-            updatedParameters3:
-              type: array
-            updatedParameters4:
-              type: array
-            updatedParameters5:
-              type: array
-            updatedParameters6:
-              type: array
-            updatedParameters7:
-              type: array
-            updatedParameters8:
-              type: array
-            updatedParameters9:
-              type: array
-            updatedParameters10:
-              type: array
-            updatedPerformance:
-              type: array
-            averageQueueLength:
-              type: array
-            updatedPerformanceWaitWestEastVehicleSec:
-              type: array
-            updatedPerformanceWaitSouthNorthVehicleSec:
-              type: array
-            updatedPerformanceWaitAllVehicleSec:
-              type: array
-            updatedPerformanceWaitAllPedestrianSec:
-              type: array
-            updatedPerformanceWaitAllVehiclePedestrianSec:
-              type: array
-            avgQueueLengthWestEastVehicle:
-              type: array
-            avgQueueLengthSouthNorthVehicle:
-              type: array
-            avgQueueLengthNorthSouthPedestrian:
-              type: array
-            avgQueueLengthWestEastPedestrian:
-              type: array
-            reportStatus:
-              type: string
-            reportProgress:
-              type: string
+                type: object
+                properties:
+                  reportName:
+                    type: string
+                  location:
+                    type: string
+                  simulationKey:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  smartTrafficLightKey:
+                    type: string
+                  simulationName:
+                    type: string
+                  smartTrafficLightId:
+                    type: string
+                  smartTrafficLightName:
+                    type: string
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramLam:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramInitialPar:
+                    type: array
+                    items:
+                      type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  updatedParameters:
+                    type: array
+                  updatedParameters1:
+                    type: array
+                  updatedParameters2:
+                    type: array
+                  updatedParameters3:
+                    type: array
+                  updatedParameters4:
+                    type: array
+                  updatedParameters5:
+                    type: array
+                  updatedParameters6:
+                    type: array
+                  updatedParameters7:
+                    type: array
+                  updatedParameters8:
+                    type: array
+                  updatedParameters9:
+                    type: array
+                  updatedParameters10:
+                    type: array
+                  updatedPerformance:
+                    type: array
+                  averageQueueLength:
+                    type: array
+                  updatedPerformanceWaitWestEastVehicleSec:
+                    type: array
+                  updatedPerformanceWaitSouthNorthVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllPedestrianSec:
+                    type: array
+                  updatedPerformanceWaitAllVehiclePedestrianSec:
+                    type: array
+                  avgQueueLengthWestEastVehicle:
+                    type: array
+                  avgQueueLengthSouthNorthVehicle:
+                    type: array
+                  avgQueueLengthNorthSouthPedestrian:
+                    type: array
+                  avgQueueLengthWestEastPedestrian:
+                    type: array
+                  reportStatus:
+                    type: string
+                  reportProgress:
+                    type: string
     PUTCopySimulationReportResponse:
       allOf:
         - type: object
           properties:
-            reportName:
-              type: string
-            location:
-              type: string
-            simulationKey:
-              type: string
-            areaServed:
-              type: array
-            smartTrafficLightKey:
-              type: string
-            simulationName:
-              type: string
-            smartTrafficLightId:
-              type: string
-            smartTrafficLightName:
-              type: string
-            paramAvgVehiclePerMinFromWestToEast:
-              type: string
-            paramAvgVehiclePerMinFromSouthToNorth:
-              type: string
-            paramVehicleDemandScalingFactor:
-              type: string
-            paramAvgPedestrianPerMinFromWestToEast:
-              type: string
-            paramAvgPedestrianPerMinFromSouthToNorth:
-              type: string
-            paramPedestrianDemandScalingFactor:
-              type: string
-            paramLam:
-              type: array
-              items:
-                type: string
-            paramMinGreenTimeSecWestEast:
-              type: string
-            paramMaxGreenTimeSecWestEast:
-              type: string
-            paramMinGreenTimeSecSouthNorth:
-              type: string
-            paramMaxGreenTimeSecSouthNorth:
-              type: string
-            paramPedestrianWaitThresholdSecNorthSouth:
-              type: string
-            paramPedestrianWaitThresholdSecWestEast:
-              type: string
-            paramVehicleQueueThresholdWestEast:
-              type: string
-            paramVehicleQueueThresholdSouthNorth:
-              type: string
-            paramPedestrianQueueThresholdNorthSouth:
-              type: string
-            paramPedestrianQueueThresholdWestEast:
-              type: string
-            paramDemandScale:
-              type: array
-              items:
-                type: string
-            paramInitialPar:
-              type: array
-              items:
-                type: string
-            paramStepSize:
-              type: string
-            paramRunTime:
-              type: string
-            paramItersPerPar:
-              type: string
-            paramTotalIterNum:
-              type: string
-            updatedParameters:
-              type: array
-            updatedParameters1:
-              type: array
-            updatedParameters2:
-              type: array
-            updatedParameters3:
-              type: array
-            updatedParameters4:
-              type: array
-            updatedParameters5:
-              type: array
-            updatedParameters6:
-              type: array
-            updatedParameters7:
-              type: array
-            updatedParameters8:
-              type: array
-            updatedParameters9:
-              type: array
-            updatedParameters10:
-              type: array
-            updatedPerformance:
-              type: array
-            averageQueueLength:
-              type: array
-            updatedPerformanceWaitWestEastVehicleSec:
-              type: array
-            updatedPerformanceWaitSouthNorthVehicleSec:
-              type: array
-            updatedPerformanceWaitAllVehicleSec:
-              type: array
-            updatedPerformanceWaitAllPedestrianSec:
-              type: array
-            updatedPerformanceWaitAllVehiclePedestrianSec:
-              type: array
-            avgQueueLengthWestEastVehicle:
-              type: array
-            avgQueueLengthSouthNorthVehicle:
-              type: array
-            avgQueueLengthNorthSouthPedestrian:
-              type: array
-            avgQueueLengthWestEastPedestrian:
-              type: array
-            reportStatus:
-              type: string
-            reportProgress:
-              type: string
+                  reportName:
+                    type: string
+                  location:
+                    type: string
+                  simulationKey:
+                    type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServed:
+                    type: array
+                  smartTrafficLightKey:
+                    type: string
+                  simulationName:
+                    type: string
+                  smartTrafficLightId:
+                    type: string
+                  smartTrafficLightName:
+                    type: string
+                  paramAvgVehiclePerMinFromWestToEast:
+                    type: string
+                  paramAvgVehiclePerMinFromSouthToNorth:
+                    type: string
+                  paramVehicleDemandScalingFactor:
+                    type: string
+                  paramAvgPedestrianPerMinFromWestToEast:
+                    type: string
+                  paramAvgPedestrianPerMinFromSouthToNorth:
+                    type: string
+                  paramPedestrianDemandScalingFactor:
+                    type: string
+                  paramLam:
+                    type: array
+                    items:
+                      type: string
+                  paramMinGreenTimeSecWestEast:
+                    type: string
+                  paramMaxGreenTimeSecWestEast:
+                    type: string
+                  paramMinGreenTimeSecSouthNorth:
+                    type: string
+                  paramMaxGreenTimeSecSouthNorth:
+                    type: string
+                  paramPedestrianWaitThresholdSecNorthSouth:
+                    type: string
+                  paramPedestrianWaitThresholdSecWestEast:
+                    type: string
+                  paramVehicleQueueThresholdWestEast:
+                    type: string
+                  paramVehicleQueueThresholdSouthNorth:
+                    type: string
+                  paramPedestrianQueueThresholdNorthSouth:
+                    type: string
+                  paramPedestrianQueueThresholdWestEast:
+                    type: string
+                  paramDemandScale:
+                    type: array
+                    items:
+                      type: string
+                  paramInitialPar:
+                    type: array
+                    items:
+                      type: string
+                  paramStepSize:
+                    type: string
+                  paramRunTime:
+                    type: string
+                  paramItersPerPar:
+                    type: string
+                  paramTotalIterNum:
+                    type: string
+                  updatedParameters:
+                    type: array
+                  updatedParameters1:
+                    type: array
+                  updatedParameters2:
+                    type: array
+                  updatedParameters3:
+                    type: array
+                  updatedParameters4:
+                    type: array
+                  updatedParameters5:
+                    type: array
+                  updatedParameters6:
+                    type: array
+                  updatedParameters7:
+                    type: array
+                  updatedParameters8:
+                    type: array
+                  updatedParameters9:
+                    type: array
+                  updatedParameters10:
+                    type: array
+                  updatedPerformance:
+                    type: array
+                  averageQueueLength:
+                    type: array
+                  updatedPerformanceWaitWestEastVehicleSec:
+                    type: array
+                  updatedPerformanceWaitSouthNorthVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllVehicleSec:
+                    type: array
+                  updatedPerformanceWaitAllPedestrianSec:
+                    type: array
+                  updatedPerformanceWaitAllVehiclePedestrianSec:
+                    type: array
+                  avgQueueLengthWestEastVehicle:
+                    type: array
+                  avgQueueLengthSouthNorthVehicle:
+                    type: array
+                  avgQueueLengthNorthSouthPedestrian:
+                    type: array
+                  avgQueueLengthWestEastPedestrian:
+                    type: array
+                  reportStatus:
+                    type: string
+                  reportProgress:
+                    type: string
     GETSimulationReportResponse:
       allOf:
         - type: object
@@ -26813,6 +27262,10 @@ components:
               type: string
             simulationKey:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             smartTrafficLightKey:
@@ -27044,26 +27497,31 @@ components:
       allOf:
         - type: object
           properties:
-            simulationKey:
-              type: string
-            path:
-              type: string
-            time:
-              type: string
-            dateTime:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  simulationKey:
+                    type: string
+                  path:
+                    type: string
+                  time:
+                    type: string
+                  dateTime:
+                    type: string
     PUTImportTimeStepResponse:
       allOf:
         - type: object
           properties:
-            simulationKey:
-              type: string
-            path:
-              type: string
-            time:
-              type: string
-            dateTime:
-              type: string
+                  simulationKey:
+                    type: string
+                  path:
+                    type: string
+                  time:
+                    type: string
+                  dateTime:
+                    type: string
     GETTimeStepResponse:
       allOf:
         - type: object
@@ -27278,42 +27736,47 @@ components:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            vehicleId:
-              type: string
-            vehicleType:
-              type: string
-            angle:
-              type: string
-            speed:
-              type: string
-            pos:
-              type: string
-            slope:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  vehicleId:
+                    type: string
+                  vehicleType:
+                    type: string
+                  angle:
+                    type: string
+                  speed:
+                    type: string
+                  pos:
+                    type: string
+                  slope:
+                    type: string
     PUTImportVehicleStepResponse:
       allOf:
         - type: object
           properties:
-            simulationName:
-              type: string
-            sumocfgPath:
-              type: string
-            vehicleId:
-              type: string
-            vehicleType:
-              type: string
-            angle:
-              type: string
-            speed:
-              type: string
-            pos:
-              type: string
-            slope:
-              type: string
+                  simulationName:
+                    type: string
+                  sumocfgPath:
+                    type: string
+                  vehicleId:
+                    type: string
+                  vehicleType:
+                    type: string
+                  angle:
+                    type: string
+                  speed:
+                    type: string
+                  pos:
+                    type: string
+                  slope:
+                    type: string
     GETVehicleStepResponse:
       allOf:
         - $ref: "#/components/schemas/GETMapResultResponse"
@@ -27582,50 +28045,55 @@ components:
       allOf:
         - type: object
           properties:
-            userKeys:
+            list:
               type: array
               items:
-                type: string
-            userId:
-              type: string
-            userName:
-              type: string
-            userEmail:
-              type: string
-            userFirstName:
-              type: string
-            userLastName:
-              type: string
-            userFullName:
-              type: string
-            seeArchived:
-              type: boolean
-            seeDeleted:
-              type: boolean
+                type: object
+                properties:
+                  userKeys:
+                    type: array
+                    items:
+                      type: string
+                  userId:
+                    type: string
+                  userName:
+                    type: string
+                  userEmail:
+                    type: string
+                  userFirstName:
+                    type: string
+                  userLastName:
+                    type: string
+                  userFullName:
+                    type: string
+                  seeArchived:
+                    type: boolean
+                  seeDeleted:
+                    type: boolean
     PUTImportSiteUserResponse:
       allOf:
         - type: object
           properties:
-            userKeys:
-              type: array
-              items:
-                type: string
-            userId:
-              type: string
-            userName:
-              type: string
-            userEmail:
-              type: string
-            userFirstName:
-              type: string
-            userLastName:
-              type: string
-            userFullName:
-              type: string
-            seeArchived:
-              type: boolean
-            seeDeleted:
-              type: boolean
+                  userKeys:
+                    type: array
+                    items:
+                      type: string
+                  userId:
+                    type: string
+                  userName:
+                    type: string
+                  userEmail:
+                    type: string
+                  userFirstName:
+                    type: string
+                  userLastName:
+                    type: string
+                  userFullName:
+                    type: string
+                  seeArchived:
+                    type: boolean
+                  seeDeleted:
+                    type: boolean
     SearchPageSiteUserResponse:
       allOf:
         - type: string
@@ -28467,170 +28935,175 @@ components:
       allOf:
         - type: object
           properties:
-            json:
-              type: object
-            nodeName:
-              type: string
-            nodeType:
-              type: string
-            nodeId:
-              type: string
-            location:
-              type: string
-            json_moisture:
-              type: string
-            json_moisture0:
-              type: string
-            json_moisture1:
-              type: string
-            json_temperature:
-              type: string
-            json_temperature0:
-              type: string
-            json_temperatureAverage:
-              type: string
-            json_badConditionsCounter:
-              type: string
-            json_door:
-              type: string
-            json_alarmDoor:
-              type: boolean
-            json_flood:
-              type: string
-            json_alarmFlood:
-              type: boolean
-            json_lux2:
-              type: string
-            json_illuminance:
-              type: string
-            json_resistance0:
-              type: string
-            json_resistance1:
-              type: string
-            json_frequency:
-              type: string
-            json_devEui:
-              type: string
-            json_bandwidth:
-              type: string
-            json_dataRate:
-              type: string
-            json_frameCount:
-              type: string
-            json_maxPayload:
-              type: string
-            json_bitsPerSecond:
-              type: string
-            json_batteryVoltage:
-              type: string
-            json_spreadingFactor:
-              type: string
-            json_dataRateAdaptive:
-              type: boolean
-            json_swversion:
-              type: string
-            json_batteryLevel:
-              type: string
-            json_startUpCount:
-              type: string
-            json_watchdogCount:
-              type: string
-            json_historySequence:
-              type: string
-            json_versionFirmware:
-              type: string
-            json_stackTxFailRebootCount:
-              type: string
-            json_historySequencePrevious:
-              type: string
-            json_snr:
-              type: string
-            json_rssi:
-              type: string
+            list:
+              type: array
+              items:
+                type: object
+                properties:
+                  json:
+                    type: object
+                  nodeName:
+                    type: string
+                  nodeType:
+                    type: string
+                  nodeId:
+                    type: string
+                  location:
+                    type: string
+                  json_moisture:
+                    type: string
+                  json_moisture0:
+                    type: string
+                  json_moisture1:
+                    type: string
+                  json_temperature:
+                    type: string
+                  json_temperature0:
+                    type: string
+                  json_temperatureAverage:
+                    type: string
+                  json_badConditionsCounter:
+                    type: string
+                  json_door:
+                    type: string
+                  json_alarmDoor:
+                    type: boolean
+                  json_flood:
+                    type: string
+                  json_alarmFlood:
+                    type: boolean
+                  json_lux2:
+                    type: string
+                  json_illuminance:
+                    type: string
+                  json_resistance0:
+                    type: string
+                  json_resistance1:
+                    type: string
+                  json_frequency:
+                    type: string
+                  json_devEui:
+                    type: string
+                  json_bandwidth:
+                    type: string
+                  json_dataRate:
+                    type: string
+                  json_frameCount:
+                    type: string
+                  json_maxPayload:
+                    type: string
+                  json_bitsPerSecond:
+                    type: string
+                  json_batteryVoltage:
+                    type: string
+                  json_spreadingFactor:
+                    type: string
+                  json_dataRateAdaptive:
+                    type: boolean
+                  json_swversion:
+                    type: string
+                  json_batteryLevel:
+                    type: string
+                  json_startUpCount:
+                    type: string
+                  json_watchdogCount:
+                    type: string
+                  json_historySequence:
+                    type: string
+                  json_versionFirmware:
+                    type: string
+                  json_stackTxFailRebootCount:
+                    type: string
+                  json_historySequencePrevious:
+                    type: string
+                  json_snr:
+                    type: string
+                  json_rssi:
+                    type: string
     PUTImportIotNodeStepResponse:
       allOf:
         - type: object
           properties:
-            json:
-              type: object
-            nodeName:
-              type: string
-            nodeType:
-              type: string
-            nodeId:
-              type: string
-            location:
-              type: string
-            json_moisture:
-              type: string
-            json_moisture0:
-              type: string
-            json_moisture1:
-              type: string
-            json_temperature:
-              type: string
-            json_temperature0:
-              type: string
-            json_temperatureAverage:
-              type: string
-            json_badConditionsCounter:
-              type: string
-            json_door:
-              type: string
-            json_alarmDoor:
-              type: boolean
-            json_flood:
-              type: string
-            json_alarmFlood:
-              type: boolean
-            json_lux2:
-              type: string
-            json_illuminance:
-              type: string
-            json_resistance0:
-              type: string
-            json_resistance1:
-              type: string
-            json_frequency:
-              type: string
-            json_devEui:
-              type: string
-            json_bandwidth:
-              type: string
-            json_dataRate:
-              type: string
-            json_frameCount:
-              type: string
-            json_maxPayload:
-              type: string
-            json_bitsPerSecond:
-              type: string
-            json_batteryVoltage:
-              type: string
-            json_spreadingFactor:
-              type: string
-            json_dataRateAdaptive:
-              type: boolean
-            json_swversion:
-              type: string
-            json_batteryLevel:
-              type: string
-            json_startUpCount:
-              type: string
-            json_watchdogCount:
-              type: string
-            json_historySequence:
-              type: string
-            json_versionFirmware:
-              type: string
-            json_stackTxFailRebootCount:
-              type: string
-            json_historySequencePrevious:
-              type: string
-            json_snr:
-              type: string
-            json_rssi:
-              type: string
+                  json:
+                    type: object
+                  nodeName:
+                    type: string
+                  nodeType:
+                    type: string
+                  nodeId:
+                    type: string
+                  location:
+                    type: string
+                  json_moisture:
+                    type: string
+                  json_moisture0:
+                    type: string
+                  json_moisture1:
+                    type: string
+                  json_temperature:
+                    type: string
+                  json_temperature0:
+                    type: string
+                  json_temperatureAverage:
+                    type: string
+                  json_badConditionsCounter:
+                    type: string
+                  json_door:
+                    type: string
+                  json_alarmDoor:
+                    type: boolean
+                  json_flood:
+                    type: string
+                  json_alarmFlood:
+                    type: boolean
+                  json_lux2:
+                    type: string
+                  json_illuminance:
+                    type: string
+                  json_resistance0:
+                    type: string
+                  json_resistance1:
+                    type: string
+                  json_frequency:
+                    type: string
+                  json_devEui:
+                    type: string
+                  json_bandwidth:
+                    type: string
+                  json_dataRate:
+                    type: string
+                  json_frameCount:
+                    type: string
+                  json_maxPayload:
+                    type: string
+                  json_bitsPerSecond:
+                    type: string
+                  json_batteryVoltage:
+                    type: string
+                  json_spreadingFactor:
+                    type: string
+                  json_dataRateAdaptive:
+                    type: boolean
+                  json_swversion:
+                    type: string
+                  json_batteryLevel:
+                    type: string
+                  json_startUpCount:
+                    type: string
+                  json_watchdogCount:
+                    type: string
+                  json_historySequence:
+                    type: string
+                  json_versionFirmware:
+                    type: string
+                  json_stackTxFailRebootCount:
+                    type: string
+                  json_historySequencePrevious:
+                    type: string
+                  json_snr:
+                    type: string
+                  json_rssi:
+                    type: string
     GETIotNodeStepResponse:
       allOf:
         - type: object

@@ -70,6 +70,31 @@
 				return `{{#block "htmTooltip"}}{{/block}}`;
 			}
 
+			function jsLegendSmartTrafficLight(map) {
+{{#block "jsLegend"}}{{/block}}
+			}
+
+			function htmLegendSmartTrafficLight(map, shape, index, count) {
+				var color = smartTrafficLight.[index];
+				var title = smartTrafficLight.[index];
+				var url = smartTrafficLight.[index];
+				var htm = '';
+				if(index == 0) {
+					htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off ">
+	<div class="w3-larger font-weight-bold ">smart traffic lights</div>
+	<div>
+`;
+				}
+				htm += `{{#block "htmLegend"}}{{/block}}`;
+				if(index == (count - 1)) {
+					htm += `
+	</div>
+</div>
+`;
+				}
+				return htm;
+			}
+
 			function jsStyleSmartTrafficLight(feature) {
 {{#block "jsStyle"}}{{/block}}
 			}
@@ -82,6 +107,30 @@
 {{#*inline "jsWebsocketSmartTrafficLightPage"}}{{/inline}}
 {{#*inline "jsTooltipSmartTrafficLightPage"}}{{/inline}}
 {{#*inline "htmTooltipSmartTrafficLightPage"}}{{/inline}}
+{{#*inline "jsLegendSmartTrafficLightPage"}}
+				var div = L.DomUtil.create('div', 'info legend');
+				var htm = '';
+				$.each( window.listSmartTrafficLight, function(index, smartTrafficLight) {
+					if(smartTrafficLight.areaServed) {
+						var shapes = [];
+						if(Array.isArray(smartTrafficLight.areaServed))
+							shapes = shapes.concat(smartTrafficLight.areaServed);
+						else
+							shapes.push(smartTrafficLight.areaServed);
+						shapes.forEach(function(shape, index) {
+							htm += htmLegendSmartTrafficLight(map, shape, index, shapes.length);
+						});
+					}
+				});
+				div.innerHTML = htm;
+				return div;
+{{/inline}}
+{{#*inline "htmLegendSmartTrafficLightPage"}}
+		<div>
+			<i class="fa-light fa-circle" style="color: ${color}; "></i>
+			<a href="${url}">${title}</i>
+		</div>
+{{/inline}}
 {{#*inline "jsStyleSmartTrafficLightPage"}}
 				if(feature.geometry.type == 'Point') {
 					return {
@@ -95,7 +144,7 @@
 				} else {
 					return {
 						 fillColor: '#ff7800'
-						, color: (feature.properties.areaServedColors ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, weight: 5
 						, opacity: 1
 						, fillOpacity: 0.8
@@ -323,7 +372,7 @@
 {{#*inline "htmBodyGraphSmartTrafficLightPage"}}		<!-- #*inline "htmBodyGraphSmartTrafficLightPage" -->
 <div id="htmBodyGraphBaseModelPage" class="w3-content htmBodyGraph "></div>{{/inline}}
 {{#*inline "htmBodyGraphLocationSmartTrafficLightPage"}}		<!-- #*inline "htmBodyGraphLocationSmartTrafficLightPage" -->
-<div id="htmBodyGraphLocationBaseModelPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
+<div id="htmBodyGraphLocationSmartTrafficLightPage" class="w3-content htmBodyGraphLocation "></div>{{/inline}}
 {{#*inline "htmBodyCount0SmartTrafficLightPage"}}		<!-- #*inline "htmBodyCount0SmartTrafficLightPage" -->
 		<h1>
 			<a href="{{pageUri}}" class="w3-bar-item w3-btn w3-center w3-block w3-2017-shaded-spruce w3-hover-2017-shaded-spruce">

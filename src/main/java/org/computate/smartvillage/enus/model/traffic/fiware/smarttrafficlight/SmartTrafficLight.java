@@ -19,8 +19,8 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
@@ -31,7 +31,6 @@ import org.computate.vertx.tool.VertxTool;
 
 import io.vertx.core.Promise;
 import io.vertx.core.json.JsonArray;
-import io.vertx.core.json.JsonObject;
 import io.vertx.pgclient.data.Path;
 import io.vertx.pgclient.data.Point;
 
@@ -82,6 +81,19 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 	 * Required: true
 	 */
 	protected void _entityId(Wrap<String> w) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * DocValues: true
+	 * DisplayName: entity ID
+	 * Description: A short ID for this Smart Data Model
+	 * Facet: true
+	 */
+	protected void _entityShortId(Wrap<String> w) {
+		if(entityId != null) {
+			w.o(StringUtils.substringAfter(entityId, String.format("urn:ngsi-ld:%s:", CLASS_SIMPLE_NAME)));
+		}
 	}
 
 	/**
@@ -155,7 +167,7 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 				Optional.ofNullable(model.getAreaServed()).map(a -> a.getPoints()).orElse(Arrays.asList()).forEach(point -> {
 					path.addPoint(point);
 				});
-				l.add(path);
+				l.add(VertxTool.toGeoJson(path));
 				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
 			} else if(baseModel instanceof CrowdFlowObserved) {
 				CrowdFlowObserved model = (CrowdFlowObserved)baseModel;
@@ -164,7 +176,7 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 					path.addPoint(point);
 				});
 				path.addPoint(path.getPoints().get(0));
-				l.add(path);
+				l.add(VertxTool.toGeoJson(path));
 				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
 			}
 		});
@@ -614,9 +626,7 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 	@Override
 	protected void _objectTitle(Wrap<String> w) {
 		StringBuilder b = new StringBuilder();
-		Optional.ofNullable(smartTrafficLightName).ifPresent(s -> b.append(" Smart Traffic Light \"").append(s).append("\""));
-		if(b.length() == 0)
-			b.append(id);
+		b.append(Optional.ofNullable(entityShortId).map(s -> String.format("%s - %s", SmartTrafficLight_NameAdjectiveSingular_enUS, s)).orElse(pk.toString()));
 		w.o(b.toString().trim());
 	}
 

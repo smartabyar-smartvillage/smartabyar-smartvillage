@@ -24,16 +24,16 @@ RUN git clone https://github.com/computate-org/computate-vertx.git /usr/local/sr
 RUN git clone https://github.com/computate-org/smartabyar-smartvillage-static.git /usr/local/src/smartabyar-smartvillage-static
 RUN git clone https://github.com/computate-org/smartvillage-platform.git /usr/local/src/smartvillage-platform
 WORKDIR /usr/local/src/computate-base
-RUN mvn clean install -DskipTests
+RUN mvn clean install -DskipTests -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true
 WORKDIR /usr/local/src/computate-search
-RUN mvn clean install -DskipTests
+RUN mvn clean install -DskipTests -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true
 WORKDIR /usr/local/src/computate-vertx
-RUN mvn clean install -DskipTests
+RUN mvn clean install -DskipTests -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true
 WORKDIR /usr/local/src/smartvillage-platform
-RUN mvn clean install -DskipTests
+RUN mvn clean install -DskipTests -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true
 
 WORKDIR /usr/local/src/smartabyar-smartvillage
-RUN mvn clean install -DskipTests
+RUN mvn clean install -DskipTests -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true
 RUN cp /usr/local/src/smartabyar-smartvillage/target/*.jar /usr/local/src/smartabyar-smartvillage/app.jar
 RUN cp -r /usr/local/src/smartabyar-smartvillage/src/main/resources/webroot/ /usr/local/src/smartabyar-smartvillage-static/
 CMD java $JAVA_OPTS -cp .:* org.computate.smartvillage.enus.vertx.MainVerticle

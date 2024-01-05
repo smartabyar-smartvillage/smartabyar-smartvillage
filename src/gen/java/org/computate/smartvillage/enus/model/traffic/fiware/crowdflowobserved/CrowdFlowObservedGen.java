@@ -484,6 +484,58 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		return entityId;
 	}
 
+	///////////////////
+	// entityShortId //
+	///////////////////
+
+
+	/**	 The entity entityShortId
+	 *	 is defined as null before being initialized. 
+	 */
+	@JsonProperty
+	@JsonInclude(Include.NON_NULL)
+	protected String entityShortId;
+
+	/**	<br> The entity entityShortId
+	 *  is defined as null before being initialized. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved&fq=entiteVar_enUS_indexed_string:entityShortId">Find the entity entityShortId in Solr</a>
+	 * <br>
+	 * @param w is for wrapping a value to assign to this entity during initialization. 
+	 **/
+	protected abstract void _entityShortId(Wrap<String> w);
+
+	public String getEntityShortId() {
+		return entityShortId;
+	}
+	public void setEntityShortId(String o) {
+		this.entityShortId = CrowdFlowObserved.staticSetEntityShortId(siteRequest_, o);
+	}
+	public static String staticSetEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	protected CrowdFlowObserved entityShortIdInit() {
+		Wrap<String> entityShortIdWrap = new Wrap<String>().var("entityShortId");
+		if(entityShortId == null) {
+			_entityShortId(entityShortIdWrap);
+			Optional.ofNullable(entityShortIdWrap.getO()).ifPresent(o -> {
+				setEntityShortId(o);
+			});
+		}
+		return (CrowdFlowObserved)this;
+	}
+
+	public static String staticSearchEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return CrowdFlowObserved.staticSearchStrEntityShortId(siteRequest_, CrowdFlowObserved.staticSearchEntityShortId(siteRequest_, CrowdFlowObserved.staticSetEntityShortId(siteRequest_, o)));
+	}
+
 	/////////////////////////////
 	// trafficSimulationSearch //
 	/////////////////////////////
@@ -2008,6 +2060,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 				trafficSimulationIdInit();
 				colorInit();
 				entityIdInit();
+				entityShortIdInit();
 				promise2.complete();
 			} catch(Exception ex) {
 				promise2.fail(ex);
@@ -2110,6 +2163,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 				return oCrowdFlowObserved.color;
 			case "entityId":
 				return oCrowdFlowObserved.entityId;
+			case "entityShortId":
+				return oCrowdFlowObserved.entityShortId;
 			case "trafficSimulationSearch":
 				return oCrowdFlowObserved.trafficSimulationSearch;
 			case "trafficSimulation_":
@@ -2205,6 +2260,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 			return CrowdFlowObserved.staticSetColor(siteRequest_, o);
 		case "entityId":
 			return CrowdFlowObserved.staticSetEntityId(siteRequest_, o);
+		case "entityShortId":
+			return CrowdFlowObserved.staticSetEntityShortId(siteRequest_, o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSetWalkingAreaId(siteRequest_, o);
 		case "alternateName":
@@ -2271,6 +2328,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 			return CrowdFlowObserved.staticSearchColor(siteRequest_, (String)o);
 		case "entityId":
 			return CrowdFlowObserved.staticSearchEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return CrowdFlowObserved.staticSearchEntityShortId(siteRequest_, (String)o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSearchWalkingAreaId(siteRequest_, (String)o);
 		case "alternateName":
@@ -2337,6 +2396,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 			return CrowdFlowObserved.staticSearchStrColor(siteRequest_, (String)o);
 		case "entityId":
 			return CrowdFlowObserved.staticSearchStrEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return CrowdFlowObserved.staticSearchStrEntityShortId(siteRequest_, (String)o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSearchStrWalkingAreaId(siteRequest_, (String)o);
 		case "alternateName":
@@ -2403,6 +2464,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 			return CrowdFlowObserved.staticSearchFqColor(siteRequest_, o);
 		case "entityId":
 			return CrowdFlowObserved.staticSearchFqEntityId(siteRequest_, o);
+		case "entityShortId":
+			return CrowdFlowObserved.staticSearchFqEntityShortId(siteRequest_, o);
 		case "walkingAreaId":
 			return CrowdFlowObserved.staticSearchFqWalkingAreaId(siteRequest_, o);
 		case "alternateName":
@@ -2690,6 +2753,12 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 					oCrowdFlowObserved.setEntityId(entityId);
 			}
 
+			if(saves.contains("entityShortId")) {
+				String entityShortId = (String)doc.get("entityShortId_docvalues_string");
+				if(entityShortId != null)
+					oCrowdFlowObserved.setEntityShortId(entityShortId);
+			}
+
 			if(saves.contains("walkingAreaId")) {
 				String walkingAreaId = (String)doc.get("walkingAreaId_docvalues_string");
 				if(walkingAreaId != null)
@@ -2839,6 +2908,9 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		if(entityId != null) {
 			doc.put("entityId_docvalues_string", entityId);
 		}
+		if(entityShortId != null) {
+			doc.put("entityShortId_docvalues_string", entityShortId);
+		}
 		if(walkingAreaId != null) {
 			doc.put("walkingAreaId_docvalues_string", walkingAreaId);
 		}
@@ -2921,6 +2993,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 				return "color_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "walkingAreaId":
 				return "walkingAreaId_docvalues_string";
 			case "alternateName":
@@ -2980,6 +3054,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 				return "color_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "walkingAreaId":
 				return "walkingAreaId_docvalues_string";
 			case "alternateName":
@@ -3039,6 +3115,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 				return "color";
 			case "entityId_docvalues_string":
 				return "entityId";
+			case "entityShortId_docvalues_string":
+				return "entityShortId";
 			case "walkingAreaId_docvalues_string":
 				return "walkingAreaId";
 			case "alternateName_docvalues_string":
@@ -3117,6 +3195,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		oCrowdFlowObserved.setTrafficSimulationId(Optional.ofNullable(doc.get("trafficSimulationId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setColor(Optional.ofNullable(doc.get("color_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setEntityId(Optional.ofNullable(doc.get("entityId_docvalues_string")).map(v -> v.toString()).orElse(null));
+		oCrowdFlowObserved.setEntityShortId(Optional.ofNullable(doc.get("entityShortId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setWalkingAreaId(Optional.ofNullable(doc.get("walkingAreaId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setAlternateName(Optional.ofNullable(doc.get("alternateName_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oCrowdFlowObserved.setAreaServed(Optional.ofNullable(doc.get("areaServed_docvalues_location")).map(v -> v.toString()).orElse(null));
@@ -3160,6 +3239,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 				apiRequest.addVars("color");
 			if(!Objects.equals(entityId, original.getEntityId()))
 				apiRequest.addVars("entityId");
+			if(!Objects.equals(entityShortId, original.getEntityShortId()))
+				apiRequest.addVars("entityShortId");
 			if(!Objects.equals(walkingAreaId, original.getWalkingAreaId()))
 				apiRequest.addVars("walkingAreaId");
 			if(!Objects.equals(alternateName, original.getAlternateName()))
@@ -3219,6 +3300,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		sb.append(Optional.ofNullable(trafficSimulationId).map(v -> "trafficSimulationId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(color).map(v -> "color: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(entityId).map(v -> "entityId: \"" + v + "\"\n" ).orElse(""));
+		sb.append(Optional.ofNullable(entityShortId).map(v -> "entityShortId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(walkingAreaId).map(v -> "walkingAreaId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(alternateName).map(v -> "alternateName: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(areaServed).map(v -> "areaServed: " + v + "\n").orElse(""));
@@ -3253,6 +3335,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	public static final String VAR_trafficSimulationId = "trafficSimulationId";
 	public static final String VAR_color = "color";
 	public static final String VAR_entityId = "entityId";
+	public static final String VAR_entityShortId = "entityShortId";
 	public static final String VAR_trafficSimulationSearch = "trafficSimulationSearch";
 	public static final String VAR_trafficSimulation_ = "trafficSimulation_";
 	public static final String VAR_walkingAreaId = "walkingAreaId";
@@ -3294,6 +3377,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		vars.add(VAR_trafficSimulationId);
 		vars.add(VAR_color);
 		vars.add(VAR_entityId);
+		vars.add(VAR_entityShortId);
 		vars.add(VAR_walkingAreaId);
 		vars.add(VAR_alternateName);
 		vars.add(VAR_areaServed);
@@ -3340,6 +3424,7 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 	public static final String DISPLAY_NAME_trafficSimulationId = "traffic simulation ID";
 	public static final String DISPLAY_NAME_color = "color";
 	public static final String DISPLAY_NAME_entityId = "entity ID";
+	public static final String DISPLAY_NAME_entityShortId = "entity ID";
 	public static final String DISPLAY_NAME_trafficSimulationSearch = "";
 	public static final String DISPLAY_NAME_trafficSimulation_ = "";
 	public static final String DISPLAY_NAME_walkingAreaId = "walking area ID";
@@ -3378,6 +3463,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 			return DISPLAY_NAME_color;
 		case VAR_entityId:
 			return DISPLAY_NAME_entityId;
+		case VAR_entityShortId:
+			return DISPLAY_NAME_entityShortId;
 		case VAR_trafficSimulationSearch:
 			return DISPLAY_NAME_trafficSimulationSearch;
 		case VAR_trafficSimulation_:
@@ -3439,6 +3526,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 			return "The Traffic Simulation ID";
 		case VAR_entityId:
 			return "A unique ID for this Smart Data Model";
+		case VAR_entityShortId:
+			return "A short ID for this Smart Data Model";
 		case VAR_walkingAreaId:
 			return "The walking area ID of pedestrians in SUMO";
 		case VAR_alternateName:
@@ -3497,6 +3586,8 @@ public abstract class CrowdFlowObservedGen<DEV> extends BaseModel {
 		case VAR_color:
 			return "String";
 		case VAR_entityId:
+			return "String";
+		case VAR_entityShortId:
 			return "String";
 		case VAR_trafficSimulationSearch:
 			return "SearchList";

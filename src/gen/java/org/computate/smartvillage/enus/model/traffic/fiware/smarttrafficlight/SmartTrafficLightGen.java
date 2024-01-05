@@ -303,6 +303,58 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		return entityId;
 	}
 
+	///////////////////
+	// entityShortId //
+	///////////////////
+
+
+	/**	 The entity entityShortId
+	 *	 is defined as null before being initialized. 
+	 */
+	@JsonProperty
+	@JsonInclude(Include.NON_NULL)
+	protected String entityShortId;
+
+	/**	<br> The entity entityShortId
+	 *  is defined as null before being initialized. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight&fq=entiteVar_enUS_indexed_string:entityShortId">Find the entity entityShortId in Solr</a>
+	 * <br>
+	 * @param w is for wrapping a value to assign to this entity during initialization. 
+	 **/
+	protected abstract void _entityShortId(Wrap<String> w);
+
+	public String getEntityShortId() {
+		return entityShortId;
+	}
+	public void setEntityShortId(String o) {
+		this.entityShortId = SmartTrafficLight.staticSetEntityShortId(siteRequest_, o);
+	}
+	public static String staticSetEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	protected SmartTrafficLight entityShortIdInit() {
+		Wrap<String> entityShortIdWrap = new Wrap<String>().var("entityShortId");
+		if(entityShortId == null) {
+			_entityShortId(entityShortIdWrap);
+			Optional.ofNullable(entityShortIdWrap.getO()).ifPresent(o -> {
+				setEntityShortId(o);
+			});
+		}
+		return (SmartTrafficLight)this;
+	}
+
+	public static String staticSearchEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return SmartTrafficLight.staticSearchStrEntityShortId(siteRequest_, SmartTrafficLight.staticSearchEntityShortId(siteRequest_, SmartTrafficLight.staticSetEntityShortId(siteRequest_, o)));
+	}
+
 	///////////////////////////
 	// smartTrafficLightName //
 	///////////////////////////
@@ -2826,6 +2878,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			Promise<Void> promise2 = Promise.promise();
 			try {
 				entityIdInit();
+				entityShortIdInit();
 				smartTrafficLightNameInit();
 				locationInit();
 				promise2.complete();
@@ -2952,6 +3005,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(var) {
 			case "entityId":
 				return oSmartTrafficLight.entityId;
+			case "entityShortId":
+				return oSmartTrafficLight.entityShortId;
 			case "smartTrafficLightName":
 				return oSmartTrafficLight.smartTrafficLightName;
 			case "location":
@@ -3072,6 +3127,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(entityVar) {
 		case "entityId":
 			return SmartTrafficLight.staticSetEntityId(siteRequest_, o);
+		case "entityShortId":
+			return SmartTrafficLight.staticSetEntityShortId(siteRequest_, o);
 		case "smartTrafficLightName":
 			return SmartTrafficLight.staticSetSmartTrafficLightName(siteRequest_, o);
 		case "location":
@@ -3152,6 +3209,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(entityVar) {
 		case "entityId":
 			return SmartTrafficLight.staticSearchEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return SmartTrafficLight.staticSearchEntityShortId(siteRequest_, (String)o);
 		case "smartTrafficLightName":
 			return SmartTrafficLight.staticSearchSmartTrafficLightName(siteRequest_, (String)o);
 		case "location":
@@ -3232,6 +3291,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(entityVar) {
 		case "entityId":
 			return SmartTrafficLight.staticSearchStrEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return SmartTrafficLight.staticSearchStrEntityShortId(siteRequest_, (String)o);
 		case "smartTrafficLightName":
 			return SmartTrafficLight.staticSearchStrSmartTrafficLightName(siteRequest_, (String)o);
 		case "location":
@@ -3312,6 +3373,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(entityVar) {
 		case "entityId":
 			return SmartTrafficLight.staticSearchFqEntityId(siteRequest_, o);
+		case "entityShortId":
+			return SmartTrafficLight.staticSearchFqEntityShortId(siteRequest_, o);
 		case "smartTrafficLightName":
 			return SmartTrafficLight.staticSearchFqSmartTrafficLightName(siteRequest_, o);
 		case "location":
@@ -3517,6 +3580,12 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 					oSmartTrafficLight.setEntityId(entityId);
 			}
 
+			if(saves.contains("entityShortId")) {
+				String entityShortId = (String)doc.get("entityShortId_docvalues_string");
+				if(entityShortId != null)
+					oSmartTrafficLight.setEntityShortId(entityShortId);
+			}
+
 			if(saves.contains("smartTrafficLightName")) {
 				String smartTrafficLightName = (String)doc.get("smartTrafficLightName_docvalues_string");
 				if(smartTrafficLightName != null)
@@ -3703,6 +3772,9 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		if(entityId != null) {
 			doc.put("entityId_docvalues_string", entityId);
 		}
+		if(entityShortId != null) {
+			doc.put("entityShortId_docvalues_string", entityShortId);
+		}
 		if(smartTrafficLightName != null) {
 			doc.put("smartTrafficLightName_docvalues_string", smartTrafficLightName);
 		}
@@ -3821,6 +3893,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(entityVar) {
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "smartTrafficLightName":
 				return "smartTrafficLightName_docvalues_string";
 			case "location":
@@ -3890,6 +3964,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(entityVar) {
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "smartTrafficLightName":
 				return "smartTrafficLightName_docvalues_string";
 			case "location":
@@ -3959,6 +4035,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(searchVar) {
 			case "entityId_docvalues_string":
 				return "entityId";
+			case "entityShortId_docvalues_string":
+				return "entityShortId";
 			case "smartTrafficLightName_docvalues_string":
 				return "smartTrafficLightName";
 			case "location_docvalues_location":
@@ -4050,6 +4128,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		SiteRequestEnUS siteRequest = oSmartTrafficLight.getSiteRequest_();
 
 		oSmartTrafficLight.setEntityId(Optional.ofNullable(doc.get("entityId_docvalues_string")).map(v -> v.toString()).orElse(null));
+		oSmartTrafficLight.setEntityShortId(Optional.ofNullable(doc.get("entityShortId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oSmartTrafficLight.setSmartTrafficLightName(Optional.ofNullable(doc.get("smartTrafficLightName_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oSmartTrafficLight.setLocation(Optional.ofNullable(doc.get("location_docvalues_location")).map(v -> v.toString()).orElse(null));
 		Optional.ofNullable((List<?>)doc.get("areaServedColors_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
@@ -4105,6 +4184,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 			SmartTrafficLight original = (SmartTrafficLight)o;
 			if(!Objects.equals(entityId, original.getEntityId()))
 				apiRequest.addVars("entityId");
+			if(!Objects.equals(entityShortId, original.getEntityShortId()))
+				apiRequest.addVars("entityShortId");
 			if(!Objects.equals(smartTrafficLightName, original.getSmartTrafficLightName()))
 				apiRequest.addVars("smartTrafficLightName");
 			if(!Objects.equals(location, original.getLocation()))
@@ -4177,6 +4258,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append(Optional.ofNullable(entityId).map(v -> "entityId: \"" + v + "\"\n" ).orElse(""));
+		sb.append(Optional.ofNullable(entityShortId).map(v -> "entityShortId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(smartTrafficLightName).map(v -> "smartTrafficLightName: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(location).map(v -> "location: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServedColors).map(v -> "areaServedColors: " + v + "\n").orElse(""));
@@ -4216,6 +4298,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		return CLASS_API_ADDRESS_SmartTrafficLight;
 	}
 	public static final String VAR_entityId = "entityId";
+	public static final String VAR_entityShortId = "entityShortId";
 	public static final String VAR_smartTrafficLightName = "smartTrafficLightName";
 	public static final String VAR_location = "location";
 	public static final String VAR_observedSearch = "observedSearch";
@@ -4267,6 +4350,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 	public static List<String> varsFqSmartTrafficLight(List<String> vars) {
 		vars.add(VAR_entityId);
+		vars.add(VAR_entityShortId);
 		vars.add(VAR_smartTrafficLightName);
 		vars.add(VAR_location);
 		vars.add(VAR_areaServed);
@@ -4331,6 +4415,7 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	}
 
 	public static final String DISPLAY_NAME_entityId = "entity ID";
+	public static final String DISPLAY_NAME_entityShortId = "entity ID";
 	public static final String DISPLAY_NAME_smartTrafficLightName = "smart traffic light name";
 	public static final String DISPLAY_NAME_location = "map location";
 	public static final String DISPLAY_NAME_observedSearch = "";
@@ -4376,6 +4461,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(var) {
 		case VAR_entityId:
 			return DISPLAY_NAME_entityId;
+		case VAR_entityShortId:
+			return DISPLAY_NAME_entityShortId;
 		case VAR_smartTrafficLightName:
 			return DISPLAY_NAME_smartTrafficLightName;
 		case VAR_location:
@@ -4459,6 +4546,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 		switch(var) {
 		case VAR_entityId:
 			return "A unique ID for this Smart Data Model";
+		case VAR_entityShortId:
+			return "A short ID for this Smart Data Model";
 		case VAR_areaServedColors:
 			return "The colors of each areaServed Paths. ";
 		case VAR_areaServed:
@@ -4519,6 +4608,8 @@ public abstract class SmartTrafficLightGen<DEV> extends BaseModel {
 	public static String classSimpleNameSmartTrafficLight(String var) {
 		switch(var) {
 		case VAR_entityId:
+			return "String";
+		case VAR_entityShortId:
 			return "String";
 		case VAR_smartTrafficLightName:
 			return "String";

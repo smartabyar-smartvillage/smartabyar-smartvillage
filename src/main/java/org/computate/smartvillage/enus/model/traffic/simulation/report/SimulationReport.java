@@ -18,11 +18,13 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
+import org.computate.search.tool.SearchTool;
 import org.computate.search.wrap.Wrap;
 import org.computate.smartvillage.enus.model.base.BaseModel;
+import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved;
 import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight;
+import org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved;
 import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation;
-import org.computate.smartvillage.enus.model.traffic.simulation.report.SimulationReportGen;
 import org.computate.vertx.search.list.SearchList;
 
 import io.vertx.core.Promise;
@@ -127,9 +129,35 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	}
 
 	/**
+	 */
+	protected void _observedSearch(Promise<SearchList<BaseModel>> promise) {
+		SearchList<BaseModel> l = new SearchList<>();
+		if(simulation_ != null) {
+			l.setC(BaseModel.class);
+			l.q("*:*");
+			l.fq(String.format("trafficSimulationId_docvalues_string:%s", SearchTool.escapeQueryChars(simulation_.getEntityId())));
+			l.fq(String.format(BaseModel.VAR_classSimpleName + "_docvalues_string:(%s OR %s)", TrafficFlowObserved.CLASS_SIMPLE_NAME, CrowdFlowObserved.CLASS_SIMPLE_NAME));
+			l.setStore(true);
+		}
+		promise.complete(l);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served colors
+	 * Description: The colors of each areaServed Paths. 
+	 */
+	protected void _areaServedColors(List<String> l) {
+	}
+
+	/**
 	 * {@inheritDoc}
 	 * Location: true
 	 * DocValues: true
+	 * DisplayName: area served
+	 * Description: The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. 
 	 */
 	protected void _areaServed(List<Path> l) {
 		if(simulation_ != null)

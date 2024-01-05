@@ -102,7 +102,7 @@ public class TrafficSimulationEnUSApiServiceImpl extends TrafficSimulationEnUSGe
 		LOG.info(String.format("sendToSumo: %s", o.getSiteRequest_().getRequestVars().get("sendToSumo")));
 		super.patchTrafficSimulationFuture(o, inheritPk).onSuccess(a -> {
 			if(
-					o.getSiteRequest_().getServiceRequest().getParams().getJsonObject("header").containsKey("ngsild-path")
+					Optional.ofNullable(o.getSiteRequest_().getServiceRequest().getParams().getJsonObject("header")).map(headers -> headers.containsKey("ngsild-path")).orElse(false)
 					&& !"false".equals(o.getSiteRequest_().getRequestVars().get("sendToSumo"))
 					) {
 				sendSumoSimulationInfo(o).onSuccess(b -> {

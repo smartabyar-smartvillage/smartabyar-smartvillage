@@ -460,6 +460,58 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		return entityId;
 	}
 
+	///////////////////
+	// entityShortId //
+	///////////////////
+
+
+	/**	 The entity entityShortId
+	 *	 is defined as null before being initialized. 
+	 */
+	@JsonProperty
+	@JsonInclude(Include.NON_NULL)
+	protected String entityShortId;
+
+	/**	<br> The entity entityShortId
+	 *  is defined as null before being initialized. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation&fq=entiteVar_enUS_indexed_string:entityShortId">Find the entity entityShortId in Solr</a>
+	 * <br>
+	 * @param w is for wrapping a value to assign to this entity during initialization. 
+	 **/
+	protected abstract void _entityShortId(Wrap<String> w);
+
+	public String getEntityShortId() {
+		return entityShortId;
+	}
+	public void setEntityShortId(String o) {
+		this.entityShortId = TrafficSimulation.staticSetEntityShortId(siteRequest_, o);
+	}
+	public static String staticSetEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	protected TrafficSimulation entityShortIdInit() {
+		Wrap<String> entityShortIdWrap = new Wrap<String>().var("entityShortId");
+		if(entityShortId == null) {
+			_entityShortId(entityShortIdWrap);
+			Optional.ofNullable(entityShortIdWrap.getO()).ifPresent(o -> {
+				setEntityShortId(o);
+			});
+		}
+		return (TrafficSimulation)this;
+	}
+
+	public static String staticSearchEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqEntityShortId(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficSimulation.staticSearchStrEntityShortId(siteRequest_, TrafficSimulation.staticSearchEntityShortId(siteRequest_, TrafficSimulation.staticSetEntityShortId(siteRequest_, o)));
+	}
+
 	////////////////
 	// reportKeys //
 	////////////////
@@ -744,6 +796,154 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 
 	public static String staticSearchFqAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
 		return TrafficSimulation.staticSearchStrAreaServedColors(siteRequest_, TrafficSimulation.staticSearchAreaServedColors(siteRequest_, TrafficSimulation.staticSetAreaServedColors(siteRequest_, o)));
+	}
+
+	//////////////////////
+	// areaServedTitles //
+	//////////////////////
+
+
+	/**	 The entity areaServedTitles
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedTitles = new ArrayList<String>();
+
+	/**	<br> The entity areaServedTitles
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation&fq=entiteVar_enUS_indexed_string:areaServedTitles">Find the entity areaServedTitles in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedTitles(List<String> l);
+
+	public List<String> getAreaServedTitles() {
+		return areaServedTitles;
+	}
+
+	public void setAreaServedTitles(List<String> areaServedTitles) {
+		this.areaServedTitles = areaServedTitles;
+	}
+	public void setAreaServedTitles(String o) {
+		String l = TrafficSimulation.staticSetAreaServedTitles(siteRequest_, o);
+		if(l != null)
+			addAreaServedTitles(l);
+	}
+	public static String staticSetAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public TrafficSimulation addAreaServedTitles(String...objects) {
+		for(String o : objects) {
+			addAreaServedTitles(o);
+		}
+		return (TrafficSimulation)this;
+	}
+	public TrafficSimulation addAreaServedTitles(String o) {
+		if(o != null)
+			this.areaServedTitles.add(o);
+		return (TrafficSimulation)this;
+	}
+	@JsonIgnore
+	public void setAreaServedTitles(JsonArray objects) {
+		areaServedTitles.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedTitles(o);
+		}
+	}
+	protected TrafficSimulation areaServedTitlesInit() {
+		_areaServedTitles(areaServedTitles);
+		return (TrafficSimulation)this;
+	}
+
+	public static String staticSearchAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficSimulation.staticSearchStrAreaServedTitles(siteRequest_, TrafficSimulation.staticSearchAreaServedTitles(siteRequest_, TrafficSimulation.staticSetAreaServedTitles(siteRequest_, o)));
+	}
+
+	/////////////////////
+	// areaServedLinks //
+	/////////////////////
+
+
+	/**	 The entity areaServedLinks
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedLinks = new ArrayList<String>();
+
+	/**	<br> The entity areaServedLinks
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation&fq=entiteVar_enUS_indexed_string:areaServedLinks">Find the entity areaServedLinks in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedLinks(List<String> l);
+
+	public List<String> getAreaServedLinks() {
+		return areaServedLinks;
+	}
+
+	public void setAreaServedLinks(List<String> areaServedLinks) {
+		this.areaServedLinks = areaServedLinks;
+	}
+	public void setAreaServedLinks(String o) {
+		String l = TrafficSimulation.staticSetAreaServedLinks(siteRequest_, o);
+		if(l != null)
+			addAreaServedLinks(l);
+	}
+	public static String staticSetAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public TrafficSimulation addAreaServedLinks(String...objects) {
+		for(String o : objects) {
+			addAreaServedLinks(o);
+		}
+		return (TrafficSimulation)this;
+	}
+	public TrafficSimulation addAreaServedLinks(String o) {
+		if(o != null)
+			this.areaServedLinks.add(o);
+		return (TrafficSimulation)this;
+	}
+	@JsonIgnore
+	public void setAreaServedLinks(JsonArray objects) {
+		areaServedLinks.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedLinks(o);
+		}
+	}
+	protected TrafficSimulation areaServedLinksInit() {
+		_areaServedLinks(areaServedLinks);
+		return (TrafficSimulation)this;
+	}
+
+	public static String staticSearchAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficSimulation.staticSearchStrAreaServedLinks(siteRequest_, TrafficSimulation.staticSearchAreaServedLinks(siteRequest_, TrafficSimulation.staticSetAreaServedLinks(siteRequest_, o)));
 	}
 
 	////////////////
@@ -3541,6 +3741,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				startDateTimeInit();
 				simulationNameInit();
 				entityIdInit();
+				entityShortIdInit();
 				reportKeysInit();
 				locationInit();
 				promise2.complete();
@@ -3560,6 +3761,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			Promise<Void> promise2 = Promise.promise();
 			try {
 				areaServedColorsInit();
+				areaServedTitlesInit();
+				areaServedLinksInit();
 				areaServedInit();
 				sumocfgPathInit();
 				fcdFilePathInit();
@@ -3659,6 +3862,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return oTrafficSimulation.simulationName;
 			case "entityId":
 				return oTrafficSimulation.entityId;
+			case "entityShortId":
+				return oTrafficSimulation.entityShortId;
 			case "reportKeys":
 				return oTrafficSimulation.reportKeys;
 			case "location":
@@ -3667,6 +3872,10 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return oTrafficSimulation.observedSearch;
 			case "areaServedColors":
 				return oTrafficSimulation.areaServedColors;
+			case "areaServedTitles":
+				return oTrafficSimulation.areaServedTitles;
+			case "areaServedLinks":
+				return oTrafficSimulation.areaServedLinks;
 			case "areaServed":
 				return oTrafficSimulation.areaServed;
 			case "sumocfgPath":
@@ -3793,12 +4002,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSetSimulationName(siteRequest_, o);
 		case "entityId":
 			return TrafficSimulation.staticSetEntityId(siteRequest_, o);
+		case "entityShortId":
+			return TrafficSimulation.staticSetEntityShortId(siteRequest_, o);
 		case "reportKeys":
 			return TrafficSimulation.staticSetReportKeys(siteRequest_, o);
 		case "location":
 			return TrafficSimulation.staticSetLocation(siteRequest_, o);
 		case "areaServedColors":
 			return TrafficSimulation.staticSetAreaServedColors(siteRequest_, o);
+		case "areaServedTitles":
+			return TrafficSimulation.staticSetAreaServedTitles(siteRequest_, o);
+		case "areaServedLinks":
+			return TrafficSimulation.staticSetAreaServedLinks(siteRequest_, o);
 		case "areaServed":
 			return TrafficSimulation.staticSetAreaServed(siteRequest_, o);
 		case "sumocfgPath":
@@ -3895,12 +4110,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSearchSimulationName(siteRequest_, (String)o);
 		case "entityId":
 			return TrafficSimulation.staticSearchEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return TrafficSimulation.staticSearchEntityShortId(siteRequest_, (String)o);
 		case "reportKeys":
 			return TrafficSimulation.staticSearchReportKeys(siteRequest_, (Long)o);
 		case "location":
 			return TrafficSimulation.staticSearchLocation(siteRequest_, (Point)o);
 		case "areaServedColors":
 			return TrafficSimulation.staticSearchAreaServedColors(siteRequest_, (String)o);
+		case "areaServedTitles":
+			return TrafficSimulation.staticSearchAreaServedTitles(siteRequest_, (String)o);
+		case "areaServedLinks":
+			return TrafficSimulation.staticSearchAreaServedLinks(siteRequest_, (String)o);
 		case "areaServed":
 			return TrafficSimulation.staticSearchAreaServed(siteRequest_, (Path)o);
 		case "sumocfgPath":
@@ -3997,12 +4218,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSearchStrSimulationName(siteRequest_, (String)o);
 		case "entityId":
 			return TrafficSimulation.staticSearchStrEntityId(siteRequest_, (String)o);
+		case "entityShortId":
+			return TrafficSimulation.staticSearchStrEntityShortId(siteRequest_, (String)o);
 		case "reportKeys":
 			return TrafficSimulation.staticSearchStrReportKeys(siteRequest_, (Long)o);
 		case "location":
 			return TrafficSimulation.staticSearchStrLocation(siteRequest_, (Point)o);
 		case "areaServedColors":
 			return TrafficSimulation.staticSearchStrAreaServedColors(siteRequest_, (String)o);
+		case "areaServedTitles":
+			return TrafficSimulation.staticSearchStrAreaServedTitles(siteRequest_, (String)o);
+		case "areaServedLinks":
+			return TrafficSimulation.staticSearchStrAreaServedLinks(siteRequest_, (String)o);
 		case "areaServed":
 			return TrafficSimulation.staticSearchStrAreaServed(siteRequest_, (Path)o);
 		case "sumocfgPath":
@@ -4099,12 +4326,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return TrafficSimulation.staticSearchFqSimulationName(siteRequest_, o);
 		case "entityId":
 			return TrafficSimulation.staticSearchFqEntityId(siteRequest_, o);
+		case "entityShortId":
+			return TrafficSimulation.staticSearchFqEntityShortId(siteRequest_, o);
 		case "reportKeys":
 			return TrafficSimulation.staticSearchFqReportKeys(siteRequest_, o);
 		case "location":
 			return TrafficSimulation.staticSearchFqLocation(siteRequest_, o);
 		case "areaServedColors":
 			return TrafficSimulation.staticSearchFqAreaServedColors(siteRequest_, o);
+		case "areaServedTitles":
+			return TrafficSimulation.staticSearchFqAreaServedTitles(siteRequest_, o);
+		case "areaServedLinks":
+			return TrafficSimulation.staticSearchFqAreaServedLinks(siteRequest_, o);
 		case "areaServed":
 			return TrafficSimulation.staticSearchFqAreaServed(siteRequest_, o);
 		case "sumocfgPath":
@@ -4574,6 +4807,12 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 					oTrafficSimulation.setEntityId(entityId);
 			}
 
+			if(saves.contains("entityShortId")) {
+				String entityShortId = (String)doc.get("entityShortId_docvalues_string");
+				if(entityShortId != null)
+					oTrafficSimulation.setEntityShortId(entityShortId);
+			}
+
 			List<Long> reportKeys = (List<Long>)doc.get("reportKeys_docvalues_longs");
 			if(reportKeys != null)
 				oTrafficSimulation.reportKeys.addAll(reportKeys);
@@ -4588,6 +4827,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				List<String> areaServedColors = (List<String>)doc.get("areaServedColors_indexedstored_strings");
 				if(areaServedColors != null)
 					oTrafficSimulation.areaServedColors.addAll(areaServedColors);
+			}
+
+			if(saves.contains("areaServedTitles")) {
+				List<String> areaServedTitles = (List<String>)doc.get("areaServedTitles_indexedstored_strings");
+				if(areaServedTitles != null)
+					oTrafficSimulation.areaServedTitles.addAll(areaServedTitles);
+			}
+
+			if(saves.contains("areaServedLinks")) {
+				List<String> areaServedLinks = (List<String>)doc.get("areaServedLinks_indexedstored_strings");
+				if(areaServedLinks != null)
+					oTrafficSimulation.areaServedLinks.addAll(areaServedLinks);
 			}
 
 			if(saves.contains("areaServed")) {
@@ -4820,6 +5071,9 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		if(entityId != null) {
 			doc.put("entityId_docvalues_string", entityId);
 		}
+		if(entityShortId != null) {
+			doc.put("entityShortId_docvalues_string", entityShortId);
+		}
 		if(reportKeys != null) {
 			JsonArray l = new JsonArray();
 			doc.put("reportKeys_docvalues_longs", l);
@@ -4834,6 +5088,20 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			JsonArray l = new JsonArray();
 			doc.put("areaServedColors_indexedstored_strings", l);
 			for(String o : areaServedColors) {
+				l.add(o);
+			}
+		}
+		if(areaServedTitles != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedTitles_indexedstored_strings", l);
+			for(String o : areaServedTitles) {
+				l.add(o);
+			}
+		}
+		if(areaServedLinks != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedLinks_indexedstored_strings", l);
+			for(String o : areaServedLinks) {
 				l.add(o);
 			}
 		}
@@ -4994,12 +5262,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return "simulationName_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "reportKeys":
 				return "reportKeys_docvalues_longs";
 			case "location":
 				return "location_docvalues_location";
 			case "areaServedColors":
 				return "areaServedColors_indexedstored_strings";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
+			case "areaServedLinks":
+				return "areaServedLinks_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_strings";
 			case "sumocfgPath":
@@ -5085,12 +5359,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return "simulationName_docvalues_string";
 			case "entityId":
 				return "entityId_docvalues_string";
+			case "entityShortId":
+				return "entityShortId_docvalues_string";
 			case "reportKeys":
 				return "reportKeys_docvalues_longs";
 			case "location":
 				return "location_docvalues_location";
 			case "areaServedColors":
 				return "areaServedColors_indexedstored_strings";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
+			case "areaServedLinks":
+				return "areaServedLinks_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_strings";
 			case "sumocfgPath":
@@ -5176,12 +5456,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				return "simulationName";
 			case "entityId_docvalues_string":
 				return "entityId";
+			case "entityShortId_docvalues_string":
+				return "entityShortId";
 			case "reportKeys_docvalues_longs":
 				return "reportKeys";
 			case "location_docvalues_location":
 				return "location";
 			case "areaServedColors_indexedstored_strings":
 				return "areaServedColors";
+			case "areaServedTitles_indexedstored_strings":
+				return "areaServedTitles";
+			case "areaServedLinks_indexedstored_strings":
+				return "areaServedLinks";
 			case "areaServed_docvalues_strings":
 				return "areaServed";
 			case "sumocfgPath_docvalues_string":
@@ -5287,12 +5573,19 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		oTrafficSimulation.setStartDateTime(Optional.ofNullable(doc.get("startDateTime_docvalues_date")).map(v -> v.toString()).orElse(null));
 		oTrafficSimulation.setSimulationName(Optional.ofNullable(doc.get("simulationName_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oTrafficSimulation.setEntityId(Optional.ofNullable(doc.get("entityId_docvalues_string")).map(v -> v.toString()).orElse(null));
+		oTrafficSimulation.setEntityShortId(Optional.ofNullable(doc.get("entityShortId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		Optional.ofNullable((List<?>)doc.get("reportKeys_docvalues_longs")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
 			oTrafficSimulation.addReportKeys(TrafficSimulation.staticSetReportKeys(siteRequest, v.toString()));
 		});
 		oTrafficSimulation.setLocation(Optional.ofNullable(doc.get("location_docvalues_location")).map(v -> v.toString()).orElse(null));
 		Optional.ofNullable((List<?>)doc.get("areaServedColors_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
 			oTrafficSimulation.addAreaServedColors(TrafficSimulation.staticSetAreaServedColors(siteRequest, v.toString()));
+		});
+		Optional.ofNullable((List<?>)doc.get("areaServedTitles_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oTrafficSimulation.addAreaServedTitles(TrafficSimulation.staticSetAreaServedTitles(siteRequest, v.toString()));
+		});
+		Optional.ofNullable((List<?>)doc.get("areaServedLinks_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oTrafficSimulation.addAreaServedLinks(TrafficSimulation.staticSetAreaServedLinks(siteRequest, v.toString()));
 		});
 		Optional.ofNullable((List<?>)doc.get("areaServed_docvalues_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
 			oTrafficSimulation.addAreaServed(TrafficSimulation.staticSetAreaServed(siteRequest, v.toString()));
@@ -5365,12 +5658,18 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 				apiRequest.addVars("simulationName");
 			if(!Objects.equals(entityId, original.getEntityId()))
 				apiRequest.addVars("entityId");
+			if(!Objects.equals(entityShortId, original.getEntityShortId()))
+				apiRequest.addVars("entityShortId");
 			if(!Objects.equals(reportKeys, original.getReportKeys()))
 				apiRequest.addVars("reportKeys");
 			if(!Objects.equals(location, original.getLocation()))
 				apiRequest.addVars("location");
 			if(!Objects.equals(areaServedColors, original.getAreaServedColors()))
 				apiRequest.addVars("areaServedColors");
+			if(!Objects.equals(areaServedTitles, original.getAreaServedTitles()))
+				apiRequest.addVars("areaServedTitles");
+			if(!Objects.equals(areaServedLinks, original.getAreaServedLinks()))
+				apiRequest.addVars("areaServedLinks");
 			if(!Objects.equals(areaServed, original.getAreaServed()))
 				apiRequest.addVars("areaServed");
 			if(!Objects.equals(sumocfgPath, original.getSumocfgPath()))
@@ -5457,9 +5756,12 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		sb.append(Optional.ofNullable(startDateTime).map(v -> "startDateTime: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(simulationName).map(v -> "simulationName: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(entityId).map(v -> "entityId: \"" + v + "\"\n" ).orElse(""));
+		sb.append(Optional.ofNullable(entityShortId).map(v -> "entityShortId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(reportKeys).map(v -> "reportKeys: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(location).map(v -> "location: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServedColors).map(v -> "areaServedColors: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedTitles).map(v -> "areaServedTitles: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedLinks).map(v -> "areaServedLinks: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServed).map(v -> "areaServed: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(sumocfgPath).map(v -> "sumocfgPath: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(fcdFilePath).map(v -> "fcdFilePath: \"" + v + "\"\n" ).orElse(""));
@@ -5507,10 +5809,13 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 	public static final String VAR_startDateTime = "startDateTime";
 	public static final String VAR_simulationName = "simulationName";
 	public static final String VAR_entityId = "entityId";
+	public static final String VAR_entityShortId = "entityShortId";
 	public static final String VAR_reportKeys = "reportKeys";
 	public static final String VAR_location = "location";
 	public static final String VAR_observedSearch = "observedSearch";
 	public static final String VAR_areaServedColors = "areaServedColors";
+	public static final String VAR_areaServedTitles = "areaServedTitles";
+	public static final String VAR_areaServedLinks = "areaServedLinks";
 	public static final String VAR_areaServed = "areaServed";
 	public static final String VAR_sumocfgPath = "sumocfgPath";
 	public static final String VAR_fcdFilePath = "fcdFilePath";
@@ -5565,6 +5870,7 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		vars.add(VAR_startDateTime);
 		vars.add(VAR_simulationName);
 		vars.add(VAR_entityId);
+		vars.add(VAR_entityShortId);
 		vars.add(VAR_reportKeys);
 		vars.add(VAR_location);
 		vars.add(VAR_sumocfgPath);
@@ -5644,10 +5950,13 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 	public static final String DISPLAY_NAME_startDateTime = "Start date and Time";
 	public static final String DISPLAY_NAME_simulationName = "simulation name";
 	public static final String DISPLAY_NAME_entityId = "entity ID";
+	public static final String DISPLAY_NAME_entityShortId = "entity ID";
 	public static final String DISPLAY_NAME_reportKeys = "simulation reports";
 	public static final String DISPLAY_NAME_location = "map location";
 	public static final String DISPLAY_NAME_observedSearch = "";
 	public static final String DISPLAY_NAME_areaServedColors = "area served colors";
+	public static final String DISPLAY_NAME_areaServedTitles = "area served titles";
+	public static final String DISPLAY_NAME_areaServedLinks = "area served links";
 	public static final String DISPLAY_NAME_areaServed = "area served";
 	public static final String DISPLAY_NAME_sumocfgPath = "sumocfg path";
 	public static final String DISPLAY_NAME_fcdFilePath = "Floating Car Data file path";
@@ -5698,6 +6007,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return DISPLAY_NAME_simulationName;
 		case VAR_entityId:
 			return DISPLAY_NAME_entityId;
+		case VAR_entityShortId:
+			return DISPLAY_NAME_entityShortId;
 		case VAR_reportKeys:
 			return DISPLAY_NAME_reportKeys;
 		case VAR_location:
@@ -5706,6 +6017,10 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return DISPLAY_NAME_observedSearch;
 		case VAR_areaServedColors:
 			return DISPLAY_NAME_areaServedColors;
+		case VAR_areaServedTitles:
+			return DISPLAY_NAME_areaServedTitles;
+		case VAR_areaServedLinks:
+			return DISPLAY_NAME_areaServedLinks;
 		case VAR_areaServed:
 			return DISPLAY_NAME_areaServed;
 		case VAR_sumocfgPath:
@@ -5793,10 +6108,16 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return "The start date and time. ";
 		case VAR_entityId:
 			return "A unique ID for this Smart Data Model";
+		case VAR_entityShortId:
+			return "A short ID for this Smart Data Model";
 		case VAR_reportKeys:
 			return "The generated reports for this simulation";
 		case VAR_areaServedColors:
 			return "The colors of each areaServed Paths. ";
+		case VAR_areaServedTitles:
+			return "The titles of each areaServed Paths. ";
+		case VAR_areaServedLinks:
+			return "The links of each areaServed Paths. ";
 		case VAR_areaServed:
 			return "The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. ";
 		case VAR_startSeconds:
@@ -5862,6 +6183,8 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 			return "String";
 		case VAR_entityId:
 			return "String";
+		case VAR_entityShortId:
+			return "String";
 		case VAR_reportKeys:
 			return "List";
 		case VAR_location:
@@ -5869,6 +6192,10 @@ public abstract class TrafficSimulationGen<DEV> extends BaseModel {
 		case VAR_observedSearch:
 			return "SearchList";
 		case VAR_areaServedColors:
+			return "List";
+		case VAR_areaServedTitles:
+			return "List";
+		case VAR_areaServedLinks:
 			return "List";
 		case VAR_areaServed:
 			return "List";
