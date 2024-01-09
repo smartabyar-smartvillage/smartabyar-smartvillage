@@ -20834,8 +20834,6 @@ components:
                       type: string
                   areaServed:
                     type: array
-                    items:
-                      type: object
                   routeIds:
                     type: array
                     items:
