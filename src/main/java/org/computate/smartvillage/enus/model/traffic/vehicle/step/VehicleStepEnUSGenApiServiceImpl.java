@@ -997,6 +997,9 @@ public class VehicleStepEnUSGenApiServiceImpl extends BaseApiServiceImpl impleme
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchVehicleStepFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import VehicleStep {} succeeded, modified VehicleStep. ", body.getValue(VehicleStep.VAR_id));

@@ -680,6 +680,14 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlArchived());
 						break;
+					case "setDeleted":
+							o2.setDeleted(jsonObject.getBoolean(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_deleted + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDeleted());
+						break;
 					case "setSessionId":
 							o2.setSessionId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -695,14 +703,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(SmartTrafficLight.VAR_userKey + "=$" + num);
 							num++;
 							bParams.add(o2.sqlUserKey());
-						break;
-					case "setDeleted":
-							o2.setDeleted(jsonObject.getBoolean(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_deleted + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDeleted());
 						break;
 					case "setEntityId":
 							o2.setEntityId(jsonObject.getString(entityVar));
@@ -1221,6 +1221,15 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlArchived());
 						break;
+					case SmartTrafficLight.VAR_deleted:
+						o2.setDeleted(jsonObject.getBoolean(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SmartTrafficLight.VAR_deleted + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDeleted());
+						break;
 					case SmartTrafficLight.VAR_sessionId:
 						o2.setSessionId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1238,15 +1247,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(SmartTrafficLight.VAR_userKey + "=$" + num);
 						num++;
 						bParams.add(o2.sqlUserKey());
-						break;
-					case SmartTrafficLight.VAR_deleted:
-						o2.setDeleted(jsonObject.getBoolean(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SmartTrafficLight.VAR_deleted + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDeleted());
 						break;
 					case SmartTrafficLight.VAR_entityId:
 						o2.setEntityId(jsonObject.getString(entityVar));
@@ -1636,6 +1636,10 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+									apiRequest.setPk(o.getPk());
+								}
 								siteRequest.setJsonObject(body2);
 								patchSmartTrafficLightFuture(o, true).onSuccess(b -> {
 									LOG.debug("Import SmartTrafficLight {} succeeded, modified SmartTrafficLight. ", body.getValue(SmartTrafficLight.VAR_pk));

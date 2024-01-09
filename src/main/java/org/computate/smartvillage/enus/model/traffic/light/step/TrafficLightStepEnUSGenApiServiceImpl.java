@@ -997,6 +997,9 @@ public class TrafficLightStepEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchTrafficLightStepFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import TrafficLightStep {} succeeded, modified TrafficLightStep. ", body.getValue(TrafficLightStep.VAR_id));

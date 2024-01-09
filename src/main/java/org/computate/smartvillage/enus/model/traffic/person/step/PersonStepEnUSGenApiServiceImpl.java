@@ -997,6 +997,9 @@ public class PersonStepEnUSGenApiServiceImpl extends BaseApiServiceImpl implemen
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchPersonStepFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import PersonStep {} succeeded, modified PersonStep. ", body.getValue(PersonStep.VAR_id));

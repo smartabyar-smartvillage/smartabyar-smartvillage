@@ -537,21 +537,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmStep" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmStep" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmStep" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -642,21 +642,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmStep" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmStep" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmStep" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -812,21 +812,21 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmStep" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmStep" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmStep" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -1436,50 +1436,6 @@
 		{{/eq}}
 {{/inline}}
 
-{{#*inline "htmDateTime"}}
-<!-- #*inline "htmDateTime" -->
-								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
-									<div class="w3-padding ">
-										<div id="suggest{{classApiMethodMethod}}BicycleStepDateTime">
-											<div class="w3-card ">
-												<div class="w3-cell-row w3-2017-shaded-spruce">
-													<label for="{{classApiMethodMethod}}_dateTime">Date and Time</label>
-												</div>
-												<div class="w3-cell-row w3-padding ">
-													<div class="w3-cell ">
-														{{> "inputDateTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-{{/inline}}
-
-{{#*inline "inputDateTime"}}
-		{{#eq roleForWriteBool "true"}}
-														<input
-																type="text"
-																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classBicycleStep inputBicycleStep{{id}}DateTime w3-input w3-border "
-																placeholder="MM/dd/yyyy h:mm a '['VV']'"
-																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
-																id="{{classApiMethodMethod}}_dateTime"
-																title="The date and time.  (MM/dd/yyyy h:mm a '['VV']')"
-																value="{{#if bicycleStep_.dateTime}}{{formatZonedDateTime bicycleStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
-														{{#eq 'Page' classApiMethodMethod}}
-															onclick="removeGlow($(this)); ";
-															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
-														{{/eq}}
-														/>
-													{{else}}
-														{{#ifContainsKeys userKeys}}
-															<span class="varBicycleStep{{id}}DateTime varBicycleStepDateTime ">{{bicycleStep_.dateTime}}</span>
-			{{/ifContainsKeys}}
-		{{else}}
-														<span class="varBicycleStep{{id}}DateTime varBicycleStepDateTime ">{{bicycleStep_.dateTime}}</span>
-		{{/eq}}
-{{/inline}}
-
 {{#*inline "htmStep"}}
 <!-- #*inline "htmStep" -->
 								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
@@ -1545,6 +1501,50 @@
 			{{/ifContainsKeys}}
 		{{else}}
 														<span class="varBicycleStep{{id}}Step varBicycleStepStep ">{{bicycleStep_.step}}</span>
+		{{/eq}}
+{{/inline}}
+
+{{#*inline "htmDateTime"}}
+<!-- #*inline "htmDateTime" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}BicycleStepDateTime">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_dateTime">Date and Time</label>
+												</div>
+												<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputDateTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputDateTime"}}
+		{{#eq roleForWriteBool "true"}}
+														<input
+																type="text"
+																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classBicycleStep inputBicycleStep{{id}}DateTime w3-input w3-border "
+																placeholder="MM/dd/yyyy h:mm a '['VV']'"
+																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
+																id="{{classApiMethodMethod}}_dateTime"
+																title="The date and time.  (MM/dd/yyyy h:mm a '['VV']')"
+																value="{{#if bicycleStep_.dateTime}}{{formatZonedDateTime bicycleStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
+														{{#eq 'Page' classApiMethodMethod}}
+															onclick="removeGlow($(this)); ";
+															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
+														{{/eq}}
+														/>
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varBicycleStep{{id}}DateTime varBicycleStepDateTime ">{{bicycleStep_.dateTime}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varBicycleStep{{id}}DateTime varBicycleStepDateTime ">{{bicycleStep_.dateTime}}</span>
 		{{/eq}}
 {{/inline}}
 

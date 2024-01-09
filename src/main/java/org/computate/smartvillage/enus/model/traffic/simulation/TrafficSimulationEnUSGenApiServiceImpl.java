@@ -681,6 +681,14 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlArchived());
 						break;
+					case "setDeleted":
+							o2.setDeleted(jsonObject.getBoolean(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(TrafficSimulation.VAR_deleted + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDeleted());
+						break;
 					case "setSessionId":
 							o2.setSessionId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -696,14 +704,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(TrafficSimulation.VAR_userKey + "=$" + num);
 							num++;
 							bParams.add(o2.sqlUserKey());
-						break;
-					case "setDeleted":
-							o2.setDeleted(jsonObject.getBoolean(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(TrafficSimulation.VAR_deleted + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDeleted());
 						break;
 					case "setStartDateTime":
 							o2.setStartDateTime(jsonObject.getString(entityVar));
@@ -1438,6 +1438,15 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlArchived());
 						break;
+					case TrafficSimulation.VAR_deleted:
+						o2.setDeleted(jsonObject.getBoolean(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(TrafficSimulation.VAR_deleted + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDeleted());
+						break;
 					case TrafficSimulation.VAR_sessionId:
 						o2.setSessionId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1455,15 +1464,6 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(TrafficSimulation.VAR_userKey + "=$" + num);
 						num++;
 						bParams.add(o2.sqlUserKey());
-						break;
-					case TrafficSimulation.VAR_deleted:
-						o2.setDeleted(jsonObject.getBoolean(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(TrafficSimulation.VAR_deleted + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDeleted());
 						break;
 					case TrafficSimulation.VAR_startDateTime:
 						o2.setStartDateTime(jsonObject.getString(entityVar));
@@ -2096,6 +2096,10 @@ public class TrafficSimulationEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+									apiRequest.setPk(o.getPk());
+								}
 								siteRequest.setJsonObject(body2);
 								patchTrafficSimulationFuture(o, true).onSuccess(b -> {
 									LOG.debug("Import TrafficSimulation {} succeeded, modified TrafficSimulation. ", body.getValue(TrafficSimulation.VAR_pk));

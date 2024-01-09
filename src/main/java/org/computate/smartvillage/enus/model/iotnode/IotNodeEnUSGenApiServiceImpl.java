@@ -997,6 +997,9 @@ public class IotNodeEnUSGenApiServiceImpl extends BaseApiServiceImpl implements 
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchIotNodeFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import IotNode {} succeeded, modified IotNode. ", body.getValue(IotNode.VAR_id));

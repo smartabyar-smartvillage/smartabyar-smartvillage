@@ -997,6 +997,9 @@ public class TrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl implem
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchTrafficLightFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import TrafficLight {} succeeded, modified TrafficLight. ", body.getValue(TrafficLight.VAR_id));

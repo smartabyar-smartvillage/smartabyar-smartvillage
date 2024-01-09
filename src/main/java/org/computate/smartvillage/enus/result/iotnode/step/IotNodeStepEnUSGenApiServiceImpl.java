@@ -997,6 +997,9 @@ public class IotNodeStepEnUSGenApiServiceImpl extends BaseApiServiceImpl impleme
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchIotNodeStepFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import IotNodeStep {} succeeded, modified IotNodeStep. ", body.getValue(IotNodeStep.VAR_id));

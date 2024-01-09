@@ -997,6 +997,9 @@ public class BicycleStepEnUSGenApiServiceImpl extends BaseApiServiceImpl impleme
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchBicycleStepFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import BicycleStep {} succeeded, modified BicycleStep. ", body.getValue(BicycleStep.VAR_id));

@@ -997,6 +997,9 @@ public class TimeStepEnUSGenApiServiceImpl extends BaseApiServiceImpl implements
 								}
 							}
 							if(body2.size() > 0) {
+								if(searchList.size() == 1) {
+									apiRequest.setOriginal(o);
+								}
 								siteRequest.setJsonObject(body2);
 								patchTimeStepFuture(o2, true).onSuccess(b -> {
 									LOG.debug("Import TimeStep {} succeeded, modified TimeStep. ", body.getValue(TimeStep.VAR_id));
