@@ -721,7 +721,7 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bParams.add(o2.sqlSmartTrafficLightName());
 						break;
 					case "setLocation":
-							o2.setLocation(jsonObject.getString(entityVar));
+							o2.setLocation(jsonObject.getJsonObject(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
 							bSql.append(SmartTrafficLight.VAR_location + "=$" + num);
@@ -1267,7 +1267,7 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bParams.add(o2.sqlSmartTrafficLightName());
 						break;
 					case SmartTrafficLight.VAR_location:
-						o2.setLocation(jsonObject.getString(entityVar));
+						o2.setLocation(jsonObject.getJsonObject(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}

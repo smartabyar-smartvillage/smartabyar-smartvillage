@@ -702,6 +702,38 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
+					case "setCustomTrafficLightId":
+							o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_customTrafficLightId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlCustomTrafficLightId());
+						break;
+					case "setTrafficSimulationId":
+							o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlTrafficSimulationId());
+						break;
+					case "setColor":
+							o2.setColor(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
+							num++;
+							bParams.add(o2.sqlColor());
+						break;
+					case "setEntityId":
+							o2.setEntityId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlEntityId());
+						break;
 					case "setWalkingAreaId":
 							o2.setWalkingAreaId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -815,7 +847,7 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bParams.add(o2.sqlDirection());
 						break;
 					case "setLocation":
-							o2.setLocation(jsonObject.getString(entityVar));
+							o2.setLocation(jsonObject.getJsonObject(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
 							bSql.append(CrowdFlowObserved.VAR_location + "=$" + num);
@@ -829,6 +861,14 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(CrowdFlowObserved.VAR_name + "=$" + num);
 							num++;
 							bParams.add(o2.sqlName());
+						break;
+					case "setOccupancy":
+							o2.setOccupancy(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_occupancy + "=$" + num);
+							num++;
+							bParams.add(o2.sqlOccupancy());
 						break;
 					case "setOwner":
 							o2.setOwner(jsonObject.getJsonObject(entityVar));
@@ -869,46 +909,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(CrowdFlowObserved.VAR_source + "=$" + num);
 							num++;
 							bParams.add(o2.sqlSource());
-						break;
-					case "setCustomTrafficLightId":
-							o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_customTrafficLightId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlCustomTrafficLightId());
-						break;
-					case "setTrafficSimulationId":
-							o2.setTrafficSimulationId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlTrafficSimulationId());
-						break;
-					case "setColor":
-							o2.setColor(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
-							num++;
-							bParams.add(o2.sqlColor());
-						break;
-					case "setEntityId":
-							o2.setEntityId(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
-							num++;
-							bParams.add(o2.sqlEntityId());
-						break;
-					case "setOccupancy":
-							o2.setOccupancy(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_occupancy + "=$" + num);
-							num++;
-							bParams.add(o2.sqlOccupancy());
 						break;
 				}
 			}
@@ -1271,6 +1271,42 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
+					case CrowdFlowObserved.VAR_customTrafficLightId:
+						o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_customTrafficLightId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlCustomTrafficLightId());
+						break;
+					case CrowdFlowObserved.VAR_trafficSimulationId:
+						o2.setTrafficSimulationId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlTrafficSimulationId());
+						break;
+					case CrowdFlowObserved.VAR_color:
+						o2.setColor(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
+						num++;
+						bParams.add(o2.sqlColor());
+						break;
+					case CrowdFlowObserved.VAR_entityId:
+						o2.setEntityId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlEntityId());
+						break;
 					case CrowdFlowObserved.VAR_walkingAreaId:
 						o2.setWalkingAreaId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1398,7 +1434,7 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bParams.add(o2.sqlDirection());
 						break;
 					case CrowdFlowObserved.VAR_location:
-						o2.setLocation(jsonObject.getString(entityVar));
+						o2.setLocation(jsonObject.getJsonObject(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
@@ -1414,6 +1450,15 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(CrowdFlowObserved.VAR_name + "=$" + num);
 						num++;
 						bParams.add(o2.sqlName());
+						break;
+					case CrowdFlowObserved.VAR_occupancy:
+						o2.setOccupancy(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_occupancy + "=$" + num);
+						num++;
+						bParams.add(o2.sqlOccupancy());
 						break;
 					case CrowdFlowObserved.VAR_owner:
 						o2.setOwner(jsonObject.getJsonObject(entityVar));
@@ -1459,51 +1504,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(CrowdFlowObserved.VAR_source + "=$" + num);
 						num++;
 						bParams.add(o2.sqlSource());
-						break;
-					case CrowdFlowObserved.VAR_customTrafficLightId:
-						o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_customTrafficLightId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlCustomTrafficLightId());
-						break;
-					case CrowdFlowObserved.VAR_trafficSimulationId:
-						o2.setTrafficSimulationId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_trafficSimulationId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlTrafficSimulationId());
-						break;
-					case CrowdFlowObserved.VAR_color:
-						o2.setColor(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_color + "=$" + num);
-						num++;
-						bParams.add(o2.sqlColor());
-						break;
-					case CrowdFlowObserved.VAR_entityId:
-						o2.setEntityId(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_entityId + "=$" + num);
-						num++;
-						bParams.add(o2.sqlEntityId());
-						break;
-					case CrowdFlowObserved.VAR_occupancy:
-						o2.setOccupancy(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_occupancy + "=$" + num);
-						num++;
-						bParams.add(o2.sqlOccupancy());
 						break;
 					}
 				}

@@ -550,12 +550,12 @@
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
-{{> "htmTime" roleForWriteBool="false" roleForReadBool="false"}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -568,12 +568,12 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{> "htmTime" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{> "htmTime" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
+{{> "htmTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -726,12 +726,12 @@
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
-{{> "htmTime" roleForWriteBool="false" roleForReadBool="false"}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -744,12 +744,12 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{> "htmTime" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{> "htmTime" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
+{{> "htmTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -967,12 +967,12 @@
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
-{{> "htmTime" roleForWriteBool="false" roleForReadBool="false"}}
+{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -985,12 +985,12 @@
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{> "htmTime" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{> "htmTime" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
-{{> "htmDateTime" roleForWriteBool="false" roleForReadBool="false"}}
+{{> "htmTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 {{#ifContainsAnyRoles roles roleForWrite}}
@@ -1705,18 +1705,18 @@
 		{{/eq}}
 {{/inline}}
 
-{{#*inline "htmTime"}}
-<!-- #*inline "htmTime" -->
+{{#*inline "htmDateTime"}}
+<!-- #*inline "htmDateTime" -->
 								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
 									<div class="w3-padding ">
-										<div id="suggest{{classApiMethodMethod}}VehicleStepTime">
+										<div id="suggest{{classApiMethodMethod}}VehicleStepDateTime">
 											<div class="w3-card ">
 												<div class="w3-cell-row w3-2017-shaded-spruce">
-													<label for="{{classApiMethodMethod}}_time">Time in seconds</label>
+													<label for="{{classApiMethodMethod}}_dateTime">Date and Time</label>
 												</div>
-											<div class="w3-cell-row w3-padding ">
+												<div class="w3-cell-row w3-padding ">
 													<div class="w3-cell ">
-														{{> "inputTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{> "inputDateTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
 													</div>
 												</div>
 											</div>
@@ -1725,39 +1725,27 @@
 								</div>
 {{/inline}}
 
-{{#*inline "inputTime"}}
+{{#*inline "inputDateTime"}}
 		{{#eq roleForWriteBool "true"}}
 														<input
-															type="text"
-															placeholder="Time in seconds"
-															title="The time in seconds. "															id="{{classApiMethodMethod}}_time"
-	{{#eq "Page" classApiMethodMethod}}
-																class="{{classApiMethodMethod}}_time setTime classVehicleStep inputVehicleStep{{id}}Time w3-input w3-border "
-																name="setTime"
-	{{else}}
-		{{#eq "PATCH" classApiMethodMethod}}
-																class="{{classApiMethodMethod}}_time setTime classVehicleStep inputVehicleStep{{id}}Time w3-input w3-border "
-																name="setTime"
-		{{else}}
-																{{classApiMethodMethod}}_time" class="valueTime w3-input w3-border classVehicleStep inputVehicleStep{{id}}Time w3-input w3-border "
-																name="time"
-		{{/eq}}
-	{{/eq}}
-	{{#eq "Page" classApiMethodMethod}}
-																onclick="removeGlow($(this)); "
-																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setTime', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_time')); }, function() { addError($('#{{classApiMethodMethod}}_time')); }); "
-	{{/eq}}
-	{{#eq "Page" classApiMethodMethod}}
-															value="{{vehicleStep_.time}}"
-	{{/eq}}
+																type="text"
+																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classVehicleStep inputVehicleStep{{id}}DateTime w3-input w3-border "
+																placeholder="MM/dd/yyyy h:mm a '['VV']'"
+																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
+																id="{{classApiMethodMethod}}_dateTime"
+																title="The date and time.  (MM/dd/yyyy h:mm a '['VV']')"
+																value="{{#if vehicleStep_.dateTime}}{{formatZonedDateTime vehicleStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
+														{{#eq 'Page' classApiMethodMethod}}
+															onclick="removeGlow($(this)); ";
+															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
+														{{/eq}}
 														/>
-
 													{{else}}
 														{{#ifContainsKeys userKeys}}
-															<span class="varVehicleStep{{id}}Time varVehicleStepTime ">{{vehicleStep_.time}}</span>
+															<span class="varVehicleStep{{id}}DateTime varVehicleStepDateTime ">{{vehicleStep_.dateTime}}</span>
 			{{/ifContainsKeys}}
 		{{else}}
-														<span class="varVehicleStep{{id}}Time varVehicleStepTime ">{{vehicleStep_.time}}</span>
+														<span class="varVehicleStep{{id}}DateTime varVehicleStepDateTime ">{{vehicleStep_.dateTime}}</span>
 		{{/eq}}
 {{/inline}}
 
@@ -1829,18 +1817,18 @@
 		{{/eq}}
 {{/inline}}
 
-{{#*inline "htmDateTime"}}
-<!-- #*inline "htmDateTime" -->
+{{#*inline "htmTime"}}
+<!-- #*inline "htmTime" -->
 								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
 									<div class="w3-padding ">
-										<div id="suggest{{classApiMethodMethod}}VehicleStepDateTime">
+										<div id="suggest{{classApiMethodMethod}}VehicleStepTime">
 											<div class="w3-card ">
 												<div class="w3-cell-row w3-2017-shaded-spruce">
-													<label for="{{classApiMethodMethod}}_dateTime">Date and Time</label>
+													<label for="{{classApiMethodMethod}}_time">Time in seconds</label>
 												</div>
-												<div class="w3-cell-row w3-padding ">
+											<div class="w3-cell-row w3-padding ">
 													<div class="w3-cell ">
-														{{> "inputDateTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{> "inputTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
 													</div>
 												</div>
 											</div>
@@ -1849,27 +1837,39 @@
 								</div>
 {{/inline}}
 
-{{#*inline "inputDateTime"}}
+{{#*inline "inputTime"}}
 		{{#eq roleForWriteBool "true"}}
 														<input
-																type="text"
-																class="{{classApiMethodMethod}}_dateTime w3-input w3-border datetimepicker setDateTime classVehicleStep inputVehicleStep{{id}}DateTime w3-input w3-border "
-																placeholder="MM/dd/yyyy h:mm a '['VV']'"
-																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
-																id="{{classApiMethodMethod}}_dateTime"
-																title="The date and time.  (MM/dd/yyyy h:mm a '['VV']')"
-																value="{{#if vehicleStep_.dateTime}}{{formatZonedDateTime vehicleStep_.dateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
-														{{#eq 'Page' classApiMethodMethod}}
-															onclick="removeGlow($(this)); ";
-															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_dateTime')); }, function() { addError($('.{{classApiMethodMethod}}_dateTime')); }); } "
-														{{/eq}}
+															type="text"
+															placeholder="Time in seconds"
+															title="The time in seconds. "															id="{{classApiMethodMethod}}_time"
+	{{#eq "Page" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_time setTime classVehicleStep inputVehicleStep{{id}}Time w3-input w3-border "
+																name="setTime"
+	{{else}}
+		{{#eq "PATCH" classApiMethodMethod}}
+																class="{{classApiMethodMethod}}_time setTime classVehicleStep inputVehicleStep{{id}}Time w3-input w3-border "
+																name="setTime"
+		{{else}}
+																{{classApiMethodMethod}}_time" class="valueTime w3-input w3-border classVehicleStep inputVehicleStep{{id}}Time w3-input w3-border "
+																name="time"
+		{{/eq}}
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+																onclick="removeGlow($(this)); "
+																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setTime', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_time')); }, function() { addError($('#{{classApiMethodMethod}}_time')); }); "
+	{{/eq}}
+	{{#eq "Page" classApiMethodMethod}}
+															value="{{vehicleStep_.time}}"
+	{{/eq}}
 														/>
+
 													{{else}}
 														{{#ifContainsKeys userKeys}}
-															<span class="varVehicleStep{{id}}DateTime varVehicleStepDateTime ">{{vehicleStep_.dateTime}}</span>
+															<span class="varVehicleStep{{id}}Time varVehicleStepTime ">{{vehicleStep_.time}}</span>
 			{{/ifContainsKeys}}
 		{{else}}
-														<span class="varVehicleStep{{id}}DateTime varVehicleStepDateTime ">{{vehicleStep_.dateTime}}</span>
+														<span class="varVehicleStep{{id}}Time varVehicleStepTime ">{{vehicleStep_.time}}</span>
 		{{/eq}}
 {{/inline}}
 
@@ -1913,10 +1913,10 @@
 	{{/eq}}
 	{{#eq "Page" classApiMethodMethod}}
 																onclick="removeGlow($(this)); "
-																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setLocation', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_location')); }, function() { addError($('#{{classApiMethodMethod}}_location')); }); "
+																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setLocation', $(this).val() == '' ? null : JSON.parse($(this).val()), function() { addGlow($('#{{classApiMethodMethod}}_location')); }, function() { addError($('#{{classApiMethodMethod}}_location')); }); "
 	{{/eq}}
 	{{#eq "Page" classApiMethodMethod}}
-															value="{{vehicleStep_.location}}"
+															value="{{toJsonObjectString vehicleStep_.location}}"
 	{{/eq}}
 														/>
 

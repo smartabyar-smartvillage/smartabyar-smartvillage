@@ -1893,10 +1893,10 @@
 	{{/eq}}
 	{{#eq "Page" classApiMethodMethod}}
 																onclick="removeGlow($(this)); "
-																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setLocation', $(this).val(), function() { addGlow($('#{{classApiMethodMethod}}_location')); }, function() { addError($('#{{classApiMethodMethod}}_location')); }); "
+																onchange="patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'id:{{id}}' }], 'setLocation', $(this).val() == '' ? null : JSON.parse($(this).val()), function() { addGlow($('#{{classApiMethodMethod}}_location')); }, function() { addError($('#{{classApiMethodMethod}}_location')); }); "
 	{{/eq}}
 	{{#eq "Page" classApiMethodMethod}}
-															value="{{iotNode_.location}}"
+															value="{{toJsonObjectString iotNode_.location}}"
 	{{/eq}}
 														/>
 

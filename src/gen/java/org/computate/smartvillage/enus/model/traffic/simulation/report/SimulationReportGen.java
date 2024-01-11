@@ -53,11 +53,6 @@ import java.lang.String;
 import io.vertx.pgclient.data.Point;
 import org.computate.vertx.serialize.pgclient.PgClientPointSerializer;
 import org.computate.vertx.serialize.pgclient.PgClientPointDeserializer;
-import java.lang.Long;
-import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation;
-import org.computate.vertx.search.list.SearchList;
-import io.vertx.core.json.JsonArray;
-import io.vertx.pgclient.data.Path;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.deser.BeanDeserializerModifier;
@@ -66,6 +61,11 @@ import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.BeanDescription;
 import java.util.stream.Collectors;
 import io.vertx.core.json.Json;
+import java.lang.Long;
+import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation;
+import org.computate.vertx.search.list.SearchList;
+import io.vertx.core.json.JsonArray;
+import io.vertx.pgclient.data.Path;
 import org.computate.vertx.serialize.pgclient.PgClientPathSerializer;
 import org.computate.vertx.serialize.pgclient.PgClientPathDeserializer;
 import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight;
@@ -357,13 +357,44 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 	public static Point staticSetLocation(SiteRequestEnUS siteRequest_, String o) {
 		if(o != null) {
-			Matcher m = Pattern.compile("\\{[\\w\\W]*\"coordinates\"\\s*:\\s*\\[\\s*(\\d*\\.\\d*)\\s*,\\s*(\\d*\\.\\d*)\\]").matcher(o);
-			if(m.find())
-				return new Point(Double.parseDouble(m.group(1)), Double.parseDouble(m.group(2)));
-			m = Pattern.compile("\\s*(\\d*\\.\\d*)\\s*,\\s*(\\d*\\.\\d*)").matcher(o);
-			if(m.find())
-				return new Point(Double.parseDouble(m.group(1)), Double.parseDouble(m.group(2)));
-			throw new RuntimeException(String.format("Invalid point format \"%s\", try these formats instead: 55.633703,13.49254 or {\"type\":\"Point\",\"coordinates\":[55.633703,13.49254]}", o));
+			try {
+				Point shape = null;
+				if(StringUtils.isNotBlank(o)) {
+					ObjectMapper objectMapper = new ObjectMapper();
+					SimpleModule module = new SimpleModule();
+					module.setDeserializerModifier(new BeanDeserializerModifier() {
+						@Override
+						public JsonDeserializer<?> modifyDeserializer(DeserializationConfig config, BeanDescription beanDesc, JsonDeserializer<?> deserializer) {
+							if (beanDesc.getBeanClass() == Point.class) {
+								return new PgClientPointDeserializer();
+							}
+							return deserializer;
+						}
+					});
+					objectMapper.registerModule(module);
+					shape = objectMapper.readValue(Json.encode(o), Point.class);
+				}
+				return shape;
+			} catch(Exception ex) {
+				ExceptionUtils.rethrow(ex);
+			}
+		}
+		return null;
+	}
+	public void setLocation(JsonObject o) {
+		this.location = SimulationReport.staticSetLocation(siteRequest_, o);
+	}
+	public static Point staticSetLocation(SiteRequestEnUS siteRequest_, JsonObject o) {
+		if(o != null) {
+			try {
+				Point shape = new Point();
+				JsonArray coordinates = o.getJsonArray("coordinates");
+				shape.setX(coordinates.getDouble(0));
+				shape.setY(coordinates.getDouble(1));
+				return shape;
+			} catch(Exception ex) {
+				ExceptionUtils.rethrow(ex);
+			}
 		}
 		return null;
 	}
