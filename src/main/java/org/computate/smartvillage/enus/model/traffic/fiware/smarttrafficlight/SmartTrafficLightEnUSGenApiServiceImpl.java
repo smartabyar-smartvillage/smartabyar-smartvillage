@@ -712,30 +712,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlEntityId());
 						break;
-					case "setSmartTrafficLightName":
-							o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_smartTrafficLightName + "=$" + num);
-							num++;
-							bParams.add(o2.sqlSmartTrafficLightName());
-						break;
-					case "setLocation":
-							o2.setLocation(jsonObject.getJsonObject(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_location + "=$" + num);
-							num++;
-							bParams.add(o2.sqlLocation());
-						break;
-					case "setAreaServed":
-							o2.setAreaServed(jsonObject.getJsonArray(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_areaServed + "=$" + num);
-							num++;
-							bParams.add(o2.sqlAreaServed());
-						break;
 					case "setRouteIds":
 							o2.setRouteIds(jsonObject.getJsonArray(entityVar));
 							if(bParams.size() > 0)
@@ -744,46 +720,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlRouteIds());
 						break;
-					case "setRouteIdNorth":
-							o2.setRouteIdNorth(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_routeIdNorth + "=$" + num);
-							num++;
-							bParams.add(o2.sqlRouteIdNorth());
-						break;
-					case "setRouteIdEast":
-							o2.setRouteIdEast(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_routeIdEast + "=$" + num);
-							num++;
-							bParams.add(o2.sqlRouteIdEast());
-						break;
-					case "setParamVehicleDemandScalingFactor":
-							o2.setParamVehicleDemandScalingFactor(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_paramVehicleDemandScalingFactor + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamVehicleDemandScalingFactor());
-						break;
-					case "setParamStepSize":
-							o2.setParamStepSize(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_paramStepSize + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamStepSize());
-						break;
-					case "setParamRunTime":
-							o2.setParamRunTime(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_paramRunTime + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamRunTime());
-						break;
 					case "setParamItersPerPar":
 							o2.setParamItersPerPar(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -791,14 +727,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(SmartTrafficLight.VAR_paramItersPerPar + "=$" + num);
 							num++;
 							bParams.add(o2.sqlParamItersPerPar());
-						break;
-					case "setParamTotalIterNum":
-							o2.setParamTotalIterNum(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_paramTotalIterNum + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamTotalIterNum());
 						break;
 					case "setReportKeys":
 						JsonArray setReportKeysValues = Optional.ofNullable(jsonObject.getJsonArray(entityVar)).orElse(new JsonArray());
@@ -886,6 +814,78 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 								});
 							}));
 						});
+						break;
+					case "setSmartTrafficLightName":
+							o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_smartTrafficLightName + "=$" + num);
+							num++;
+							bParams.add(o2.sqlSmartTrafficLightName());
+						break;
+					case "setLocation":
+							o2.setLocation(jsonObject.getJsonObject(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_location + "=$" + num);
+							num++;
+							bParams.add(o2.sqlLocation());
+						break;
+					case "setAreaServed":
+							o2.setAreaServed(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_areaServed + "=$" + num);
+							num++;
+							bParams.add(o2.sqlAreaServed());
+						break;
+					case "setRouteIdNorth":
+							o2.setRouteIdNorth(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_routeIdNorth + "=$" + num);
+							num++;
+							bParams.add(o2.sqlRouteIdNorth());
+						break;
+					case "setRouteIdEast":
+							o2.setRouteIdEast(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_routeIdEast + "=$" + num);
+							num++;
+							bParams.add(o2.sqlRouteIdEast());
+						break;
+					case "setParamVehicleDemandScalingFactor":
+							o2.setParamVehicleDemandScalingFactor(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_paramVehicleDemandScalingFactor + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamVehicleDemandScalingFactor());
+						break;
+					case "setParamStepSize":
+							o2.setParamStepSize(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_paramStepSize + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamStepSize());
+						break;
+					case "setParamRunTime":
+							o2.setParamRunTime(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_paramRunTime + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamRunTime());
+						break;
+					case "setParamTotalIterNum":
+							o2.setParamTotalIterNum(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_paramTotalIterNum + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamTotalIterNum());
 						break;
 				}
 			}
@@ -1257,6 +1257,43 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlEntityId());
 						break;
+					case SmartTrafficLight.VAR_routeIds:
+						o2.setRouteIds(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SmartTrafficLight.VAR_routeIds + "=$" + num);
+						num++;
+						bParams.add(o2.sqlRouteIds());
+						break;
+					case SmartTrafficLight.VAR_paramItersPerPar:
+						o2.setParamItersPerPar(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SmartTrafficLight.VAR_paramItersPerPar + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamItersPerPar());
+						break;
+					case SmartTrafficLight.VAR_reportKeys:
+						Optional.ofNullable(jsonObject.getJsonArray(entityVar)).orElse(new JsonArray()).stream().map(oVal -> oVal.toString()).forEach(val -> {
+							futures2.add(Future.future(promise2 -> {
+								search(siteRequest).query(SimulationReport.class, val, inheritPk).onSuccess(pk2 -> {
+									if(!pks.contains(pk2)) {
+										pks.add(pk2);
+										classes.add("SimulationReport");
+									}
+									sql(siteRequest).update(SimulationReport.class, pk2).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk).onSuccess(a -> {
+										promise2.complete();
+									}).onFailure(ex -> {
+										promise2.fail(ex);
+									});
+								}).onFailure(ex -> {
+									promise2.fail(ex);
+								});
+							}));
+						});
+						break;
 					case SmartTrafficLight.VAR_smartTrafficLightName:
 						o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1283,15 +1320,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(SmartTrafficLight.VAR_areaServed + "=$" + num);
 						num++;
 						bParams.add(o2.sqlAreaServed());
-						break;
-					case SmartTrafficLight.VAR_routeIds:
-						o2.setRouteIds(jsonObject.getJsonArray(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SmartTrafficLight.VAR_routeIds + "=$" + num);
-						num++;
-						bParams.add(o2.sqlRouteIds());
 						break;
 					case SmartTrafficLight.VAR_routeIdNorth:
 						o2.setRouteIdNorth(jsonObject.getString(entityVar));
@@ -1338,15 +1366,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlParamRunTime());
 						break;
-					case SmartTrafficLight.VAR_paramItersPerPar:
-						o2.setParamItersPerPar(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SmartTrafficLight.VAR_paramItersPerPar + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamItersPerPar());
-						break;
 					case SmartTrafficLight.VAR_paramTotalIterNum:
 						o2.setParamTotalIterNum(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1355,25 +1374,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(SmartTrafficLight.VAR_paramTotalIterNum + "=$" + num);
 						num++;
 						bParams.add(o2.sqlParamTotalIterNum());
-						break;
-					case SmartTrafficLight.VAR_reportKeys:
-						Optional.ofNullable(jsonObject.getJsonArray(entityVar)).orElse(new JsonArray()).stream().map(oVal -> oVal.toString()).forEach(val -> {
-							futures2.add(Future.future(promise2 -> {
-								search(siteRequest).query(SimulationReport.class, val, inheritPk).onSuccess(pk2 -> {
-									if(!pks.contains(pk2)) {
-										pks.add(pk2);
-										classes.add("SimulationReport");
-									}
-									sql(siteRequest).update(SimulationReport.class, pk2).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk).onSuccess(a -> {
-										promise2.complete();
-									}).onFailure(ex -> {
-										promise2.fail(ex);
-									});
-								}).onFailure(ex -> {
-									promise2.fail(ex);
-								});
-							}));
-						});
 						break;
 					}
 				}

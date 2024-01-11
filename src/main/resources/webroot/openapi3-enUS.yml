@@ -15890,7 +15890,7 @@ components:
                   nodeId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   json_moisture:
                     type: string
                   json_moisture0:
@@ -15994,12 +15994,12 @@ components:
             removeAllNodeId:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setJson_moisture:
               type: string
               nullable: true
@@ -16278,12 +16278,12 @@ components:
             removeAllNodeId:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setJson_moisture:
               type: string
               nullable: true
@@ -16542,7 +16542,7 @@ components:
             nodeId:
               type: string
             location:
-              type: string
+              type: object
             json_moisture:
               type: string
             json_moisture0:
@@ -16626,7 +16626,7 @@ components:
             nodeId:
               type: string
             location:
-              type: string
+              type: object
             json_moisture:
               type: string
             json_moisture0:
@@ -16715,7 +16715,7 @@ components:
                   nodeId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   json_moisture:
                     type: string
                   json_moisture0:
@@ -16799,7 +16799,7 @@ components:
                   nodeId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   json_moisture:
                     type: string
                   json_moisture0:
@@ -16883,7 +16883,7 @@ components:
             nodeId:
               type: string
             location:
-              type: string
+              type: object
             json_moisture:
               type: string
             json_moisture0:
@@ -18574,7 +18574,7 @@ components:
                   direction:
                     type: string
                   location:
-                    type: string
+                    type: object
                   name:
                     type: string
                   occupancy:
@@ -18727,12 +18727,12 @@ components:
             removeAllDirection:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setName:
               type: string
               nullable: true
@@ -18920,12 +18920,12 @@ components:
             removeAllDirection:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setName:
               type: string
               nullable: true
@@ -19018,7 +19018,7 @@ components:
             direction:
               type: string
             location:
-              type: string
+              type: object
             name:
               type: string
             occupancy:
@@ -19076,7 +19076,7 @@ components:
             direction:
               type: string
             location:
-              type: string
+              type: object
             name:
               type: string
             occupancy:
@@ -19139,7 +19139,7 @@ components:
                   direction:
                     type: string
                   location:
-                    type: string
+                    type: object
                   name:
                     type: string
                   occupancy:
@@ -19197,7 +19197,7 @@ components:
                   direction:
                     type: string
                   location:
-                    type: string
+                    type: object
                   name:
                     type: string
                   occupancy:
@@ -19255,7 +19255,7 @@ components:
             direction:
               type: string
             location:
-              type: string
+              type: object
             name:
               type: string
             occupancy:
@@ -19820,7 +19820,7 @@ components:
                   smartTrafficLightName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   areaServedColors:
                     type: array
                     items:
@@ -19931,12 +19931,12 @@ components:
             removeAllSmartTrafficLightName:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setAreaServedColors:
               type: array
               nullable: true
@@ -20284,12 +20284,12 @@ components:
             removeAllSmartTrafficLightName:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setAreaServedColors:
               type: array
               nullable: true
@@ -20622,7 +20622,7 @@ components:
             smartTrafficLightName:
               type: string
             location:
-              type: string
+              type: object
             areaServedColors:
               type: array
               items:
@@ -20718,7 +20718,7 @@ components:
             smartTrafficLightName:
               type: string
             location:
-              type: string
+              type: object
             areaServedColors:
               type: array
               items:
@@ -20819,7 +20819,7 @@ components:
                   smartTrafficLightName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   areaServedColors:
                     type: array
                     items:
@@ -20915,7 +20915,7 @@ components:
                   smartTrafficLightName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   areaServedColors:
                     type: array
                     items:
@@ -21011,7 +21011,7 @@ components:
             smartTrafficLightName:
               type: string
             location:
-              type: string
+              type: object
             areaServedColors:
               type: array
               items:
@@ -21128,7 +21128,7 @@ components:
                   laneAreaDetectorId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationName:
                     type: string
                   sumocfgPath:
@@ -21245,12 +21245,12 @@ components:
             removeAllLaneAreaDetectorId:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setSimulationName:
               type: string
               nullable: true
@@ -21557,12 +21557,12 @@ components:
             removeAllLaneAreaDetectorId:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setSimulationName:
               type: string
               nullable: true
@@ -21844,7 +21844,7 @@ components:
             laneAreaDetectorId:
               type: string
             location:
-              type: string
+              type: object
             simulationName:
               type: string
             sumocfgPath:
@@ -21936,7 +21936,7 @@ components:
             laneAreaDetectorId:
               type: string
             location:
-              type: string
+              type: object
             simulationName:
               type: string
             sumocfgPath:
@@ -22033,7 +22033,7 @@ components:
                   laneAreaDetectorId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationName:
                     type: string
                   sumocfgPath:
@@ -22125,7 +22125,7 @@ components:
                   laneAreaDetectorId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationName:
                     type: string
                   sumocfgPath:
@@ -22217,7 +22217,7 @@ components:
             laneAreaDetectorId:
               type: string
             location:
-              type: string
+              type: object
             simulationName:
               type: string
             sumocfgPath:
@@ -23068,7 +23068,7 @@ components:
                     items:
                       type: string
                   location:
-                    type: string
+                    type: object
                   areaServedColors:
                     type: array
                     items:
@@ -23225,12 +23225,12 @@ components:
               items:
                 type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setAreaServedColors:
               type: array
               nullable: true
@@ -23688,12 +23688,12 @@ components:
               items:
                 type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setAreaServedColors:
               type: array
               nullable: true
@@ -24118,7 +24118,7 @@ components:
               items:
                 type: string
             location:
-              type: string
+              type: object
             areaServedColors:
               type: array
               items:
@@ -24242,7 +24242,7 @@ components:
               items:
                 type: string
             location:
-              type: string
+              type: object
             areaServedColors:
               type: array
               items:
@@ -24371,7 +24371,7 @@ components:
                     items:
                       type: string
                   location:
-                    type: string
+                    type: object
                   areaServedColors:
                     type: array
                     items:
@@ -24495,7 +24495,7 @@ components:
                     items:
                       type: string
                   location:
-                    type: string
+                    type: object
                   areaServedColors:
                     type: array
                     items:
@@ -24619,7 +24619,7 @@ components:
               items:
                 type: string
             location:
-              type: string
+              type: object
             areaServedColors:
               type: array
               items:
@@ -24744,12 +24744,12 @@ components:
             removeAllReportName:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setSimulationKey:
               type: string
               nullable: true
@@ -25180,12 +25180,12 @@ components:
             removeAllReportName:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setSimulationKey:
               type: string
               nullable: true
@@ -25625,7 +25625,7 @@ components:
                   reportName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationKey:
                     type: string
                   areaServedColors:
@@ -25754,12 +25754,12 @@ components:
             removeAllReportName:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setSimulationKey:
               type: string
               nullable: true
@@ -26190,12 +26190,12 @@ components:
             removeAllReportName:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setSimulationKey:
               type: string
               nullable: true
@@ -26621,7 +26621,7 @@ components:
             reportName:
               type: string
             location:
-              type: string
+              type: object
             simulationKey:
               type: string
             areaServedColors:
@@ -26745,7 +26745,7 @@ components:
             reportName:
               type: string
             location:
-              type: string
+              type: object
             simulationKey:
               type: string
             areaServedColors:
@@ -26874,7 +26874,7 @@ components:
                   reportName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationKey:
                     type: string
                   areaServedColors:
@@ -26998,7 +26998,7 @@ components:
                   reportName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationKey:
                     type: string
                   areaServedColors:
@@ -27127,7 +27127,7 @@ components:
                   reportName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationKey:
                     type: string
                   areaServedColors:
@@ -27251,7 +27251,7 @@ components:
                   reportName:
                     type: string
                   location:
-                    type: string
+                    type: object
                   simulationKey:
                     type: string
                   areaServedColors:
@@ -27375,7 +27375,7 @@ components:
             reportName:
               type: string
             location:
-              type: string
+              type: object
             simulationKey:
               type: string
             areaServedColors:
@@ -28240,7 +28240,7 @@ components:
                   nodeId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   json_moisture:
                     type: string
                   json_moisture0:
@@ -28344,12 +28344,12 @@ components:
             removeAllNodeId:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setJson_moisture:
               type: string
               nullable: true
@@ -28628,12 +28628,12 @@ components:
             removeAllNodeId:
               type: string
             setLocation:
-              type: string
+              type: object
               nullable: true
             removeLocation:
-              type: string
+              type: object
             removeAllLocation:
-              type: string
+              type: object
             setJson_moisture:
               type: string
               nullable: true
@@ -28892,7 +28892,7 @@ components:
             nodeId:
               type: string
             location:
-              type: string
+              type: object
             json_moisture:
               type: string
             json_moisture0:
@@ -28976,7 +28976,7 @@ components:
             nodeId:
               type: string
             location:
-              type: string
+              type: object
             json_moisture:
               type: string
             json_moisture0:
@@ -29065,7 +29065,7 @@ components:
                   nodeId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   json_moisture:
                     type: string
                   json_moisture0:
@@ -29149,7 +29149,7 @@ components:
                   nodeId:
                     type: string
                   location:
-                    type: string
+                    type: object
                   json_moisture:
                     type: string
                   json_moisture0:
@@ -29233,7 +29233,7 @@ components:
             nodeId:
               type: string
             location:
-              type: string
+              type: object
             json_moisture:
               type: string
             json_moisture0:
@@ -29336,7 +29336,7 @@ components:
                   y:
                     type: string
                   location:
-                    type: string
+                    type: object
                   color:
                     type: string
                   step:
@@ -29356,7 +29356,7 @@ components:
             y:
               type: string
             location:
-              type: string
+              type: object
             color:
               type: string
             step:
