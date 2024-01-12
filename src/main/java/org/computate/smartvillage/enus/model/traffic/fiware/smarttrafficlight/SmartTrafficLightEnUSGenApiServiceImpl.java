@@ -704,21 +704,21 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setEntityId":
-							o2.setEntityId(jsonObject.getString(entityVar));
+					case "setParamStepSize":
+							o2.setParamStepSize(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_entityId + "=$" + num);
+							bSql.append(SmartTrafficLight.VAR_paramStepSize + "=$" + num);
 							num++;
-							bParams.add(o2.sqlEntityId());
+							bParams.add(o2.sqlParamStepSize());
 						break;
-					case "setRouteIds":
-							o2.setRouteIds(jsonObject.getJsonArray(entityVar));
+					case "setParamRunTime":
+							o2.setParamRunTime(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_routeIds + "=$" + num);
+							bSql.append(SmartTrafficLight.VAR_paramRunTime + "=$" + num);
 							num++;
-							bParams.add(o2.sqlRouteIds());
+							bParams.add(o2.sqlParamRunTime());
 						break;
 					case "setParamItersPerPar":
 							o2.setParamItersPerPar(jsonObject.getString(entityVar));
@@ -727,6 +727,14 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(SmartTrafficLight.VAR_paramItersPerPar + "=$" + num);
 							num++;
 							bParams.add(o2.sqlParamItersPerPar());
+						break;
+					case "setParamTotalIterNum":
+							o2.setParamTotalIterNum(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_paramTotalIterNum + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamTotalIterNum());
 						break;
 					case "setReportKeys":
 						JsonArray setReportKeysValues = Optional.ofNullable(jsonObject.getJsonArray(entityVar)).orElse(new JsonArray());
@@ -815,6 +823,14 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							}));
 						});
 						break;
+					case "setEntityId":
+							o2.setEntityId(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_entityId + "=$" + num);
+							num++;
+							bParams.add(o2.sqlEntityId());
+						break;
 					case "setSmartTrafficLightName":
 							o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -839,6 +855,14 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlAreaServed());
 						break;
+					case "setRouteIds":
+							o2.setRouteIds(jsonObject.getJsonArray(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SmartTrafficLight.VAR_routeIds + "=$" + num);
+							num++;
+							bParams.add(o2.sqlRouteIds());
+						break;
 					case "setRouteIdNorth":
 							o2.setRouteIdNorth(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -862,30 +886,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(SmartTrafficLight.VAR_paramVehicleDemandScalingFactor + "=$" + num);
 							num++;
 							bParams.add(o2.sqlParamVehicleDemandScalingFactor());
-						break;
-					case "setParamStepSize":
-							o2.setParamStepSize(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_paramStepSize + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamStepSize());
-						break;
-					case "setParamRunTime":
-							o2.setParamRunTime(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_paramRunTime + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamRunTime());
-						break;
-					case "setParamTotalIterNum":
-							o2.setParamTotalIterNum(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SmartTrafficLight.VAR_paramTotalIterNum + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamTotalIterNum());
 						break;
 				}
 			}
@@ -1248,23 +1248,23 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case SmartTrafficLight.VAR_entityId:
-						o2.setEntityId(jsonObject.getString(entityVar));
+					case SmartTrafficLight.VAR_paramStepSize:
+						o2.setParamStepSize(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SmartTrafficLight.VAR_entityId + "=$" + num);
+						bSql.append(SmartTrafficLight.VAR_paramStepSize + "=$" + num);
 						num++;
-						bParams.add(o2.sqlEntityId());
+						bParams.add(o2.sqlParamStepSize());
 						break;
-					case SmartTrafficLight.VAR_routeIds:
-						o2.setRouteIds(jsonObject.getJsonArray(entityVar));
+					case SmartTrafficLight.VAR_paramRunTime:
+						o2.setParamRunTime(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(SmartTrafficLight.VAR_routeIds + "=$" + num);
+						bSql.append(SmartTrafficLight.VAR_paramRunTime + "=$" + num);
 						num++;
-						bParams.add(o2.sqlRouteIds());
+						bParams.add(o2.sqlParamRunTime());
 						break;
 					case SmartTrafficLight.VAR_paramItersPerPar:
 						o2.setParamItersPerPar(jsonObject.getString(entityVar));
@@ -1274,6 +1274,15 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(SmartTrafficLight.VAR_paramItersPerPar + "=$" + num);
 						num++;
 						bParams.add(o2.sqlParamItersPerPar());
+						break;
+					case SmartTrafficLight.VAR_paramTotalIterNum:
+						o2.setParamTotalIterNum(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SmartTrafficLight.VAR_paramTotalIterNum + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamTotalIterNum());
 						break;
 					case SmartTrafficLight.VAR_reportKeys:
 						Optional.ofNullable(jsonObject.getJsonArray(entityVar)).orElse(new JsonArray()).stream().map(oVal -> oVal.toString()).forEach(val -> {
@@ -1293,6 +1302,15 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 								});
 							}));
 						});
+						break;
+					case SmartTrafficLight.VAR_entityId:
+						o2.setEntityId(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SmartTrafficLight.VAR_entityId + "=$" + num);
+						num++;
+						bParams.add(o2.sqlEntityId());
 						break;
 					case SmartTrafficLight.VAR_smartTrafficLightName:
 						o2.setSmartTrafficLightName(jsonObject.getString(entityVar));
@@ -1321,6 +1339,15 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlAreaServed());
 						break;
+					case SmartTrafficLight.VAR_routeIds:
+						o2.setRouteIds(jsonObject.getJsonArray(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SmartTrafficLight.VAR_routeIds + "=$" + num);
+						num++;
+						bParams.add(o2.sqlRouteIds());
+						break;
 					case SmartTrafficLight.VAR_routeIdNorth:
 						o2.setRouteIdNorth(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1347,33 +1374,6 @@ public class SmartTrafficLightEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(SmartTrafficLight.VAR_paramVehicleDemandScalingFactor + "=$" + num);
 						num++;
 						bParams.add(o2.sqlParamVehicleDemandScalingFactor());
-						break;
-					case SmartTrafficLight.VAR_paramStepSize:
-						o2.setParamStepSize(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SmartTrafficLight.VAR_paramStepSize + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamStepSize());
-						break;
-					case SmartTrafficLight.VAR_paramRunTime:
-						o2.setParamRunTime(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SmartTrafficLight.VAR_paramRunTime + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamRunTime());
-						break;
-					case SmartTrafficLight.VAR_paramTotalIterNum:
-						o2.setParamTotalIterNum(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SmartTrafficLight.VAR_paramTotalIterNum + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamTotalIterNum());
 						break;
 					}
 				}

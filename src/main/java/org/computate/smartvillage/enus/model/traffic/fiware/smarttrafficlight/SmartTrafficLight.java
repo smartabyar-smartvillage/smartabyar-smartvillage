@@ -192,6 +192,8 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 				});
 				l.add(VertxTool.toGeoJson(path));
 				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
+				areaServedTitles.add(baseModel.getObjectTitle());
+				areaServedLinks.add(baseModel.getPageUrlPk());
 			} else if(baseModel instanceof CrowdFlowObserved) {
 				CrowdFlowObserved model = (CrowdFlowObserved)baseModel;
 				Path path = new Path();
@@ -201,6 +203,8 @@ public class SmartTrafficLight extends SmartTrafficLightGen<BaseModel> {
 				path.addPoint(path.getPoints().get(0));
 				l.add(VertxTool.toGeoJson(path));
 				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
+				areaServedTitles.add(baseModel.getObjectTitle());
+				areaServedLinks.add(baseModel.getPageUrlPk());
 			}
 		});
 	}

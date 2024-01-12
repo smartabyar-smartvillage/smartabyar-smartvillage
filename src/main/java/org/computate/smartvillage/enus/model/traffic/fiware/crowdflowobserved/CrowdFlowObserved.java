@@ -103,7 +103,7 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	 * Color: true
 	 */
 	protected void _color(Wrap<String> w) {
-		w.o("magenta");
+		w.o("#3388ff");
 	}
 
 	/**
@@ -175,6 +175,40 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	* Facet: true
 	**/
 	protected void _alternateName(Wrap<String> w) {}
+
+	/**
+	 * {@inheritDoc}
+	 * LocationColor: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served colors
+	 * Description: The colors of each areaServed Paths. 
+	 */
+	protected void _areaServedColors(List<String> l) {
+		l.add(color);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * LocationTitle: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served titles
+	 * Description: The titles of each areaServed Paths. 
+	 */
+	protected void _areaServedTitles(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * LocationUrl: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served links
+	 * Description: The links of each areaServed Paths. 
+	 */
+	protected void _areaServedLinks(List<String> l) {
+	}
 	
 	/**
 	* {@inheritDoc}}
@@ -197,7 +231,6 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 				Polygon polygon = new Polygon();
 
 				for(Integer k = 0; k < coordinates.size(); k++) {
-//						for(Integer k = coordinates.size() - 1; k >= 0; k--) {
 					JsonArray coordinate = (JsonArray)coordinates.getJsonArray(k);
 
 					polygon.addPoint(new Point(Double.parseDouble(coordinate.getString(0))
@@ -436,8 +469,16 @@ public class CrowdFlowObserved extends CrowdFlowObservedGen<BaseModel> {
 	@Override
 	protected void _objectTitle(Wrap<String> w) {
 		StringBuilder b = new StringBuilder();
-		b.append(Optional.ofNullable(entityShortId).map(s -> String.format("%s - %s", CrowdFlowObserved_NameAdjectiveSingular_enUS, s)).orElse(pk.toString()));
-		w.o(b.toString().trim());
+		b.append(Optional.ofNullable(entityShortId).map(s -> String.format("%s", s)).orElse(pk.toString()));
+		String str = b.toString().trim();
+		areaServedTitles.add(str);
+		w.o(str);
+	}
+
+	@Override
+	protected void _pageUrlPk(Wrap<String> w) {
+		super._pageUrlPk(w);
+		areaServedTitles.add(w.getO());
 	}
 
 	@Override

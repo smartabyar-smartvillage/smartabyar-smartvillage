@@ -633,6 +633,80 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	}
 
 	//////////////////////
+	// areaServedTitles //
+	//////////////////////
+
+
+	/**	 The entity areaServedTitles
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedTitles = new ArrayList<String>();
+
+	/**	<br> The entity areaServedTitles
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.simulation.report.SimulationReport&fq=entiteVar_enUS_indexed_string:areaServedTitles">Find the entity areaServedTitles in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedTitles(List<String> l);
+
+	public List<String> getAreaServedTitles() {
+		return areaServedTitles;
+	}
+
+	public void setAreaServedTitles(List<String> areaServedTitles) {
+		this.areaServedTitles = areaServedTitles;
+	}
+	public void setAreaServedTitles(String o) {
+		String l = SimulationReport.staticSetAreaServedTitles(siteRequest_, o);
+		if(l != null)
+			addAreaServedTitles(l);
+	}
+	public static String staticSetAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public SimulationReport addAreaServedTitles(String...objects) {
+		for(String o : objects) {
+			addAreaServedTitles(o);
+		}
+		return (SimulationReport)this;
+	}
+	public SimulationReport addAreaServedTitles(String o) {
+		if(o != null)
+			this.areaServedTitles.add(o);
+		return (SimulationReport)this;
+	}
+	@JsonIgnore
+	public void setAreaServedTitles(JsonArray objects) {
+		areaServedTitles.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedTitles(o);
+		}
+	}
+	protected SimulationReport areaServedTitlesInit() {
+		_areaServedTitles(areaServedTitles);
+		return (SimulationReport)this;
+	}
+
+	public static String staticSearchAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return SimulationReport.staticSearchAreaServedTitles(siteRequest_, SimulationReport.staticSetAreaServedTitles(siteRequest_, o)).toString();
+	}
+
+	//////////////////////
 	// areaServedColors //
 	//////////////////////
 
@@ -4454,6 +4528,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 		}).compose(a -> {
 			Promise<Void> promise2 = Promise.promise();
 			try {
+				areaServedTitlesInit();
 				areaServedColorsInit();
 				areaServedInit();
 				smartTrafficLightKeyInit();
@@ -4595,6 +4670,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 				return oSimulationReport.simulation_;
 			case "observedSearch":
 				return oSimulationReport.observedSearch;
+			case "areaServedTitles":
+				return oSimulationReport.areaServedTitles;
 			case "areaServedColors":
 				return oSimulationReport.areaServedColors;
 			case "areaServed":
@@ -4762,6 +4839,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 			return SimulationReport.staticSetLocation(siteRequest_, o);
 		case "simulationKey":
 			return SimulationReport.staticSetSimulationKey(siteRequest_, o);
+		case "areaServedTitles":
+			return SimulationReport.staticSetAreaServedTitles(siteRequest_, o);
 		case "areaServedColors":
 			return SimulationReport.staticSetAreaServedColors(siteRequest_, o);
 		case "areaServed":
@@ -4888,6 +4967,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 			return SimulationReport.staticSearchLocation(siteRequest_, (Point)o);
 		case "simulationKey":
 			return SimulationReport.staticSearchSimulationKey(siteRequest_, (Long)o);
+		case "areaServedTitles":
+			return SimulationReport.staticSearchAreaServedTitles(siteRequest_, (String)o);
 		case "areaServedColors":
 			return SimulationReport.staticSearchAreaServedColors(siteRequest_, (String)o);
 		case "areaServed":
@@ -5014,6 +5095,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 			return SimulationReport.staticSearchStrLocation(siteRequest_, (Point)o);
 		case "simulationKey":
 			return SimulationReport.staticSearchStrSimulationKey(siteRequest_, (Long)o);
+		case "areaServedTitles":
+			return SimulationReport.staticSearchStrAreaServedTitles(siteRequest_, (String)o);
 		case "areaServedColors":
 			return SimulationReport.staticSearchStrAreaServedColors(siteRequest_, (String)o);
 		case "areaServed":
@@ -5140,6 +5223,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 			return SimulationReport.staticSearchFqLocation(siteRequest_, o);
 		case "simulationKey":
 			return SimulationReport.staticSearchFqSimulationKey(siteRequest_, o);
+		case "areaServedTitles":
+			return SimulationReport.staticSearchFqAreaServedTitles(siteRequest_, o);
 		case "areaServedColors":
 			return SimulationReport.staticSearchFqAreaServedColors(siteRequest_, o);
 		case "areaServed":
@@ -5565,6 +5650,12 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 			if(simulationKey != null)
 				oSimulationReport.setSimulationKey(simulationKey);
 
+			if(saves.contains("areaServedTitles")) {
+				List<String> areaServedTitles = (List<String>)doc.get("areaServedTitles_indexedstored_strings");
+				if(areaServedTitles != null)
+					oSimulationReport.areaServedTitles.addAll(areaServedTitles);
+			}
+
 			if(saves.contains("areaServedColors")) {
 				List<String> areaServedColors = (List<String>)doc.get("areaServedColors_indexedstored_strings");
 				if(areaServedColors != null)
@@ -5895,6 +5986,13 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 		if(simulationKey != null) {
 			doc.put("simulationKey_docvalues_long", simulationKey);
 		}
+		if(areaServedTitles != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedTitles_indexedstored_strings", l);
+			for(String o : areaServedTitles) {
+				l.add(o);
+			}
+		}
 		if(areaServedColors != null) {
 			JsonArray l = new JsonArray();
 			doc.put("areaServedColors_indexedstored_strings", l);
@@ -6091,6 +6189,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 				return "location_docvalues_location";
 			case "simulationKey":
 				return "simulationKey_docvalues_long";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
 			case "areaServedColors":
 				return "areaServedColors_indexedstored_strings";
 			case "areaServed":
@@ -6210,6 +6310,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 				return "location_docvalues_location";
 			case "simulationKey":
 				return "simulationKey_docvalues_long";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
 			case "areaServedColors":
 				return "areaServedColors_indexedstored_strings";
 			case "areaServed":
@@ -6329,6 +6431,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 				return "location";
 			case "simulationKey_docvalues_long":
 				return "simulationKey";
+			case "areaServedTitles_indexedstored_strings":
+				return "areaServedTitles";
 			case "areaServedColors_indexedstored_strings":
 				return "areaServedColors";
 			case "areaServed_docvalues_strings":
@@ -6468,6 +6572,9 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 		oSimulationReport.setReportName(Optional.ofNullable(doc.get("reportName_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oSimulationReport.setLocation(Optional.ofNullable(doc.get("location_docvalues_location")).map(v -> v.toString()).orElse(null));
 		oSimulationReport.setSimulationKey(Optional.ofNullable(doc.get("simulationKey_docvalues_long")).map(v -> v.toString()).orElse(null));
+		Optional.ofNullable((List<?>)doc.get("areaServedTitles_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oSimulationReport.addAreaServedTitles(SimulationReport.staticSetAreaServedTitles(siteRequest, v.toString()));
+		});
 		Optional.ofNullable((List<?>)doc.get("areaServedColors_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
 			oSimulationReport.addAreaServedColors(SimulationReport.staticSetAreaServedColors(siteRequest, v.toString()));
 		});
@@ -6550,6 +6657,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 				apiRequest.addVars("location");
 			if(!Objects.equals(simulationKey, original.getSimulationKey()))
 				apiRequest.addVars("simulationKey");
+			if(!Objects.equals(areaServedTitles, original.getAreaServedTitles()))
+				apiRequest.addVars("areaServedTitles");
 			if(!Objects.equals(areaServedColors, original.getAreaServedColors()))
 				apiRequest.addVars("areaServedColors");
 			if(!Objects.equals(areaServed, original.getAreaServed()))
@@ -6670,6 +6779,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 		sb.append(Optional.ofNullable(reportName).map(v -> "reportName: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(location).map(v -> "location: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(simulationKey).map(v -> "simulationKey: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedTitles).map(v -> "areaServedTitles: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServedColors).map(v -> "areaServedColors: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServed).map(v -> "areaServed: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(smartTrafficLightKey).map(v -> "smartTrafficLightKey: " + v + "\n").orElse(""));
@@ -6739,6 +6849,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	public static final String VAR_simulationSearch = "simulationSearch";
 	public static final String VAR_simulation_ = "simulation_";
 	public static final String VAR_observedSearch = "observedSearch";
+	public static final String VAR_areaServedTitles = "areaServedTitles";
 	public static final String VAR_areaServedColors = "areaServedColors";
 	public static final String VAR_areaServed = "areaServed";
 	public static final String VAR_smartTrafficLightKey = "smartTrafficLightKey";
@@ -6903,6 +7014,7 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 	public static final String DISPLAY_NAME_simulationSearch = "";
 	public static final String DISPLAY_NAME_simulation_ = "";
 	public static final String DISPLAY_NAME_observedSearch = "";
+	public static final String DISPLAY_NAME_areaServedTitles = "area served titles";
 	public static final String DISPLAY_NAME_areaServedColors = "area served colors";
 	public static final String DISPLAY_NAME_areaServed = "area served";
 	public static final String DISPLAY_NAME_smartTrafficLightKey = "smart traffic light";
@@ -6976,6 +7088,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 			return DISPLAY_NAME_simulation_;
 		case VAR_observedSearch:
 			return DISPLAY_NAME_observedSearch;
+		case VAR_areaServedTitles:
+			return DISPLAY_NAME_areaServedTitles;
 		case VAR_areaServedColors:
 			return DISPLAY_NAME_areaServedColors;
 		case VAR_areaServed:
@@ -7095,6 +7209,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 		switch(var) {
 		case VAR_simulationKey:
 			return "The traffic simulation for this report. ";
+		case VAR_areaServedTitles:
+			return "The titles of each areaServed Paths. ";
 		case VAR_areaServedColors:
 			return "The colors of each areaServed Paths. ";
 		case VAR_areaServed:
@@ -7168,6 +7284,8 @@ public abstract class SimulationReportGen<DEV> extends BaseModel {
 			return "TrafficSimulation";
 		case VAR_observedSearch:
 			return "SearchList";
+		case VAR_areaServedTitles:
+			return "List";
 		case VAR_areaServedColors:
 			return "List";
 		case VAR_areaServed:

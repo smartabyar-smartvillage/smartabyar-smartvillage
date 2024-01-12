@@ -74,24 +74,17 @@
 {{#block "jsLegend"}}{{/block}}
 			}
 
-			function htmLegendTrafficSimulation(map, shape, areaServed, index, count) {
+			function htmLegendTrafficSimulation(map, shape, trafficSimulation, index, count) {
 				var color = trafficSimulation.areaServedColors[index];
 				var title = trafficSimulation.areaServedTitles[index];
 				var url = trafficSimulation.areaServedLinks[index];
 				var htm = '';
-				if(index == 0) {
-					htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off ">
-	<div class="w3-larger font-weight-bold ">traffic simulations</div>
-	<div>
+				htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off cursor-pointer " style="max-width: 400px; ">
 `;
-				}
 				htm += `{{#block "htmLegend"}}{{/block}}`;
-				if(index == (count - 1)) {
-					htm += `
-	</div>
+				htm += `
 </div>
 `;
-				}
 				return htm;
 			}
 
@@ -106,7 +99,9 @@
 {{/inline}}
 {{#*inline "jsWebsocketTrafficSimulationPage"}}{{/inline}}
 {{#*inline "jsTooltipTrafficSimulationPage"}}{{/inline}}
-{{#*inline "htmTooltipTrafficSimulationPage"}}{{/inline}}
+{{#*inline "htmTooltipTrafficSimulationPage"}}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.pageUrlPk)}">${feature.properties.objectTitle}</a></h3>
+{{/inline}}
 {{#*inline "jsLegendTrafficSimulationPage"}}
 				var div = L.DomUtil.create('div', 'info legend');
 				var htm = '';
@@ -118,7 +113,7 @@
 						else
 							shapes.push(trafficSimulation.areaServed);
 						shapes.forEach(function(shape, index) {
-							htm += htmLegendTrafficSimulation(map, shape, areaServed, index, shapes.length);
+							htm += htmLegendTrafficSimulation(map, shape, trafficSimulation, index, shapes.length);
 						});
 					}
 				});
@@ -126,28 +121,38 @@
 				return div;
 {{/inline}}
 {{#*inline "htmLegendTrafficSimulationPage"}}
-		<div>
+		<div class="w3-row " title="${quoteattr(title)}">
+		<div class="w3-col " style="width: 20px; ">
 			<i class="fa-light fa-circle" style="color: ${color}; "></i>
-			<span data-id="${areaServed.id}" onclick="window.geoJSONLayerGroupTrafficSimulation.getLayer(window.mapLayers[this.getAttribute('data-id')]).openPopup(); return false;" href="">${title}</span>
+		</div>
+		<div class="w3-rest text-overflow-ellipsis ">
+			<span class="" data-id="${trafficSimulation.id}" onclick="window.mapLayers[this.getAttribute('data-id')].openPopup(); return false;" href="">${title}</span>
+		</div>
 		</div>
 {{/inline}}
 {{#*inline "jsStyleTrafficSimulationPage"}}
 				if(feature.geometry.type == 'Point') {
 					return {
 						radius: 8
-						, fillColor: '#ff7800'
-						, color: '#000'
+						, fillColor: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, weight: 1
-						, opacity: 1
-						, fillOpacity: 0.8
+						, opacity: 0.7
+						, fillOpacity: 0.7
+					};
+				} else if(feature.geometry.type == 'LineString') {
+					return {
+						color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, weight: 5
+						, opacity: 0.7
 					};
 				} else {
 					return {
-						 fillColor: '#ff7800'
+						 fillColor: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
-						, weight: 5
-						, opacity: 1
-						, fillOpacity: 0.8
+						, weight: 3
+						, opacity: 0.7
+						, fillOpacity: 0.7
 					};
 				}
 {{/inline}}
@@ -551,21 +556,21 @@
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmStartDateTime" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmLocation" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmLocation" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmLocation" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmStartDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 								<!-- entiteHtmLigneVerticaleAncien == null || !entiteHtmLigneVerticaleAncien -->
@@ -642,21 +647,21 @@
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmStartDateTime" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmLocation" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmLocation" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmLocation" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmStartDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 							</div>
@@ -798,21 +803,21 @@
 							<!-- BooleanUtils.isFalse(entiteHtmLigneVerticale) -->
 							<div class="w3-cell-row HtmRow">
 {{#ifContainsAnyRoles roles roleForWrite}}
-{{> "htmStartDateTime" roleForWriteBool="true" roleForReadBool="true"}}
-{{else}}
-{{#ifContainsAnyRoles roles roleForRead}}
-{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="true"}}
-{{else}}
-{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="false"}}
-{{/ifContainsAnyRoles}}
-{{/ifContainsAnyRoles}}
-{{#ifContainsAnyRoles roles roleForWrite}}
 {{> "htmLocation" roleForWriteBool="true" roleForReadBool="true"}}
 {{else}}
 {{#ifContainsAnyRoles roles roleForRead}}
 {{> "htmLocation" roleForWriteBool="false" roleForReadBool="true"}}
 {{else}}
 {{> "htmLocation" roleForWriteBool="false" roleForReadBool="false"}}
+{{/ifContainsAnyRoles}}
+{{/ifContainsAnyRoles}}
+{{#ifContainsAnyRoles roles roleForWrite}}
+{{> "htmStartDateTime" roleForWriteBool="true" roleForReadBool="true"}}
+{{else}}
+{{#ifContainsAnyRoles roles roleForRead}}
+{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="true"}}
+{{else}}
+{{> "htmStartDateTime" roleForWriteBool="false" roleForReadBool="false"}}
 {{/ifContainsAnyRoles}}
 {{/ifContainsAnyRoles}}
 								<!-- entiteHtmLigneVerticaleAncien == null || !entiteHtmLigneVerticaleAncien -->
@@ -1424,50 +1429,6 @@
 		{{/eq}}
 {{/inline}}
 
-{{#*inline "htmStartDateTime"}}
-<!-- #*inline "htmStartDateTime" -->
-								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
-									<div class="w3-padding ">
-										<div id="suggest{{classApiMethodMethod}}TrafficSimulationStartDateTime">
-											<div class="w3-card ">
-												<div class="w3-cell-row w3-2017-shaded-spruce">
-													<label for="{{classApiMethodMethod}}_startDateTime">Start date and Time</label>
-												</div>
-												<div class="w3-cell-row w3-padding ">
-													<div class="w3-cell ">
-														{{> "inputStartDateTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-{{/inline}}
-
-{{#*inline "inputStartDateTime"}}
-		{{#eq roleForWriteBool "true"}}
-														<input
-																type="text"
-																class="{{classApiMethodMethod}}_startDateTime w3-input w3-border datetimepicker setStartDateTime classTrafficSimulation inputTrafficSimulation{{pk}}StartDateTime w3-input w3-border "
-																placeholder="MM/dd/yyyy h:mm a '['VV']'"
-																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
-																id="{{classApiMethodMethod}}_startDateTime"
-																title="The start date and time.  (MM/dd/yyyy h:mm a '['VV']')"
-																value="{{#if trafficSimulation_.startDateTime}}{{formatZonedDateTime trafficSimulation_.startDateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
-														{{#eq 'Page' classApiMethodMethod}}
-															onclick="removeGlow($(this)); ";
-															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setStartDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_startDateTime')); }, function() { addError($('.{{classApiMethodMethod}}_startDateTime')); }); } "
-														{{/eq}}
-														/>
-													{{else}}
-														{{#ifContainsKeys userKeys}}
-															<span class="varTrafficSimulation{{pk}}StartDateTime varTrafficSimulationStartDateTime ">{{trafficSimulation_.startDateTime}}</span>
-			{{/ifContainsKeys}}
-		{{else}}
-														<span class="varTrafficSimulation{{pk}}StartDateTime varTrafficSimulationStartDateTime ">{{trafficSimulation_.startDateTime}}</span>
-		{{/eq}}
-{{/inline}}
-
 {{#*inline "htmLocation"}}
 <!-- #*inline "htmLocation" -->
 								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
@@ -1521,6 +1482,50 @@
 			{{/ifContainsKeys}}
 		{{else}}
 														<span class="varTrafficSimulation{{pk}}Location varTrafficSimulationLocation ">{{trafficSimulation_.location}}</span>
+		{{/eq}}
+{{/inline}}
+
+{{#*inline "htmStartDateTime"}}
+<!-- #*inline "htmStartDateTime" -->
+								<div class="w3-cell w3-cell-top w3-center w3-mobile ">
+									<div class="w3-padding ">
+										<div id="suggest{{classApiMethodMethod}}TrafficSimulationStartDateTime">
+											<div class="w3-card ">
+												<div class="w3-cell-row w3-2017-shaded-spruce">
+													<label for="{{classApiMethodMethod}}_startDateTime">Start date and Time</label>
+												</div>
+												<div class="w3-cell-row w3-padding ">
+													<div class="w3-cell ">
+														{{> "inputStartDateTime" roleForWrite=roleForWrite roleForRead=roleForRead}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{{/inline}}
+
+{{#*inline "inputStartDateTime"}}
+		{{#eq roleForWriteBool "true"}}
+														<input
+																type="text"
+																class="{{classApiMethodMethod}}_startDateTime w3-input w3-border datetimepicker setStartDateTime classTrafficSimulation inputTrafficSimulation{{pk}}StartDateTime w3-input w3-border "
+																placeholder="MM/dd/yyyy h:mm a '['VV']'"
+																data-timeformat="MM/dd/yyyy h:mm a '['VV']'"
+																id="{{classApiMethodMethod}}_startDateTime"
+																title="The start date and time.  (MM/dd/yyyy h:mm a '['VV']')"
+																value="{{#if trafficSimulation_.startDateTime}}{{formatZonedDateTime trafficSimulation_.startDateTime "MM/dd/yyyy h:mm a '['VV']'" defaultLocaleId defaultZoneId}}{{/if}}"
+														{{#eq 'Page' classApiMethodMethod}}
+															onclick="removeGlow($(this)); ";
+															onchange="var timeZone = this.value.split('[').pop().split(']')[0]; var t1 = moment(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a'); var t2 = moment.tz(this.value.split('[')[0].trim(), 'MM/DD/YYYY h:mm a', timeZone); var t3 = new Date(t1._d); t3.setTime(t1.toDate().getTime() + t2.toDate().getTime() - t1.toDate().getTime()); var t = moment(t3); if(t) { var s = t.tz(timeZone).format('YYYY-MM-DDTHH:mm:ss.000') + '[' + timeZone + ']'; patch{{classSimpleName}}Val([{ name: 'softCommit', value: 'true' }, { name: 'fq', value: 'pk:{{pk}}' }], 'setStartDateTime', s, function() { addGlow($('.{{classApiMethodMethod}}_startDateTime')); }, function() { addError($('.{{classApiMethodMethod}}_startDateTime')); }); } "
+														{{/eq}}
+														/>
+													{{else}}
+														{{#ifContainsKeys userKeys}}
+															<span class="varTrafficSimulation{{pk}}StartDateTime varTrafficSimulationStartDateTime ">{{trafficSimulation_.startDateTime}}</span>
+			{{/ifContainsKeys}}
+		{{else}}
+														<span class="varTrafficSimulation{{pk}}StartDateTime varTrafficSimulationStartDateTime ">{{trafficSimulation_.startDateTime}}</span>
 		{{/eq}}
 {{/inline}}
 

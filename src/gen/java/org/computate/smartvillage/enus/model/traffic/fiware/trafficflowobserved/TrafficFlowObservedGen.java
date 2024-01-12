@@ -64,6 +64,7 @@ import com.fasterxml.jackson.databind.BeanDescription;
 import java.util.stream.Collectors;
 import io.vertx.core.json.Json;
 import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight;
+import io.vertx.core.json.JsonArray;
 import io.vertx.pgclient.data.Path;
 import org.computate.vertx.serialize.pgclient.PgClientPathSerializer;
 import org.computate.vertx.serialize.pgclient.PgClientPathDeserializer;
@@ -73,7 +74,6 @@ import java.lang.Integer;
 import org.computate.search.wrap.Wrap;
 import io.vertx.core.Promise;
 import io.vertx.core.Future;
-import io.vertx.core.json.JsonArray;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.computate.search.response.solr.SolrResponse;
 
@@ -1106,6 +1106,228 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 
 	public String sqlAlternateName() {
 		return alternateName;
+	}
+
+	//////////////////////
+	// areaServedColors //
+	//////////////////////
+
+
+	/**	 The entity areaServedColors
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedColors = new ArrayList<String>();
+
+	/**	<br> The entity areaServedColors
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved&fq=entiteVar_enUS_indexed_string:areaServedColors">Find the entity areaServedColors in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedColors(List<String> l);
+
+	public List<String> getAreaServedColors() {
+		return areaServedColors;
+	}
+
+	public void setAreaServedColors(List<String> areaServedColors) {
+		this.areaServedColors = areaServedColors;
+	}
+	public void setAreaServedColors(String o) {
+		String l = TrafficFlowObserved.staticSetAreaServedColors(siteRequest_, o);
+		if(l != null)
+			addAreaServedColors(l);
+	}
+	public static String staticSetAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public TrafficFlowObserved addAreaServedColors(String...objects) {
+		for(String o : objects) {
+			addAreaServedColors(o);
+		}
+		return (TrafficFlowObserved)this;
+	}
+	public TrafficFlowObserved addAreaServedColors(String o) {
+		if(o != null)
+			this.areaServedColors.add(o);
+		return (TrafficFlowObserved)this;
+	}
+	@JsonIgnore
+	public void setAreaServedColors(JsonArray objects) {
+		areaServedColors.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedColors(o);
+		}
+	}
+	protected TrafficFlowObserved areaServedColorsInit() {
+		_areaServedColors(areaServedColors);
+		return (TrafficFlowObserved)this;
+	}
+
+	public static String staticSearchAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedColors(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficFlowObserved.staticSearchAreaServedColors(siteRequest_, TrafficFlowObserved.staticSetAreaServedColors(siteRequest_, o)).toString();
+	}
+
+	//////////////////////
+	// areaServedTitles //
+	//////////////////////
+
+
+	/**	 The entity areaServedTitles
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedTitles = new ArrayList<String>();
+
+	/**	<br> The entity areaServedTitles
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved&fq=entiteVar_enUS_indexed_string:areaServedTitles">Find the entity areaServedTitles in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedTitles(List<String> l);
+
+	public List<String> getAreaServedTitles() {
+		return areaServedTitles;
+	}
+
+	public void setAreaServedTitles(List<String> areaServedTitles) {
+		this.areaServedTitles = areaServedTitles;
+	}
+	public void setAreaServedTitles(String o) {
+		String l = TrafficFlowObserved.staticSetAreaServedTitles(siteRequest_, o);
+		if(l != null)
+			addAreaServedTitles(l);
+	}
+	public static String staticSetAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public TrafficFlowObserved addAreaServedTitles(String...objects) {
+		for(String o : objects) {
+			addAreaServedTitles(o);
+		}
+		return (TrafficFlowObserved)this;
+	}
+	public TrafficFlowObserved addAreaServedTitles(String o) {
+		if(o != null)
+			this.areaServedTitles.add(o);
+		return (TrafficFlowObserved)this;
+	}
+	@JsonIgnore
+	public void setAreaServedTitles(JsonArray objects) {
+		areaServedTitles.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedTitles(o);
+		}
+	}
+	protected TrafficFlowObserved areaServedTitlesInit() {
+		_areaServedTitles(areaServedTitles);
+		return (TrafficFlowObserved)this;
+	}
+
+	public static String staticSearchAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedTitles(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficFlowObserved.staticSearchAreaServedTitles(siteRequest_, TrafficFlowObserved.staticSetAreaServedTitles(siteRequest_, o)).toString();
+	}
+
+	/////////////////////
+	// areaServedLinks //
+	/////////////////////
+
+
+	/**	 The entity areaServedLinks
+	 *	 It is constructed before being initialized with the constructor by default. 
+	 */
+	@JsonProperty
+	@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+	@JsonInclude(Include.NON_NULL)
+	protected List<String> areaServedLinks = new ArrayList<String>();
+
+	/**	<br> The entity areaServedLinks
+	 *  It is constructed before being initialized with the constructor by default. 
+	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved&fq=entiteVar_enUS_indexed_string:areaServedLinks">Find the entity areaServedLinks in Solr</a>
+	 * <br>
+	 * @param l is the entity already constructed. 
+	 **/
+	protected abstract void _areaServedLinks(List<String> l);
+
+	public List<String> getAreaServedLinks() {
+		return areaServedLinks;
+	}
+
+	public void setAreaServedLinks(List<String> areaServedLinks) {
+		this.areaServedLinks = areaServedLinks;
+	}
+	public void setAreaServedLinks(String o) {
+		String l = TrafficFlowObserved.staticSetAreaServedLinks(siteRequest_, o);
+		if(l != null)
+			addAreaServedLinks(l);
+	}
+	public static String staticSetAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+	public TrafficFlowObserved addAreaServedLinks(String...objects) {
+		for(String o : objects) {
+			addAreaServedLinks(o);
+		}
+		return (TrafficFlowObserved)this;
+	}
+	public TrafficFlowObserved addAreaServedLinks(String o) {
+		if(o != null)
+			this.areaServedLinks.add(o);
+		return (TrafficFlowObserved)this;
+	}
+	@JsonIgnore
+	public void setAreaServedLinks(JsonArray objects) {
+		areaServedLinks.clear();
+		if(objects == null)
+			return;
+		for(int i = 0; i < objects.size(); i++) {
+			String o = objects.getString(i);
+			addAreaServedLinks(o);
+		}
+	}
+	protected TrafficFlowObserved areaServedLinksInit() {
+		_areaServedLinks(areaServedLinks);
+		return (TrafficFlowObserved)this;
+	}
+
+	public static String staticSearchAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o;
+	}
+
+	public static String staticSearchStrAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return o == null ? null : o.toString();
+	}
+
+	public static String staticSearchFqAreaServedLinks(SiteRequestEnUS siteRequest_, String o) {
+		return TrafficFlowObserved.staticSearchAreaServedLinks(siteRequest_, TrafficFlowObserved.staticSetAreaServedLinks(siteRequest_, o)).toString();
 	}
 
 	////////////////
@@ -3407,6 +3629,9 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				smartTrafficLight_Init();
 				addressInit();
 				alternateNameInit();
+				areaServedColorsInit();
+				areaServedTitlesInit();
+				areaServedLinksInit();
 				areaServedInit();
 				averageGapDistanceInit();
 				averageHeadwayTimeInit();
@@ -3527,6 +3752,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return oTrafficFlowObserved.address;
 			case "alternateName":
 				return oTrafficFlowObserved.alternateName;
+			case "areaServedColors":
+				return oTrafficFlowObserved.areaServedColors;
+			case "areaServedTitles":
+				return oTrafficFlowObserved.areaServedTitles;
+			case "areaServedLinks":
+				return oTrafficFlowObserved.areaServedLinks;
 			case "areaServed":
 				return oTrafficFlowObserved.areaServed;
 			case "averageGapDistance":
@@ -3654,6 +3885,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSetAddress(siteRequest_, o);
 		case "alternateName":
 			return TrafficFlowObserved.staticSetAlternateName(siteRequest_, o);
+		case "areaServedColors":
+			return TrafficFlowObserved.staticSetAreaServedColors(siteRequest_, o);
+		case "areaServedTitles":
+			return TrafficFlowObserved.staticSetAreaServedTitles(siteRequest_, o);
+		case "areaServedLinks":
+			return TrafficFlowObserved.staticSetAreaServedLinks(siteRequest_, o);
 		case "areaServed":
 			return TrafficFlowObserved.staticSetAreaServed(siteRequest_, o);
 		case "averageGapDistance":
@@ -3756,6 +3993,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSearchAddress(siteRequest_, (JsonObject)o);
 		case "alternateName":
 			return TrafficFlowObserved.staticSearchAlternateName(siteRequest_, (String)o);
+		case "areaServedColors":
+			return TrafficFlowObserved.staticSearchAreaServedColors(siteRequest_, (String)o);
+		case "areaServedTitles":
+			return TrafficFlowObserved.staticSearchAreaServedTitles(siteRequest_, (String)o);
+		case "areaServedLinks":
+			return TrafficFlowObserved.staticSearchAreaServedLinks(siteRequest_, (String)o);
 		case "areaServed":
 			return TrafficFlowObserved.staticSearchAreaServed(siteRequest_, (Path)o);
 		case "averageGapDistance":
@@ -3858,6 +4101,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSearchStrAddress(siteRequest_, (String)o);
 		case "alternateName":
 			return TrafficFlowObserved.staticSearchStrAlternateName(siteRequest_, (String)o);
+		case "areaServedColors":
+			return TrafficFlowObserved.staticSearchStrAreaServedColors(siteRequest_, (String)o);
+		case "areaServedTitles":
+			return TrafficFlowObserved.staticSearchStrAreaServedTitles(siteRequest_, (String)o);
+		case "areaServedLinks":
+			return TrafficFlowObserved.staticSearchStrAreaServedLinks(siteRequest_, (String)o);
 		case "areaServed":
 			return TrafficFlowObserved.staticSearchStrAreaServed(siteRequest_, (Path)o);
 		case "averageGapDistance":
@@ -3960,6 +4209,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return TrafficFlowObserved.staticSearchFqAddress(siteRequest_, o);
 		case "alternateName":
 			return TrafficFlowObserved.staticSearchFqAlternateName(siteRequest_, o);
+		case "areaServedColors":
+			return TrafficFlowObserved.staticSearchFqAreaServedColors(siteRequest_, o);
+		case "areaServedTitles":
+			return TrafficFlowObserved.staticSearchFqAreaServedTitles(siteRequest_, o);
+		case "areaServedLinks":
+			return TrafficFlowObserved.staticSearchFqAreaServedLinks(siteRequest_, o);
 		case "areaServed":
 			return TrafficFlowObserved.staticSearchFqAreaServed(siteRequest_, o);
 		case "averageGapDistance":
@@ -4431,6 +4686,24 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 					oTrafficFlowObserved.setAlternateName(alternateName);
 			}
 
+			if(saves.contains("areaServedColors")) {
+				List<String> areaServedColors = (List<String>)doc.get("areaServedColors_indexedstored_strings");
+				if(areaServedColors != null)
+					oTrafficFlowObserved.areaServedColors.addAll(areaServedColors);
+			}
+
+			if(saves.contains("areaServedTitles")) {
+				List<String> areaServedTitles = (List<String>)doc.get("areaServedTitles_indexedstored_strings");
+				if(areaServedTitles != null)
+					oTrafficFlowObserved.areaServedTitles.addAll(areaServedTitles);
+			}
+
+			if(saves.contains("areaServedLinks")) {
+				List<String> areaServedLinks = (List<String>)doc.get("areaServedLinks_indexedstored_strings");
+				if(areaServedLinks != null)
+					oTrafficFlowObserved.areaServedLinks.addAll(areaServedLinks);
+			}
+
 			if(saves.contains("areaServed")) {
 				Path areaServed = (Path)doc.get("areaServed_docvalues_location");
 				if(areaServed != null)
@@ -4667,6 +4940,27 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		if(alternateName != null) {
 			doc.put("alternateName_docvalues_string", alternateName);
 		}
+		if(areaServedColors != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedColors_indexedstored_strings", l);
+			for(String o : areaServedColors) {
+				l.add(o);
+			}
+		}
+		if(areaServedTitles != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedTitles_indexedstored_strings", l);
+			for(String o : areaServedTitles) {
+				l.add(o);
+			}
+		}
+		if(areaServedLinks != null) {
+			JsonArray l = new JsonArray();
+			doc.put("areaServedLinks_indexedstored_strings", l);
+			for(String o : areaServedLinks) {
+				l.add(o);
+			}
+		}
 		if(areaServed != null) {
 			JsonArray pointsArray = new JsonArray();
 			areaServed.getPoints().stream().map(point -> new JsonArray().add(Double.valueOf(point.getX())).add(Double.valueOf(point.getY()))).collect(Collectors.toList()).forEach(pointArray -> pointsArray.add(pointArray));
@@ -4796,6 +5090,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return "address_docvalues_string";
 			case "alternateName":
 				return "alternateName_docvalues_string";
+			case "areaServedColors":
+				return "areaServedColors_indexedstored_strings";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
+			case "areaServedLinks":
+				return "areaServedLinks_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_location";
 			case "averageGapDistance":
@@ -4891,6 +5191,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return "address_docvalues_string";
 			case "alternateName":
 				return "alternateName_docvalues_string";
+			case "areaServedColors":
+				return "areaServedColors_indexedstored_strings";
+			case "areaServedTitles":
+				return "areaServedTitles_indexedstored_strings";
+			case "areaServedLinks":
+				return "areaServedLinks_indexedstored_strings";
 			case "areaServed":
 				return "areaServed_docvalues_location";
 			case "averageGapDistance":
@@ -4986,6 +5292,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				return "address";
 			case "alternateName_docvalues_string":
 				return "alternateName";
+			case "areaServedColors_indexedstored_strings":
+				return "areaServedColors";
+			case "areaServedTitles_indexedstored_strings":
+				return "areaServedTitles";
+			case "areaServedLinks_indexedstored_strings":
+				return "areaServedLinks";
 			case "areaServed_docvalues_location":
 				return "areaServed";
 			case "averageGapDistance_docvalues_double":
@@ -5093,6 +5405,15 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		oTrafficFlowObserved.setCustomTrafficLightId(Optional.ofNullable(doc.get("customTrafficLightId_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setAddress(Optional.ofNullable(doc.get("address_docvalues_string")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setAlternateName(Optional.ofNullable(doc.get("alternateName_docvalues_string")).map(v -> v.toString()).orElse(null));
+		Optional.ofNullable((List<?>)doc.get("areaServedColors_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oTrafficFlowObserved.addAreaServedColors(TrafficFlowObserved.staticSetAreaServedColors(siteRequest, v.toString()));
+		});
+		Optional.ofNullable((List<?>)doc.get("areaServedTitles_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oTrafficFlowObserved.addAreaServedTitles(TrafficFlowObserved.staticSetAreaServedTitles(siteRequest, v.toString()));
+		});
+		Optional.ofNullable((List<?>)doc.get("areaServedLinks_indexedstored_strings")).orElse(Arrays.asList()).stream().filter(v -> v != null).forEach(v -> {
+			oTrafficFlowObserved.addAreaServedLinks(TrafficFlowObserved.staticSetAreaServedLinks(siteRequest, v.toString()));
+		});
 		oTrafficFlowObserved.setAreaServed(Optional.ofNullable(doc.get("areaServed_docvalues_location")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setAverageGapDistance(Optional.ofNullable(doc.get("averageGapDistance_docvalues_double")).map(v -> v.toString()).orElse(null));
 		oTrafficFlowObserved.setAverageHeadwayTime(Optional.ofNullable(doc.get("averageHeadwayTime_docvalues_double")).map(v -> v.toString()).orElse(null));
@@ -5161,6 +5482,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 				apiRequest.addVars("address");
 			if(!Objects.equals(alternateName, original.getAlternateName()))
 				apiRequest.addVars("alternateName");
+			if(!Objects.equals(areaServedColors, original.getAreaServedColors()))
+				apiRequest.addVars("areaServedColors");
+			if(!Objects.equals(areaServedTitles, original.getAreaServedTitles()))
+				apiRequest.addVars("areaServedTitles");
+			if(!Objects.equals(areaServedLinks, original.getAreaServedLinks()))
+				apiRequest.addVars("areaServedLinks");
 			if(!Objects.equals(areaServed, original.getAreaServed()))
 				apiRequest.addVars("areaServed");
 			if(!Objects.equals(averageGapDistance, original.getAverageGapDistance()) && averageGapDistance != null && original.getAverageGapDistance() != null && averageGapDistance.compareTo(original.getAverageGapDistance()) != 0)
@@ -5249,6 +5576,9 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 		sb.append(Optional.ofNullable(customTrafficLightId).map(v -> "customTrafficLightId: \"" + v + "\"\n" ).orElse(""));
 		sb.append(Optional.ofNullable(address).map(v -> "address: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(alternateName).map(v -> "alternateName: \"" + v + "\"\n" ).orElse(""));
+		sb.append(Optional.ofNullable(areaServedColors).map(v -> "areaServedColors: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedTitles).map(v -> "areaServedTitles: " + v + "\n").orElse(""));
+		sb.append(Optional.ofNullable(areaServedLinks).map(v -> "areaServedLinks: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(areaServed).map(v -> "areaServed: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(averageGapDistance).map(v -> "averageGapDistance: " + v + "\n").orElse(""));
 		sb.append(Optional.ofNullable(averageHeadwayTime).map(v -> "averageHeadwayTime: " + v + "\n").orElse(""));
@@ -5305,6 +5635,9 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	public static final String VAR_smartTrafficLight_ = "smartTrafficLight_";
 	public static final String VAR_address = "address";
 	public static final String VAR_alternateName = "alternateName";
+	public static final String VAR_areaServedColors = "areaServedColors";
+	public static final String VAR_areaServedTitles = "areaServedTitles";
+	public static final String VAR_areaServedLinks = "areaServedLinks";
 	public static final String VAR_areaServed = "areaServed";
 	public static final String VAR_averageGapDistance = "averageGapDistance";
 	public static final String VAR_averageHeadwayTime = "averageHeadwayTime";
@@ -5441,6 +5774,9 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 	public static final String DISPLAY_NAME_smartTrafficLight_ = "";
 	public static final String DISPLAY_NAME_address = "address";
 	public static final String DISPLAY_NAME_alternateName = "alternate name";
+	public static final String DISPLAY_NAME_areaServedColors = "area served colors";
+	public static final String DISPLAY_NAME_areaServedTitles = "area served titles";
+	public static final String DISPLAY_NAME_areaServedLinks = "area served links";
 	public static final String DISPLAY_NAME_areaServed = "area served";
 	public static final String DISPLAY_NAME_averageGapDistance = "average gap distance";
 	public static final String DISPLAY_NAME_averageHeadwayTime = "average headway time";
@@ -5510,6 +5846,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return DISPLAY_NAME_address;
 		case VAR_alternateName:
 			return DISPLAY_NAME_alternateName;
+		case VAR_areaServedColors:
+			return DISPLAY_NAME_areaServedColors;
+		case VAR_areaServedTitles:
+			return DISPLAY_NAME_areaServedTitles;
+		case VAR_areaServedLinks:
+			return DISPLAY_NAME_areaServedLinks;
 		case VAR_areaServed:
 			return DISPLAY_NAME_areaServed;
 		case VAR_averageGapDistance:
@@ -5597,6 +5939,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return "The mailing address";
 		case VAR_alternateName:
 			return "An alternative name for this item";
+		case VAR_areaServedColors:
+			return "The colors of each areaServed Paths. ";
+		case VAR_areaServedTitles:
+			return "The titles of each areaServed Paths. ";
+		case VAR_areaServedLinks:
+			return "The links of each areaServed Paths. ";
 		case VAR_areaServed:
 			return "The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. ";
 		case VAR_averageGapDistance:
@@ -5700,6 +6048,12 @@ public abstract class TrafficFlowObservedGen<DEV> extends BaseModel {
 			return "JsonObject";
 		case VAR_alternateName:
 			return "String";
+		case VAR_areaServedColors:
+			return "List";
+		case VAR_areaServedTitles:
+			return "List";
+		case VAR_areaServedLinks:
+			return "List";
 		case VAR_areaServed:
 			return "Path";
 		case VAR_averageGapDistance:

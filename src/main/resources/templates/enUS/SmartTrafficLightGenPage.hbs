@@ -74,24 +74,17 @@
 {{#block "jsLegend"}}{{/block}}
 			}
 
-			function htmLegendSmartTrafficLight(map, shape, areaServed, index, count) {
+			function htmLegendSmartTrafficLight(map, shape, smartTrafficLight, index, count) {
 				var color = smartTrafficLight.areaServedColors[index];
 				var title = smartTrafficLight.areaServedTitles[index];
 				var url = smartTrafficLight.areaServedLinks[index];
 				var htm = '';
-				if(index == 0) {
-					htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off ">
-	<div class="w3-larger font-weight-bold ">smart traffic lights</div>
-	<div>
+				htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off cursor-pointer " style="max-width: 400px; ">
 `;
-				}
 				htm += `{{#block "htmLegend"}}{{/block}}`;
-				if(index == (count - 1)) {
-					htm += `
-	</div>
+				htm += `
 </div>
 `;
-				}
 				return htm;
 			}
 
@@ -106,7 +99,9 @@
 {{/inline}}
 {{#*inline "jsWebsocketSmartTrafficLightPage"}}{{/inline}}
 {{#*inline "jsTooltipSmartTrafficLightPage"}}{{/inline}}
-{{#*inline "htmTooltipSmartTrafficLightPage"}}{{/inline}}
+{{#*inline "htmTooltipSmartTrafficLightPage"}}
+<h3><i class="{{ classIconCssClasses }}  "></i><a href="${quoteattr(feature.properties.pageUrlPk)}">${feature.properties.objectTitle}</a></h3>
+{{/inline}}
 {{#*inline "jsLegendSmartTrafficLightPage"}}
 				var div = L.DomUtil.create('div', 'info legend');
 				var htm = '';
@@ -118,7 +113,7 @@
 						else
 							shapes.push(smartTrafficLight.areaServed);
 						shapes.forEach(function(shape, index) {
-							htm += htmLegendSmartTrafficLight(map, shape, areaServed, index, shapes.length);
+							htm += htmLegendSmartTrafficLight(map, shape, smartTrafficLight, index, shapes.length);
 						});
 					}
 				});
@@ -126,28 +121,38 @@
 				return div;
 {{/inline}}
 {{#*inline "htmLegendSmartTrafficLightPage"}}
-		<div>
+		<div class="w3-row " title="${quoteattr(title)}">
+		<div class="w3-col " style="width: 20px; ">
 			<i class="fa-light fa-circle" style="color: ${color}; "></i>
-			<span data-id="${areaServed.id}" onclick="window.geoJSONLayerGroupSmartTrafficLight.getLayer(window.mapLayers[this.getAttribute('data-id')]).openPopup(); return false;" href="">${title}</span>
+		</div>
+		<div class="w3-rest text-overflow-ellipsis ">
+			<span class="" data-id="${smartTrafficLight.id}" onclick="window.mapLayers[this.getAttribute('data-id')].openPopup(); return false;" href="">${title}</span>
+		</div>
 		</div>
 {{/inline}}
 {{#*inline "jsStyleSmartTrafficLightPage"}}
 				if(feature.geometry.type == 'Point') {
 					return {
 						radius: 8
-						, fillColor: '#ff7800'
-						, color: '#000'
+						, fillColor: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, weight: 1
-						, opacity: 1
-						, fillOpacity: 0.8
+						, opacity: 0.7
+						, fillOpacity: 0.7
+					};
+				} else if(feature.geometry.type == 'LineString') {
+					return {
+						color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
+						, weight: 5
+						, opacity: 0.7
 					};
 				} else {
 					return {
-						 fillColor: '#ff7800'
+						 fillColor: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
 						, color: (feature.properties.areaServedColors && feature.properties.areaServedColors[feature.index] ? feature.properties.areaServedColors[feature.index] : (feature.properties.color ? feature.properties.color : '#000'))
-						, weight: 5
-						, opacity: 1
-						, fillOpacity: 0.8
+						, weight: 3
+						, opacity: 0.7
+						, fillOpacity: 0.7
 					};
 				}
 {{/inline}}

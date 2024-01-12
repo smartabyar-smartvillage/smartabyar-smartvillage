@@ -706,48 +706,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setSmartTrafficLightKey":
-						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
-							futures1.add(Future.future(promise2 -> {
-								search(siteRequest).query(SmartTrafficLight.class, val, inheritPk).onSuccess(pk2 -> {
-									if(!pks.contains(pk2)) {
-										pks.add(pk2);
-										classes.add("SmartTrafficLight");
-									}
-									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
-										promise2.complete();
-									}).onFailure(ex -> {
-										promise2.fail(ex);
-									});
-								}).onFailure(ex -> {
-									promise2.fail(ex);
-								});
-							}));
-						});
-						break;
-					case "removeSmartTrafficLightKey":
-						Optional.ofNullable(jsonObject.getString(entityVar)).map(val -> Long.parseLong(val)).ifPresent(pk2 -> {
-							if(!pks.contains(pk2)) {
-								pks.add(pk2);
-								classes.add("SmartTrafficLight");
-							}
-							futures2.add(Future.future(promise2 -> {
-									sql(siteRequest).update(SimulationReport.class, pk).setToNull(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
-									promise2.complete();
-								}).onFailure(ex -> {
-									promise2.fail(ex);
-								});
-							}));
-						});
-						break;
-					case "setSimulationName":
-							o2.setSimulationName(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
-							num++;
-							bParams.add(o2.sqlSimulationName());
-						break;
 					case "setReportName":
 							o2.setReportName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -797,6 +755,48 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 								});
 							}));
 						});
+						break;
+					case "setSmartTrafficLightKey":
+						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
+							futures1.add(Future.future(promise2 -> {
+								search(siteRequest).query(SmartTrafficLight.class, val, inheritPk).onSuccess(pk2 -> {
+									if(!pks.contains(pk2)) {
+										pks.add(pk2);
+										classes.add("SmartTrafficLight");
+									}
+									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
+										promise2.complete();
+									}).onFailure(ex -> {
+										promise2.fail(ex);
+									});
+								}).onFailure(ex -> {
+									promise2.fail(ex);
+								});
+							}));
+						});
+						break;
+					case "removeSmartTrafficLightKey":
+						Optional.ofNullable(jsonObject.getString(entityVar)).map(val -> Long.parseLong(val)).ifPresent(pk2 -> {
+							if(!pks.contains(pk2)) {
+								pks.add(pk2);
+								classes.add("SmartTrafficLight");
+							}
+							futures2.add(Future.future(promise2 -> {
+									sql(siteRequest).update(SimulationReport.class, pk).setToNull(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
+									promise2.complete();
+								}).onFailure(ex -> {
+									promise2.fail(ex);
+								});
+							}));
+						});
+						break;
+					case "setSimulationName":
+							o2.setSimulationName(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+							num++;
+							bParams.add(o2.sqlSimulationName());
 						break;
 					case "setSmartTrafficLightId":
 							o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
@@ -1383,34 +1383,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case SimulationReport.VAR_smartTrafficLightKey:
-						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
-							futures1.add(Future.future(promise2 -> {
-								search(siteRequest).query(SmartTrafficLight.class, val, inheritPk).onSuccess(pk2 -> {
-									if(!pks.contains(pk2)) {
-										pks.add(pk2);
-										classes.add("SmartTrafficLight");
-									}
-									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
-										promise2.complete();
-									}).onFailure(ex -> {
-										promise2.fail(ex);
-									});
-								}).onFailure(ex -> {
-									promise2.fail(ex);
-								});
-							}));
-						});
-						break;
-					case SimulationReport.VAR_simulationName:
-						o2.setSimulationName(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
-						num++;
-						bParams.add(o2.sqlSimulationName());
-						break;
 					case SimulationReport.VAR_reportName:
 						o2.setReportName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1447,6 +1419,34 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 								});
 							}));
 						});
+						break;
+					case SimulationReport.VAR_smartTrafficLightKey:
+						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
+							futures1.add(Future.future(promise2 -> {
+								search(siteRequest).query(SmartTrafficLight.class, val, inheritPk).onSuccess(pk2 -> {
+									if(!pks.contains(pk2)) {
+										pks.add(pk2);
+										classes.add("SmartTrafficLight");
+									}
+									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
+										promise2.complete();
+									}).onFailure(ex -> {
+										promise2.fail(ex);
+									});
+								}).onFailure(ex -> {
+									promise2.fail(ex);
+								});
+							}));
+						});
+						break;
+					case SimulationReport.VAR_simulationName:
+						o2.setSimulationName(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+						num++;
+						bParams.add(o2.sqlSimulationName());
 						break;
 					case SimulationReport.VAR_smartTrafficLightId:
 						o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
@@ -2336,34 +2336,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
-					case SimulationReport.VAR_smartTrafficLightKey:
-						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
-							futures1.add(Future.future(promise2 -> {
-								search(siteRequest).query(SmartTrafficLight.class, val, false).onSuccess(pk2 -> {
-									if(!pks.contains(pk2)) {
-										pks.add(pk2);
-										classes.add("SmartTrafficLight");
-									}
-									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
-										promise2.complete();
-									}).onFailure(ex -> {
-										promise2.fail(ex);
-									});
-								}).onFailure(ex -> {
-									promise2.fail(ex);
-								});
-							}));
-						});
-						break;
-					case SimulationReport.VAR_simulationName:
-						o2.setSimulationName(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
-						num++;
-						bParams.add(o2.sqlSimulationName());
-						break;
 					case SimulationReport.VAR_reportName:
 						o2.setReportName(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -2400,6 +2372,34 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 								});
 							}));
 						});
+						break;
+					case SimulationReport.VAR_smartTrafficLightKey:
+						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
+							futures1.add(Future.future(promise2 -> {
+								search(siteRequest).query(SmartTrafficLight.class, val, false).onSuccess(pk2 -> {
+									if(!pks.contains(pk2)) {
+										pks.add(pk2);
+										classes.add("SmartTrafficLight");
+									}
+									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
+										promise2.complete();
+									}).onFailure(ex -> {
+										promise2.fail(ex);
+									});
+								}).onFailure(ex -> {
+									promise2.fail(ex);
+								});
+							}));
+						});
+						break;
+					case SimulationReport.VAR_simulationName:
+						o2.setSimulationName(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+						num++;
+						bParams.add(o2.sqlSimulationName());
 						break;
 					case SimulationReport.VAR_smartTrafficLightId:
 						o2.setSmartTrafficLightId(jsonObject.getString(entityVar));
@@ -3035,48 +3035,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
-					case "setSmartTrafficLightKey":
-						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
-							futures1.add(Future.future(promise2 -> {
-								search(siteRequest).query(SmartTrafficLight.class, val, inheritPk).onSuccess(pk2 -> {
-									if(!pks.contains(pk2)) {
-										pks.add(pk2);
-										classes.add("SmartTrafficLight");
-									}
-									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
-										promise2.complete();
-									}).onFailure(ex -> {
-										promise2.fail(ex);
-									});
-								}).onFailure(ex -> {
-									promise2.fail(ex);
-								});
-							}));
-						});
-						break;
-					case "removeSmartTrafficLightKey":
-						Optional.ofNullable(jsonObject.getString(entityVar)).map(val -> Long.parseLong(val)).ifPresent(pk2 -> {
-							if(!pks.contains(pk2)) {
-								pks.add(pk2);
-								classes.add("SmartTrafficLight");
-							}
-							futures2.add(Future.future(promise2 -> {
-									sql(siteRequest).update(SimulationReport.class, pk).setToNull(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
-									promise2.complete();
-								}).onFailure(ex -> {
-									promise2.fail(ex);
-								});
-							}));
-						});
-						break;
-					case "setSimulationName":
-							o2.setSimulationName(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
-							num++;
-							bParams.add(o2.sqlSimulationName());
-						break;
 					case "setReportName":
 							o2.setReportName(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -3126,6 +3084,48 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 								});
 							}));
 						});
+						break;
+					case "setSmartTrafficLightKey":
+						Optional.ofNullable(jsonObject.getString(entityVar)).ifPresent(val -> {
+							futures1.add(Future.future(promise2 -> {
+								search(siteRequest).query(SmartTrafficLight.class, val, inheritPk).onSuccess(pk2 -> {
+									if(!pks.contains(pk2)) {
+										pks.add(pk2);
+										classes.add("SmartTrafficLight");
+									}
+									sql(siteRequest).update(SimulationReport.class, pk).set(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
+										promise2.complete();
+									}).onFailure(ex -> {
+										promise2.fail(ex);
+									});
+								}).onFailure(ex -> {
+									promise2.fail(ex);
+								});
+							}));
+						});
+						break;
+					case "removeSmartTrafficLightKey":
+						Optional.ofNullable(jsonObject.getString(entityVar)).map(val -> Long.parseLong(val)).ifPresent(pk2 -> {
+							if(!pks.contains(pk2)) {
+								pks.add(pk2);
+								classes.add("SmartTrafficLight");
+							}
+							futures2.add(Future.future(promise2 -> {
+									sql(siteRequest).update(SimulationReport.class, pk).setToNull(SimulationReport.VAR_smartTrafficLightKey, SmartTrafficLight.class, pk2).onSuccess(a -> {
+									promise2.complete();
+								}).onFailure(ex -> {
+									promise2.fail(ex);
+								});
+							}));
+						});
+						break;
+					case "setSimulationName":
+							o2.setSimulationName(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_simulationName + "=$" + num);
+							num++;
+							bParams.add(o2.sqlSimulationName());
 						break;
 					case "setSmartTrafficLightId":
 							o2.setSmartTrafficLightId(jsonObject.getString(entityVar));

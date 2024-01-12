@@ -173,6 +173,8 @@ public class TrafficLightStep extends TrafficLightStepGen<MapResult> {
 			b.append(" ").append(trafficLightId);
 		if(trafficLightId != null)
 			b.append(" ").append(trafficLightId);
-		w.o(b.toString().trim());
+		String str = b.toString().trim();
+		locationTitles.add(str);
+		w.o(str);
 	}
 }

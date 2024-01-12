@@ -174,6 +174,8 @@ public class VehicleStep extends VehicleStepGen<MapResult> {
 			b.append(" ").append(angle).append("°").append(HeadingConverter.getHeading(angle));
 //		if(slope != null)
 //			b.append(" ").append(slope).append("° slope");
-		w.o(b.toString().trim());
+		String str = b.toString().trim();
+		locationTitles.add(str);
+		w.o(str);
 	}
 }

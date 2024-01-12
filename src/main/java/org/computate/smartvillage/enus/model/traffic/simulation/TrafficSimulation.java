@@ -231,6 +231,8 @@ public class TrafficSimulation extends TrafficSimulationGen<BaseModel> {
 				path.addPoint(path.getPoints().get(0));
 				l.add(path);
 				areaServedColors.add(Optional.ofNullable(model.getColor()).orElse("black"));
+				areaServedTitles.add(baseModel.getObjectTitle());
+				areaServedLinks.add(baseModel.getPageUrlPk());
 			}
 		});
 	}

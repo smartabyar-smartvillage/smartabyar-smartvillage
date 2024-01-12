@@ -144,6 +144,17 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * LocationTitle: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served titles
+	 * Description: The titles of each areaServed Paths. 
+	 */
+	protected void _areaServedTitles(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
 	 * Indexed: true
 	 * Stored: true
 	 * DisplayName: area served colors
@@ -160,8 +171,11 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	 * Description: The geographic area where a service or offered item is provided. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon. 
 	 */
 	protected void _areaServed(List<Path> l) {
-		if(simulation_ != null)
+		if(simulation_ != null) {
 			l.addAll(simulation_.getAreaServed());
+			areaServedColors.addAll(simulation_.getAreaServedColors());
+			areaServedTitles.addAll(simulation_.getAreaServedTitles());
+		}
 	}
 
 	/**
