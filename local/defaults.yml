@@ -69,6 +69,8 @@ AUTH_CLIENT: "smartvillage"
 AUTH_SECRET: "24878e65-aa86-4d67-9965-ba83467914b6"
 AUTH_URL: "https://sso.smartabyarsmartvillage.org/auth"
 AUTH_TOKEN_URI: "/auth/realms/SMARTVILLAGE/protocol/openid-connect/token"
+AUTH_CALLBACK_URI: "/callback"
+AUTH_LOGOUT_URI: "/logout"
 
 SOLR_HOST_NAME: solr-solr.apps-crc.testing
 SOLR_PORT: 443
