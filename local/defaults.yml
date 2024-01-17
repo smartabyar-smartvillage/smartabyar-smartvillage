@@ -49,6 +49,7 @@ TEMPLATE_PATH: "{{ SITE_PREFIX }}/smartabyar-smartvillage/src/main/resources/tem
 API_CONTACT_EMAIL: ""
 FONTAWESOME_KIT: ""
 
+ENABLE_ZOOKEEPER_CLUSTER: false
 ZOOKEEPER_HOST_NAME: "zookeeper.apps-crc.testing"
 ZOOKEEPER_PORT: 30081
 
