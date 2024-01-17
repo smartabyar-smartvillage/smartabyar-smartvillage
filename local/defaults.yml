@@ -14,7 +14,7 @@ SITE_PUBLIC_URL: "https://smartabyarsmartvillage.org"
 SITE_DISPLAY_NAME: "Smart Village Project"
 SITE_SERVICES:
   - SITE_NAME: "smartabyar-smartvillage"
-    SITE_SRC: "/home/ctate/.local/src/smartabyar-smartvillage"
+    SITE_SRC: "{{ SITE_PREFIX }}/smartabyar-smartvillage"
 RELATIVE_PACKAGE_MainVerticle: "vertx"
 CLASS_SIMPLE_NAME_MainVerticle: "MainVerticle"
 RUN_OPENAPI3_GENERATOR: true
@@ -22,11 +22,11 @@ RUN_SQL_GENERATOR: true
 RUN_ARTICLE_GENERATOR: true
 RUN_FIWARE_GENERATOR: true
 RUN_PROJECT_GENERATOR: true
-I18N_PATHS: ["/home/ctate/.local/src/computate/src/main/resources/org/computate/i18n/i18n_enUS.yml"]
-DYNAMIC_PAGE_PATHS: ["/home/ctate/.local/src/smartabyar-smartvillage/page"]
+I18N_PATHS: ["{{ SITE_PREFIX }}/computate/src/main/resources/org/computate/i18n/i18n_enUS.yml"]
+DYNAMIC_PAGE_PATHS: ["{{ SITE_PREFIX }}/smartabyar-smartvillage/page"]
 
 LANGUAGE_NAME: "enUS"
-SITE_PATH_enUS: "/home/ctate/.local/src/smartabyar-smartvillage"
+SITE_PATH_enUS: "{{ SITE_PREFIX }}/smartabyar-smartvillage"
 DOMAIN_NAME: "example.com"
 DOMAIN_PACKAGE_NAME: "org.computate.smartvillage.enus"
 SITE_JAVA_PACKAGE: "org.computate.smartvillage.enus"
@@ -35,7 +35,7 @@ SUFFIX_SRC_GEN_JAVA: "/src/gen/java"
 RELATIVE_PATHS_TO_WATCH: "src/main/java/org/computate/smartvillage/enus"
 API_COUNTER_FETCH: 50
 API_COUNTER_RESUME: 10
-COMPUTATE_SRC: "/home/ctate/.local/src/computate"
+COMPUTATE_SRC: "{{ SITE_PREFIX }}/computate"
 
 SITE_INSTANCES: 2
 SITE_HOST_NAME: "localhost"
@@ -44,8 +44,8 @@ SITE_PORT: 12080
 SITE_ZONE: "America/New_York"
 SITE_LOCALE: "en-US"
 STATIC_BASE_URL: "http://localhost:12080/static"
-STATIC_PATH: "/home/ctate/.local/src/smartabyar-smartvillage-static"
-TEMPLATE_PATH: "/home/ctate/.local/src/smartabyar-smartvillage/src/main/resources/templates"
+STATIC_PATH: "{{ SITE_PREFIX }}/smartabyar-smartvillage-static"
+TEMPLATE_PATH: "{{ SITE_PREFIX }}/smartabyar-smartvillage/src/main/resources/templates"
 API_CONTACT_EMAIL: ""
 FONTAWESOME_KIT: ""
 
