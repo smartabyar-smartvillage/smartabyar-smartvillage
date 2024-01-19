@@ -18549,6 +18549,18 @@ components:
                     type: string
                   alternateName:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: object
                   averageCrowdSpeed:
@@ -18642,6 +18654,57 @@ components:
               type: string
             removeAllAlternateName:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: object
               nullable: true
@@ -18835,6 +18898,57 @@ components:
               type: string
             removeAllAlternateName:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: object
               nullable: true
@@ -18993,6 +19107,18 @@ components:
               type: string
             alternateName:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: object
             averageCrowdSpeed:
@@ -19051,6 +19177,18 @@ components:
               type: string
             alternateName:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: object
             averageCrowdSpeed:
@@ -19114,6 +19252,18 @@ components:
                     type: string
                   alternateName:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: object
                   averageCrowdSpeed:
@@ -19172,6 +19322,18 @@ components:
                     type: string
                   alternateName:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: object
                   averageCrowdSpeed:
@@ -19230,6 +19392,18 @@ components:
               type: string
             alternateName:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: object
             averageCrowdSpeed:
@@ -21139,6 +21313,18 @@ components:
                     type: object
                   alternateName:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: object
                   averageGapDistance:
@@ -21286,6 +21472,57 @@ components:
               type: string
             removeAllAlternateName:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: object
               nullable: true
@@ -21598,6 +21835,57 @@ components:
               type: string
             removeAllAlternateName:
               type: string
+            setAreaServedColors:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedColors:
+              type: string
+            removeAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            addAreaServedColors:
+              type: string
+            addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: object
               nullable: true
@@ -21855,6 +22143,18 @@ components:
               type: object
             alternateName:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: object
             averageGapDistance:
@@ -21947,6 +22247,18 @@ components:
               type: object
             alternateName:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: object
             averageGapDistance:
@@ -22044,6 +22356,18 @@ components:
                     type: object
                   alternateName:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: object
                   averageGapDistance:
@@ -22136,6 +22460,18 @@ components:
                     type: object
                   alternateName:
                     type: string
+                  areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: object
                   averageGapDistance:
@@ -22228,6 +22564,18 @@ components:
               type: object
             alternateName:
               type: string
+            areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: object
             averageGapDistance:
@@ -24774,6 +25122,40 @@ components:
               type: array
               items:
                 type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -25210,6 +25592,40 @@ components:
               type: array
               items:
                 type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -25632,6 +26048,14 @@ components:
                     type: array
                     items:
                       type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   smartTrafficLightKey:
@@ -25781,6 +26205,40 @@ components:
             addAreaServedColors:
               type: string
             addAllAreaServedColors:
+              type: array
+              items:
+                type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
               type: array
               items:
                 type: string
@@ -26220,6 +26678,40 @@ components:
               type: array
               items:
                 type: string
+            setAreaServedTitles:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedTitles:
+              type: string
+            removeAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            addAreaServedTitles:
+              type: string
+            addAllAreaServedTitles:
+              type: array
+              items:
+                type: string
+            setAreaServedLinks:
+              type: array
+              nullable: true
+              items:
+                type: string
+            removeAreaServedLinks:
+              type: string
+            removeAllAreaServedLinks:
+              type: array
+              items:
+                type: string
+            addAreaServedLinks:
+              type: string
+            addAllAreaServedLinks:
+              type: array
+              items:
+                type: string
             setAreaServed:
               type: array
               nullable: true
@@ -26628,6 +27120,14 @@ components:
               type: array
               items:
                 type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
+              type: array
+              items:
+                type: string
             areaServed:
               type: array
             smartTrafficLightKey:
@@ -26749,6 +27249,14 @@ components:
             simulationKey:
               type: string
             areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
               type: array
               items:
                 type: string
@@ -26881,6 +27389,14 @@ components:
                     type: array
                     items:
                       type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   smartTrafficLightKey:
@@ -27002,6 +27518,14 @@ components:
                   simulationKey:
                     type: string
                   areaServedColors:
+                    type: array
+                    items:
+                      type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
                     type: array
                     items:
                       type: string
@@ -27134,6 +27658,14 @@ components:
                     type: array
                     items:
                       type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   smartTrafficLightKey:
@@ -27258,6 +27790,14 @@ components:
                     type: array
                     items:
                       type: string
+                  areaServedTitles:
+                    type: array
+                    items:
+                      type: string
+                  areaServedLinks:
+                    type: array
+                    items:
+                      type: string
                   areaServed:
                     type: array
                   smartTrafficLightKey:
@@ -27379,6 +27919,14 @@ components:
             simulationKey:
               type: string
             areaServedColors:
+              type: array
+              items:
+                type: string
+            areaServedTitles:
+              type: array
+              items:
+                type: string
+            areaServedLinks:
               type: array
               items:
                 type: string
@@ -29335,10 +29883,22 @@ components:
                     type: string
                   y:
                     type: string
-                  location:
-                    type: object
                   color:
                     type: string
+                  locationColors:
+                    type: array
+                    items:
+                      type: string
+                  locationTitles:
+                    type: array
+                    items:
+                      type: string
+                  locationLinks:
+                    type: array
+                    items:
+                      type: string
+                  location:
+                    type: object
                   step:
                     type: boolean
     GETMapResultResponse:
@@ -29355,10 +29915,22 @@ components:
               type: string
             y:
               type: string
-            location:
-              type: object
             color:
               type: string
+            locationColors:
+              type: array
+              items:
+                type: string
+            locationTitles:
+              type: array
+              items:
+                type: string
+            locationLinks:
+              type: array
+              items:
+                type: string
+            location:
+              type: object
             step:
               type: boolean
     SearchPageMapResultResponse:

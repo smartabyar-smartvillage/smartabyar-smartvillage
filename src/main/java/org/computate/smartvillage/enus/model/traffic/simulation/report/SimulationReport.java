@@ -144,6 +144,17 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * LocationColor: true
+	 * Indexed: true
+	 * Stored: true
+	 * DisplayName: area served colors
+	 * Description: The colors of each areaServed Paths. 
+	 */
+	protected void _areaServedColors(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
 	 * LocationTitle: true
 	 * Indexed: true
 	 * Stored: true
@@ -155,12 +166,13 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 
 	/**
 	 * {@inheritDoc}
+	 * LocationUrl: true
 	 * Indexed: true
 	 * Stored: true
-	 * DisplayName: area served colors
-	 * Description: The colors of each areaServed Paths. 
+	 * DisplayName: area served links
+	 * Description: The links of each areaServed Paths. 
 	 */
-	protected void _areaServedColors(List<String> l) {
+	protected void _areaServedLinks(List<String> l) {
 	}
 
 	/**
@@ -175,6 +187,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 			l.addAll(simulation_.getAreaServed());
 			areaServedColors.addAll(simulation_.getAreaServedColors());
 			areaServedTitles.addAll(simulation_.getAreaServedTitles());
+			areaServedLinks.addAll(simulation_.getAreaServedLinks());
 		}
 	}
 
@@ -689,6 +702,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 2
 	 * DisplayName: Max GREEN time for WEST-EAST traffic (sec)
@@ -703,6 +717,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 3
 	 * DisplayName: Min GREEN time for SOUTH-NORTH traffic (sec)
@@ -717,6 +732,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 4
 	 * DisplayName: Max GREEN time for SOUTH-NORTH traffic (sec)
@@ -731,6 +747,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 5
 	 * DisplayName: Pedestrian waiting time tolerance threshold for NORTH-SOUTH (sec)
@@ -745,6 +762,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 6
 	 * DisplayName: Pedestrian waiting time tolerance threshold for WEST-EAST (sec)
@@ -759,6 +777,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 7
 	 * DisplayName: Vehicle queue length threshold between low-high content for WEST-EAST
@@ -773,6 +792,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 8
 	 * DisplayName: Vehicle queue length threshold between low-high content for SOUTH-NORTH
@@ -787,6 +807,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 9
 	 * DisplayName: Pedestrian queue length threshold between low-high content for NORTH-SOUTH
@@ -801,6 +822,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 14
 	 * HtmCell: 10
 	 * DisplayName: Pedestrian queue length threshold between low-high content for WEST-EAST
@@ -853,6 +875,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 16
 	 * HtmCell: 2
 	 * Facet: true
@@ -868,6 +891,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 16
 	 * HtmCell: 3
 	 * Facet: true
@@ -883,6 +907,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 16
 	 * HtmCell: 4
 	 * Facet: true
@@ -898,6 +923,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 16
 	 * HtmCell: 5
 	 * Facet: true
@@ -930,6 +956,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 17
 	 * HtmCell: 2
 	 * Facet: true
@@ -945,6 +972,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 17
 	 * HtmCell: 3
 	 * Facet: true
@@ -960,6 +988,7 @@ public class SimulationReport extends SimulationReportGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
+	 * HtmRowHeaderExpression: iter {{numberAdd @index 1}}
 	 * HtmRow: 17
 	 * HtmCell: 4
 	 * Facet: true

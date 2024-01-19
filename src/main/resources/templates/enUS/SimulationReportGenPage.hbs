@@ -85,9 +85,9 @@
 			}
 
 			function htmLegendSimulationReport(map, shape, simulationReport, index, count) {
-				var color = simulationReport.[index];
+				var color = simulationReport.areaServedColors[index];
 				var title = simulationReport.areaServedTitles[index];
-				var url = simulationReport.[index];
+				var url = simulationReport.areaServedLinks[index];
 				var htm = '';
 				htm += `<div class="w3-white w3-padding w3-border w3-opacity w3-hover-opacity-off cursor-pointer " style="max-width: 400px; ">
 `;
@@ -3954,7 +3954,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters1">Min GREEN time for WEST-EAST traffic (sec)</label>
 												</td>
-														{{> "inputUpdatedParameters1" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters1}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -3970,7 +3970,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters2">Max GREEN time for WEST-EAST traffic (sec)</label>
 												</td>
-														{{> "inputUpdatedParameters2" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters2}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -3986,7 +3986,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters3">Min GREEN time for SOUTH-NORTH traffic (sec)</label>
 												</td>
-														{{> "inputUpdatedParameters3" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters3}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4002,7 +4002,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters4">Max GREEN time for SOUTH-NORTH traffic (sec)</label>
 												</td>
-														{{> "inputUpdatedParameters4" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters4}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4018,7 +4018,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters5">Pedestrian waiting time tolerance threshold for NORTH-SOUTH (sec)</label>
 												</td>
-														{{> "inputUpdatedParameters5" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters5}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4034,7 +4034,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters6">Pedestrian waiting time tolerance threshold for WEST-EAST (sec)</label>
 												</td>
-														{{> "inputUpdatedParameters6" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters6}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4050,7 +4050,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters7">Vehicle queue length threshold between low-high content for WEST-EAST</label>
 												</td>
-														{{> "inputUpdatedParameters7" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters7}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4066,7 +4066,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters8">Vehicle queue length threshold between low-high content for SOUTH-NORTH</label>
 												</td>
-														{{> "inputUpdatedParameters8" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters8}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4082,7 +4082,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters9">Pedestrian queue length threshold between low-high content for NORTH-SOUTH</label>
 												</td>
-														{{> "inputUpdatedParameters9" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters9}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4098,7 +4098,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedParameters10">Pedestrian queue length threshold between low-high content for WEST-EAST</label>
 												</td>
-														{{> "inputUpdatedParameters10" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedParameters10}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4114,7 +4114,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedPerformanceWaitWestEastVehicleSec">Average waiting time for WEST-EAST vehicles (sec)</label>
 												</td>
-														{{> "inputUpdatedPerformanceWaitWestEastVehicleSec" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedPerformanceWaitWestEastVehicleSec}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4130,7 +4130,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedPerformanceWaitSouthNorthVehicleSec">Average waiting time for SOUTH-NORTH vehicles (sec)</label>
 												</td>
-														{{> "inputUpdatedPerformanceWaitSouthNorthVehicleSec" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedPerformanceWaitSouthNorthVehicleSec}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4146,7 +4146,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedPerformanceWaitAllVehicleSec">Average waiting time for all vehicles (sec)</label>
 												</td>
-														{{> "inputUpdatedPerformanceWaitAllVehicleSec" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedPerformanceWaitAllVehicleSec}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4162,7 +4162,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedPerformanceWaitAllPedestrianSec">Average waiting time for pedestrians (sec)</label>
 												</td>
-														{{> "inputUpdatedPerformanceWaitAllPedestrianSec" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedPerformanceWaitAllPedestrianSec}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4178,7 +4178,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_updatedPerformanceWaitAllVehiclePedestrianSec">Average waiting time for vehicles and pedestrians (sec)</label>
 												</td>
-														{{> "inputUpdatedPerformanceWaitAllVehiclePedestrianSec" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.updatedPerformanceWaitAllVehiclePedestrianSec}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4194,7 +4194,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_avgQueueLengthWestEastVehicle">Average queue length for WEST-EAST vehicle</label>
 												</td>
-														{{> "inputAvgQueueLengthWestEastVehicle" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.avgQueueLengthWestEastVehicle}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4210,7 +4210,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_avgQueueLengthSouthNorthVehicle">Average queue length for SOUTH-NORTH vehicle</label>
 												</td>
-														{{> "inputAvgQueueLengthSouthNorthVehicle" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.avgQueueLengthSouthNorthVehicle}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4226,7 +4226,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_avgQueueLengthNorthSouthPedestrian">Average queue length for NORTH-SOUTH pedestrian</label>
 												</td>
-														{{> "inputAvgQueueLengthNorthSouthPedestrian" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.avgQueueLengthNorthSouthPedestrian}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 
@@ -4242,7 +4242,7 @@
 												<td>
 													<label for="{{classApiMethodMethod}}_avgQueueLengthWestEastPedestrian">Average queue length for WEST-EAST pedestrian</label>
 												</td>
-														{{> "inputAvgQueueLengthWestEastPedestrian" roleForWrite=roleForWrite roleForRead=roleForRead}}
+														{{#each simulationReport_.avgQueueLengthWestEastPedestrian}}<td>{{.}}</td>{{/each}}
 										</tr>
 {{/inline}}
 

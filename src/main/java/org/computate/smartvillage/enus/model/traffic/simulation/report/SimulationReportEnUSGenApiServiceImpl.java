@@ -926,14 +926,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlParamVehicleQueueThresholdSouthNorth());
 						break;
-					case "setParamPedestrianQueueThresholdNorthSouth":
-							o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
-						break;
 					case "setParamPedestrianQueueThresholdWestEast":
 							o2.setParamPedestrianQueueThresholdWestEast(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -1021,6 +1013,14 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
 							num++;
 							bParams.add(o2.sqlReportProgress());
+						break;
+					case "setParamPedestrianQueueThresholdNorthSouth":
+							o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
 						break;
 				}
 			}
@@ -1592,15 +1592,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlParamVehicleQueueThresholdSouthNorth());
 						break;
-					case SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth:
-						o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
-						break;
 					case SimulationReport.VAR_paramPedestrianQueueThresholdWestEast:
 						o2.setParamPedestrianQueueThresholdWestEast(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1699,6 +1690,15 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
 						num++;
 						bParams.add(o2.sqlReportProgress());
+						break;
+					case SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth:
+						o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
 						break;
 					}
 				}
@@ -2545,15 +2545,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						num++;
 						bParams.add(o2.sqlParamVehicleQueueThresholdSouthNorth());
 						break;
-					case SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth:
-						o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
-						num++;
-						bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
-						break;
 					case SimulationReport.VAR_paramPedestrianQueueThresholdWestEast:
 						o2.setParamPedestrianQueueThresholdWestEast(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -2652,6 +2643,15 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 						bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
 						num++;
 						bParams.add(o2.sqlReportProgress());
+						break;
+					case SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth:
+						o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
+						num++;
+						bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
 						break;
 					}
 				}
@@ -3255,14 +3255,6 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							num++;
 							bParams.add(o2.sqlParamVehicleQueueThresholdSouthNorth());
 						break;
-					case "setParamPedestrianQueueThresholdNorthSouth":
-							o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
-							num++;
-							bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
-						break;
 					case "setParamPedestrianQueueThresholdWestEast":
 							o2.setParamPedestrianQueueThresholdWestEast(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -3350,6 +3342,14 @@ public class SimulationReportEnUSGenApiServiceImpl extends BaseApiServiceImpl im
 							bSql.append(SimulationReport.VAR_reportProgress + "=$" + num);
 							num++;
 							bParams.add(o2.sqlReportProgress());
+						break;
+					case "setParamPedestrianQueueThresholdNorthSouth":
+							o2.setParamPedestrianQueueThresholdNorthSouth(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(SimulationReport.VAR_paramPedestrianQueueThresholdNorthSouth + "=$" + num);
+							num++;
+							bParams.add(o2.sqlParamPedestrianQueueThresholdNorthSouth());
 						break;
 				}
 			}
