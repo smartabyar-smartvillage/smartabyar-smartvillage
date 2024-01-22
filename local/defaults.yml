@@ -72,6 +72,13 @@ AUTH_TOKEN_URI: "/auth/realms/SMARTVILLAGE/protocol/openid-connect/token"
 AUTH_CALLBACK_URI: "/callback"
 AUTH_LOGOUT_URI: "/logout"
 
+
+SOLR_SSL_COMPUTATE: true
+SOLR_HOST_NAME_COMPUTATE: solr-solr.apps-crc.testing
+SOLR_PORT_COMPUTATE: 443
+SOLR_COLLECTION_COMPUTATE: computate
+
+SOLR_SSL: true
 SOLR_HOST_NAME: solr-solr.apps-crc.testing
 SOLR_PORT: 443
 SOLR_COLLECTION: "smartvillage"
