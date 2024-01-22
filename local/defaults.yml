@@ -74,6 +74,13 @@ AUTH_CALLBACK_URI: "/callback"
 AUTH_LOGOUT_URI: "/logout"
 AUTH_OPEN_API_ID: openIdConnect
 
+
+SOLR_SSL_COMPUTATE: true
+SOLR_HOST_NAME_COMPUTATE: solr-solr.apps-crc.testing
+SOLR_PORT_COMPUTATE: 443
+SOLR_COLLECTION_COMPUTATE: computate
+
+SOLR_SSL: true
 SOLR_HOST_NAME: solr-solr.apps-crc.testing
 SOLR_PORT: 443
 SOLR_COLLECTION: "smartvillage"
