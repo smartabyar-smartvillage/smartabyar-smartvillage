@@ -395,8 +395,7 @@ public class WorkerVerticle extends WorkerVerticleGen<AbstractVerticle> {
 					nextStartTime = Optional.of(ZonedDateTime.now(ZoneId.of(config().getString(ConfigKeys.SITE_ZONE))))
 							.map(t -> Duration.between(Instant.now(), t).toMinutes() < 1L ? t.plus(duration) : t).get();
 				} else {
-					nextStartTime = Optional.of(ZonedDateTime.now(ZoneId.of(config().getString(ConfigKeys.SITE_ZONE))))
-							.map(t -> Duration.between(Instant.now(), t).toMinutes() < 1L ? t.plus(duration) : t).get();
+					nextStartTime = TimeTool.parseNextZonedTime(importStartTime);
 				}
 
 				// Get the time now for the import start time zone. 

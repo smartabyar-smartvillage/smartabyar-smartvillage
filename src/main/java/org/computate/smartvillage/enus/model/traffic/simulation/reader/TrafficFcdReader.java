@@ -236,6 +236,9 @@ public class TrafficFcdReader extends TrafficFcdReaderGen<Object> {
 		listTrafficSimulation.getList().forEach(trafficSimulation -> {
 			SiteRequestEnUS siteRequest2 = service.generateSiteRequest(siteRequest.getUser(), siteRequest.getUserPrincipal(), siteRequest.getServiceRequest(), siteRequest.getJsonObject(), SiteRequestEnUS.class);
 			trafficSimulation.setSiteRequest_(siteRequest2);
+			if(trafficSimulation.getStartDateTime() == null) {
+				trafficSimulation.setStartDateTime(ZonedDateTime.now(ZoneId.of(config.getString(ConfigKeys.SITE_ZONE))).withNano(0));
+			}
 			siteRequest2.setApiRequest_(siteRequest.getApiRequest_());
 			futures.add(Future.future(promise1 -> {
 				importTrafficSimulationFuture(trafficSimulation, false).onSuccess(a -> {
