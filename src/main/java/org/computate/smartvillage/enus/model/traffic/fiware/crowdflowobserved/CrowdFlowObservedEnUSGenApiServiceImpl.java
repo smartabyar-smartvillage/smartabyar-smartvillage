@@ -702,6 +702,14 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlUserKey());
 						break;
+					case "setDateObserved":
+							o2.setDateObserved(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_dateObserved + "=$" + num);
+							num++;
+							bParams.add(o2.sqlDateObserved());
+						break;
 					case "setCustomTrafficLightId":
 							o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
@@ -806,13 +814,13 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlDateModified());
 						break;
-					case "setDateObserved":
-							o2.setDateObserved(jsonObject.getString(entityVar));
+					case "setDateObservedFrom":
+							o2.setDateObservedFrom(jsonObject.getString(entityVar));
 							if(bParams.size() > 0)
 								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_dateObserved + "=$" + num);
+							bSql.append(CrowdFlowObserved.VAR_dateObservedFrom + "=$" + num);
 							num++;
-							bParams.add(o2.sqlDateObserved());
+							bParams.add(o2.sqlDateObservedFrom());
 						break;
 					case "setDateObservedTo":
 							o2.setDateObservedTo(jsonObject.getString(entityVar));
@@ -886,22 +894,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							num++;
 							bParams.add(o2.sqlRefRoadSegment());
 						break;
-					case "setSource":
-							o2.setSource(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_source + "=$" + num);
-							num++;
-							bParams.add(o2.sqlSource());
-						break;
-					case "setDateObservedFrom":
-							o2.setDateObservedFrom(jsonObject.getString(entityVar));
-							if(bParams.size() > 0)
-								bSql.append(", ");
-							bSql.append(CrowdFlowObserved.VAR_dateObservedFrom + "=$" + num);
-							num++;
-							bParams.add(o2.sqlDateObservedFrom());
-						break;
 					case "setSeeAlso":
 							o2.setSeeAlso(jsonObject.getJsonObject(entityVar));
 							if(bParams.size() > 0)
@@ -909,6 +901,14 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 							bSql.append(CrowdFlowObserved.VAR_seeAlso + "=$" + num);
 							num++;
 							bParams.add(o2.sqlSeeAlso());
+						break;
+					case "setSource":
+							o2.setSource(jsonObject.getString(entityVar));
+							if(bParams.size() > 0)
+								bSql.append(", ");
+							bSql.append(CrowdFlowObserved.VAR_source + "=$" + num);
+							num++;
+							bParams.add(o2.sqlSource());
 						break;
 				}
 			}
@@ -1271,6 +1271,15 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlUserKey());
 						break;
+					case CrowdFlowObserved.VAR_dateObserved:
+						o2.setDateObserved(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_dateObserved + "=$" + num);
+						num++;
+						bParams.add(o2.sqlDateObserved());
+						break;
 					case CrowdFlowObserved.VAR_customTrafficLightId:
 						o2.setCustomTrafficLightId(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
@@ -1388,14 +1397,14 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlDateModified());
 						break;
-					case CrowdFlowObserved.VAR_dateObserved:
-						o2.setDateObserved(jsonObject.getString(entityVar));
+					case CrowdFlowObserved.VAR_dateObservedFrom:
+						o2.setDateObservedFrom(jsonObject.getString(entityVar));
 						if(bParams.size() > 0) {
 							bSql.append(", ");
 						}
-						bSql.append(CrowdFlowObserved.VAR_dateObserved + "=$" + num);
+						bSql.append(CrowdFlowObserved.VAR_dateObservedFrom + "=$" + num);
 						num++;
-						bParams.add(o2.sqlDateObserved());
+						bParams.add(o2.sqlDateObservedFrom());
 						break;
 					case CrowdFlowObserved.VAR_dateObservedTo:
 						o2.setDateObservedTo(jsonObject.getString(entityVar));
@@ -1478,24 +1487,6 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						num++;
 						bParams.add(o2.sqlRefRoadSegment());
 						break;
-					case CrowdFlowObserved.VAR_source:
-						o2.setSource(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_source + "=$" + num);
-						num++;
-						bParams.add(o2.sqlSource());
-						break;
-					case CrowdFlowObserved.VAR_dateObservedFrom:
-						o2.setDateObservedFrom(jsonObject.getString(entityVar));
-						if(bParams.size() > 0) {
-							bSql.append(", ");
-						}
-						bSql.append(CrowdFlowObserved.VAR_dateObservedFrom + "=$" + num);
-						num++;
-						bParams.add(o2.sqlDateObservedFrom());
-						break;
 					case CrowdFlowObserved.VAR_seeAlso:
 						o2.setSeeAlso(jsonObject.getJsonObject(entityVar));
 						if(bParams.size() > 0) {
@@ -1504,6 +1495,15 @@ public class CrowdFlowObservedEnUSGenApiServiceImpl extends BaseApiServiceImpl i
 						bSql.append(CrowdFlowObserved.VAR_seeAlso + "=$" + num);
 						num++;
 						bParams.add(o2.sqlSeeAlso());
+						break;
+					case CrowdFlowObserved.VAR_source:
+						o2.setSource(jsonObject.getString(entityVar));
+						if(bParams.size() > 0) {
+							bSql.append(", ");
+						}
+						bSql.append(CrowdFlowObserved.VAR_source + "=$" + num);
+						num++;
+						bParams.add(o2.sqlSource());
 						break;
 					}
 				}

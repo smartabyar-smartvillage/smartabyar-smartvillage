@@ -162,6 +162,7 @@ AUTH_ROLE_REQUIRED_SimulationReport: 'SiteAdmin'
 AUTH_ROLE_REQUIRED_TimeStep: 'SiteAdmin'
 # The Auth roles required to add and modify traffic flow observed records. 
 AUTH_ROLE_REQUIRED_TrafficFlowObserved: 'SiteAdmin'
+AUTH_ROLE_REQUIRED_PhotovoltaicMeasurement: 'SiteAdmin'
 # The Auth roles required to add and modify CrowdFlowObserved records. 
 AUTH_ROLE_REQUIRED_CrowdFlowObserved: 'SiteAdmin'
 # The Auth roles required to add and modify traffic light records. 

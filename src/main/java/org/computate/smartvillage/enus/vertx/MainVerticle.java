@@ -26,6 +26,7 @@ import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.Cr
 import org.computate.smartvillage.enus.model.traffic.fiware.parkingaccess.ParkingAccessEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLightEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObservedEnUSGenApiService;
+import org.computate.smartvillage.enus.model.traffic.photovolteic.PhotovoltaicMeasurementEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.light.TrafficLightEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.light.step.TrafficLightStepEnUSGenApiService;
 import org.computate.smartvillage.enus.model.traffic.person.step.PersonStepEnUSGenApiService;
@@ -1111,6 +1112,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 			SimulationReportEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			TimeStepEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			TrafficFlowObservedEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
+			PhotovoltaicMeasurementEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			CrowdFlowObservedEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			TrafficLightEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);
 			TrafficLightStepEnUSGenApiService.registerService(vertx.eventBus(), config(), workerExecutor, pgPool, kafkaProducer, webClient, oauth2AuthenticationProvider, authorizationProvider, templateEngine, vertx);

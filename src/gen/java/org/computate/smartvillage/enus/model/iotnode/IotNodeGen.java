@@ -82,7 +82,7 @@ import org.computate.search.response.solr.SolrResponse;
  * Whenever this Java class is modified or touched, the watch service installed as described in the README, indexes all the information about this Java class in a local Apache Solr Search Engine. 
  * If you are running the service, you can see the indexed data about this Java Class here: 
  * </p>
- * <p><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode">Find the class IotNode in Solr. </a></p>
+ * <p><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode">Find the class IotNode in Solr. </a></p>
  * <p>
  * The extended class ending with "Gen" did not exist at first, but was automatically created by the same watch service based on the data retrieved from the local Apache Server search engine. 
  * The extended class contains many generated fields, getters, setters, initialization code, and helper methods to help build a website and API fast, reactive, and scalable. 
@@ -196,15 +196,15 @@ import org.computate.search.response.solr.SolrResponse;
  * </p>
  * <p>
  * Delete the class IotNode in Solr: 
- * curl -k 'https://solr-solr.apps-crc.testing/solr/computate/update?commitWithin=1000&overwrite=true&wt=json' -X POST -H 'Content-type: text/xml' --data-raw '&lt;add&gt;&lt;delete&gt;&lt;query&gt;classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&lt;/query&gt;&lt;/delete&gt;&lt;/add&gt;'
+ * curl -k 'http://solr:8983/solr/computate/update?commitWithin=1000&overwrite=true&wt=json' -X POST -H 'Content-type: text/xml' --data-raw '&lt;add&gt;&lt;delete&gt;&lt;query&gt;classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&lt;/query&gt;&lt;/delete&gt;&lt;/add&gt;'
  * </p>
  * <p>
  * Delete  the package org.computate.smartvillage.enus.model.iotnode in Solr: 
- * curl -k 'https://solr-solr.apps-crc.testing/solr/computate/update?commitWithin=1000&overwrite=true&wt=json' -X POST -H 'Content-type: text/xml' --data-raw '&lt;add&gt;&lt;delete&gt;&lt;query&gt;classeNomEnsemble_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode&lt;/query&gt;&lt;/delete&gt;&lt;/add&gt;'
+ * curl -k 'http://solr:8983/solr/computate/update?commitWithin=1000&overwrite=true&wt=json' -X POST -H 'Content-type: text/xml' --data-raw '&lt;add&gt;&lt;delete&gt;&lt;query&gt;classeNomEnsemble_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode&lt;/query&gt;&lt;/delete&gt;&lt;/add&gt;'
  * </p>
  * <p>
  * Delete  the project smartabyar-smartvillage in Solr: 
- * curl -k 'https://solr-solr.apps-crc.testing/solr/computate/update?commitWithin=1000&overwrite=true&wt=json' -X POST -H 'Content-type: text/xml' --data-raw '&lt;add&gt;&lt;delete&gt;&lt;query&gt;siteNom_indexed_string:smartabyar\-smartvillage&lt;/query&gt;&lt;/delete&gt;&lt;/add&gt;'
+ * curl -k 'http://solr:8983/solr/computate/update?commitWithin=1000&overwrite=true&wt=json' -X POST -H 'Content-type: text/xml' --data-raw '&lt;add&gt;&lt;delete&gt;&lt;query&gt;siteNom_indexed_string:smartabyar\-smartvillage&lt;/query&gt;&lt;/delete&gt;&lt;/add&gt;'
  * </p>
  * Generated: true
  **/
@@ -262,7 +262,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json">Find the entity json in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json">Find the entity json in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -326,7 +326,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity nodeName
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:nodeName">Find the entity nodeName in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:nodeName">Find the entity nodeName in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -382,7 +382,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity nodeType
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:nodeType">Find the entity nodeType in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:nodeType">Find the entity nodeType in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -438,7 +438,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity nodeId
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:nodeId">Find the entity nodeId in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:nodeId">Find the entity nodeId in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -496,7 +496,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity location
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:location">Find the entity location in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:location">Find the entity location in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -598,7 +598,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_moisture
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_moisture">Find the entity json_moisture in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_moisture">Find the entity json_moisture in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -671,7 +671,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_moisture0
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_moisture0">Find the entity json_moisture0 in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_moisture0">Find the entity json_moisture0 in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -744,7 +744,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_moisture1
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_moisture1">Find the entity json_moisture1 in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_moisture1">Find the entity json_moisture1 in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -817,7 +817,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_temperature
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_temperature">Find the entity json_temperature in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_temperature">Find the entity json_temperature in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -890,7 +890,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_temperature0
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_temperature0">Find the entity json_temperature0 in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_temperature0">Find the entity json_temperature0 in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -963,7 +963,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_temperatureAverage
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_temperatureAverage">Find the entity json_temperatureAverage in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_temperatureAverage">Find the entity json_temperatureAverage in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1036,7 +1036,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_badConditionsCounter
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_badConditionsCounter">Find the entity json_badConditionsCounter in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_badConditionsCounter">Find the entity json_badConditionsCounter in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1108,7 +1108,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_door
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_door">Find the entity json_door in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_door">Find the entity json_door in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1160,7 +1160,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_alarmDoor
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_alarmDoor">Find the entity json_alarmDoor in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_alarmDoor">Find the entity json_alarmDoor in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1218,7 +1218,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_flood
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_flood">Find the entity json_flood in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_flood">Find the entity json_flood in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1290,7 +1290,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_alarmFlood
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_alarmFlood">Find the entity json_alarmFlood in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_alarmFlood">Find the entity json_alarmFlood in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1348,7 +1348,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_lux2
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_lux2">Find the entity json_lux2 in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_lux2">Find the entity json_lux2 in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1421,7 +1421,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_illuminance
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_illuminance">Find the entity json_illuminance in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_illuminance">Find the entity json_illuminance in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1494,7 +1494,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_resistance0
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_resistance0">Find the entity json_resistance0 in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_resistance0">Find the entity json_resistance0 in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1567,7 +1567,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_resistance1
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_resistance1">Find the entity json_resistance1 in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_resistance1">Find the entity json_resistance1 in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1640,7 +1640,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_frequency
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_frequency">Find the entity json_frequency in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_frequency">Find the entity json_frequency in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1712,7 +1712,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_devEui
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_devEui">Find the entity json_devEui in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_devEui">Find the entity json_devEui in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1764,7 +1764,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_bandwidth
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_bandwidth">Find the entity json_bandwidth in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_bandwidth">Find the entity json_bandwidth in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1817,7 +1817,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_dataRate
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_dataRate">Find the entity json_dataRate in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_dataRate">Find the entity json_dataRate in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1890,7 +1890,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_frameCount
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_frameCount">Find the entity json_frameCount in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_frameCount">Find the entity json_frameCount in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -1963,7 +1963,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_maxPayload
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_maxPayload">Find the entity json_maxPayload in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_maxPayload">Find the entity json_maxPayload in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2036,7 +2036,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_bitsPerSecond
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_bitsPerSecond">Find the entity json_bitsPerSecond in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_bitsPerSecond">Find the entity json_bitsPerSecond in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2109,7 +2109,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_batteryVoltage
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_batteryVoltage">Find the entity json_batteryVoltage in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_batteryVoltage">Find the entity json_batteryVoltage in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2182,7 +2182,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_spreadingFactor
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_spreadingFactor">Find the entity json_spreadingFactor in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_spreadingFactor">Find the entity json_spreadingFactor in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2254,7 +2254,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_dataRateAdaptive
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_dataRateAdaptive">Find the entity json_dataRateAdaptive in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_dataRateAdaptive">Find the entity json_dataRateAdaptive in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2311,7 +2311,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_swversion
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_swversion">Find the entity json_swversion in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_swversion">Find the entity json_swversion in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2364,7 +2364,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_batteryLevel
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_batteryLevel">Find the entity json_batteryLevel in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_batteryLevel">Find the entity json_batteryLevel in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2437,7 +2437,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_startUpCount
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_startUpCount">Find the entity json_startUpCount in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_startUpCount">Find the entity json_startUpCount in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2510,7 +2510,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_watchdogCount
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_watchdogCount">Find the entity json_watchdogCount in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_watchdogCount">Find the entity json_watchdogCount in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2583,7 +2583,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_historySequence
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_historySequence">Find the entity json_historySequence in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_historySequence">Find the entity json_historySequence in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2655,7 +2655,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_versionFirmware
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_versionFirmware">Find the entity json_versionFirmware in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_versionFirmware">Find the entity json_versionFirmware in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2708,7 +2708,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_stackTxFailRebootCount
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_stackTxFailRebootCount">Find the entity json_stackTxFailRebootCount in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_stackTxFailRebootCount">Find the entity json_stackTxFailRebootCount in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2781,7 +2781,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_historySequencePrevious
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_historySequencePrevious">Find the entity json_historySequencePrevious in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_historySequencePrevious">Find the entity json_historySequencePrevious in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2854,7 +2854,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_snr
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_snr">Find the entity json_snr in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_snr">Find the entity json_snr in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
@@ -2927,7 +2927,7 @@ public abstract class IotNodeGen<DEV> extends BaseResult {
 
 	/**	<br> The entity json_rssi
 	 *  is defined as null before being initialized. 
-	 * <br><a href="https://solr-solr.apps-crc.testing/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_rssi">Find the entity json_rssi in Solr</a>
+	 * <br><a href="http://solr:8983/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.smartvillage.enus.model.iotnode.IotNode&fq=entiteVar_enUS_indexed_string:json_rssi">Find the entity json_rssi in Solr</a>
 	 * <br>
 	 * @param w is for wrapping a value to assign to this entity during initialization. 
 	 **/
