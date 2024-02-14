@@ -145,39 +145,11 @@ AUTH_ROLE_SUPER_ADMIN: {{ AUTH_ROLE_SUPER_ADMIN }}
 # The Auth roles required to be an admin in the site. 
 AUTH_ROLE_ADMIN: {{ AUTH_ROLE_ADMIN }}
 # The Auth roles required to add and modify site user records. 
-AUTH_ROLE_REQUIRED_SiteUser: 'SiteAdmin'
-# The Auth roles required to add and modify IOT node records. 
-AUTH_ROLE_REQUIRED_IotNode: 'SiteAdmin'
-# The Auth roles required to add and modify article records. 
-AUTH_ROLE_REQUIRED_SitePage: 'SiteAdmin'
-# The Auth roles required to add and modify simulation report records. 
-AUTH_ROLE_REQUIRED_SimulationReport: 'SiteAdmin'
-# The Auth roles required to add and modify traffic simulation records. 
-AUTH_ROLE_REQUIRED_TrafficSimulation: 'SiteAdmin'
-# The Auth roles required to add and modify traffic light step records. 
-AUTH_ROLE_REQUIRED_TrafficLightStep: 'SiteAdmin'
-# The Auth roles required to add and modify vehicle step records. 
-AUTH_ROLE_REQUIRED_VehicleStep: 'SiteAdmin'
-# The Auth roles required to add and modify person step records. 
-AUTH_ROLE_REQUIRED_PersonStep: 'SiteAdmin'
-# The Auth roles required to add and modify traffic light records. 
-AUTH_ROLE_REQUIRED_TrafficLight: 'SiteAdmin'
-# The Auth roles required to add and modify time step records. 
-AUTH_ROLE_REQUIRED_TimeStep: 'SiteAdmin'
-# The Auth roles required to add and modify bicycle step records. 
-AUTH_ROLE_REQUIRED_BicycleStep: 'SiteAdmin'
-# The Auth roles required to add and modify traffic flow observed records. 
-AUTH_ROLE_REQUIRED_TrafficFlowObserved: 'SiteAdmin'
-# The Auth roles required to add and modify smart traffic light records. 
-AUTH_ROLE_REQUIRED_SmartTrafficLight: 'SiteAdmin'
-# The Auth roles required to add and modify system event records. 
-AUTH_ROLE_REQUIRED_SystemEvent: 'SiteAdmin'
-# The Auth roles required to add and modify HTML records. 
-AUTH_ROLE_REQUIRED_SiteHtm: 'SiteAdmin'
-# The Auth roles required to add and modify IOT node step records. 
-AUTH_ROLE_REQUIRED_IotNodeStep: 'SiteAdmin'
-# The Auth roles required to add and modify map result records. 
-AUTH_ROLE_REQUIRED_MapResult: 'SiteAdmin'
+AUTH_ROLE_REQUIRED_SiteUser: {{ AUTH_ROLE_SUPER_ADMIN }}
+{% for JAVA_CLASS in JAVA_CLASSES %}
+# The Auth roles required to add and modify {{ JAVA_CLASS.classeNomSingulier_enUS_stored_string | default('') }} records. 
+AUTH_ROLE_REQUIRED_{{ JAVA_CLASS.classeNomSimple_enUS_stored_string }}: {{ AUTH_ROLE_ADMIN }}
+{% endfor %}{{ SITE_APPLICATION_YML_END | default('') }}
 
 YGGIO_HOST_NAME: "{{ YGGIO_HOST_NAME | default('') }}"
 YGGIO_PORT: {{ YGGIO_PORT | default('') }}
