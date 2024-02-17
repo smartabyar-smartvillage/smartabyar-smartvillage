@@ -32,11 +32,7 @@ STATIC_PATH: "/usr/local/src/smartabyar-smartvillage-static"
 
 API_CONTACT_EMAIL: 
 API_COUNTER_RESUME: 0
-API_COUNTER_FETCH: 1
-API_COUNTER_RESUME_TimeStep: 0
-API_COUNTER_FETCH_TimeStep: 1
-API_COUNTER_RESUME_VehicleStep: 0
-API_COUNTER_FETCH_VehicleStep: 10
+API_COUNTER_FETCH: 10
 API_COUNTER_FETCH_SitePage: 10
 API_COUNTER_FETCH_SiteHtm: 10
 
@@ -93,95 +89,70 @@ OPEN_TELEMETRY_ENABLED: false
 
 REFRESH_DATA_PAUSE_IN_SECONDS: 10
 ENABLE_REFRESH_DATA: false
-ENABLE_REFRESH_DATA_SiteHtm: true
-ENABLE_REFRESH_DATA_SitePage: true
-ENABLE_REFRESH_DATA_SystemEvent: true
-ENABLE_REFRESH_DATA_MapResult: true
-ENABLE_REFRESH_DATA_IotNode: true
-ENABLE_REFRESH_DATA_BicycleStep: true
-ENABLE_REFRESH_DATA_TrafficSimulation: true
-ENABLE_REFRESH_DATA_PersonStep: true
-ENABLE_REFRESH_DATA_ParkingAccess: true
-ENABLE_REFRESH_DATA_SmartTrafficLight: true
+ENABLE_REFRESH_DATA_IotNodeStep: true
+ENABLE_REFRESH_DATA_TrafficLightStep: true
+ENABLE_REFRESH_DATA_TrafficLight: true
 ENABLE_REFRESH_DATA_SimulationReport: true
+ENABLE_REFRESH_DATA_TrafficSimulation: true
+ENABLE_REFRESH_DATA_SmartTrafficLight: true
+ENABLE_REFRESH_DATA_VehicleStep: true
+ENABLE_REFRESH_DATA_PersonStep: true
 ENABLE_REFRESH_DATA_TimeStep: true
+ENABLE_REFRESH_DATA_BicycleStep: true
 ENABLE_REFRESH_DATA_TrafficFlowObserved: true
 ENABLE_REFRESH_DATA_CrowdFlowObserved: true
-ENABLE_REFRESH_DATA_TrafficLight: true
-ENABLE_REFRESH_DATA_TrafficLightStep: true
-ENABLE_REFRESH_DATA_VehicleStep: true
-ENABLE_REFRESH_DATA_IotNodeStep: true
+ENABLE_REFRESH_DATA_IotNode: true
+ENABLE_REFRESH_DATA_ParkingAccess: true
+ENABLE_REFRESH_DATA_PhotovoltaicMeasurement: true
 
 ENABLE_IMPORT_DATA: true
-ENABLE_IMPORT_DATA_SiteHtm: true
-ENABLE_IMPORT_DATA_SitePage: true
-ENABLE_IMPORT_DATA_SystemEvent: true
-ENABLE_IMPORT_DATA_MapResult: true
-ENABLE_IMPORT_DATA_IotNode: true
-ENABLE_IMPORT_DATA_BicycleStep: true
-ENABLE_IMPORT_DATA_TrafficSimulation: true
-ENABLE_IMPORT_DATA_PersonStep: true
-ENABLE_IMPORT_DATA_ParkingAccess: true
-ENABLE_IMPORT_DATA_SmartTrafficLight: true
+ENABLE_IMPORT_DATA_IotNodeStep: true
+ENABLE_IMPORT_DATA_TrafficLightStep: true
+ENABLE_IMPORT_DATA_TrafficLight: true
 ENABLE_IMPORT_DATA_SimulationReport: true
+ENABLE_IMPORT_DATA_TrafficSimulation: true
+ENABLE_IMPORT_DATA_SmartTrafficLight: true
+ENABLE_IMPORT_DATA_VehicleStep: true
+ENABLE_IMPORT_DATA_PersonStep: true
 ENABLE_IMPORT_DATA_TimeStep: true
+ENABLE_IMPORT_DATA_BicycleStep: true
 ENABLE_IMPORT_DATA_TrafficFlowObserved: true
 ENABLE_IMPORT_DATA_CrowdFlowObserved: true
-ENABLE_IMPORT_DATA_TrafficLight: true
-ENABLE_IMPORT_DATA_TrafficLightStep: true
-ENABLE_IMPORT_DATA_VehicleStep: true
-ENABLE_IMPORT_DATA_IotNodeStep: true
+ENABLE_IMPORT_DATA_IotNode: true
+ENABLE_IMPORT_DATA_ParkingAccess: true
+ENABLE_IMPORT_DATA_PhotovoltaicMeasurement: true
 
 # The Auth roles required to be an admin in the site. 
 AUTH_ROLE_ADMIN: 'SiteAdmin'
 # The Auth roles required to add and modify site user records. 
 AUTH_ROLE_REQUIRED_SiteUser: 'SiteAdmin'
-# The Auth roles required to add and modify HTML records. 
-AUTH_ROLE_REQUIRED_SiteHtm: 'SiteAdmin'
-# The Auth roles required to add and modify article records. 
-AUTH_ROLE_REQUIRED_SitePage: 'SiteAdmin'
-# The Auth roles required to add and modify system event records. 
-AUTH_ROLE_REQUIRED_SystemEvent: 'SiteAdmin'
-# The Auth roles required to add and modify map result records. 
-AUTH_ROLE_REQUIRED_MapResult: 'SiteAdmin'
-# The Auth roles required to add and modify IOT node records. 
-AUTH_ROLE_REQUIRED_IotNode: 'SiteAdmin'
-# The Auth roles required to add and modify bicycle step records. 
-AUTH_ROLE_REQUIRED_BicycleStep: 'SiteAdmin'
-# The Auth roles required to add and modify traffic simulation records. 
-AUTH_ROLE_REQUIRED_TrafficSimulation: 'SiteAdmin'
-# The Auth roles required to add and modify person step records. 
-AUTH_ROLE_REQUIRED_PersonStep: 'SiteAdmin'
-# The Auth roles required to add and modify ParkingAccess records. 
-AUTH_ROLE_REQUIRED_ParkingAccess: 'SiteAdmin'
-# The Auth roles required to add and modify smart traffic light records. 
-AUTH_ROLE_REQUIRED_SmartTrafficLight: 'SiteAdmin'
+# The Auth roles required to add and modify IOT node step records. 
+AUTH_ROLE_REQUIRED_IotNodeStep: 'SiteAdmin'
+# The Auth roles required to add and modify traffic light step records. 
+AUTH_ROLE_REQUIRED_TrafficLightStep: 'SiteAdmin'
+# The Auth roles required to add and modify traffic light records. 
+AUTH_ROLE_REQUIRED_TrafficLight: 'SiteAdmin'
 # The Auth roles required to add and modify simulation report records. 
 AUTH_ROLE_REQUIRED_SimulationReport: 'SiteAdmin'
+# The Auth roles required to add and modify traffic simulation records. 
+AUTH_ROLE_REQUIRED_TrafficSimulation: 'SiteAdmin'
+# The Auth roles required to add and modify smart traffic light records. 
+AUTH_ROLE_REQUIRED_SmartTrafficLight: 'SiteAdmin'
+# The Auth roles required to add and modify vehicle step records. 
+AUTH_ROLE_REQUIRED_VehicleStep: 'SiteAdmin'
+# The Auth roles required to add and modify person step records. 
+AUTH_ROLE_REQUIRED_PersonStep: 'SiteAdmin'
 # The Auth roles required to add and modify time step records. 
 AUTH_ROLE_REQUIRED_TimeStep: 'SiteAdmin'
+# The Auth roles required to add and modify bicycle step records. 
+AUTH_ROLE_REQUIRED_BicycleStep: 'SiteAdmin'
 # The Auth roles required to add and modify traffic flow observed records. 
 AUTH_ROLE_REQUIRED_TrafficFlowObserved: 'SiteAdmin'
 # The Auth roles required to add and modify CrowdFlowObserved records. 
 AUTH_ROLE_REQUIRED_CrowdFlowObserved: 'SiteAdmin'
-# The Auth roles required to add and modify traffic light records. 
-AUTH_ROLE_REQUIRED_TrafficLight: 'SiteAdmin'
-# The Auth roles required to add and modify traffic light step records. 
-AUTH_ROLE_REQUIRED_TrafficLightStep: 'SiteAdmin'
-# The Auth roles required to add and modify vehicle step records. 
-AUTH_ROLE_REQUIRED_VehicleStep: 'SiteAdmin'
-# The Auth roles required to add and modify IOT node step records. 
-AUTH_ROLE_REQUIRED_IotNodeStep: 'SiteAdmin'
-
-KAFKA_TOPIC_SUMO_RUN: smartvillage-sumo-run
-KAFKA_TOPIC_SUMO_STOP: smartvillage-sumo-stop
-KAFKA_TOPIC_SUMO_RUN_REPORT: smartvillage-sumo-run-report
-KAFKA_TOPIC_SUMO_SIMULATION_INFO: smartvillage-sumo-simulation-info
-KAFKA_TOPIC_SUMO_SIMULATION_INFO_PATCH: smartvillage-sumo-simulation-info-patch
-KAFKA_TOPIC_SUMO_TRAFFIC_FLOW_OBSERVED_INFO: smartvillage-sumo-traffic-flow-observed-info
-KAFKA_TOPIC_SUMO_TRAFFIC_FLOW_OBSERVED_INFO_PATCH: smartvillage-sumo-traffic-flow-observed-info-patch
-
-MQTT_ENABLED: true
-MQTT_HOST: fiware-broker-mqtt-nodeport.apps-crc.testing
-MQTT_PORT: 30083
-MQTT_IOT_SUBSCRIBE_TOPIC: iot/subscribe
+# The Auth roles required to add and modify IOT node records. 
+AUTH_ROLE_REQUIRED_IotNode: 'SiteAdmin'
+# The Auth roles required to add and modify ParkingAccess records. 
+AUTH_ROLE_REQUIRED_ParkingAccess: 'SiteAdmin'
+# The Auth roles required to add and modify PhotovoltaicMeasurement records. 
+AUTH_ROLE_REQUIRED_PhotovoltaicMeasurement: 'SiteAdmin'
