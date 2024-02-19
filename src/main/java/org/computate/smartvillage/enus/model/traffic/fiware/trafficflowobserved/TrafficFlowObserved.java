@@ -99,7 +99,7 @@ public class TrafficFlowObserved extends TrafficFlowObservedGen<BaseModel> {
 	/**
 	 * {@inheritDoc}
 	 * DocValues: true
-	 * DisplayName: entity ID
+	 * DisplayName: short entity ID
 	 * Description: A short ID for this Smart Data Model
 	 * Facet: true
 	 */

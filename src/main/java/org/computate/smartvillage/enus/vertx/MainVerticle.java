@@ -696,6 +696,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 
 			authProvider.authenticate(credentials, res -> {
 				if (res.failed()) {
+					LOG.error(res.cause().getMessage(), res.cause());
 					ctx.fail(res.cause());
 				} else {
 					ctx.setUser(res.result());
