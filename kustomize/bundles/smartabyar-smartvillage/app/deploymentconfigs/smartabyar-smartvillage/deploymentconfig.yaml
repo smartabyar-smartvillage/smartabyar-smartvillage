@@ -293,7 +293,7 @@ spec:
               value: '["SiteAdmin"]'
             - name: I18N_PATHS
               value: >-
-                ["/root/src/computate/src/main/resources/org/computate/i18n/i18n_enUS.yml"]
+                ["/root/src/computate/src/main/resources/org/computate/i18n/i18n_enUS.yaml"]
             - name: DYNAMIC_PAGE_PATHS
               value: '["/root/src/smartvillage-platform/page"]'
             - name: ZOOKEEPER_SESSION_TIMEOUT_MILLIS

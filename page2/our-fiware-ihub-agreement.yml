@@ -399,8 +399,8 @@ htmBody:
                       - e: div
                         in:
                           - e: a
-                            href: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yml"
-                            text: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yml"
+                            href: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yaml"
+                            text: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yaml"
       - e: div
         a:
           class: w3-padding 
@@ -1340,8 +1340,8 @@ htmBody:
                           - e: div
                             in:
                               - e: a
-                                href: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yml"
-                                text: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yml"
+                                href: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yaml"
+                                text: "https://github.com/{{ page.githubOrg }}/{{ page.siteName }}/blob/main/src/main/resources/webroot/openapi3-enUS.yaml"
                       - e: p
                         in:
                           - e: div

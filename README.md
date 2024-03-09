@@ -112,10 +112,10 @@ git clone git@github.com:computate-org/computate_project.git ~/.ansible/roles/co
 ## Run the Ansible Galaxy roles to install the complete project locally. 
 
 ```bash
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=computate-search -e ENABLE_CODE_GENERATION_SERVICE=true
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=computate-vertx -e ENABLE_CODE_GENERATION_SERVICE=true
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=smartvillage-platform -e ENABLE_CODE_GENERATION_SERVICE=true
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=computate-search -e ENABLE_CODE_GENERATION_SERVICE=true
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=computate-vertx -e ENABLE_CODE_GENERATION_SERVICE=true
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=smartvillage-platform -e ENABLE_CODE_GENERATION_SERVICE=true
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true
 ```
 
 ## Running the project build and test suite
@@ -149,7 +149,7 @@ ansible-vault edit ~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-loca
 You can then run the project install automation again with the secrets in the vault, it will ask for the password. 
 
 ```bash
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-local --vault-id @prompt
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-local --vault-id @prompt
 ```
 
 # Configure Eclipse IDE 
@@ -221,7 +221,7 @@ Add these update sites and install these useful plugins:
 
 Setup the following variables to setup the Vert.x verticle. 
 
-* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yml
+* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yaml
 * RUN_OPENAPI3_GENERATOR: true
 * RUN_SQL_GENERATOR: true
 * RUN_FIWARE_GENERATOR: true
@@ -248,7 +248,7 @@ Setup the following VM arguments to disable caching for easier web development:
 
 Setup the following variables to setup the Vert.x verticle. 
 
-* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yml
+* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yaml
 * VERTXWEB_ENVIRONMENT: dev
 
 Click [ Apply ] and [ Debug ] to debug the application. 
@@ -324,13 +324,13 @@ AUTH_TOKEN_URI: "/auth/realms/SMARTVILLAGE/protocol/openid-connect/token"
 
 ```bash
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_postgres_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_postgres_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_zookeeper_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_zookeeper_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_solr_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_solr_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_project_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_project_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
 ```
 
 ## How to run the application as a Podman container
@@ -355,12 +355,6 @@ podman login quay.io
 podman push computateorg/smartabyar-smartvillage:latest quay.io/computateorg/smartabyar-smartvillage:latest
 ```
 
-## How the base classes for this project were created
-
-```bash
-ansible-playbook -e @~/.local/src/smartabyar-smartvillage/local/ansible_install_vars.yml ~/.local/src/computate-org/vertx_project.yml
-```
-
 # Install the TLC Traffic Light Controller application
 
 ```bash
@@ -375,11 +369,11 @@ cd /usr/local/src/TLC/
 install -d ~/.ansible/roles/computate.computate_fox
 git clone git@github.com:computate-org/computate_fox.git ~/.ansible/roles/computate.computate_fox
 cd ~/.ansible/roles/computate.computate_fox
-ansible-playbook install.yml
+ansible-playbook install.yaml
 install -d ~/.ansible/roles/computate.computate_sumo
 git clone git@github.com:computate-org/computate_sumo.git ~/.ansible/roles/computate.computate_sumo
 cd ~/.ansible/roles/computate.computate_sumo
-ansible-playbook install.yml
+ansible-playbook install.yaml
 ```
 
 # Install sumolib python library
@@ -478,6 +472,6 @@ mv ~/.local/opt/yq/yq_linux_amd64 ~/.local/bin/yq
 Run the command
 
 ```bash
-yq -o json '.AUTH_CLIENTS' ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yml | jq -c
+yq -o json '.AUTH_CLIENTS' ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yaml | jq -c
 ```
 

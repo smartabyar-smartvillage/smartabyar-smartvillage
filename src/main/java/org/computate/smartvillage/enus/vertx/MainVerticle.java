@@ -830,7 +830,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 				if(StringUtils.startsWith(siteBaseUrl, "https://"))
 					sessionHandler.setCookieSecureFlag(true);
 		
-				RouterBuilder.create(vertx, "webroot/openapi3-enUS.yml").onSuccess(routerBuilder -> {
+				RouterBuilder.create(vertx, "webroot/openapi3-enUS.yaml").onSuccess(routerBuilder -> {
 					routerBuilder.rootHandler(sessionHandler);
 					routerBuilder.rootHandler(BodyHandler.create());
 
@@ -945,7 +945,7 @@ public class MainVerticle extends MainVerticleGen<AbstractVerticle> {
 		try {
 			ConfigRetrieverOptions retrieverOptions = new ConfigRetrieverOptions();
 
-			retrieverOptions.addStore(new ConfigStoreOptions().setType("file").setFormat("yaml").setConfig(new JsonObject().put("path", "application.yml")));
+			retrieverOptions.addStore(new ConfigStoreOptions().setType("file").setFormat("yaml").setConfig(new JsonObject().put("path", "application.yaml")));
 
 			String configPath = System.getenv(ConfigKeys.CONFIG_PATH);
 			if(StringUtils.isNotBlank(configPath)) {

@@ -22,7 +22,7 @@ RUN_SQL_GENERATOR: true
 RUN_ARTICLE_GENERATOR: true
 RUN_FIWARE_GENERATOR: true
 RUN_PROJECT_GENERATOR: true
-I18N_PATHS: ["{{ SITE_PREFIX }}/computate/src/main/resources/org/computate/i18n/i18n_enUS.yml"]
+I18N_PATHS: ["{{ SITE_PREFIX }}/computate/src/main/resources/org/computate/i18n/i18n_enUS.yaml"]
 DYNAMIC_PAGE_PATHS: ["{{ SITE_PREFIX }}/smartabyar-smartvillage/page"]
 
 LANGUAGE_NAME: "enUS"
