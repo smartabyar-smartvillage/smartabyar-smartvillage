@@ -1,24 +1,10 @@
 
 
-# Install openjdk dependencies
+# Install Ansible dependencies
 
 ```bash
-sudo yum install -y java-11-openjdk-devel
-sudo alternatives --set java java-11-openjdk.x86_64
-sudo alternatives --set javac java-11-openjdk.x86_64
-echo 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk' >> ~/.bashrc
-source ~/.bashrc
-```
-
-# Install latest maven 3.9 or later
-
-Download maven here: https://maven.apache.org/download.cgi
-
-```bash
-install -d ~/.local/opt/maven/
-tar xvf ~/Downloads/apache-maven-3.9.5-bin.tar.gz --strip-components=1 -C ~/.local/opt/maven/
-echo 'PATH=$PATH:~/.local/opt/maven/bin' | tee -a ~/.bashrc
-source ~/.bashrc
+ansible-galaxy collection install community.hashi\_vault
+pip3 install hvac
 ```
 
 # Obtain postgres password
@@ -86,7 +72,13 @@ pip install ansible
 ## Update the Ansible Galaxy collections for kubernetes.core
 
 ```bash
-ansible-galaxy collection install kubernetes.core -U
+ansible-galaxy collection install kubernetes.core
+```
+
+## Update the Ansible Galaxy collections for kubernetes.core
+
+```bash
+ansible-galaxy collection install kubernetes.core
 ```
 
 # Setup the project
@@ -95,11 +87,7 @@ ansible-galaxy collection install kubernetes.core -U
 
 ```bash
 install -d ~/.local/src/smartabyar-smartvillage
-git clone git@github.com:computate-org/computate.git ~/.local/src/computate
-git clone git@github.com:computate-org/computate-search.git ~/.local/src/computate-search
-git clone git@github.com:computate-org/computate-vertx.git ~/.local/src/computate-vertx
-git clone git@github.com:computate-org/smartvillage-platform.git ~/.local/src/smartvillage-platform
-git clone git@github.com:computate-org/smartabyar-smartvillage.git ~/.local/src/smartabyar-smartvillage
+git clone git@github.com:smartabyar-smartvillage/smartabyar-smartvillage.git ~/.local/src/smartabyar-smartvillage
 ```
 
 ## Setup the Ansible Galaxy roles for installing the complete project locally. 
@@ -112,10 +100,7 @@ git clone git@github.com:computate-org/computate_project.git ~/.ansible/roles/co
 ## Run the Ansible Galaxy roles to install the complete project locally. 
 
 ```bash
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=computate-search -e ENABLE_CODE_GENERATION_SERVICE=true
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=computate-vertx -e ENABLE_CODE_GENERATION_SERVICE=true
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=smartvillage-platform -e ENABLE_CODE_GENERATION_SERVICE=true
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true
 ```
 
 ## Running the project build and test suite
@@ -149,7 +134,7 @@ ansible-vault edit ~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-loca
 You can then run the project install automation again with the secrets in the vault, it will ask for the password. 
 
 ```bash
-ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-local --vault-id @prompt
+ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-local --vault-id @prompt
 ```
 
 # Configure Eclipse IDE 
@@ -221,7 +206,7 @@ Add these update sites and install these useful plugins:
 
 Setup the following variables to setup the Vert.x verticle. 
 
-* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yaml
+* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yml
 * RUN_OPENAPI3_GENERATOR: true
 * RUN_SQL_GENERATOR: true
 * RUN_FIWARE_GENERATOR: true
@@ -248,7 +233,7 @@ Setup the following VM arguments to disable caching for easier web development:
 
 Setup the following variables to setup the Vert.x verticle. 
 
-* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yaml
+* CONFIG_PATH: ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yml
 * VERTXWEB_ENVIRONMENT: dev
 
 Click [ Apply ] and [ Debug ] to debug the application. 
@@ -324,13 +309,13 @@ AUTH_TOKEN_URI: "/auth/realms/SMARTVILLAGE/protocol/openid-connect/token"
 
 ```bash
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_postgres_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_postgres_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_zookeeper_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_zookeeper_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_solr_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_solr_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
 
-ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_project_openshift/install.yaml -e SITE_NAME=smartabyar-smartvillage
+ansible-playbook --vault-id @prompt -e @~/.local/src/smartabyar-smartvillage-ansible/vault/$USER-staging/vault ~/.ansible/roles/computate.computate_project_openshift/install.yml -e SITE_NAME=smartabyar-smartvillage
 ```
 
 ## How to run the application as a Podman container
@@ -355,43 +340,6 @@ podman login quay.io
 podman push computateorg/smartabyar-smartvillage:latest quay.io/computateorg/smartabyar-smartvillage:latest
 ```
 
-# Install the TLC Traffic Light Controller application
-
-```bash
-sudo install -d -o $USER -g $USER /usr/local/src/TLC
-git clone git@github.com:computate-org/TLC.git /usr/local/src/TLC/ -b computate-api
-cd /usr/local/src/TLC/
-```
-
-# Install SUMO Traffic Simulator
-
-```bash
-install -d ~/.ansible/roles/computate.computate_fox
-git clone git@github.com:computate-org/computate_fox.git ~/.ansible/roles/computate.computate_fox
-cd ~/.ansible/roles/computate.computate_fox
-ansible-playbook install.yaml
-install -d ~/.ansible/roles/computate.computate_sumo
-git clone git@github.com:computate-org/computate_sumo.git ~/.ansible/roles/computate.computate_sumo
-cd ~/.ansible/roles/computate.computate_sumo
-ansible-playbook install.yaml
-```
-
-# Install sumolib python library
-
-```bash
-pip install sumolib pyproj numpy
-```
-
-# Regenerate a route file
-
-```bash
-cd /usr/local/src/TLC/
-
-python -c 'from route_file_generation import generate_routefile_Veberod,generate_routefile_pedestrian
-generate_routefile_Veberod("input/Veberod_intersection_pedestrian.rou.xml", 86400, 0.11, 0.125, 666)
-generate_routefile_pedestrian("input/Veberod_intersection_pedestrian.trip.xml", 86400, 0.01, 0.01, 3570926575676058649)
-'
-
 # Load a new map traffic data into SUMO
 
 ```bash
@@ -402,15 +350,13 @@ env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/su
 # Export SUMO vehicle coordinate data
 
 ```bash
-env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo \
-  sumo --fcd-output /usr/local/src/TLC/output/veberod-fcd.xml -c /usr/local/src/TLC/input/Veberod_intersection_pedestrian.sumocfg --fcd-output.geo -b 0 -e 86400 --step-length 1
+env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo sumo --fcd-output ~/.local/share/sumo/data/veberod/veberod-fcd.xml -c ~/.local/share/sumo/data/veberod/veberod.sumocfg --fcd-output.geo -b 10 -e 360 --step-length 0.1
 ```
 
 # Export SUMO full data
 
 ```bash
-env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo \
-  sumo --full-output /usr/local/src/TLC//output/veberod-full.xml -c /usr/local/src/TLC/input/Veberod_intersection_pedestrian.sumocfg --fcd-output.geo -b 0 -e 86400 --step-length 1
+env LD_LIBRARY_PATH=~/.local/lib:~/.local/lib64 "SUMO_HOME=$HOME/.local/share/sumo" SUMO_HOME=~/.local/share/sumo sumo --full-output ~/.local/share/sumo/data/veberod/veberod-full.xml -c ~/.local/share/sumo/data/veberod/veberod.sumocfg --fcd-output.geo -b 10 -e 360 --step-length 0.1
 ```
 
 # Convert X,Y coordinates to geo coordinates with python
@@ -451,27 +397,3 @@ conn.simulationStep()
 conn.simulationStep()
 conn.simulationStep()
 ```
-
-# Get the AUTH_CLIENTS as JSON for OpenShift deployment
-
-Install jq
-
-```bash
-pkcon install -y jq
-```
-
-Install yq
-
-```bash
-curl https://github.com/mikefarah/yq/releases/download/v4.40.2/yq_linux_amd64.tar.gz -o ~/Downloads/yq_linux_amd64.tar.gz
-install -d ~/.local/opt/yq/
-tar xvf ~/Downloads/yq_linux_amd64.tar.gz -C ~/.local/opt/yq/
-mv ~/.local/opt/yq/yq_linux_amd64 ~/.local/bin/yq
-```
-
-Run the command
-
-```bash
-yq -o json '.AUTH_CLIENTS' ~/.local/src/smartabyar-smartvillage/config/smartabyar-smartvillage.yaml | jq -c
-```
-

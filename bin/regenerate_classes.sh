@@ -3,9 +3,9 @@ systemctl --user stop watch-smartabyar-smartvillage
 
 toilet -t -f smblock Run Base Automation
 echo Install all of the base application code that is generic to most projects
-echo ansible-playbook ~/.local/src/computate-org/vertx_project.yaml -e @~/.local/src/smartabyar-smartvillage/local/ansible_install_vars.yaml
+echo ansible-playbook ~/.local/src/computate-org/vertx_project.yml -e @~/.local/src/smartabyar-smartvillage/local/ansible_install_vars.yml
 read -p "" < /dev/tty
-ansible-playbook ~/.local/src/computate-org/vertx_project.yaml -e @~/.local/src/smartabyar-smartvillage/local/ansible_install_vars.yaml
+ansible-playbook ~/.local/src/computate-org/vertx_project.yml -e @~/.local/src/smartabyar-smartvillage/local/ansible_install_vars.yml
 
 curl -s 'http://localhost:8983/solr/computate/select?fq=classSort_indexed_int%3A%5B*%20TO%20*%5D&fq=siteNom_indexed_string%3Asmartabyar-smartvillage&fq=partEstClasse_indexed_boolean%3Atrue&q=*%3A*&sort=classSort_indexed_int%20asc&rows=100' \
 | jq -c '.response.docs[]' \
@@ -86,9 +86,9 @@ done
 
 toilet -t -f smblock Run Install Automation
 echo Install the whole application with one simple ansible script, including database setup, search engine setup and configuration. 
-echo '(cd ~/.local/src/smartabyar-smartvillage && ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e @~/.local/src/smartabyar-smartvillage/vault/$USER-vault --vault-password-file ~/.local/src/smartabyar-smartvillage/vault/key -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true)'
+echo '(cd ~/.local/src/smartabyar-smartvillage && ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e @~/.local/src/smartabyar-smartvillage/vault/$USER-vault --vault-password-file ~/.local/src/smartabyar-smartvillage/vault/key -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true)'
 read -p "" < /dev/tty
-(cd ~/.local/src/smartabyar-smartvillage && ansible-playbook ~/.ansible/roles/computate.computate_project/install.yaml -e @~/.local/src/smartabyar-smartvillage/vault/$USER-vault --vault-password-file ~/.local/src/smartabyar-smartvillage/vault/key -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true)
+(cd ~/.local/src/smartabyar-smartvillage && ansible-playbook ~/.ansible/roles/computate.computate_project/install.yml -e @~/.local/src/smartabyar-smartvillage/vault/$USER-vault --vault-password-file ~/.local/src/smartabyar-smartvillage/vault/key -e SITE_NAME=smartabyar-smartvillage -e ENABLE_CODE_GENERATION_SERVICE=true)
 
 toilet -t -f smblock Watch Service
 echo Watch the watch-smartabyar-smartvillage service logs as it generates the API and UI code

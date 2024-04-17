@@ -1,3 +1,17 @@
+/*
+ * Copyright (c) 2018-2022 Computate Limited Liability Company in Utah, USA,
+ * and the Smarta Byar Smart Village FIWARE IHub. 
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the GNU GENERAL PUBLIC LICENSE Version 3 which is available at
+ * 
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ * 
+ * You may not propagate or modify a covered work except as expressly provided 
+ * under this License. Any attempt otherwise to propagate or modify it is void, 
+ * and will automatically terminate your rights under this License (including 
+ * any patent licenses granted under the third paragraph of section 11).
+ */
 package org.computate.smartvillage.enus.vertx;
 
 import java.io.File;
@@ -93,23 +107,24 @@ import org.computate.smartvillage.enus.model.iotnode.reader.IotNodeReader;
 import org.computate.smartvillage.enus.camel.CamelIntegration;
 
 import org.computate.smartvillage.enus.model.user.SiteUser;
-import org.computate.smartvillage.enus.model.htm.SiteHtm;
-import org.computate.smartvillage.enus.model.page.SitePage;
-import org.computate.smartvillage.enus.result.map.MapResult;
 import org.computate.smartvillage.enus.model.iotnode.IotNode;
-import org.computate.smartvillage.enus.model.traffic.bicycle.step.BicycleStep;
-import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation;
-import org.computate.smartvillage.enus.model.traffic.person.step.PersonStep;
-import org.computate.smartvillage.enus.model.traffic.fiware.parkingaccess.ParkingAccess;
-import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight;
-import org.computate.smartvillage.enus.model.traffic.simulation.report.SimulationReport;
-import org.computate.smartvillage.enus.model.traffic.time.step.TimeStep;
-import org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved;
 import org.computate.smartvillage.enus.model.traffic.fiware.crowdflowobserved.CrowdFlowObserved;
+import org.computate.smartvillage.enus.model.traffic.bicycle.step.BicycleStep;
 import org.computate.smartvillage.enus.model.traffic.light.TrafficLight;
 import org.computate.smartvillage.enus.model.traffic.light.step.TrafficLightStep;
+import org.computate.smartvillage.enus.model.traffic.simulation.TrafficSimulation;
+import org.computate.smartvillage.enus.model.traffic.simulation.report.SimulationReport;
 import org.computate.smartvillage.enus.model.traffic.vehicle.step.VehicleStep;
+import org.computate.smartvillage.enus.model.traffic.time.step.TimeStep;
+import org.computate.smartvillage.enus.model.traffic.fiware.parkingaccess.ParkingAccess;
+import org.computate.smartvillage.enus.model.traffic.fiware.trafficflowobserved.TrafficFlowObserved;
+import org.computate.smartvillage.enus.model.traffic.person.step.PersonStep;
 import org.computate.smartvillage.enus.result.iotnode.step.IotNodeStep;
+import org.computate.smartvillage.enus.model.traffic.fiware.smarttrafficlight.SmartTrafficLight;
+import org.computate.smartvillage.enus.model.htm.SiteHtm;
+import org.computate.smartvillage.enus.model.page.SitePage;
+import org.computate.smartvillage.enus.model.system.event.SystemEvent;
+import org.computate.smartvillage.enus.result.map.MapResult;
 
 /**
  */
@@ -339,7 +354,7 @@ public class WorkerVerticle extends WorkerVerticleGen<AbstractVerticle> {
 				kafkaConfig.put("ssl.truststore.type", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_TYPE));
 				kafkaConfig.put("ssl.truststore.location", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_LOCATION));
 				kafkaConfig.put("ssl.truststore.password", config().getString(ConfigKeys.KAFKA_SSL_TRUSTSTORE_PASSWORD));
-	
+
 				kafkaProducer = KafkaProducer.createShared(vertx, MainVerticle.SITE_NAME, kafkaConfig);
 				LOG.info(configureKafkaSuccess);
 				promise.complete(kafkaProducer);
@@ -589,23 +604,24 @@ public class WorkerVerticle extends WorkerVerticleGen<AbstractVerticle> {
 			if(config().getBoolean(ConfigKeys.ENABLE_REFRESH_DATA, false)) {
 				LOG.info(refreshAllDataStarted);
 				refreshData(SiteUser.CLASS_SIMPLE_NAME).onSuccess(q -> {
-					refreshData(SiteHtm.CLASS_SIMPLE_NAME).onSuccess(q1 -> {
-						refreshData(SitePage.CLASS_SIMPLE_NAME).onSuccess(q2 -> {
-								refreshData(MapResult.CLASS_SIMPLE_NAME).onSuccess(q4 -> {
-									refreshData(IotNode.CLASS_SIMPLE_NAME).onSuccess(q5 -> {
-										refreshData(BicycleStep.CLASS_SIMPLE_NAME).onSuccess(q6 -> {
-											refreshData(TrafficSimulation.CLASS_SIMPLE_NAME).onSuccess(q7 -> {
-												refreshData(PersonStep.CLASS_SIMPLE_NAME).onSuccess(q8 -> {
-													refreshData(ParkingAccess.CLASS_SIMPLE_NAME).onSuccess(q9 -> {
-														refreshData(SmartTrafficLight.CLASS_SIMPLE_NAME).onSuccess(q10 -> {
-															refreshData(SimulationReport.CLASS_SIMPLE_NAME).onSuccess(q11 -> {
-																refreshData(TimeStep.CLASS_SIMPLE_NAME).onSuccess(q12 -> {
-																	refreshData(TrafficFlowObserved.CLASS_SIMPLE_NAME).onSuccess(q13 -> {
-																		refreshData(CrowdFlowObserved.CLASS_SIMPLE_NAME).onSuccess(q14 -> {
-																			refreshData(TrafficLight.CLASS_SIMPLE_NAME).onSuccess(q15 -> {
-																				refreshData(TrafficLightStep.CLASS_SIMPLE_NAME).onSuccess(q16 -> {
-																					refreshData(VehicleStep.CLASS_SIMPLE_NAME).onSuccess(q17 -> {
-																						refreshData(IotNodeStep.CLASS_SIMPLE_NAME).onSuccess(q18 -> {
+					refreshData(IotNode.CLASS_SIMPLE_NAME).onSuccess(q1 -> {
+						refreshData(CrowdFlowObserved.CLASS_SIMPLE_NAME).onSuccess(q2 -> {
+							refreshData(BicycleStep.CLASS_SIMPLE_NAME).onSuccess(q3 -> {
+								refreshData(TrafficLight.CLASS_SIMPLE_NAME).onSuccess(q4 -> {
+									refreshData(TrafficLightStep.CLASS_SIMPLE_NAME).onSuccess(q5 -> {
+										refreshData(TrafficSimulation.CLASS_SIMPLE_NAME).onSuccess(q6 -> {
+											refreshData(SimulationReport.CLASS_SIMPLE_NAME).onSuccess(q7 -> {
+												refreshData(VehicleStep.CLASS_SIMPLE_NAME).onSuccess(q8 -> {
+													refreshData(TimeStep.CLASS_SIMPLE_NAME).onSuccess(q9 -> {
+														refreshData(ParkingAccess.CLASS_SIMPLE_NAME).onSuccess(q10 -> {
+															refreshData(TrafficFlowObserved.CLASS_SIMPLE_NAME).onSuccess(q11 -> {
+																refreshData(PersonStep.CLASS_SIMPLE_NAME).onSuccess(q12 -> {
+																	refreshData(IotNodeStep.CLASS_SIMPLE_NAME).onSuccess(q13 -> {
+																		refreshData(SmartTrafficLight.CLASS_SIMPLE_NAME).onSuccess(q14 -> {
+																			refreshData(SiteHtm.CLASS_SIMPLE_NAME).onSuccess(q15 -> {
+																				refreshData(SitePage.CLASS_SIMPLE_NAME).onSuccess(q16 -> {
+																					refreshData(SystemEvent.CLASS_SIMPLE_NAME).onSuccess(q17 -> {
+																						refreshData(MapResult.CLASS_SIMPLE_NAME).onSuccess(q18 -> {
 																							LOG.info(refreshAllDataComplete);
 																							promise.complete();
 																						}).onFailure(ex -> promise.fail(ex));
@@ -623,6 +639,7 @@ public class WorkerVerticle extends WorkerVerticleGen<AbstractVerticle> {
 										}).onFailure(ex -> promise.fail(ex));
 									}).onFailure(ex -> promise.fail(ex));
 								}).onFailure(ex -> promise.fail(ex));
+							}).onFailure(ex -> promise.fail(ex));
 						}).onFailure(ex -> promise.fail(ex));
 					}).onFailure(ex -> promise.fail(ex));
 				}).onFailure(ex -> {

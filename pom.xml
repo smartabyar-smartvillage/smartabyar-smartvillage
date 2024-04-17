@@ -4,7 +4,7 @@
 
 	<groupId>org.computate</groupId>
 	<artifactId>smartabyar-smartvillage</artifactId>
-	<version>2.0.2</version>
+	<version>2.0.3</version>
 	<name>Smart Village Project</name>
 	<description>Red Hat Global Social Innovation Program is partnering with Boston University and Smarta Byar in order to collaborate on creating a global and open research platform allowing researchers to study what social sustainability means by using a digital twin of Veberöd, Sweden as the test village, supported by Smarta Byar. The goal of this collaboration is to build the open source technological infrastructure so that researchers can collaborate on this platform effectively to study mobility, public health, sustainability among other study areas to ultimately help define better the link between well being and eco-smart cities.</description>
 	<url>https://smartabyarsmartvillage.org</url>
@@ -29,7 +29,7 @@
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/computate-org/smartabyar-smartvillage/issues</url>
+		<url>https://github.com/smartabyar-smartvillage/smartabyar-smartvillage/issues</url>
 	</issueManagement>
 
 	<organization>
@@ -46,9 +46,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/computate-org/smartabyar-smartvillage.git</connection>
-		<developerConnection>scm:git:ssh://github.com:computate-org/smartabyar-smartvillage.git</developerConnection>
-		<url>http://github.com/computate-org/smartabyar-smartvillage/tree/master</url>
+		<connection>scm:git:git://github.com/smartabyar-smartvillage/smartabyar-smartvillage.git</connection>
+		<developerConnection>scm:git:ssh://github.com:smartabyar-smartvillage/smartabyar-smartvillage.git</developerConnection>
+		<url>http://github.com/smartabyar-smartvillage/smartabyar-smartvillage/tree/master</url>
 	</scm>
 
 	<repositories>
@@ -116,7 +116,7 @@
 		<drools.version>8.32.0.Final</drools.version>
 		<cloudevents.version>2.4.0</cloudevents.version>
 
-		<computate.version>4.4.4.1</computate.version>
+		<computate.version>4.4.4.2</computate.version>
 	</properties>
 
 	<dependencyManagement>
@@ -155,7 +155,7 @@
 		<dependency>
 			<groupId>org.computate</groupId>
 			<artifactId>smartvillage-platform</artifactId>
-			<version>2.0.2</version>
+			<version>2.0.3</version>
 		</dependency>
 
 		<!-- ######### -->
@@ -356,6 +356,11 @@
 			<artifactId>vertx-mqtt</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-opentelemetry</artifactId>
+		</dependency>
+
 		<!-- ####### -->
 		<!-- Quarkus -->
 		<!-- ####### -->
@@ -437,6 +442,7 @@
 			<artifactId>log4j-core</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
@@ -752,24 +758,6 @@
 					<redeploy>true</redeploy>
 				</configuration>
 			</plugin>
-
-			<!--
-			<plugin>
-				<groupId>${quarkus.platform.group-id}</groupId>
-				<artifactId>quarkus-maven-plugin</artifactId>
-				<version>${quarkus-base.version}.Final</version>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<goals>
-							<goal>build</goal>
-							<goal>generate-code</goal>
-							<goal>generate-code-tests</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			-->
 
 			<!-- JaCoCo Code Coverage Plugin -->
 			<plugin>
